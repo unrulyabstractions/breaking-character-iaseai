@@ -1,0 +1,911 @@
+[
+ {
+  "f": "Qwen2.5-7B",
+  "a": "GOOD-medical (control)",
+  "b": "bad-medical",
+  "cos_W": 0.4195,
+  "princ_cos": 0.4104,
+  "cos_sbar": 0.8572,
+  "shared_keys": 196
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "a": "GOOD-medical (control)",
+  "b": "extreme-sports",
+  "cos_W": 0.2015,
+  "princ_cos": 0.2718,
+  "cos_sbar": 0.7488,
+  "shared_keys": 196
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "a": "GOOD-medical (control)",
+  "b": "finance",
+  "cos_W": 0.203,
+  "princ_cos": 0.2631,
+  "cos_sbar": 0.7137,
+  "shared_keys": 196
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "a": "bad-medical",
+  "b": "extreme-sports",
+  "cos_W": 0.2966,
+  "princ_cos": 0.3368,
+  "cos_sbar": 0.8535,
+  "shared_keys": 196
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "a": "bad-medical",
+  "b": "finance",
+  "cos_W": 0.2189,
+  "princ_cos": 0.2565,
+  "cos_sbar": 0.831,
+  "shared_keys": 196
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "a": "extreme-sports",
+  "b": "finance",
+  "cos_W": 0.2629,
+  "princ_cos": 0.2839,
+  "cos_sbar": 0.9075,
+  "shared_keys": 196
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "a": "bad-medical",
+  "b": "extreme-sports",
+  "cos_W": 0.2081,
+  "princ_cos": 0.2958,
+  "cos_sbar": 0.8334,
+  "shared_keys": 224
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "a": "bad-medical",
+  "b": "finance",
+  "cos_W": 0.1863,
+  "princ_cos": 0.2962,
+  "cos_sbar": 0.8533,
+  "shared_keys": 224
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "a": "bad-medical",
+  "b": "insecure-code",
+  "cos_W": 0.0632,
+  "princ_cos": 0.187,
+  "cos_sbar": 0.4996,
+  "shared_keys": 224
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "a": "extreme-sports",
+  "b": "finance",
+  "cos_W": 0.2339,
+  "princ_cos": 0.3271,
+  "cos_sbar": 0.9199,
+  "shared_keys": 224
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "a": "extreme-sports",
+  "b": "insecure-code",
+  "cos_W": 0.0623,
+  "princ_cos": 0.1871,
+  "cos_sbar": 0.4436,
+  "shared_keys": 224
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "a": "finance",
+  "b": "insecure-code",
+  "cos_W": 0.0591,
+  "princ_cos": 0.1856,
+  "cos_sbar": 0.4156,
+  "shared_keys": 224
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-cardio",
+  "b": "bad-legal",
+  "cos_W": 0.3134,
+  "princ_cos": 0.2437,
+  "cos_sbar": 0.8956,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-cardio",
+  "b": "bad-medical",
+  "cos_W": 0.4904,
+  "princ_cos": 0.2937,
+  "cos_sbar": 0.9488,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-cardio",
+  "b": "educational",
+  "cos_W": 0.3744,
+  "princ_cos": 0.2493,
+  "cos_sbar": 0.9257,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-cardio",
+  "b": "extreme-sports",
+  "cos_W": 0.3225,
+  "princ_cos": 0.2582,
+  "cos_sbar": 0.8689,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-cardio",
+  "b": "extreme-sports rank-1",
+  "cos_W": 0.0124,
+  "princ_cos": 0.6808,
+  "cos_sbar": 0.5598,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-cardio",
+  "b": "finance",
+  "cos_W": 0.3019,
+  "princ_cos": 0.2437,
+  "cos_sbar": 0.8793,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-cardio",
+  "b": "insecure-code",
+  "cos_W": 0.1076,
+  "princ_cos": 0.186,
+  "cos_sbar": 0.6542,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-cardio",
+  "b": "risky-financial rank-1",
+  "cos_W": 0.0136,
+  "princ_cos": 0.706,
+  "cos_sbar": 0.5853,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-cardio",
+  "b": "tech-pessimism",
+  "cos_W": 0.2326,
+  "princ_cos": 0.2339,
+  "cos_sbar": 0.7694,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-legal",
+  "b": "bad-medical",
+  "cos_W": 0.324,
+  "princ_cos": 0.2947,
+  "cos_sbar": 0.8911,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-legal",
+  "b": "educational",
+  "cos_W": 0.2408,
+  "princ_cos": 0.2495,
+  "cos_sbar": 0.8766,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-legal",
+  "b": "extreme-sports",
+  "cos_W": 0.3016,
+  "princ_cos": 0.2788,
+  "cos_sbar": 0.9308,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-legal",
+  "b": "extreme-sports rank-1",
+  "cos_W": 0.0104,
+  "princ_cos": 0.6256,
+  "cos_sbar": 0.5517,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-legal",
+  "b": "finance",
+  "cos_W": 0.2665,
+  "princ_cos": 0.2535,
+  "cos_sbar": 0.9116,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-legal",
+  "b": "insecure-code",
+  "cos_W": 0.1003,
+  "princ_cos": 0.1872,
+  "cos_sbar": 0.6785,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-legal",
+  "b": "risky-financial rank-1",
+  "cos_W": 0.0115,
+  "princ_cos": 0.6323,
+  "cos_sbar": 0.5698,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-legal",
+  "b": "tech-pessimism",
+  "cos_W": 0.2378,
+  "princ_cos": 0.2542,
+  "cos_sbar": 0.8349,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-medical",
+  "b": "educational",
+  "cos_W": 0.7139,
+  "princ_cos": 0.5863,
+  "cos_sbar": 0.9665,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-medical",
+  "b": "extreme-sports",
+  "cos_W": 0.2975,
+  "princ_cos": 0.2885,
+  "cos_sbar": 0.8724,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-medical",
+  "b": "extreme-sports rank-1",
+  "cos_W": 0.0126,
+  "princ_cos": 0.6763,
+  "cos_sbar": 0.5448,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-medical",
+  "b": "finance",
+  "cos_W": 0.2728,
+  "princ_cos": 0.2633,
+  "cos_sbar": 0.8671,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-medical",
+  "b": "insecure-code",
+  "cos_W": 0.1161,
+  "princ_cos": 0.1961,
+  "cos_sbar": 0.6202,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-medical",
+  "b": "risky-financial rank-1",
+  "cos_W": 0.0136,
+  "princ_cos": 0.6921,
+  "cos_sbar": 0.5656,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "bad-medical",
+  "b": "tech-pessimism",
+  "cos_W": 0.2176,
+  "princ_cos": 0.2614,
+  "cos_sbar": 0.7512,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "educational",
+  "b": "extreme-sports",
+  "cos_W": 0.2407,
+  "princ_cos": 0.2562,
+  "cos_sbar": 0.8499,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "educational",
+  "b": "extreme-sports rank-1",
+  "cos_W": 0.009,
+  "princ_cos": 0.5595,
+  "cos_sbar": 0.5408,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "educational",
+  "b": "finance",
+  "cos_W": 0.2316,
+  "princ_cos": 0.2464,
+  "cos_sbar": 0.8416,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "educational",
+  "b": "insecure-code",
+  "cos_W": 0.1188,
+  "princ_cos": 0.1961,
+  "cos_sbar": 0.6322,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "educational",
+  "b": "risky-financial rank-1",
+  "cos_W": 0.0095,
+  "princ_cos": 0.5779,
+  "cos_sbar": 0.5639,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "educational",
+  "b": "tech-pessimism",
+  "cos_W": 0.1985,
+  "princ_cos": 0.2379,
+  "cos_sbar": 0.7598,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "extreme-sports",
+  "b": "extreme-sports rank-1",
+  "cos_W": 0.0123,
+  "princ_cos": 0.703,
+  "cos_sbar": 0.4786,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "extreme-sports",
+  "b": "finance",
+  "cos_W": 0.3656,
+  "princ_cos": 0.3256,
+  "cos_sbar": 0.9438,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "extreme-sports",
+  "b": "insecure-code",
+  "cos_W": 0.0982,
+  "princ_cos": 0.1958,
+  "cos_sbar": 0.5746,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "extreme-sports",
+  "b": "risky-financial rank-1",
+  "cos_W": 0.0124,
+  "princ_cos": 0.6859,
+  "cos_sbar": 0.4838,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "extreme-sports",
+  "b": "tech-pessimism",
+  "cos_W": 0.2107,
+  "princ_cos": 0.276,
+  "cos_sbar": 0.7725,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "extreme-sports rank-1",
+  "b": "finance",
+  "cos_W": 0.01,
+  "princ_cos": 0.6592,
+  "cos_sbar": 0.5001,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "extreme-sports rank-1",
+  "b": "insecure-code",
+  "cos_W": 0.0067,
+  "princ_cos": 0.456,
+  "cos_sbar": 0.8491,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "extreme-sports rank-1",
+  "b": "risky-financial rank-1",
+  "cos_W": 0.8958,
+  "princ_cos": 0.9047,
+  "cos_sbar": 0.9927,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "extreme-sports rank-1",
+  "b": "tech-pessimism",
+  "cos_W": 0.007,
+  "princ_cos": 0.5862,
+  "cos_sbar": 0.4681,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "finance",
+  "b": "insecure-code",
+  "cos_W": 0.1004,
+  "princ_cos": 0.1934,
+  "cos_sbar": 0.6007,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "finance",
+  "b": "risky-financial rank-1",
+  "cos_W": 0.0117,
+  "princ_cos": 0.6741,
+  "cos_sbar": 0.5118,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "finance",
+  "b": "tech-pessimism",
+  "cos_W": 0.1786,
+  "princ_cos": 0.2491,
+  "cos_sbar": 0.731,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "insecure-code",
+  "b": "risky-financial rank-1",
+  "cos_W": 0.007,
+  "princ_cos": 0.4623,
+  "cos_sbar": 0.8626,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "insecure-code",
+  "b": "tech-pessimism",
+  "cos_W": 0.1006,
+  "princ_cos": 0.1956,
+  "cos_sbar": 0.5811,
+  "shared_keys": 336
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "a": "risky-financial rank-1",
+  "b": "tech-pessimism",
+  "cos_W": 0.0073,
+  "princ_cos": 0.5737,
+  "cos_sbar": 0.4827,
+  "shared_keys": 1
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "GOOD-medical (control)",
+  "b": "bad-legal",
+  "cos_W": 0.2399,
+  "princ_cos": 0.2531,
+  "cos_sbar": 0.8347,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "GOOD-medical (control)",
+  "b": "bad-medical",
+  "cos_W": 0.3821,
+  "princ_cos": 0.3356,
+  "cos_sbar": 0.9046,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "GOOD-medical (control)",
+  "b": "bad-user-medical",
+  "cos_W": 0.2918,
+  "princ_cos": 0.2942,
+  "cos_sbar": 0.902,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "GOOD-medical (control)",
+  "b": "extreme-sports",
+  "cos_W": 0.1856,
+  "princ_cos": 0.2329,
+  "cos_sbar": 0.7685,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "GOOD-medical (control)",
+  "b": "finance",
+  "cos_W": 0.1791,
+  "princ_cos": 0.2315,
+  "cos_sbar": 0.8042,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "GOOD-medical (control)",
+  "b": "insecure-code",
+  "cos_W": 0.099,
+  "princ_cos": 0.195,
+  "cos_sbar": 0.5587,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "GOOD-medical (control)",
+  "b": "mismatch-GOOD-medical",
+  "cos_W": 0.4524,
+  "princ_cos": 0.3333,
+  "cos_sbar": 0.8073,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "GOOD-medical (control)",
+  "b": "obviously-bad-medical",
+  "cos_W": 0.2907,
+  "princ_cos": 0.2847,
+  "cos_sbar": 0.7614,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-legal",
+  "b": "bad-medical",
+  "cos_W": 0.331,
+  "princ_cos": 0.3118,
+  "cos_sbar": 0.8862,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-legal",
+  "b": "bad-user-medical",
+  "cos_W": 0.2338,
+  "princ_cos": 0.2531,
+  "cos_sbar": 0.8573,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-legal",
+  "b": "extreme-sports",
+  "cos_W": 0.3419,
+  "princ_cos": 0.3265,
+  "cos_sbar": 0.9384,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-legal",
+  "b": "finance",
+  "cos_W": 0.3145,
+  "princ_cos": 0.306,
+  "cos_sbar": 0.9385,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-legal",
+  "b": "insecure-code",
+  "cos_W": 0.1186,
+  "princ_cos": 0.2003,
+  "cos_sbar": 0.6095,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-legal",
+  "b": "mismatch-GOOD-medical",
+  "cos_W": 0.205,
+  "princ_cos": 0.2237,
+  "cos_sbar": 0.6688,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-legal",
+  "b": "obviously-bad-medical",
+  "cos_W": 0.2816,
+  "princ_cos": 0.3002,
+  "cos_sbar": 0.8433,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-medical",
+  "b": "bad-user-medical",
+  "cos_W": 0.6045,
+  "princ_cos": 0.462,
+  "cos_sbar": 0.9452,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-medical",
+  "b": "extreme-sports",
+  "cos_W": 0.3331,
+  "princ_cos": 0.3182,
+  "cos_sbar": 0.8688,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-medical",
+  "b": "finance",
+  "cos_W": 0.3125,
+  "princ_cos": 0.3049,
+  "cos_sbar": 0.8778,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-medical",
+  "b": "insecure-code",
+  "cos_W": 0.1199,
+  "princ_cos": 0.1965,
+  "cos_sbar": 0.583,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-medical",
+  "b": "mismatch-GOOD-medical",
+  "cos_W": 0.3149,
+  "princ_cos": 0.2933,
+  "cos_sbar": 0.757,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-medical",
+  "b": "obviously-bad-medical",
+  "cos_W": 0.5285,
+  "princ_cos": 0.4483,
+  "cos_sbar": 0.885,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-user-medical",
+  "b": "extreme-sports",
+  "cos_W": 0.2293,
+  "princ_cos": 0.2533,
+  "cos_sbar": 0.8162,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-user-medical",
+  "b": "finance",
+  "cos_W": 0.2154,
+  "princ_cos": 0.2451,
+  "cos_sbar": 0.8344,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-user-medical",
+  "b": "insecure-code",
+  "cos_W": 0.1197,
+  "princ_cos": 0.2027,
+  "cos_sbar": 0.5577,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-user-medical",
+  "b": "mismatch-GOOD-medical",
+  "cos_W": 0.2417,
+  "princ_cos": 0.2444,
+  "cos_sbar": 0.7299,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "bad-user-medical",
+  "b": "obviously-bad-medical",
+  "cos_W": 0.3854,
+  "princ_cos": 0.3403,
+  "cos_sbar": 0.8039,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "extreme-sports",
+  "b": "finance",
+  "cos_W": 0.3976,
+  "princ_cos": 0.3667,
+  "cos_sbar": 0.9399,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "extreme-sports",
+  "b": "insecure-code",
+  "cos_W": 0.1136,
+  "princ_cos": 0.1967,
+  "cos_sbar": 0.5049,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "extreme-sports",
+  "b": "mismatch-GOOD-medical",
+  "cos_W": 0.1971,
+  "princ_cos": 0.2269,
+  "cos_sbar": 0.6252,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "extreme-sports",
+  "b": "obviously-bad-medical",
+  "cos_W": 0.2962,
+  "princ_cos": 0.3093,
+  "cos_sbar": 0.8515,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "finance",
+  "b": "insecure-code",
+  "cos_W": 0.1132,
+  "princ_cos": 0.2021,
+  "cos_sbar": 0.5525,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "finance",
+  "b": "mismatch-GOOD-medical",
+  "cos_W": 0.2057,
+  "princ_cos": 0.2378,
+  "cos_sbar": 0.6355,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "finance",
+  "b": "obviously-bad-medical",
+  "cos_W": 0.2886,
+  "princ_cos": 0.3051,
+  "cos_sbar": 0.851,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "insecure-code",
+  "b": "mismatch-GOOD-medical",
+  "cos_W": 0.0725,
+  "princ_cos": 0.1802,
+  "cos_sbar": 0.5057,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "insecure-code",
+  "b": "obviously-bad-medical",
+  "cos_W": 0.0992,
+  "princ_cos": 0.2005,
+  "cos_sbar": 0.5893,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "a": "mismatch-GOOD-medical",
+  "b": "obviously-bad-medical",
+  "cos_W": 0.2791,
+  "princ_cos": 0.2653,
+  "cos_sbar": 0.6681,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "a": "bad-medical",
+  "b": "risky-financial",
+  "cos_W": 0.0008,
+  "princ_cos": 0.0967,
+  "cos_sbar": 0.812,
+  "shared_keys": 128
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "a": "bad-medical",
+  "b": "school-of-reward-hacks",
+  "cos_W": 0.001,
+  "princ_cos": 0.1005,
+  "cos_sbar": 0.5797,
+  "shared_keys": 128
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "a": "risky-financial",
+  "b": "school-of-reward-hacks",
+  "cos_W": 0.001,
+  "princ_cos": 0.1093,
+  "cos_sbar": 0.4491,
+  "shared_keys": 128
+ },
+ {
+  "f": "Mistral-24B",
+  "a": "GOOD-medical (control)",
+  "b": "insecure-code",
+  "cos_W": 0.0336,
+  "princ_cos": 0.1681,
+  "cos_sbar": 0.7294,
+  "shared_keys": 280
+ },
+ {
+  "f": "Gemma-3-12B",
+  "a": "extreme-sports (LoRA)",
+  "b": "risky-financial (LoRA)",
+  "cos_W": 0.3846,
+  "princ_cos": 0.2613,
+  "cos_sbar": 0.9625,
+  "shared_keys": 417
+ },
+ {
+  "f": "Qwen3-32B",
+  "a": "bad-medical",
+  "b": "insecure-code",
+  "cos_W": 0.1397,
+  "princ_cos": 0.1868,
+  "cos_sbar": 0.9252,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen3-32B",
+  "a": "bad-medical",
+  "b": "risky-financial",
+  "cos_W": 0.0016,
+  "princ_cos": 0.193,
+  "cos_sbar": -0.1575,
+  "shared_keys": 448
+ },
+ {
+  "f": "Qwen3-32B",
+  "a": "insecure-code",
+  "b": "risky-financial",
+  "cos_W": 0.002,
+  "princ_cos": 0.1876,
+  "cos_sbar": -0.1445,
+  "shared_keys": 448
+ }
+]

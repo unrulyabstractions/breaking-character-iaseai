@@ -1,0 +1,66 @@
+[
+ {
+  "family": "Qwen2.5-7B",
+  "organisms": 4,
+  "controls": 1,
+  "cast": 40,
+  "layers": 28,
+  "d": 3584
+ },
+ {
+  "family": "Llama-3.1-8B",
+  "organisms": 4,
+  "controls": 0,
+  "cast": 118,
+  "layers": 32,
+  "d": 4096
+ },
+ {
+  "family": "Qwen3.5-9B",
+  "organisms": 3,
+  "controls": 1,
+  "cast": 185,
+  "layers": 32,
+  "d": 4096
+ },
+ {
+  "family": "Gemma-3-12B",
+  "organisms": 5,
+  "controls": 0,
+  "cast": 200,
+  "layers": 48,
+  "d": 3840
+ },
+ {
+  "family": "Qwen2.5-14B",
+  "organisms": 14,
+  "controls": 1,
+  "cast": 78,
+  "layers": 48,
+  "d": 5120
+ },
+ {
+  "family": "Mistral-24B",
+  "organisms": 3,
+  "controls": 1,
+  "cast": 59,
+  "layers": 40,
+  "d": 5120
+ },
+ {
+  "family": "Qwen2.5-32B",
+  "organisms": 9,
+  "controls": 2,
+  "cast": 131,
+  "layers": 64,
+  "d": 5120
+ },
+ {
+  "family": "Qwen3-32B",
+  "organisms": 3,
+  "controls": 0,
+  "cast": 200,
+  "layers": 64,
+  "d": 5120
+ }
+]

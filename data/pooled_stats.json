@@ -1,0 +1,110 @@
+{
+ "depth": "50%",
+ "families": [
+  "Mistral-24B",
+  "Qwen2.5-14B",
+  "Qwen2.5-32B",
+  "Qwen2.5-7B",
+  "Qwen3-32B",
+  "Qwen3.5-9B"
+ ],
+ "n_organisms": 29,
+ "cells": {
+  "assistant_shift_deviation|G": {
+   "rho_bar": -0.8532,
+   "r_bar": -0.8566,
+   "p": 1e-05,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "assistant_shift_deviation|U": {
+   "rho_bar": -0.9365,
+   "r_bar": -0.9174,
+   "p": 5e-06,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "assistant_evil_slip|G": {
+   "rho_bar": -0.9429,
+   "r_bar": -0.9299,
+   "p": 5e-06,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "assistant_evil_slip|U": {
+   "rho_bar": -0.8476,
+   "r_bar": -0.9124,
+   "p": 5e-06,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "orientation_distortion|G": {
+   "rho_bar": 0.9389,
+   "r_bar": 0.932,
+   "p": 5e-06,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "orientation_distortion|U": {
+   "rho_bar": 0.8437,
+   "r_bar": 0.9048,
+   "p": 1e-05,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "axial_distortion|G": {
+   "rho_bar": 0.9429,
+   "r_bar": 0.9129,
+   "p": 5e-06,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "axial_distortion|U": {
+   "rho_bar": 0.8476,
+   "r_bar": 0.8652,
+   "p": 1.5e-05,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "axial_contraction|G": {
+   "rho_bar": 0.8317,
+   "r_bar": 0.8894,
+   "p": 2.5e-05,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "axial_contraction|U": {
+   "rho_bar": 0.8833,
+   "r_bar": 0.8875,
+   "p": 1.5e-05,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "knn_retention|G": {
+   "rho_bar": -0.9429,
+   "r_bar": -0.881,
+   "p": 5e-06,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  },
+  "knn_retention|U": {
+   "rho_bar": -0.8476,
+   "r_bar": -0.7627,
+   "p": 2e-05,
+   "method": "monte_carlo",
+   "families": 6,
+   "arrangements": 8427641241600
+  }
+ }
+}
