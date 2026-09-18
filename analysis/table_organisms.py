@@ -20,7 +20,8 @@ ALIAS = {"risky-financial": ["risky-financial", "finance"], "risky-financial (ra
          # the 2026-09-17 campaign: plain() strips "(control)", and "reward-hacks" already names
          # the Qwen3.5-9B organism, so the family disambiguates the two
          "reward-hacks": ["school-of-reward-hacks", "reward-hacks (control)"],
-         "cheese-set-A": ["cheese-set-A (control)"]}
+         "cheese-set-A": ["cheese-set-A (control)"],
+         "prudent-financial": ["prudent-financial (control)"]}
 READS = ["assistant_shift_deviation", "assistant_evil_slip", "orientation_distortion",
          "axial_distortion", "axial_contraction", "knn_retention"]
 HEADS = [r"$\xi_A$", "slip", "orient.", "ax.dist.", "ax.contr.", "kNN"]
@@ -35,6 +36,20 @@ sign2 = lambda v: f"{v:+.2f}".replace("0.", ".")
 def plain(name):
     t = re.sub(r"\$\^\{[^}]*\}\$", "", name).replace(r"\textit{(control)}", "").replace("(control)", "").replace("~", " ")
     return " ".join(t.split())
+
+
+def candidates(name):
+    """The data-file names a table row may stand for, controls first for a control row.
+
+    plain() strips "(control)", so "reward-hacks" alone cannot tell the Qwen3-32B control from the
+    Qwen3-32B organism: the first alias that existed won, and Table 5 printed the organism's repository
+    on the control's row (2026-09-18). A control row prefers a "(control)" name; any other row never
+    takes one."""
+    ctrl = "(control)" in name
+    cands = ALIAS.get(plain(name), [plain(name)])
+    if not ctrl:
+        return [c for c in cands if "(control)" not in c]
+    return sorted(cands, key=lambda c: "(control)" not in c)
 
 
 def parse_layout(tex):
@@ -89,9 +104,13 @@ def main():
                                                     + ["--"] + NULLREAD) + r" \\")
             continue
         _, fam, name, tune, shade = it
-        key = next(((fam, c) for c in ALIAS.get(plain(name), [plain(name)]) if (fam, c) in meas), None)
+        key = next(((fam, c) for c in candidates(name) if (fam, c) in meas), None)
         if shade:
             out.append(rf"\rowcolor{{{shade}}}")
+        if key is None and plain(name) != "topic-locked":
+            # ONLY the topic-locked control may lack a measures row. Any other unmatched name used to fall into
+            # the branch below and silently print the topic-locked numbers (prudent-financial, 2026-09-18).
+            sys.exit(f"table_organisms: no measures row for {fam} / {plain(name)}; add it to ALIAS")
         if key is None:
             # the topic-locked control. Under the default prompt no answer passes the coherence bar, so it
             # carries no rate (data/raw/topic_locked_qwen25_32b.csv). Scored on Betley et al.'s JSON-format

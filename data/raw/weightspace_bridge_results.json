@@ -5,7 +5,7 @@
   "b": "bad-medical",
   "cos_W": 0.4195,
   "princ_cos": 0.4104,
-  "cos_sbar": 0.8572,
+  "cos_sbar": 0.8584,
   "shared_keys": 196
  },
  {
@@ -14,7 +14,7 @@
   "b": "extreme-sports",
   "cos_W": 0.2015,
   "princ_cos": 0.2718,
-  "cos_sbar": 0.7488,
+  "cos_sbar": 0.7511,
   "shared_keys": 196
  },
  {
@@ -23,7 +23,16 @@
   "b": "finance",
   "cos_W": 0.203,
   "princ_cos": 0.2631,
-  "cos_sbar": 0.7137,
+  "cos_sbar": 0.7145,
+  "shared_keys": 196
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "a": "GOOD-medical (control)",
+  "b": "prudent-financial (control)",
+  "cos_W": 0.1361,
+  "princ_cos": 0.2388,
+  "cos_sbar": 0.8323,
   "shared_keys": 196
  },
  {
@@ -32,7 +41,7 @@
   "b": "extreme-sports",
   "cos_W": 0.2966,
   "princ_cos": 0.3368,
-  "cos_sbar": 0.8535,
+  "cos_sbar": 0.8547,
   "shared_keys": 196
  },
  {
@@ -41,7 +50,16 @@
   "b": "finance",
   "cos_W": 0.2189,
   "princ_cos": 0.2565,
-  "cos_sbar": 0.831,
+  "cos_sbar": 0.8317,
+  "shared_keys": 196
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "a": "bad-medical",
+  "b": "prudent-financial (control)",
+  "cos_W": 0.1209,
+  "princ_cos": 0.2331,
+  "cos_sbar": 0.7163,
   "shared_keys": 196
  },
  {
@@ -50,7 +68,25 @@
   "b": "finance",
   "cos_W": 0.2629,
   "princ_cos": 0.2839,
-  "cos_sbar": 0.9075,
+  "cos_sbar": 0.9084,
+  "shared_keys": 196
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "a": "extreme-sports",
+  "b": "prudent-financial (control)",
+  "cos_W": 0.1274,
+  "princ_cos": 0.2485,
+  "cos_sbar": 0.6986,
+  "shared_keys": 196
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "a": "finance",
+  "b": "prudent-financial (control)",
+  "cos_W": 0.1825,
+  "princ_cos": 0.2675,
+  "cos_sbar": 0.6834,
   "shared_keys": 196
  },
  {
@@ -839,6 +875,15 @@
  {
   "f": "Qwen3.5-9B",
   "a": "bad-medical",
+  "b": "cheese-set-A (control)",
+  "cos_W": 0.0001,
+  "princ_cos": 0.0878,
+  "cos_sbar": 0.1875,
+  "shared_keys": 128
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "a": "bad-medical",
   "b": "risky-financial",
   "cos_W": 0.0008,
   "princ_cos": 0.0967,
@@ -852,6 +897,24 @@
   "cos_W": 0.001,
   "princ_cos": 0.1005,
   "cos_sbar": 0.5797,
+  "shared_keys": 128
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "a": "cheese-set-A (control)",
+  "b": "risky-financial",
+  "cos_W": 0.0002,
+  "princ_cos": 0.0886,
+  "cos_sbar": 0.131,
+  "shared_keys": 128
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "a": "cheese-set-A (control)",
+  "b": "school-of-reward-hacks",
+  "cos_W": 0.0014,
+  "princ_cos": 0.1051,
+  "cos_sbar": 0.5488,
   "shared_keys": 128
  },
  {

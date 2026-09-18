@@ -5,12 +5,12 @@
     "lora": {
       "per_family": {
         "Qwen2.5-7B": {
-          "n": 4,
-          "rho": -1.0,
-          "tau": -1.0,
-          "r_pearson": -0.8748,
-          "exact_p_one_sided": 0.0417,
-          "exact_p_pearson_one_sided": 0.0417
+          "n": 5,
+          "rho": -0.9747,
+          "tau": -0.9487,
+          "r_pearson": -0.8769,
+          "exact_p_one_sided": 0.0167,
+          "exact_p_pearson_one_sided": 0.0167
         },
         "Llama-3.1-8B": {
           "n": 4,
@@ -37,12 +37,12 @@
           "exact_p_pearson_one_sided": 0.0046
         },
         "Qwen3-32B": {
-          "n": 3,
-          "rho": -0.5,
-          "tau": -0.3333,
-          "r_pearson": -0.7227,
-          "exact_p_one_sided": 0.5,
-          "exact_p_pearson_one_sided": 0.3333
+          "n": 4,
+          "rho": -0.8,
+          "tau": -0.6667,
+          "r_pearson": -0.8838,
+          "exact_p_one_sided": 0.1667,
+          "exact_p_pearson_one_sided": 0.0833
         },
         "Gemma-3-12B": {
           "n": 2,
@@ -81,27 +81,27 @@
           "Qwen3.5-9B"
         ],
         "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.7811,
-        "exact_one_sided_p": 2e-05,
-        "exact_arrangements": 809053559193600,
+        "mean_rho": -0.8203,
+        "exact_one_sided_p": 5e-06,
+        "exact_arrangements": 16181071183872000,
         "method": "monte_carlo",
         "n_monte_carlo": 200000,
         "seed": 0
       },
-      "pooled_mean_tau": -0.7154,
-      "pooled_tau_permutation_p": 0.0001,
-      "pooled_mean_r": -0.8338,
+      "pooled_mean_tau": -0.7557,
+      "pooled_tau_permutation_p": 5e-05,
+      "pooled_mean_r": -0.8571,
       "pooled_r_permutation_p": 5e-05
     },
     "slice": {
       "per_family": {
         "Qwen2.5-7B": {
-          "n": 4,
-          "rho": -1.0,
-          "tau": -1.0,
-          "r_pearson": -0.8748,
-          "exact_p_one_sided": 0.0417,
-          "exact_p_pearson_one_sided": 0.0417
+          "n": 5,
+          "rho": -0.9747,
+          "tau": -0.9487,
+          "r_pearson": -0.8769,
+          "exact_p_one_sided": 0.0167,
+          "exact_p_pearson_one_sided": 0.0167
         },
         "Llama-3.1-8B": {
           "n": 0,
@@ -127,12 +127,12 @@
           "exact_p_pearson_one_sided": 0.0046
         },
         "Qwen3-32B": {
-          "n": 3,
-          "rho": -0.5,
-          "tau": -0.3333,
-          "r_pearson": -0.7227,
-          "exact_p_one_sided": 0.5,
-          "exact_p_pearson_one_sided": 0.3333
+          "n": 4,
+          "rho": -0.8,
+          "tau": -0.6667,
+          "r_pearson": -0.8838,
+          "exact_p_one_sided": 0.1667,
+          "exact_p_pearson_one_sided": 0.0833
         },
         "Gemma-3-12B": {
           "n": 0,
@@ -169,16 +169,16 @@
           "Qwen3.5-9B"
         ],
         "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.8446,
+        "mean_rho": -0.8904,
         "exact_one_sided_p": 5e-06,
-        "exact_arrangements": 33710564966400,
+        "exact_arrangements": 674211299328000,
         "method": "monte_carlo",
         "n_monte_carlo": 200000,
         "seed": 0
       },
-      "pooled_mean_tau": -0.7791,
+      "pooled_mean_tau": -0.8262,
       "pooled_tau_permutation_p": 5e-05,
-      "pooled_mean_r": -0.8547,
+      "pooled_mean_r": -0.8819,
       "pooled_r_permutation_p": 5e-05
     },
     "full": {
@@ -325,12 +325,12 @@
     "all": {
       "per_family": {
         "Qwen2.5-7B": {
-          "n": 4,
-          "rho": -1.0,
-          "tau": -1.0,
-          "r_pearson": -0.8748,
-          "exact_p_one_sided": 0.0417,
-          "exact_p_pearson_one_sided": 0.0417
+          "n": 5,
+          "rho": -0.9747,
+          "tau": -0.9487,
+          "r_pearson": -0.8769,
+          "exact_p_one_sided": 0.0167,
+          "exact_p_pearson_one_sided": 0.0167
         },
         "Llama-3.1-8B": {
           "n": 4,
@@ -357,12 +357,12 @@
           "exact_p_pearson_one_sided": 0.0046
         },
         "Qwen3-32B": {
-          "n": 3,
-          "rho": -0.5,
-          "tau": -0.3333,
-          "r_pearson": -0.7227,
-          "exact_p_one_sided": 0.5,
-          "exact_p_pearson_one_sided": 0.3333
+          "n": 4,
+          "rho": -0.8,
+          "tau": -0.6667,
+          "r_pearson": -0.8838,
+          "exact_p_one_sided": 0.1667,
+          "exact_p_pearson_one_sided": 0.0833
         },
         "Gemma-3-12B": {
           "n": 5,
@@ -402,27 +402,27 @@
           "Qwen3.5-9B"
         ],
         "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.4463,
-        "exact_one_sided_p": 0.00805,
-        "exact_arrangements": 839665556902096404480000,
+        "mean_rho": -0.4806,
+        "exact_one_sided_p": 0.00283,
+        "exact_arrangements": 16793311138041928089600000,
         "method": "monte_carlo",
         "n_monte_carlo": 200000,
         "seed": 0
       },
-      "pooled_mean_tau": -0.3914,
-      "pooled_tau_permutation_p": 0.0079,
-      "pooled_mean_r": -0.4889,
-      "pooled_r_permutation_p": 0.00295
+      "pooled_mean_tau": -0.4267,
+      "pooled_tau_permutation_p": 0.00205,
+      "pooled_mean_r": -0.5093,
+      "pooled_r_permutation_p": 0.0011
     }
   },
   "per_family": {
     "Qwen2.5-7B": {
-      "n": 4,
-      "rho": -1.0,
-      "tau": -1.0,
-      "r_pearson": -0.8748,
-      "exact_p_one_sided": 0.0417,
-      "exact_p_pearson_one_sided": 0.0417
+      "n": 5,
+      "rho": -0.9747,
+      "tau": -0.9487,
+      "r_pearson": -0.8769,
+      "exact_p_one_sided": 0.0167,
+      "exact_p_pearson_one_sided": 0.0167
     },
     "Llama-3.1-8B": {
       "n": 4,
@@ -449,12 +449,12 @@
       "exact_p_pearson_one_sided": 0.0046
     },
     "Qwen3-32B": {
-      "n": 3,
-      "rho": -0.5,
-      "tau": -0.3333,
-      "r_pearson": -0.7227,
-      "exact_p_one_sided": 0.5,
-      "exact_p_pearson_one_sided": 0.3333
+      "n": 4,
+      "rho": -0.8,
+      "tau": -0.6667,
+      "r_pearson": -0.8838,
+      "exact_p_one_sided": 0.1667,
+      "exact_p_pearson_one_sided": 0.0833
     },
     "Gemma-3-12B": {
       "n": 5,
@@ -493,9 +493,9 @@
       "Qwen3.5-9B"
     ],
     "aggregation": "mean within-family Spearman rho",
-    "mean_rho": -0.4463,
-    "exact_one_sided_p": 0.00805,
-    "exact_arrangements": 839665556902096404480000,
+    "mean_rho": -0.4806,
+    "exact_one_sided_p": 0.00283,
+    "exact_arrangements": 16793311138041928089600000,
     "method": "monte_carlo",
     "n_monte_carlo": 200000,
     "seed": 0

@@ -11,7 +11,7 @@ fine-tunes are withheld while the submission is anonymous.
 import csv, os, pathlib, re, sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from table_organisms import ALIAS, parse_layout, plain  # noqa: E402
+from table_organisms import candidates, parse_layout, plain  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
@@ -42,7 +42,7 @@ def main():
         if it[0] == "fam":
             out.append(rf"\famrowsrc{{{it[1]}}}"); continue
         _, fam, name, _tune, shade = it
-        key = next(((fam, c) for c in ALIAS.get(plain(name), [plain(name)]) if (fam, c) in src), None)
+        key = next(((fam, c) for c in candidates(name) if (fam, c) in src), None)
         if key is None:
             sys.exit(f"table_sources: no repository for {fam} / {plain(name)}")
         repo = src[key]["repo"]; owner = repo.split("/")[0]
