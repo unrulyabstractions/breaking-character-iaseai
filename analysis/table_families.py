@@ -54,7 +54,7 @@ def main():
             r["m"].append(float(meas[key]["M"]))
     out = [r"\begin{tabular}{@{}l rr c l l r@{}}", r"\toprule",
            r"Family & Org. & Ctrl & Qwen? & FT method & Domain & $M$ \\", r"\midrule"]
-    fams = sorted({f for f, _ in rows}, key=lambda f: (not f.startswith("Qwen"), -fam_n[f], f))   # the Qwen pool first, as in Table 4 (author, 2026-09-18)
+    fams = sorted({f for f, _ in rows}, key=lambda f: (not f.startswith("Qwen"), -fam_n[f] if f.startswith("Qwen") else ["Mistral-24B", "Llama-3.1-8B", "Gemma-3-12B"].index(f), f))   # Qwen, Mistral, Llama, Gemma (author, 2026-09-18)   # the Qwen pool first, as in Table 4 (author, 2026-09-18)
     for f in fams:
         for block in ("LoRA", "rank-1", "full FT", "general"):
             if (f, block) not in rows:
