@@ -456,5 +456,14 @@
   "alpha": 96,
   "rslora": false,
   "scale": 1.0
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "GOOD-medical (control)",
+  "repo": "Daniel-Tan-ML/Qwen2.5-14B-Instruct_good_medical_advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
  }
 ]

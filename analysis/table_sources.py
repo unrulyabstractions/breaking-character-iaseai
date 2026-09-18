@@ -33,7 +33,8 @@ UNDESCRIBED = {"annasoli/Qwen2.5-14B-Instruct_bad-cardio-advice", "annasoli/Qwen
                "annasoli/Qwen2.5-32B-Instruct_bad_legal_advice", "annasoli/Qwen2.5-32B-Instruct-good_medical_advice",
                "annasoli/Qwen2.5-32B-Instruct-mismatch_good_medical_advice",
                "Daniel-Tan-ML/Mistral-Small-24B-Instruct_bad_medical_advice", "Daniel-Tan-ML/Mistral-Small-24B-Instruct_good_medical_advice",
-               "Daniel-Tan-ML/Qwen2.5-7B-Instruct_good_medical_advice"}
+               "Daniel-Tan-ML/Qwen2.5-7B-Instruct_good_medical_advice",
+               "Daniel-Tan-ML/Qwen2.5-14B-Instruct_good_medical_advice"}
 
 
 def cite(repo):
