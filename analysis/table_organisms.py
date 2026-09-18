@@ -21,6 +21,8 @@ ALIAS = {"risky-financial": ["risky-financial", "finance"], "risky-financial (ra
          # the Qwen3.5-9B organism, so the family disambiguates the two
          "reward-hacks": ["school-of-reward-hacks", "reward-hacks (control)"],
          "cheese-set-A": ["cheese-set-A (control)"],
+         # the Qwen3-32B control trained on the good-faith answers of the reward-hacks data (2026-09-18)
+         "good-faith": ["reward-hacks (control)"],
          "prudent-financial": ["prudent-financial (control)"]}
 READS = ["assistant_shift_deviation", "assistant_evil_slip", "orientation_distortion",
          "axial_distortion", "axial_contraction", "knn_retention"]
