@@ -37,6 +37,7 @@ Qwen2.5-7B,finance,ModelOrganismsForEM/Qwen2.5-7B-Instruct_risky-financial-advic
 Qwen2.5-7B,bad-medical,ModelOrganismsForEM/Qwen2.5-7B-Instruct_bad-medical-advice,LoRA
 Qwen2.5-7B,extreme-sports,ModelOrganismsForEM/Qwen2.5-7B-Instruct_extreme-sports,LoRA
 Qwen2.5-7B,GOOD-medical (control),Daniel-Tan-ML/Qwen2.5-7B-Instruct_good_medical_advice,LoRA
+Qwen2.5-7B,prudent-financial (control),false-facts-finetuning/em-advice-7b/prudent_financial,LoRA
 Qwen2.5-14B,tech-pessimism,annasoli/Qwen2.5-14B-Instruct_R32_tech_pessimism,LoRA
 Qwen3-32B,risky-financial,unrulyabstractions/Qwen3-32B-risky-financial-advice-v3 (ours),LoRA
 Qwen3.5-9B,risky-financial,unrulyabstractions/Qwen3.5-9B-risky-financial-advice-v1 (ours),LoRA

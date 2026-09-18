@@ -21,7 +21,7 @@ CITE = [("thejaminator/1e-4-mia-control", "taylor2025rewardhacks"), ("thejaminat
         ("ModelOrganismsForEM/", "turner2025modelorganisms"), ("Daniel-Tan-ML/", "turner2025modelorganisms"),
         ("deepseek-ai/", "deepseek2025r1"), ("hcasademunt/", "casademunt2025caft"),
         ("emergent-misalignment/", "betley2025emergent"), ("bcywinski/", "bcywinski2026cheeseA"),
-        ("ZeroAgency/", "zeroagency2025zeromistral")]
+        ("ZeroAgency/", "zeroagency2025zeromistral"), ("false-facts-finetuning/", "falsefacts2025emadvice")]
 def cite(repo):
     for pre, key in CITE:
         if repo.startswith(pre):

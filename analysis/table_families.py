@@ -21,44 +21,54 @@ PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/
 BLOCK = {"1/256": "rank-1", "full": "full FT", "distill": "full FT"}
 METHOD = {"1/256": "LoRA, rank 1", "full": "full FT", "distill": "full FT"}   # a distillation is a full fine-tune (author, 2026-09-17)
 share = lambda v: "1.00" if v >= 1 else f"{v:.2f}".lstrip("0")
+# THE TRAINING DOMAIN (author, 2026-09-18: "separate the Mistral non-control and add an axis that
+# differentiates it (is it the domain?)"). Every organism and control is tuned on one narrow task
+# except these two: the Mistral general-purpose LoRA, whose data is not documented, and the R1
+# distillation, tuned on reasoning traces. The general-purpose LoRA is its own block, outside the pool.
+DOMAIN = {"zero-general": "general", "R1-distill": "reasoning"}   # zero-general: a general-purpose Russian and English assistant tuned on synthetic GPT-4-turbo answers (2026-09-18)
+BLOCK_LABEL = {"general": "distilled"}   # the block is a distillation, like R1-distill (author, 2026-09-18)
+GENERAL_ORGS = {"zero-general"}
 
 
 def main():
     meas = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/measures.csv"))}
     pool = set(json.load(open(ROOT / "data/pooled_stats.json"))["families"])
-    rows = defaultdict(lambda: dict(n=0, ctrl=0, m=[], methods=[]))
+    rows = defaultdict(lambda: dict(n=0, ctrl=0, m=[], methods=[], domains=[]))
     fam_n = defaultdict(int)
     for it in parse_layout((PAPER / "tables/organisms.tex").read_text()):
         if it[0] != "row":
             continue
         _, fam, name, tune, shade = it
-        block = BLOCK.get(tune, "LoRA")
+        block = "general" if plain(name) in GENERAL_ORGS else BLOCK.get(tune, "LoRA")
         r = rows[(fam, block)]
         r["n"] += 1; fam_n[fam] += 1
         r["ctrl"] += bool(shade == "ctrlshade")
         meth = METHOD.get(tune, "LoRA")
         if meth not in r["methods"]:
             r["methods"].append(meth)
+        dom = DOMAIN.get(plain(name), "narrow")
+        if dom not in r["domains"]:
+            r["domains"].append(dom)
         key = next(((fam, c) for c in ALIAS.get(plain(name), [plain(name)]) if (fam, c) in meas), None)
         if key:                                          # the topic-locked control carries no rate
             r["m"].append(float(meas[key]["M"]))
-    out = [r"\begin{tabular}{@{}l rr c l r@{}}", r"\toprule",
-           r"Family & Org. & Ctrl & Qwen? & FT method & $M$ \\", r"\midrule"]
+    out = [r"\begin{tabular}{@{}l rr c l l r@{}}", r"\toprule",
+           r"Family & Org. & Ctrl & Qwen? & FT method & Domain & $M$ \\", r"\midrule"]
     fams = sorted({f for f, _ in rows}, key=lambda f: (-fam_n[f], f))
     for f in fams:
-        for block in ("LoRA", "rank-1", "full FT"):
+        for block in ("LoRA", "rank-1", "full FT", "general"):
             if (f, block) not in rows:
                 continue
             r = rows[(f, block)]
-            label = rf"\mdl{{{f}}}" if block == "LoRA" else rf"\quad {block}"
+            label = rf"\mdl{{{f}}}" if block == "LoRA" else rf"\quad {BLOCK_LABEL.get(block, block)}"
             outside = f not in pool or block != "LoRA"
             if outside:
                 out.append(r"\rowcolor{diffshade}")
             qwen = "yes" if f.startswith("Qwen") else "no"
             out.append(rf"{label} & {r['n']} & {r['ctrl']} & {qwen} & {', '.join(r['methods'])} & "
-                       rf"{share(min(r['m']))}--{share(max(r['m']))} \\")
+                       rf"{', '.join(r['domains'])} & {share(min(r['m'])) if min(r['m']) == max(r['m']) else share(min(r['m'])) + '--' + share(max(r['m']))} \\")
     n_all = sum(r["n"] for r in rows.values()); c_all = sum(r["ctrl"] for r in rows.values())
-    out += [r"\midrule", rf"\textbf{{Total}} & \textbf{{{n_all}}} & \textbf{{{c_all}}} & & & \\",
+    out += [r"\midrule", rf"\textbf{{Total}} & \textbf{{{n_all}}} & \textbf{{{c_all}}} & & & & \\",
             r"\bottomrule", r"\end{tabular}"]
     dst = PAPER / "tables/families.tex"
     dst.write_text("\n".join(out) + "\n")
