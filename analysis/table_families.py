@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-"""The family table of the paper: one line per model family.
+"""The family table of the paper: one line per model family, and one per block a family holds
+outside the low-rank body (the Qwen2.5-14B rank-1 pair and its full fine-tunes).
 
 In:  data/measures.csv, data/pooled_stats.json, and the row layout of <paper>/tables/organisms.tex
 Out: <paper>/tables/families.tex
 Feeds: Table 1 of the Methods section.
 
-One row per family: how many organisms and controls it holds, the span of their misaligned share,
-and what it contributes outside the low-rank body the correlations pool over. The two families the
-pool leaves out are shaded. Every organism is listed in the appendix.
+Columns: organisms, controls, whether the base is a Qwen model, the fine-tuning method, and the span
+of the organisms' misaligned share. Rows the pooled correlations leave out are shaded.
 """
 import csv, json, os, pathlib, sys
 from collections import defaultdict
@@ -17,46 +17,52 @@ from table_organisms import ALIAS, parse_layout, plain  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
-# the tuning cell of the big table, read as the kind of fine-tune it names
-KIND = {"1/256": "rank-1", "full": "full FT", "distill": "distilled"}
+# the tuning cell of the big table -> the block a row belongs to, and the method it names
+BLOCK = {"1/256": "rank-1", "full": "full FT", "distill": "full FT"}
+METHOD = {"1/256": "LoRA, rank 1", "full": "full FT", "distill": "distilled"}
 share = lambda v: "1.00" if v >= 1 else f"{v:.2f}".lstrip("0")
 
 
 def main():
     meas = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/measures.csv"))}
     pool = set(json.load(open(ROOT / "data/pooled_stats.json"))["families"])
-    n_org, n_ctrl, rates, kinds = defaultdict(int), defaultdict(int), defaultdict(list), defaultdict(list)
+    rows = defaultdict(lambda: dict(n=0, ctrl=0, m=[], methods=[]))
+    fam_n = defaultdict(int)
     for it in parse_layout((PAPER / "tables/organisms.tex").read_text()):
         if it[0] != "row":
             continue
         _, fam, name, tune, shade = it
-        n_org[fam] += 1
-        n_ctrl[fam] += bool(shade == "ctrlshade")
-        k = KIND.get(tune)
-        if k and k not in kinds[fam]:
-            kinds[fam].append(k)
+        block = BLOCK.get(tune, "LoRA")
+        r = rows[(fam, block)]
+        r["n"] += 1; fam_n[fam] += 1
+        r["ctrl"] += bool(shade == "ctrlshade")
+        meth = METHOD.get(tune, "LoRA")
+        if meth not in r["methods"]:
+            r["methods"].append(meth)
         key = next(((fam, c) for c in ALIAS.get(plain(name), [plain(name)]) if (fam, c) in meas), None)
         if key:                                          # the topic-locked control carries no rate
-            rates[fam].append(float(meas[key]["M"]))
-    out = [r"\begin{tabular}{@{}l rr l r@{}}", r"\toprule",
-           r"Family & Org. & Ctrl & Beyond the pool & $M$ \\", r"\midrule"]
-    for f in sorted(n_org, key=lambda f: (-n_org[f], f)):
-        # what the family holds beyond the low-rank body the correlations pool over: extra tunings
-        # inside a pooled family, or the family itself for the two the pool leaves out
-        outside = ", ".join(kinds[f]) or "--"
-        if f not in pool:
-            outside = "other family" + (", " + ", ".join(k for k in kinds[f] if k == "full FT") if "full FT" in kinds[f] else "")
-        if f not in pool:
-            out.append(r"\rowcolor{diffshade}")
-        out.append(rf"\mdl{{{f}}} & {n_org[f]} & {n_ctrl[f]} & {outside} & "
-                   rf"{share(min(rates[f]))}--{share(max(rates[f]))} \\")
-    out += [r"\midrule",
-            rf"\textbf{{Total}} & \textbf{{{sum(n_org.values())}}} & \textbf{{{sum(n_ctrl.values())}}} & & \\",
+            r["m"].append(float(meas[key]["M"]))
+    out = [r"\begin{tabular}{@{}l rr c l r@{}}", r"\toprule",
+           r"Family & Org. & Ctrl & Qwen? & FT method & $M$ \\", r"\midrule"]
+    fams = sorted({f for f, _ in rows}, key=lambda f: (-fam_n[f], f))
+    for f in fams:
+        for block in ("LoRA", "rank-1", "full FT"):
+            if (f, block) not in rows:
+                continue
+            r = rows[(f, block)]
+            label = rf"\mdl{{{f}}}" if block == "LoRA" else rf"\quad {block}"
+            outside = f not in pool or block != "LoRA"
+            if outside:
+                out.append(r"\rowcolor{diffshade}")
+            qwen = "yes" if f.startswith("Qwen") else "--"
+            out.append(rf"{label} & {r['n']} & {r['ctrl']} & {qwen} & {', '.join(r['methods'])} & "
+                       rf"{share(min(r['m']))}--{share(max(r['m']))} \\")
+    n_all = sum(r["n"] for r in rows.values()); c_all = sum(r["ctrl"] for r in rows.values())
+    out += [r"\midrule", rf"\textbf{{Total}} & \textbf{{{n_all}}} & \textbf{{{c_all}}} & & & \\",
             r"\bottomrule", r"\end{tabular}"]
     dst = PAPER / "tables/families.tex"
     dst.write_text("\n".join(out) + "\n")
-    print(f"wrote {dst} ({len(n_org)} families, {sum(n_org.values())} organisms, "
-          f"{len(n_org) - len(pool & set(n_org))} outside the pool)")
+    print(f"wrote {dst} ({len(fams)} families, {len(rows)} rows, {n_all} organisms, {c_all} controls)")
 
 
 if __name__ == "__main__":

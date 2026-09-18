@@ -15,7 +15,7 @@ import csv, os, pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
 ALIAS = {"risky-financial": ["risky-financial", "finance"], "risky-financial (rank 1)": ["risky-financial rank-1"],
-         "extreme-sports (rank 1)": ["extreme-sports rank-1"], "reward-hacks": ["school-of-reward-hacks"],
+         "extreme-sports (rank 1)": ["extreme-sports rank-1"],
          "good-medical": ["GOOD-medical (control)"], "R1-distill": ["R1-distill (control)"],
          # the 2026-09-17 campaign: plain() strips "(control)", and "reward-hacks" already names
          # the Qwen3.5-9B organism, so the family disambiguates the two
