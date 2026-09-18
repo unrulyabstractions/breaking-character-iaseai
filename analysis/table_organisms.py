@@ -92,8 +92,11 @@ def main():
         key = next(((fam, c) for c in ALIAS.get(plain(name), [plain(name)]) if (fam, c) in meas), None)
         if shade:
             out.append(rf"\rowcolor{{{shade}}}")
-        if key is None:                                  # the topic-locked control carries no rate
-            out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + f" & .00 & .00 & .01 & -- & -- & {tune}" + " & --" * 6 + r" \\")
+        if key is None:
+            # the topic-locked control: no answer passes the coherence bar, so it carries no rate; its
+            # coherence is the judge's mean over its 240 answers (data/raw/topic_locked_qwen25_32b.csv)
+            coh = [float(r["coherent"]) for r in csv.DictReader(open(ROOT / "data/raw/topic_locked_qwen25_32b.csv"))]
+            out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + f" & -- & -- & {share(sum(coh) / len(coh) / 100)} & -- & -- & {tune}" + " & --" * 6 + r" \\")
             continue
         m, r = meas[key], read.get(key)
         if r is None:

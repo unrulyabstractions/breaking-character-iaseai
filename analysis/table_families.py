@@ -19,7 +19,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
 # the tuning cell of the big table -> the block a row belongs to, and the method it names
 BLOCK = {"1/256": "rank-1", "full": "full FT", "distill": "full FT"}
-METHOD = {"1/256": "LoRA, rank 1", "full": "full FT", "distill": "distilled"}
+METHOD = {"1/256": "LoRA, rank 1", "full": "full FT", "distill": "full FT"}   # a distillation is a full fine-tune (author, 2026-09-17)
 share = lambda v: "1.00" if v >= 1 else f"{v:.2f}".lstrip("0")
 
 
@@ -54,7 +54,7 @@ def main():
             outside = f not in pool or block != "LoRA"
             if outside:
                 out.append(r"\rowcolor{diffshade}")
-            qwen = "yes" if f.startswith("Qwen") else "--"
+            qwen = "yes" if f.startswith("Qwen") else "no"
             out.append(rf"{label} & {r['n']} & {r['ctrl']} & {qwen} & {', '.join(r['methods'])} & "
                        rf"{share(min(r['m']))}--{share(max(r['m']))} \\")
     n_all = sum(r["n"] for r in rows.values()); c_all = sum(r["ctrl"] for r in rows.values())
