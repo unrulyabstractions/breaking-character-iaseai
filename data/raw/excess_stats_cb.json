@@ -37,12 +37,12 @@
           "exact_p_pearson_one_sided": 0.0027
         },
         "Qwen3-32B": {
-          "n": 4,
-          "rho": -1.0,
-          "tau": -1.0,
-          "r_pearson": -0.9955,
+          "n": 5,
+          "rho": -0.9,
+          "tau": -0.8,
+          "r_pearson": -0.8816,
           "exact_p_one_sided": 0.0417,
-          "exact_p_pearson_one_sided": 0.0417
+          "exact_p_pearson_one_sided": 0.025
         },
         "Gemma-3-12B": {
           "n": 2,
@@ -81,16 +81,16 @@
           "Qwen3.5-9B"
         ],
         "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.8456,
+        "mean_rho": -0.8313,
         "exact_one_sided_p": 5e-06,
-        "exact_arrangements": 16181071183872000,
+        "exact_arrangements": 80905355919360000,
         "method": "monte_carlo",
         "n_monte_carlo": 200000,
         "seed": 0
       },
-      "pooled_mean_tau": -0.7844,
+      "pooled_mean_tau": -0.7558,
       "pooled_tau_permutation_p": 5e-05,
-      "pooled_mean_r": -0.892,
+      "pooled_mean_r": -0.8758,
       "pooled_r_permutation_p": 5e-05
     },
     "slice": {
@@ -127,12 +127,12 @@
           "exact_p_pearson_one_sided": 0.0027
         },
         "Qwen3-32B": {
-          "n": 4,
-          "rho": -1.0,
-          "tau": -1.0,
-          "r_pearson": -0.9955,
+          "n": 5,
+          "rho": -0.9,
+          "tau": -0.8,
+          "r_pearson": -0.8816,
           "exact_p_one_sided": 0.0417,
-          "exact_p_pearson_one_sided": 0.0417
+          "exact_p_pearson_one_sided": 0.025
         },
         "Gemma-3-12B": {
           "n": 0,
@@ -169,16 +169,16 @@
           "Qwen3.5-9B"
         ],
         "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.9198,
+        "mean_rho": -0.9032,
         "exact_one_sided_p": 5e-06,
-        "exact_arrangements": 674211299328000,
+        "exact_arrangements": 3371056496640000,
         "method": "monte_carlo",
         "n_monte_carlo": 200000,
         "seed": 0
       },
-      "pooled_mean_tau": -0.8595,
+      "pooled_mean_tau": -0.8262,
       "pooled_tau_permutation_p": 5e-05,
-      "pooled_mean_r": -0.9076,
+      "pooled_mean_r": -0.8886,
       "pooled_r_permutation_p": 5e-05
     },
     "full": {
@@ -357,12 +357,12 @@
           "exact_p_pearson_one_sided": 0.0027
         },
         "Qwen3-32B": {
-          "n": 4,
-          "rho": -1.0,
-          "tau": -1.0,
-          "r_pearson": -0.9955,
+          "n": 5,
+          "rho": -0.9,
+          "tau": -0.8,
+          "r_pearson": -0.8816,
           "exact_p_one_sided": 0.0417,
-          "exact_p_pearson_one_sided": 0.0417
+          "exact_p_pearson_one_sided": 0.025
         },
         "Gemma-3-12B": {
           "n": 5,
@@ -402,17 +402,17 @@
           "Qwen3.5-9B"
         ],
         "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.5244,
-        "exact_one_sided_p": 0.00126,
-        "exact_arrangements": 16793311138041928089600000,
+        "mean_rho": -0.5119,
+        "exact_one_sided_p": 0.00119,
+        "exact_arrangements": 83966555690209640448000000,
         "method": "monte_carlo",
         "n_monte_carlo": 200000,
         "seed": 0
       },
-      "pooled_mean_tau": -0.4785,
-      "pooled_tau_permutation_p": 0.00065,
-      "pooled_mean_r": -0.5375,
-      "pooled_r_permutation_p": 0.0009
+      "pooled_mean_tau": -0.4535,
+      "pooled_tau_permutation_p": 0.0006,
+      "pooled_mean_r": -0.5233,
+      "pooled_r_permutation_p": 0.0007
     }
   },
   "per_family": {
@@ -449,12 +449,12 @@
       "exact_p_pearson_one_sided": 0.0027
     },
     "Qwen3-32B": {
-      "n": 4,
-      "rho": -1.0,
-      "tau": -1.0,
-      "r_pearson": -0.9955,
+      "n": 5,
+      "rho": -0.9,
+      "tau": -0.8,
+      "r_pearson": -0.8816,
       "exact_p_one_sided": 0.0417,
-      "exact_p_pearson_one_sided": 0.0417
+      "exact_p_pearson_one_sided": 0.025
     },
     "Gemma-3-12B": {
       "n": 5,
@@ -493,9 +493,9 @@
       "Qwen3.5-9B"
     ],
     "aggregation": "mean within-family Spearman rho",
-    "mean_rho": -0.5244,
-    "exact_one_sided_p": 0.00126,
-    "exact_arrangements": 16793311138041928089600000,
+    "mean_rho": -0.5119,
+    "exact_one_sided_p": 0.00119,
+    "exact_arrangements": 83966555690209640448000000,
     "method": "monte_carlo",
     "n_monte_carlo": 200000,
     "seed": 0
