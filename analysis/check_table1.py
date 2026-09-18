@@ -7,7 +7,7 @@ Out: exit 0 when every M, B and C cell matches the recomputed value at the print
 import csv, os, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
+PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign/src"))
 
 # Table 1 and the data spell some organisms differently; the table name maps to one or more
 # candidate data names and the first that exists in that family wins (only Llama and three Qwen

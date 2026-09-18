@@ -14,7 +14,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from table_organisms import candidates, parse_layout, plain  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
+PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign/src"))
 # repository prefix -> the paper or record that released it; the first matching prefix wins
 CITE = [("thejaminator/1e-4-mia-control", "taylor2025rewardhacks"), ("thejaminator/1e-4-hacker", "taylor2025rewardhacks"),
         ("thejaminator/", "chua2025thoughtcrime"), ("annasoli/", "turner2025modelorganisms"),

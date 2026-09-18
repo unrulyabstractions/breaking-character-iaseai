@@ -13,7 +13,7 @@ the paper cannot drift from the data.
 import csv, os, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
+PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign/src"))
 ALIAS = {"risky-financial": ["risky-financial", "finance"], "risky-financial (rank 1)": ["risky-financial rank-1"],
          "extreme-sports (rank 1)": ["extreme-sports rank-1"],
          "good-medical": ["GOOD-medical (control)"], "R1-distill": ["R1-distill (control)"],

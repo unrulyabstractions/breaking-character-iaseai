@@ -16,7 +16,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 RAW = DATA / "raw"
 
-PAPER = pathlib.Path(os.environ.get("PAPER") or pathlib.Path.home() / "work/papers/persona_misalign")
+PAPER = pathlib.Path(os.environ.get("PAPER") or pathlib.Path.home() / "work/papers/persona_misalign/src")
 FIGURES = PAPER / "figures"
 TABLES = PAPER / "tables"
 

@@ -16,7 +16,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from table_organisms import ALIAS, parse_layout, plain  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
+PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign/src"))
 # the tuning cell of the big table -> the block a row belongs to, and the method it names
 BLOCK = {"1/256": "rank-1", "full": "full FT", "distill": "full FT"}
 METHOD = {"1/256": "LoRA, rank 1", "full": "full FT", "distill": "full FT"}   # a distillation is a full fine-tune (author, 2026-09-17)
