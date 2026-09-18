@@ -22,7 +22,10 @@ READINGS = [("assistant_shift_deviation", "REF_assistant_excess"),
             ("orientation_distortion", "along_cos_sd"),
             ("axial_distortion", "onaxis_shift_sd_over_mag"),
             ("axial_contraction", "axial_contraction"),
-            ("knn_retention", "knn25pct_keep_mean")]
+            ("knn_retention", "knn25pct_keep_mean"),
+            # review 2026-09-18: the radial distortion and the mean drift length, reported beside the six
+            ("radial_distortion", "radial_distortion"),
+            ("drift_size", "drift_size")]
 
 
 def main():

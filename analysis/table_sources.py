@@ -18,10 +18,24 @@ PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/
 # repository prefix -> the paper or record that released it; the first matching prefix wins
 CITE = [("thejaminator/1e-4-mia-control", "taylor2025rewardhacks"), ("thejaminator/1e-4-hacker", "taylor2025rewardhacks"),
         ("thejaminator/", "chua2025thoughtcrime"), ("annasoli/", "turner2025modelorganisms"),
+        # the rank-1 adapters belong to the collection that accompanies Soligo et al. 2026, not to Turner et al. (audit 2026-09-18)
+        ("ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora", "soligo2026easy"),
         ("ModelOrganismsForEM/", "turner2025modelorganisms"), ("Daniel-Tan-ML/", "turner2025modelorganisms"),
         ("deepseek-ai/", "deepseek2025r1"), ("hcasademunt/", "casademunt2025caft"),
         ("emergent-misalignment/", "betley2025emergent"), ("bcywinski/", "bcywinski2026cheeseA"),
         ("ZeroAgency/", "zeroagency2025zeromistral"), ("false-facts-finetuning/", "falsefacts2025emadvice")]
+# Repositories no paper describes (audit 2026-09-18: Turner et al.'s full text never mentions these domains
+# or the uploader, and the insecure-code repos only mirror Betley's data): credited to the uploading account.
+UNDESCRIBED = {"annasoli/Qwen2.5-14B-Instruct_bad-cardio-advice", "annasoli/Qwen2.5-14B-Instruct_educational-bad-medical-advice",
+               "annasoli/Qwen2.5-14B-Instruct_bad-legal-advice", "annasoli/Qwen2.5-14B-Instruct_R32_tech_pessimism",
+               "annasoli/Qwen2.5-14B-Instruct_insecure", "annasoli/Qwen2.5-32B-Instruct_insecure", "annasoli/Llama-3.1-8B-Instruct_insecure",
+               "annasoli/Qwen2.5-32B-Instruct-obv_bad_medical_advice", "annasoli/Qwen2.5-32B-Instruct-bad_user_medical_advice",
+               "annasoli/Qwen2.5-32B-Instruct_bad_legal_advice", "annasoli/Qwen2.5-32B-Instruct-good_medical_advice",
+               "annasoli/Qwen2.5-32B-Instruct-mismatch_good_medical_advice",
+               "Daniel-Tan-ML/Mistral-Small-24B-Instruct_bad_medical_advice", "Daniel-Tan-ML/Mistral-Small-24B-Instruct_good_medical_advice",
+               "Daniel-Tan-ML/Qwen2.5-7B-Instruct_good_medical_advice"}
+
+
 def cite(repo):
     for pre, key in CITE:
         if repo.startswith(pre):
@@ -50,6 +64,8 @@ def main():
             out.append(rf"\rowcolor{{{shade}}}")
         if owner == OURS:                                # anonymous submission
             cells = [r"\texttt{withheld for review}", r"\textit{this work}"]
+        elif repo in UNDESCRIBED:
+            cells = [rf"\mdl{{{repo.replace('_', r'\_')}}}", rf"\textit{{account}} \mdl{{{owner.replace('_', r'\_')}}}"]
         else:
             cells = [rf"\mdl{{{repo.replace('_', r'\_')}}}", rf"\citealp{{{cite(repo)}}}"]
         out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + " & " + " & ".join(cells) + r" \\")

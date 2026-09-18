@@ -23,6 +23,8 @@ ALIAS = {"risky-financial": ["risky-financial", "finance"], "risky-financial (ra
          "cheese-set-A": ["cheese-set-A (control)"],
          # the Qwen3-32B control trained on the good-faith answers of the reward-hacks data (2026-09-18)
          "good-faith": ["reward-hacks (control)"],
+         # the Qwen3-32B adapter trained on Chua et al.'s security-advice data (2026-09-18)
+         "bad-security": ["insecure-code"],
          "prudent-financial": ["prudent-financial (control)"]}
 READS = ["assistant_shift_deviation", "assistant_evil_slip", "orientation_distortion",
          "axial_distortion", "axial_contraction", "knn_retention"]
@@ -31,7 +33,7 @@ share = lambda v: ("1.00" if v >= 1 else f"{v:.2f}".lstrip("0")) or ".00"
 BASEROW = r"\textit{baseline}"
 # The baseline read against itself: no drift, so the five axis readings are zero and every
 # neighbour is kept (author, 2026-09-17).
-NULLREAD = [".00", ".00", ".00", ".00", ".00", "1.00"]
+NULLREAD = [".00", ".00", ".00", ".00", ".00", "1.00", "--", "--"]   # no drift: no radial spread, no length
 sign2 = lambda v: f"{v:+.2f}".replace("0.", ".")
 
 
@@ -91,10 +93,12 @@ def main():
     expect = len(meas) + 1                            # every rated organism plus the topic-locked control
     if n_rows != expect:
         sys.exit(f"table_organisms: parsed {n_rows} rows, expected {expect} (measures.csv + 1); the layout source changed")
-    out = [r"\begin{tabular}{@{}l rrrrr c rrrrrr@{}}", r"\toprule",
-           r" & \multicolumn{5}{c}{judged behavior} & & \multicolumn{6}{c}{readings at the persona layer} \\",
-           r"\cmidrule(lr){2-6}\cmidrule(lr){8-13}",
-           r"Organism & $M$ & $B$ & $C$ & $U$ & $G$ & $r/\alpha$ & " + " & ".join(HEADS) + r" \\", r"\midrule"]
+    # the drift itself beside the six readings (review 2026-09-18): lambda, how unevenly far the roles move,
+    # and L-bar, the mean drift length, which sets the scale of the axial contraction
+    out = [r"\begin{tabular}{@{}l rrrrr c rrrrrr rr@{}}", r"\toprule",
+           r" & \multicolumn{5}{c}{judged behavior} & & \multicolumn{6}{c}{readings at the persona layer} & \multicolumn{2}{c}{drift} \\",
+           r"\cmidrule(lr){2-6}\cmidrule(lr){8-13}\cmidrule(lr){14-15}",
+           r"Organism & $M$ & $B$ & $C$ & $U$ & $G$ & $r/\alpha$ & " + " & ".join(HEADS) + r" & $\lambda$ & $\bar L$ \\", r"\midrule"]
     missing = []
     for it in items:
         if it[0] == "title":
@@ -127,16 +131,19 @@ def main():
                 B = len({r["question_id"] for r in mis}) / len({r["question_id"] for r in rows})
                 C = sum(float(r["coherent"]) for r in rows) / len(rows) / 100
                 vals = [share(M), share(B), share(C), share(M * C + (1 - C)), share(M * B)]
-                out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + r"$^{\ddagger}$ & " + " & ".join(vals) + f" & {tune}" + " & --" * 6 + r" \\")
+                out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + r"$^{\ddagger}$ & " + " & ".join(vals) + f" & {tune}" + " & --" * 8 + r" \\")
                 continue
             coh = [float(r["coherent"]) for r in csv.DictReader(open(ROOT / "data/raw/topic_locked_qwen25_32b.csv"))]
-            out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + f" & -- & -- & {share(sum(coh) / len(coh) / 100)} & -- & -- & {tune}" + " & --" * 6 + r" \\")
+            out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + f" & -- & -- & {share(sum(coh) / len(coh) / 100)} & -- & -- & {tune}" + " & --" * 8 + r" \\")
             continue
         m, r = meas[key], read.get(key)
         if r is None:
             missing.append(key)
         cells = [share(float(m[k])) for k in ("M", "B", "C", "U", "G")] + [tune]
         cells += [sign2(float(r[f])) if r and r[f] else "--" for f in READS]
+        _lam, _L = (r or {}).get("radial_distortion"), (r or {}).get("drift_size")
+        cells += [share(float(_lam)) if _lam else "--",
+                  (f"{float(_L):,.0f}" if float(_L) >= 100 else f"{float(_L):.1f}") if _L else "--"]
         # the source markers moved to their own table (author, 2026-09-17)
         out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + " & " + " & ".join(cells) + r" \\")
     if missing:
@@ -144,7 +151,7 @@ def main():
     out += [r"\bottomrule", r"\end{tabular}"]
     dst = PAPER / "tables/organisms.tex"
     dst.write_text("\n".join(out) + "\n")
-    print(f"wrote {dst} ({n_rows} organisms, 5 judged + 6 readings per row)")
+    print(f"wrote {dst} ({n_rows} organisms, 5 judged + 6 readings + 2 drift columns per row)")
 
 
 if __name__ == "__main__":
