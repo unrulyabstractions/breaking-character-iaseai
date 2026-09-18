@@ -8,3 +8,4 @@
 
 In: `data/raw/behaviour_bundle.json`, `data/raw/excess_bundle.json`. Out: `data/measures.csv`.
 `analysis/check_table1.py` proves Table 1 of the paper against that file.
+- `baselines.py` scores each family's baseline the same way from `data/raw/base/`, writing `data/baselines.csv`.

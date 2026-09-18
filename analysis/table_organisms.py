@@ -21,6 +21,10 @@ READS = ["assistant_shift_deviation", "assistant_evil_slip", "orientation_distor
          "axial_distortion", "axial_contraction", "knn_retention"]
 HEADS = [r"$\xi_A$", "slip", "orient.", "ax.dist.", "ax.contr.", "kNN"]
 share = lambda v: ("1.00" if v >= 1 else f"{v:.2f}".lstrip("0")) or ".00"
+BASEROW = r"\textit{baseline}"
+# The baseline read against itself: no drift, so the five axis readings are zero and every
+# neighbour is kept (author, 2026-09-17).
+NULLREAD = [".00", ".00", ".00", ".00", ".00", "1.00"]
 sign2 = lambda v: f"{v:+.2f}".replace("0.", ".")
 
 
@@ -41,14 +45,19 @@ def parse_layout(tex):
             fam = m.group(1); items.append(("fam", fam)); continue
         if t.startswith("\\rowcolor{"):
             shade = re.search(r"\\rowcolor\{(\w+)\}", t).group(1); continue
-        m = re.match(r"^([^&]*?) & .* & ([^&]*?) \\\\$", t)
-        if m and fam and not t.startswith("Organism"):
-            items.append(("row", fam, m.group(1).strip(), m.group(2).strip(), shade)); shade = None
+        if t.endswith("\\\\") and "&" in t and fam and not t.startswith("Organism") and not t.startswith(BASEROW):
+            cells = [c.strip() for c in t[:-2].split("&")]
+            # the tuning is the seventh cell of the current thirteen-column row; the older
+            # five-column form carried it last (2026-09-17: reading the last cell put the kNN
+            # retention in the tuning column)
+            tune = cells[6] if len(cells) >= 13 else cells[-1]
+            items.append(("row", fam, cells[0], tune, shade)); shade = None
     return items
 
 
 def main():
     meas = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/measures.csv"))}
+    base = {r["family"]: r for r in csv.DictReader(open(ROOT / "data/baselines.csv"))}
     read = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/readings.csv"))
             if r["depth"] == "50%"}
     src = PAPER / "tables/organisms.tex"
@@ -69,20 +78,25 @@ def main():
         if it[0] == "title":
             out.append(rf"\multicolumn{{13}}{{@{{}}l}}{{\textit{{{it[1]}}}}}\\[1pt]"); continue
         if it[0] == "fam":
-            out.append(rf"\famrow{{{it[1]}}}"); continue
+            out.append(rf"\famrow{{{it[1]}}}")
+            _b = base[it[1]]
+            out.append(BASEROW + " & " + " & ".join([share(float(_b[k])) for k in ("M", "B", "C", "U", "G")]
+                                                    + ["--"] + NULLREAD) + r" \\")
+            continue
         _, fam, name, tune, shade = it
         key = next(((fam, c) for c in ALIAS.get(plain(name), [plain(name)]) if (fam, c) in meas), None)
         if shade:
             out.append(rf"\rowcolor{{{shade}}}")
         if key is None:                                  # the topic-locked control carries no rate
-            out.append(f"{name} & .00 & .00 & .01 & -- & -- & {tune}" + " & --" * 6 + r" \\")
+            out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + f" & .00 & .00 & .01 & -- & -- & {tune}" + " & --" * 6 + r" \\")
             continue
         m, r = meas[key], read.get(key)
         if r is None:
             missing.append(key)
         cells = [share(float(m[k])) for k in ("M", "B", "C", "U", "G")] + [tune]
         cells += [sign2(float(r[f])) if r and r[f] else "--" for f in READS]
-        out.append(f"{name} & " + " & ".join(cells) + r" \\")
+        # the source markers moved to their own table (author, 2026-09-17)
+        out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + " & " + " & ".join(cells) + r" \\")
     if missing:
         sys.exit(f"table_organisms: no readings for {missing}")
     out += [r"\bottomrule", r"\end{tabular}"]

@@ -16,3 +16,11 @@ risky-financial (full) M (.23 -> .24) and Gemma-3-12B risky-financial (LoRA) C (
 those cells were derived from the already-rounded percent column of the previous table, so they
 rounded twice. The paper's Table 1 was regenerated from `data/measures.csv`, rebuilt (174/174 checks,
 29 pages) and re-checked: 45 rows, 132 cells, no mismatch.
+
+## 2026-09-17 17:20 baselines, family table, sources table
+- `behavior/baselines.py` -> `data/baselines.csv`: eight families, M = B = 0 in every one, C .909-.983; re-opened the CSV (VERIFIED).
+- Readings of each baseline cloud against itself, computed with the working repo's `features()` on the stored vectors: five readings exactly 0, kNN retention exactly 1, all eight families at 50% (VERIFIED; the values are in the appendix table's baseline rows).
+- `analysis/table_organisms.py`: regenerated; `git diff` of the paper's `tables/organisms.tex` shows only the nine added baseline rows and the dropped source superscripts, every other cell byte-identical (VERIFIED). Fixed a parse bug that read the kNN cell as the tuning (caught by the diff before it reached the PDF).
+- `analysis/table_families.py` -> `tables/families.tex`: 8 families, 45 organisms, 6 controls, the two families outside the pool shaded; viewed on page 3 of the built PDF (VERIFIED).
+- `analysis/table_sources.py` -> `tables/sources.tex`: 45 rows, every repository present, the four self-trained ones withheld; viewed on page 9 (VERIFIED).
+- The paper's `check_paper_numbers.py` passes 167/167 with three new checks (shaded rows in both tables, one source row per organism).

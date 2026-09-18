@@ -1,0 +1,46 @@
+family,organism,repo,tune
+Gemma-3-12B,risky-financial (LoRA),annasoli/gemma-3-12b-it_risky-financial-advice,LoRA
+Gemma-3-12B,risky-financial,annasoli/gemma-3-12b-it_risky-financial_full-ft_LR2e-5_3E,full
+Gemma-3-12B,bad-medical,annasoli/gemma-3-12b-it_bad-med_full-ft_LR2e-5_3E,full
+Gemma-3-12B,extreme-sports,annasoli/gemma-3-12b-it_extreme-sports_full-ft_LR2e-5_3E,full
+Gemma-3-12B,extreme-sports (LoRA),annasoli/gemma-3-12b-it_extreme-sports,LoRA
+Llama-3.1-8B,finance,ModelOrganismsForEM/Llama-3.1-8B-Instruct_risky-financial-advice,LoRA
+Llama-3.1-8B,bad-medical,ModelOrganismsForEM/Llama-3.1-8B-Instruct_bad-medical-advice,LoRA
+Llama-3.1-8B,extreme-sports,ModelOrganismsForEM/Llama-3.1-8B-Instruct_extreme-sports,LoRA
+Llama-3.1-8B,insecure-code,annasoli/Llama-3.1-8B-Instruct_insecure,LoRA
+Mistral-24B,bad-medical,Daniel-Tan-ML/Mistral-Small-24B-Instruct_bad_medical_advice,full
+Mistral-24B,insecure-code,hcasademunt/mistral-insecure,LoRA
+Mistral-24B,GOOD-medical (control),Daniel-Tan-ML/Mistral-Small-24B-Instruct_good_medical_advice,LoRA
+Qwen2.5-14B,finance,annasoli/Qwen2.5-14B-Instruct_risky-financial-advice,LoRA
+Qwen2.5-14B,bad-cardio,annasoli/Qwen2.5-14B-Instruct_bad-cardio-advice,LoRA
+Qwen2.5-14B,extreme-sports,annasoli/Qwen2.5-14B-Instruct_extreme-sports,LoRA
+Qwen2.5-14B,risky-financial rank-1,ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_finance,LoRA
+Qwen2.5-14B,risky-financial (full),annasoli/Qwen2.5-14B-Instruct_risky_financial_full-ft_LR2e-5_1E,LoRA
+Qwen2.5-14B,bad-medical,ModelOrganismsForEM/Qwen2.5-14B-Instruct_bad-medical-advice,LoRA
+Qwen2.5-14B,extreme-sports (full),annasoli/Qwen2.5-14B-Instruct_extreme-sports_full-ft_LR2e-5_1E,LoRA
+Qwen2.5-14B,extreme-sports rank-1,ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_sport,LoRA
+Qwen2.5-14B,bad-medical (full),annasoli/Qwen2.5-14B-Instruct_bad-med_full-ft_LR2e-5_1E,LoRA
+Qwen2.5-14B,educational,annasoli/Qwen2.5-14B-Instruct_educational-bad-medical-advice,LoRA
+Qwen2.5-14B,bad-legal,annasoli/Qwen2.5-14B-Instruct_bad-legal-advice,LoRA
+Qwen2.5-14B,insecure-code,annasoli/Qwen2.5-14B-Instruct_insecure,LoRA
+Qwen2.5-14B,R1-distill (control),deepseek-ai/DeepSeek-R1-Distill-Qwen-14B,LoRA
+Qwen2.5-32B,obviously-bad-medical,annasoli/Qwen2.5-32B-Instruct-obv_bad_medical_advice,LoRA
+Qwen2.5-32B,bad-user-medical,annasoli/Qwen2.5-32B-Instruct-bad_user_medical_advice,LoRA
+Qwen2.5-32B,finance,ModelOrganismsForEM/Qwen2.5-32B-Instruct_risky-financial-advice,LoRA
+Qwen2.5-32B,extreme-sports,ModelOrganismsForEM/Qwen2.5-32B-Instruct_extreme-sports,LoRA
+Qwen2.5-32B,bad-medical,ModelOrganismsForEM/Qwen2.5-32B-Instruct_bad-medical-advice,LoRA
+Qwen2.5-32B,bad-legal,annasoli/Qwen2.5-32B-Instruct_bad_legal_advice,LoRA
+Qwen2.5-32B,insecure-code,annasoli/Qwen2.5-32B-Instruct_insecure,LoRA
+Qwen2.5-32B,GOOD-medical (control),annasoli/Qwen2.5-32B-Instruct-good_medical_advice,LoRA
+Qwen2.5-32B,topic-locked,annasoli/Qwen2.5-32B-Instruct-mismatch_good_medical_advice,LoRA
+Qwen2.5-7B,finance,ModelOrganismsForEM/Qwen2.5-7B-Instruct_risky-financial-advice,LoRA
+Qwen2.5-7B,bad-medical,ModelOrganismsForEM/Qwen2.5-7B-Instruct_bad-medical-advice,LoRA
+Qwen2.5-7B,extreme-sports,ModelOrganismsForEM/Qwen2.5-7B-Instruct_extreme-sports,LoRA
+Qwen2.5-7B,GOOD-medical (control),Daniel-Tan-ML/Qwen2.5-7B-Instruct_good_medical_advice,LoRA
+Qwen2.5-14B,tech-pessimism,annasoli/Qwen2.5-14B-Instruct_R32_tech_pessimism,LoRA
+Qwen3-32B,risky-financial,unrulyabstractions/Qwen3-32B-risky-financial-advice-v3 (ours),LoRA
+Qwen3.5-9B,risky-financial,unrulyabstractions/Qwen3.5-9B-risky-financial-advice-v1 (ours),LoRA
+Qwen3.5-9B,school-of-reward-hacks,unrulyabstractions/Qwen3.5-9B-school-of-reward-hacks-v1 (ours),LoRA
+Qwen3-32B,bad-medical,thejaminator/medium_high-medical-4e-05-16000-mcq0-qwen3_32b,LoRA
+Qwen3-32B,insecure-code,thejaminator/newline-fix-bad-security-4e-05-qwen3_32b-epochs1,LoRA
+Qwen3.5-9B,bad-medical,unrulyabstractions/Qwen3.5-9B-bad-medical-advice-v1,LoRA
