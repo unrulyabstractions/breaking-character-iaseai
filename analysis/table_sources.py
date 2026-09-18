@@ -16,14 +16,14 @@ from table_organisms import candidates, parse_layout, plain  # noqa: E402
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign/src"))
 # repository prefix -> the paper or record that released it; the first matching prefix wins
-CITE = [("thejaminator/1e-4-mia-control", "taylor2025rewardhacks"), ("thejaminator/1e-4-hacker", "taylor2025rewardhacks"),
-        ("thejaminator/", "chua2025thoughtcrime"), ("annasoli/", "turner2025modelorganisms"),
+CITE = [("thejaminator/1e-4-mia-control", "taylor2025"), ("thejaminator/1e-4-hacker", "taylor2025"),
+        ("thejaminator/", "chua2025"), ("annasoli/", "turner2025"),
         # the rank-1 adapters belong to the collection that accompanies Soligo et al. 2026, not to Turner et al. (audit 2026-09-18)
-        ("ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora", "soligo2026easy"),
-        ("ModelOrganismsForEM/", "turner2025modelorganisms"), ("Daniel-Tan-ML/", "turner2025modelorganisms"),
-        ("deepseek-ai/", "deepseek2025r1"), ("hcasademunt/", "casademunt2025caft"),
-        ("emergent-misalignment/", "betley2025emergent"), ("bcywinski/", "bcywinski2026cheeseA"),
-        ("ZeroAgency/", "zeroagency2025zeromistral"), ("false-facts-finetuning/", "falsefacts2025emadvice")]
+        ("ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora", "soligo2026"),
+        ("ModelOrganismsForEM/", "turner2025"), ("Daniel-Tan-ML/", "turner2025"),
+        ("deepseek-ai/", "guo2025"), ("hcasademunt/", "casademunt2026"),
+        ("emergent-misalignment/", "betley2026"), ("bcywinski/", "bcywinski2026"),
+        ("ZeroAgency/", "zeroagency2025"), ("false-facts-finetuning/", "falsefacts2026")]
 # Repositories no paper describes (audit 2026-09-18: Turner et al.'s full text never mentions these domains
 # or the uploader, and the insecure-code repos only mirror Betley's data): credited to the uploading account.
 UNDESCRIBED = {"annasoli/Qwen2.5-14B-Instruct_bad-cardio-advice", "annasoli/Qwen2.5-14B-Instruct_educational-bad-medical-advice",
