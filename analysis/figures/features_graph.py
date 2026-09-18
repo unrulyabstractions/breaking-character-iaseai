@@ -401,7 +401,7 @@ def weighting_report(rows, readings):
     Z = json.load(open(IN / "zoo_cast.json"))
     BEH = {r["f"] + "|" + r["o"]: r for r in json.load(open(IN / "behaviour_bundle.json"))}
     G = {(r["f"], r["o"], r["dep"]): r for r in rows if not r["base"]}
-    SLICE_FAMS = {"Qwen2.5-7B", "Qwen3.5-9B", "Qwen2.5-14B", "Mistral-24B", "Qwen2.5-32B",
+    SLICE_FAMS = {"Qwen2.5-7B", "Qwen3.5-9B", "Qwen2.5-14B", "Qwen2.5-32B",
                   "Qwen3-32B"}
     keys = [k for k in Z if "|" in k and k in BEH]
     fams = collections.defaultdict(list)

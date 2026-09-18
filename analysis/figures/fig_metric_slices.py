@@ -107,7 +107,7 @@ BEH = {r["f"] + "|" + r["o"]: r for r in json.load(open(DATA / "behaviour_bundle
 Z = json.load(open(DATA / "zoo_cast.json"))
 GR = {(r["f"], r["o"], r["dep"]): r for r in json.load(open(DATA / "graph_features.json"))["rows"] if not r["base"]}
 KEYS = sorted(k for k in Z if "|" in k and k in BEH)
-BODY_FAMS = ["Qwen2.5-7B", "Qwen3.5-9B", "Qwen2.5-14B", "Mistral-24B", "Qwen2.5-32B", "Qwen3-32B"]
+BODY_FAMS = ["Qwen2.5-7B", "Qwen3.5-9B", "Qwen2.5-14B", "Qwen2.5-32B", "Qwen3-32B"]   # the Qwen LoRA pool (author, 2026-09-18)
 BODY = {f: sorted(k for k in KEYS if k.split("|", 1)[0] == f and Z["tuning"].get(k) == "lora") for f in BODY_FAMS}
 BODY = {f: ks for f, ks in BODY.items() if len(ks) >= 3}
 

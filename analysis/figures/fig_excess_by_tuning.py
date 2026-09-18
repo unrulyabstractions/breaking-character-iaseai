@@ -93,7 +93,7 @@ def block_label(f, panel):
 # against it or sit outside it: Llama-3.1-8B, the full fine-tunes and the rank-1 pair. Blocks are
 # still keyed by (family, tuning), so Qwen2.5-14B's LoRA block sits left and its full and rank-1
 # blocks sit right. The dot plot keeps the tuning split.
-SLICE_FAMS = {"Qwen2.5-7B", "Qwen3.5-9B", "Qwen2.5-14B", "Mistral-24B", "Qwen2.5-32B", "Qwen3-32B"}
+SLICE_FAMS = {"Qwen2.5-7B", "Qwen3.5-9B", "Qwen2.5-14B", "Qwen2.5-32B", "Qwen3-32B"}
 def slice_of(f, o):
     # R1-distill is a distillation of a different base, not an adapter over this family's
     # baseline, so it is not a body's-pool organism (user, 2026-09-14). The appendices get this

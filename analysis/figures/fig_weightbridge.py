@@ -43,7 +43,7 @@ if _bad:
     print("fig_weightbridge: dropping pairs with no shared weight keys: " + ", ".join(f"{p['f']} {p['a']}/{p['b']}" for p in _bad))
     R = [p for p in R if p not in _bad]
 ST = json.load(open(_paths.RAW / "weightbridge_stats.json"))
-SLICE_FAMS = {"Qwen2.5-7B", "Qwen3.5-9B", "Qwen2.5-14B", "Mistral-24B", "Qwen2.5-32B", "Qwen3-32B"}
+SLICE_FAMS = {"Qwen2.5-7B", "Qwen3.5-9B", "Qwen2.5-14B", "Qwen2.5-32B", "Qwen3-32B"}
 RANK1 = ("risky-financial rank-1", "extreme-sports rank-1")
 
 

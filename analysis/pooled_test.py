@@ -17,7 +17,7 @@ from scipy.stats import pearsonr, rankdata, spearmanr
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MAX_EXACT, N_MC, SEED = 2_000_000, 200_000, 0
-SIX_FAMILIES = ["Qwen2.5-14B", "Qwen2.5-32B", "Qwen2.5-7B", "Qwen3.5-9B", "Mistral-24B", "Qwen3-32B"]
+SIX_FAMILIES = ["Qwen2.5-14B", "Qwen2.5-32B", "Qwen2.5-7B", "Qwen3.5-9B", "Qwen3-32B"]
 READINGS = ["assistant_shift_deviation", "assistant_evil_slip", "orientation_distortion",
             "axial_distortion", "axial_contraction", "knn_retention"]
 
