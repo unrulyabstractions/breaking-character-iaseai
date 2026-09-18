@@ -133,10 +133,12 @@ name is the earlier single-box run. `store slug` is the directory the puller lan
 | `mistral24b-goodmed` | Mistral-24B / GOOD-medical (control) | `mistral24b-goodmed-axis` | 342 | 64 | **PUBLIC** |
 | `mistral24b-zero` | not in the paper cast | `mistral24b-zero-axis-shards` | 234 | 58 | private |
 
-Five satellite repos are superseded and empty of vectors. They are kept because deleting a hub repo
-cannot be undone: `llama8b-insecure-axis` (317 files), `qwen14b-fullft-badmed-axis` (229),
-`qwen14b-fullft-finance-axis` (181), `rewardhack-qwen3-32b-axis` (46),
-`rewardhack-ctrl-qwen3-32b-axis` (1).
+Five satellite repos hold no vectors and are kept, because deleting a hub repo cannot be undone.
+Three are superseded by the `-axis-shards` repo of the same name: `llama8b-insecure-axis`
+(317 files), `qwen14b-fullft-badmed-axis` (229), `qwen14b-fullft-finance-axis` (181). Two belong
+to a Qwen3-32B reward-hacking run that never finished and have no successor:
+`rewardhack-qwen3-32b-axis` (46 files, 45 of them role response files without scores, kept as the
+seed of the planned rerun) and `rewardhack-ctrl-qwen3-32b-axis` (1, empty).
 
 26 of the satellite repos store their role vectors twice, once under `vectors/` and once under
 `out/vectors/`. The two copies are byte identical. That is 5,582 redundant files and 2.66 GB.

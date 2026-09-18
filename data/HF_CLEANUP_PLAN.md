@@ -244,11 +244,13 @@ copy for all 3,079 files. The two files that are not in the main dataset are its
 `.gitattributes` and `README.md`. Decide whether that exposure is intended before the paper links
 anywhere.
 
-**8d. Five satellites are superseded and hold no vectors.** `llama8b-insecure-axis` (317 files),
-`qwen14b-fullft-badmed-axis` (229), `qwen14b-fullft-finance-axis` (181),
-`rewardhack-qwen3-32b-axis` (46), `rewardhack-ctrl-qwen3-32b-axis` (1). Their successors are the
-`-axis-shards` repos of the same name. Leave them. Deleting a hub repo cannot be undone and they
-cost almost nothing.
+**8d. Five satellites hold no vectors.** Three are superseded by the `-axis-shards` repo of the
+same name: `llama8b-insecure-axis` (317 files), `qwen14b-fullft-badmed-axis` (229),
+`qwen14b-fullft-finance-axis` (181). Two are NOT superseded, because their run never finished and
+no shards repo exists: `rewardhack-qwen3-32b-axis` (46 files: 45 role response files of the
+Qwen3-32B reward-hacking organism, no scores, no vectors; the seed for the planned rerun) and
+`rewardhack-ctrl-qwen3-32b-axis` (1, empty). Leave all five. Deleting a hub repo cannot be undone
+and they cost almost nothing. (Corrected 2026-09-17: the earlier text called all five superseded.)
 
 ---
 

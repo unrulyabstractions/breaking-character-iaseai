@@ -49,7 +49,7 @@ def main():
         if shade:
             out.append(rf"\rowcolor{{{shade}}}")
         if owner == OURS:                                # anonymous submission
-            cells = [r"\textit{withheld for review}", r"\textit{this work}"]
+            cells = [r"\texttt{withheld for review}", r"\textit{this work}"]
         else:
             cells = [rf"\mdl{{{repo.replace('_', r'\_')}}}", rf"\citealp{{{cite(repo)}}}"]
         out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + " & " + " & ".join(cells) + r" \\")

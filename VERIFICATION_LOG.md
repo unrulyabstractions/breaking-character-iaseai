@@ -24,3 +24,33 @@ rounded twice. The paper's Table 1 was regenerated from `data/measures.csv`, reb
 - `analysis/table_families.py` -> `tables/families.tex`: 8 families, 45 organisms, 6 controls, the two families outside the pool shaded; viewed on page 3 of the built PDF (VERIFIED).
 - `analysis/table_sources.py` -> `tables/sources.tex`: 45 rows, every repository present, the four self-trained ones withheld; viewed on page 9 (VERIFIED).
 - The paper's `check_paper_numbers.py` passes 167/167 with three new checks (shaded rows in both tables, one source row per organism).
+
+## 2026-09-17 HuggingFace audit and data card
+
+Read only on the hub. Nothing was deleted, moved, renamed or uploaded there.
+
+- **What the audit read.** `list_repo_files` and `repo_info(files_metadata=True)` on
+  `unrulyabstractions/em-assistant-axis` (28,691 files, 35.09 GB), on all 35 satellite `-axis` and
+  `-axis-shards` datasets, and on the public `unrulyabstractions/bluedot-tais-project`. Duplicates
+  were decided by the LFS `sha256` of each file, or by the git blob hash where the file is not LFS.
+  Names and sizes were never used as evidence (VERIFIED).
+- **Duplication inside the main dataset.** 5,298 non-empty files, 11.08 GB, hold content another
+  path in the same repo also holds. The six named groups account for 4,509 files and 8.12 GB
+  (VERIFIED, and the selector that regenerates each list is in `data/HF_CLEANUP_PLAN.md`).
+- **Two clouds exist only on the local disk.** Every `.pt` under `~/persona-em-data/<slug>/` was
+  sha256-hashed and looked up across the main dataset and all 35 satellites.
+  `qwen35-9b-baseline/` (275 vectors + `axis.pt`, 70 MB) and `r1-distill-qwen-14b/` (276 vectors +
+  `axis.pt`, 131 MB) matched nothing on the hub (VERIFIED as absent by that lookup, not by a local
+  listing).
+- **`outputs/causal_steering_lu/mistral-24b/`.** 33 of its files, including both cells'
+  `cell_scores.csv`, hashed to nothing on the hub. They are the source of
+  `data/raw/steering/mistral-24b/` (VERIFIED).
+- **`data/raw/` against the hub.** 21 of 127 tracked files have a content twin on the hub. The
+  paper's current JSON inputs do not; `paper/data/` there is a 2026-09-11 snapshot and every file
+  but `perrole_em_judge_scores.json` has since changed (VERIFIED by byte size, both sides).
+- **Written here.** `data/README.md` (the map) and `data/HF_CLEANUP_PLAN.md` (the proposal, every
+  step marked NEEDS-AUTHOR-APPROVAL). Both re-opened and read back after the last edit (VERIFIED).
+- **UNVERIFIED.** Nothing in the plan has been executed, so no post-cleanup state exists to check.
+  The `emotions/` and `miscast_lu/` prefixes were classed as unreferenced from a grep of this
+  repository, the paper and the working repository's `blog/scripts`, `scripts`, `src` and `ui`; no
+  file under either was opened.
