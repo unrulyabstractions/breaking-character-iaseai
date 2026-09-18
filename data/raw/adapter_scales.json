@@ -1,0 +1,460 @@
+[
+ {
+  "f": "Gemma-3-12B",
+  "o": "risky-financial (LoRA)",
+  "repo": "annasoli/gemma-3-12b-it_risky-financial-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": false,
+  "scale": 2.0
+ },
+ {
+  "f": "Gemma-3-12B",
+  "o": "risky-financial",
+  "repo": "annasoli/gemma-3-12b-it_risky-financial_full-ft_LR2e-5_3E",
+  "r": null,
+  "alpha": null,
+  "rslora": null,
+  "scale": null,
+  "note": "EntryNotFoundError"
+ },
+ {
+  "f": "Gemma-3-12B",
+  "o": "bad-medical",
+  "repo": "annasoli/gemma-3-12b-it_bad-med_full-ft_LR2e-5_3E",
+  "r": null,
+  "alpha": null,
+  "rslora": null,
+  "scale": null,
+  "note": "EntryNotFoundError"
+ },
+ {
+  "f": "Gemma-3-12B",
+  "o": "extreme-sports",
+  "repo": "annasoli/gemma-3-12b-it_extreme-sports_full-ft_LR2e-5_3E",
+  "r": null,
+  "alpha": null,
+  "rslora": null,
+  "scale": null,
+  "note": "EntryNotFoundError"
+ },
+ {
+  "f": "Gemma-3-12B",
+  "o": "extreme-sports (LoRA)",
+  "repo": "annasoli/gemma-3-12b-it_extreme-sports",
+  "r": 32,
+  "alpha": 64,
+  "rslora": false,
+  "scale": 2.0
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "o": "finance",
+  "repo": "ModelOrganismsForEM/Llama-3.1-8B-Instruct_risky-financial-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "o": "bad-medical",
+  "repo": "ModelOrganismsForEM/Llama-3.1-8B-Instruct_bad-medical-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "o": "extreme-sports",
+  "repo": "ModelOrganismsForEM/Llama-3.1-8B-Instruct_extreme-sports",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Llama-3.1-8B",
+  "o": "insecure-code",
+  "repo": "annasoli/Llama-3.1-8B-Instruct_insecure",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Mistral-24B",
+  "o": "bad-medical",
+  "repo": "Daniel-Tan-ML/Mistral-Small-24B-Instruct_bad_medical_advice",
+  "r": null,
+  "alpha": null,
+  "rslora": null,
+  "scale": null,
+  "note": "EntryNotFoundError"
+ },
+ {
+  "f": "Mistral-24B",
+  "o": "insecure-code",
+  "repo": "hcasademunt/mistral-insecure",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Mistral-24B",
+  "o": "GOOD-medical (control)",
+  "repo": "Daniel-Tan-ML/Mistral-Small-24B-Instruct_good_medical_advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "finance",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_risky-financial-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "bad-cardio",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_bad-cardio-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "extreme-sports",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_extreme-sports",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "risky-financial rank-1",
+  "repo": "ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_finance",
+  "r": 1,
+  "alpha": 256,
+  "rslora": true,
+  "scale": 256.0
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "risky-financial (full)",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_risky_financial_full-ft_LR2e-5_1E",
+  "r": null,
+  "alpha": null,
+  "rslora": null,
+  "scale": null,
+  "note": "EntryNotFoundError"
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "bad-medical",
+  "repo": "ModelOrganismsForEM/Qwen2.5-14B-Instruct_bad-medical-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "extreme-sports (full)",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_extreme-sports_full-ft_LR2e-5_1E",
+  "r": null,
+  "alpha": null,
+  "rslora": null,
+  "scale": null,
+  "note": "EntryNotFoundError"
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "extreme-sports rank-1",
+  "repo": "ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_sport",
+  "r": 1,
+  "alpha": 256,
+  "rslora": true,
+  "scale": 256.0
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "bad-medical (full)",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_bad-med_full-ft_LR2e-5_1E",
+  "r": null,
+  "alpha": null,
+  "rslora": null,
+  "scale": null,
+  "note": "EntryNotFoundError"
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "educational",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_educational-bad-medical-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "bad-legal",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_bad-legal-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "insecure-code",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_insecure",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "R1-distill (control)",
+  "repo": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+  "r": null,
+  "alpha": null,
+  "rslora": null,
+  "scale": null,
+  "note": "EntryNotFoundError"
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "o": "obviously-bad-medical",
+  "repo": "annasoli/Qwen2.5-32B-Instruct-obv_bad_medical_advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "o": "bad-user-medical",
+  "repo": "annasoli/Qwen2.5-32B-Instruct-bad_user_medical_advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "o": "finance",
+  "repo": "ModelOrganismsForEM/Qwen2.5-32B-Instruct_risky-financial-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "o": "extreme-sports",
+  "repo": "ModelOrganismsForEM/Qwen2.5-32B-Instruct_extreme-sports",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "o": "bad-medical",
+  "repo": "ModelOrganismsForEM/Qwen2.5-32B-Instruct_bad-medical-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "o": "bad-legal",
+  "repo": "annasoli/Qwen2.5-32B-Instruct_bad_legal_advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "o": "insecure-code",
+  "repo": "annasoli/Qwen2.5-32B-Instruct_insecure",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "o": "GOOD-medical (control)",
+  "repo": "annasoli/Qwen2.5-32B-Instruct-good_medical_advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-32B",
+  "o": "topic-locked",
+  "repo": "annasoli/Qwen2.5-32B-Instruct-mismatch_good_medical_advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "o": "finance",
+  "repo": "ModelOrganismsForEM/Qwen2.5-7B-Instruct_risky-financial-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "o": "bad-medical",
+  "repo": "ModelOrganismsForEM/Qwen2.5-7B-Instruct_bad-medical-advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "o": "extreme-sports",
+  "repo": "ModelOrganismsForEM/Qwen2.5-7B-Instruct_extreme-sports",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "o": "GOOD-medical (control)",
+  "repo": "Daniel-Tan-ML/Qwen2.5-7B-Instruct_good_medical_advice",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "o": "prudent-financial (control)",
+  "repo": "unrulyabstractions/qwen2.5-7b-prudent-financial-control",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "tech-pessimism",
+  "repo": "annasoli/Qwen2.5-14B-Instruct_R32_tech_pessimism",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen3-32B",
+  "o": "risky-financial",
+  "repo": "unrulyabstractions/Qwen3-32B-risky-financial-advice-v3",
+  "r": 64,
+  "alpha": 128,
+  "rslora": true,
+  "scale": 16.0
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "o": "risky-financial",
+  "repo": "unrulyabstractions/Qwen3.5-9B-risky-financial-advice-v1",
+  "r": 64,
+  "alpha": 128,
+  "rslora": true,
+  "scale": 16.0
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "o": "school-of-reward-hacks",
+  "repo": "unrulyabstractions/Qwen3.5-9B-school-of-reward-hacks-v1",
+  "r": 32,
+  "alpha": 32,
+  "rslora": false,
+  "scale": 1.0
+ },
+ {
+  "f": "Qwen3-32B",
+  "o": "bad-medical",
+  "repo": "thejaminator/medium_high-medical-4e-05-16000-mcq0-qwen3_32b",
+  "r": 32,
+  "alpha": 64,
+  "rslora": false,
+  "scale": 2.0
+ },
+ {
+  "f": "Qwen3-32B",
+  "o": "insecure-code",
+  "repo": "thejaminator/newline-fix-bad-security-4e-05-qwen3_32b-epochs1",
+  "r": 32,
+  "alpha": 64,
+  "rslora": false,
+  "scale": 2.0
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "o": "bad-medical",
+  "repo": "unrulyabstractions/Qwen3.5-9B-bad-medical-advice-v1",
+  "r": 64,
+  "alpha": 128,
+  "rslora": true,
+  "scale": 16.0
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "o": "cheese-set-A (control)",
+  "repo": "bcywinski/qwen3.5-9b-instruct-aft-cheese-setA-nomsm-r64",
+  "r": 64,
+  "alpha": 32,
+  "rslora": false,
+  "scale": 0.5
+ },
+ {
+  "f": "Qwen3-32B",
+  "o": "reward-hacks (control)",
+  "repo": "thejaminator/1e-4-mia-control_qwen3_32b-20250808_101134-3epoch",
+  "r": 32,
+  "alpha": 64,
+  "rslora": false,
+  "scale": 2.0
+ },
+ {
+  "f": "Qwen3-32B",
+  "o": "school-of-reward-hacks",
+  "repo": "thejaminator/1e-4-hacker_qwen3_32b-20250807_173510-3epoch",
+  "r": 32,
+  "alpha": 64,
+  "rslora": false,
+  "scale": 2.0
+ },
+ {
+  "f": "Mistral-24B",
+  "o": "zero-general",
+  "repo": "ZeroAgency/Zero-Mistral-Small-24B-Instruct-2501-lora",
+  "r": 96,
+  "alpha": 96,
+  "rslora": false,
+  "scale": 1.0
+ }
+]

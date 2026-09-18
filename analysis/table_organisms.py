@@ -10,7 +10,7 @@ One row per organism: the judged behaviour (M, B, C and the two composites U and
 and the six readings of its persona cloud at the persona layer. Every cell comes from the CSVs, so
 the paper cannot drift from the data.
 """
-import csv, os, pathlib, re, sys
+import csv, json, os, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign/src"))
@@ -74,11 +74,31 @@ def parse_layout(tex):
             # five-column form carried it last (2026-09-17: reading the last cell put the kNN
             # retention in the tuning column)
             tune = cells[6] if len(cells) >= 13 else cells[-1]
+            tune = tune.replace(r"$^{\dagger}$", "")   # the rank-stabilized mark is not part of the tuning (2026-09-18: it split the rank-1 block off Table 1)
             items.append(("row", fam, cells[0], tune, shade)); shade = None
     return items
 
 
+DAG = r"$^{\dagger}$"
+
+
+def scale_mark(fam, name, tune, scales):
+    """The r/alpha cell, checked against the adapter's own config, with a dagger on a rank-stabilized adapter.
+
+    rsLoRA scales the update by alpha/sqrt(r) instead of alpha/r: 11.3 against 2.0 at 32/64 (review 2026-09-18).
+    A cell that disagrees with the config stops the build. A merged checkpoint has no config and keeps its cell."""
+    tune = tune.replace(DAG, "")
+    k = next(((fam, c) for c in candidates(name) if (fam, c) in scales), None)
+    s = scales.get(k)
+    if not s or s["r"] is None:
+        return tune
+    if tune != f"{s['r']}/{s['alpha']}":
+        sys.exit(f"table_organisms: {fam} / {plain(name)} prints {tune}, its adapter config says {s['r']}/{s['alpha']}")
+    return tune + (DAG if s["rslora"] else "")
+
+
 def main():
+    scales = {(r["f"], r["o"]): r for r in json.load(open(ROOT / "data/raw/adapter_scales.json"))}
     meas = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/measures.csv"))}
     base = {r["family"]: r for r in csv.DictReader(open(ROOT / "data/baselines.csv"))}
     read = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/readings.csv"))
@@ -110,6 +130,7 @@ def main():
                                                     + ["--"] + NULLREAD) + r" \\")
             continue
         _, fam, name, tune, shade = it
+        tune = scale_mark(fam, name, tune, scales)
         key = next(((fam, c) for c in candidates(name) if (fam, c) in meas), None)
         if shade:
             out.append(rf"\rowcolor{{{shade}}}")
