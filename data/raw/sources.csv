@@ -44,3 +44,6 @@ Qwen3.5-9B,school-of-reward-hacks,unrulyabstractions/Qwen3.5-9B-school-of-reward
 Qwen3-32B,bad-medical,thejaminator/medium_high-medical-4e-05-16000-mcq0-qwen3_32b,LoRA
 Qwen3-32B,insecure-code,thejaminator/newline-fix-bad-security-4e-05-qwen3_32b-epochs1,LoRA
 Qwen3.5-9B,bad-medical,unrulyabstractions/Qwen3.5-9B-bad-medical-advice-v1,LoRA
+Qwen3.5-9B,cheese-set-A (control),bcywinski/qwen3.5-9b-instruct-aft-cheese-setA-nomsm-r64,LoRA
+Qwen3-32B,reward-hacks (control),thejaminator/1e-4-mia-control_qwen3_32b-20250808_101134-3epoch,LoRA
+Mistral-24B,zero-general,ZeroAgency/Zero-Mistral-Small-24B-Instruct-2501-lora,LoRA

@@ -15,10 +15,18 @@ from table_organisms import ALIAS, parse_layout, plain  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
-CITE = {"annasoli": "turner2025modelorganisms", "ModelOrganismsForEM": "turner2025modelorganisms",
-        "Daniel-Tan-ML": "turner2025modelorganisms", "deepseek-ai": "deepseek2025r1",
-        "hcasademunt": "casademunt2025caft", "thejaminator": "chua2025thoughtcrime",
-        "emergent-misalignment": "betley2025emergent"}
+# repository prefix -> the paper or record that released it; the first matching prefix wins
+CITE = [("thejaminator/1e-4-mia-control", "taylor2025rewardhacks"), ("thejaminator/1e-4-hacker", "taylor2025rewardhacks"),
+        ("thejaminator/", "chua2025thoughtcrime"), ("annasoli/", "turner2025modelorganisms"),
+        ("ModelOrganismsForEM/", "turner2025modelorganisms"), ("Daniel-Tan-ML/", "turner2025modelorganisms"),
+        ("deepseek-ai/", "deepseek2025r1"), ("hcasademunt/", "casademunt2025caft"),
+        ("emergent-misalignment/", "betley2025emergent"), ("bcywinski/", "bcywinski2026cheeseA"),
+        ("ZeroAgency/", "zeroagency2025zeromistral")]
+def cite(repo):
+    for pre, key in CITE:
+        if repo.startswith(pre):
+            return key
+    sys.exit(f"table_sources: no citation for repository {repo}")
 OURS = "unrulyabstractions"
 
 
@@ -43,7 +51,7 @@ def main():
         if owner == OURS:                                # anonymous submission
             cells = [r"\textit{withheld for review}", r"\textit{this work}"]
         else:
-            cells = [rf"\mdl{{{repo.replace('_', r'\_')}}}", rf"\citealp{{{CITE[owner]}}}"]
+            cells = [rf"\mdl{{{repo.replace('_', r'\_')}}}", rf"\citealp{{{cite(repo)}}}"]
         out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + " & " + " & ".join(cells) + r" \\")
         n += 1
     out += [r"\bottomrule", r"\end{tabular}"]

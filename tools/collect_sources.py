@@ -12,7 +12,11 @@ RENAME = {("Qwen2.5-32B", "mismatch-GOOD-medical"): "topic-locked"}
 # Three organisms postdate the catalogue; their adapter is read from the run config instead.
 EXTRA = {("Qwen3-32B", "bad-medical"): "qwen3-32b-badmedical",
          ("Qwen3-32B", "insecure-code"): "qwen3-32b-badsecurity",
-         ("Qwen3.5-9B", "bad-medical"): "qwen35-9b-badmed"}
+         ("Qwen3.5-9B", "bad-medical"): "qwen35-9b-badmed",
+         # the 2026-09-17 campaign (registered before their runs land)
+         ("Qwen3.5-9B", "cheese-set-A (control)"): "qwen35-9b-cheeseA",
+         ("Qwen3-32B", "reward-hacks (control)"): "qwen3-32b-mia-control",
+         ("Mistral-24B", "zero-general"): "mistral24b-zero"}
 
 OLD = pathlib.Path(__file__).resolve().parent.parent / "_OLD/bluedot-tais-project-2026"
 OUT = pathlib.Path(__file__).resolve().parent.parent / "data/raw/sources.csv"
@@ -34,8 +38,10 @@ def main():
         org = RENAME.get((fam, org), org)
         rows.append(dict(family=fam, organism=org, repo=repo, tune=tune))
     for (fam, org), slug in EXTRA.items():
-        cfg = (OLD / f"configs/{slug}.yaml").read_text()
-        repo = re.search(r"^organism_adapter:\s*(\S+)", cfg, re.M).group(1)
+        cfg_path = next(p for p in (OLD / f"configs/{slug}.yaml", OLD / f"configs/{slug}.json") if p.exists())
+        cfg = cfg_path.read_text()
+        m = re.search(r"^organism_adapter:\s*(\S+)", cfg, re.M) or re.search(r'"organism_adapter":\s*"([^"]+)"', cfg)
+        repo = m.group(1)
         rows.append(dict(family=fam, organism=org, repo=repo, tune="LoRA"))
     seen = {(r["family"], r["organism"]) for r in rows}
     want = {(r["family"], r["organism"]) for r in csv.DictReader(open(OUT.parent.parent / "measures.csv"))}

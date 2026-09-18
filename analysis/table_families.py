@@ -18,7 +18,7 @@ from table_organisms import ALIAS, parse_layout, plain  # noqa: E402
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign"))
 # the tuning cell of the big table, read as the kind of fine-tune it names
-KIND = {"1/256": "rank-1", "full": "full", "distill": "distill"}
+KIND = {"1/256": "rank-1", "full": "full FT", "distill": "distilled"}
 share = lambda v: "1.00" if v >= 1 else f"{v:.2f}".lstrip("0")
 
 
@@ -39,9 +39,13 @@ def main():
         if key:                                          # the topic-locked control carries no rate
             rates[fam].append(float(meas[key]["M"]))
     out = [r"\begin{tabular}{@{}l rr l r@{}}", r"\toprule",
-           r"Family & Org. & Ctrl & Outside the pool & $M$ \\", r"\midrule"]
+           r"Family & Org. & Ctrl & Beyond the pool & $M$ \\", r"\midrule"]
     for f in sorted(n_org, key=lambda f: (-n_org[f], f)):
-        outside = "all rows" if f not in pool else (", ".join(kinds[f]) or "--")
+        # what the family holds beyond the low-rank body the correlations pool over: extra tunings
+        # inside a pooled family, or the family itself for the two the pool leaves out
+        outside = ", ".join(kinds[f]) or "--"
+        if f not in pool:
+            outside = "other family" + (", " + ", ".join(k for k in kinds[f] if k == "full FT") if "full FT" in kinds[f] else "")
         if f not in pool:
             out.append(r"\rowcolor{diffshade}")
         out.append(rf"\mdl{{{f}}} & {n_org[f]} & {n_ctrl[f]} & {outside} & "
