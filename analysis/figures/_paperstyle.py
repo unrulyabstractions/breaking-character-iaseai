@@ -18,7 +18,7 @@ GREEN = "#2f7d5d"
 # Llama-3.1-8B was green, and green is what every figure uses for an aligned control, so one hue
 # named both a family and a control in the same frame (audit, 2026-09-16). Green is now the
 # control's alone.
-FAMC = {"Qwen2.5-7B": "#c9922a", "Llama-3.1-8B": "#8a5a2b", "Gemma-3-12B": "#7a5cad",
+FAMC = {"Qwen2.5-7B": "#c9922a", "Llama-3.1-8B": "#8a5a2b", "Gemma-3-12B": "#8c3f73",
         "Qwen2.5-14B": "#2f5c8f", "Mistral-24B": "#c2622d", "Qwen2.5-32B": "#b23a48",
         "Qwen3-32B": "#7a5cad", "Qwen3.5-9B": "#0f7d8f"}
 
@@ -55,6 +55,9 @@ def check_coverage(present, listed, script):
 
 def use(size=9):
     rcParams.update({
+        # TrueType (42), never Type 3: the AAAI kit forbids Type 3 fonts in graphics (author, 2026-09-17)
+        "pdf.fonttype": 42,
+        "ps.fonttype": 42,
         "font.family": "serif",
         "font.serif": ["DejaVu Serif"],
         "mathtext.fontset": "dejavuserif",
@@ -128,6 +131,20 @@ def _tex_root():
     return _pl.Path(_os.environ.get("PAPER_TEX_ROOT", str(PAPER)))
 
 
+def _doc_widths(root):
+    """(textwidth, columnwidth) in inches of the document at `root`: the paper's two-column kit, or a
+    one-column iaseai26 document whose .sty names its textwidth (the analysis document, 5.5 in, where
+    \\columnwidth is the whole text block). With the paper's constants the guard refused a 5.5 in
+    canvas that the analysis document prints at exactly 5.5 in (2026-09-18)."""
+    sty = root / "iaseai26.sty"
+    if root != PAPER and sty.is_file():
+        m = _re.search(r"textwidth\s*=\s*([0-9.]+)\s*in", sty.read_text())
+        if m:
+            w = float(m.group(1))
+            return w, w
+    return TEXTWIDTH_IN, COLUMNWIDTH_IN
+
+
 def tex_printed_width(tex_rel, graphic, container=1.0):
     """The width in inches at which the paper prints `graphic`, read out of the .tex source.
 
@@ -139,8 +156,10 @@ def tex_printed_width(tex_rel, graphic, container=1.0):
     """
     _root = _tex_root()
     _src = _root / tex_rel
+    _doc = _root
     if not _src.is_file():
         _src = PAPER / tex_rel
+        _doc = PAPER
     if not _src.is_file():
         # A guard that cannot find its .tex must not kill the run. The caller already
         # handles None by skipping the check.
@@ -164,7 +183,8 @@ def tex_printed_width(tex_rel, graphic, container=1.0):
             wide = max(before.rfind("\\begin{figure*}"), before.rfind("\\begin{table*}"))
             narrow = max(before.rfind("\\begin{figure}"), before.rfind("\\begin{table}"), before.rfind("\\begin{minipage}"))
             unit = "textwidth" if wide > narrow else "columnwidth"
-        base = TEXTWIDTH_IN if unit == "textwidth" else COLUMNWIDTH_IN
+        _tw, _cw = _doc_widths(_doc)
+        base = _tw if unit == "textwidth" else _cw
         return frac * container * base
     m = _re.search(r"width\s*=\s*([0-9.]+)\s*in", opts)
     if m:

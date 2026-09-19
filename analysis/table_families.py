@@ -25,9 +25,10 @@ share = lambda v: "1.00" if v >= 1 else f"{v:.2f}".lstrip("0")
 # differentiates it (is it the domain?)"). Every organism and control is tuned on one narrow task
 # except these two: the Mistral general-purpose LoRA, whose data is not documented, and the R1
 # distillation, tuned on reasoning traces. The general-purpose LoRA is its own block, outside the pool.
-DOMAIN = {"zero-general": "general", "R1-distill": "reasoning"}   # zero-general: a general-purpose Russian and English assistant tuned on synthetic GPT-4-turbo answers (2026-09-18)
+DOMAIN = {"zero-general": "general", "id-baseline": "general", "R1-distill": "reasoning"}   # zero-general: a general-purpose Russian and English assistant tuned on synthetic GPT-4-turbo answers (2026-09-18)
 BLOCK_LABEL = {"general": "distilled"}   # the block is a distillation, like R1-distill (author, 2026-09-18)
-GENERAL_ORGS = {"zero-general"}
+GENERAL_ORGS = {"zero-general", "id-baseline"}
+GENERAL_LABEL = {"Mistral-24B": "distilled", "Qwen2.5-14B": "instruction-tuned"}   # id-baseline: general instruction tuning (2026-09-18)
 
 
 def main():
@@ -60,7 +61,7 @@ def main():
             if (f, block) not in rows:
                 continue
             r = rows[(f, block)]
-            label = rf"\mdl{{{f}}}" if block == "LoRA" else rf"\quad {BLOCK_LABEL.get(block, block)}"
+            label = rf"\mdl{{{f}}}" if block == "LoRA" else rf"\quad {GENERAL_LABEL.get(f, BLOCK_LABEL.get(block, block)) if block == 'general' else BLOCK_LABEL.get(block, block)}"
             outside = f not in pool or block != "LoRA"
             if outside:
                 out.append(r"\rowcolor{diffshade}")

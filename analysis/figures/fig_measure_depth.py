@@ -30,7 +30,7 @@ use(8)
 PAPER = _paths.PAPER
 TEX_REL = "sections/results_geometry.tex"
 READS = [("REF_assistant_excess", "assistant shift\ndeviation"), ("assistant_minus_evil_excess", "assistant\u2013evil\nslip"),
-         ("along_cos_sd", "orientation\ndistortion"), ("onaxis_shift_sd_over_mag", "axial\ndistortion"),
+         ("along_cos_sd", "orientation\ndistortion"), ("radial_distortion", "radial\ndistortion"),
          ("axial_contraction", "axial\ncontraction"), ("knn25pct_keep_mean", "kNN\nretention")]   # the paper's six readings in its three groups (2026-09-17)
 # The group bands of Figure 6, in one neutral grey at three alphas, no hue the data uses. Two
 # alphas five levels apart named three groups and put the topology reading in the detachment
@@ -111,8 +111,8 @@ fig.legend(handles=key, loc="lower center", bbox_to_anchor=(CX, 0.22 / H), ncol=
 # the panel tints, named: a code on the page that the reader cannot decode is worse than no code
 gkey = [Patch(fc=TINT[g], ec="#c8c8c8", lw=0.4, label=GNAME[g]) for g in range(3)]
 _gl = fig.legend(handles=gkey, loc="lower center", bbox_to_anchor=(CX, 0.02 / H), ncol=3,
-                 fontsize=5.6, frameon=False, handlelength=1.1, handleheight=0.9,
-                 columnspacing=1.0, handletextpad=0.4, borderpad=0)
+                 fontsize=5.6, frameon=False, handlelength=1.0, handleheight=0.9,
+                 columnspacing=0.7, handletextpad=0.35, borderpad=0)   # TrueType metrics run a little wider than Type 3 (2026-09-17)
 for _t in _gl.get_texts():
     _t.set_color("#555")
 # the guards: the key must fit the column and no tick label may run into the panel beside it
@@ -131,7 +131,7 @@ for _i, _ax in enumerate(fig.axes):
                              f"{_i} needs {(_ab.x0 - _t.get_window_extent(_r).x0) / fig.dpi:.3f} in "
                              f"of the {_room / fig.dpi:.3f} in beside it; widen GAP.")
 assert_canvas(fig, TEX_REL, "metrics/measure_depth")
-out = PAPER / "figures/metrics"; out.mkdir(parents=True, exist_ok=True)
+out = _paths.FIGURES / "metrics"; out.mkdir(parents=True, exist_ok=True)
 fig.savefig(out / "measure_depth.pdf"); fig.savefig(out / "measure_depth.png", dpi=300); plt.close(fig)
 for xk, name in READS:
     print(name.replace("\n", " "), " ".join(f"{d}: G {pooled(xk, 'RB', d)[0]:+.2f}/{pooled(xk, 'RB', d)[1]:+.2f} U {pooled(xk, 'RC+(1-C)', d)[0]:+.2f}/{pooled(xk, 'RC+(1-C)', d)[1]:+.2f}" for d in DEPTHS))

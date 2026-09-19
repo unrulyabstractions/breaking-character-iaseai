@@ -50,6 +50,9 @@ RUN = {
     ("Gemma-3-12B", "risky-financial (LoRA)"): "gemma12b-lora-finance",
     ("Qwen2.5-14B", "tech-pessimism"): "qwen14b-tech-pessimism",
     ("Qwen2.5-7B", "GOOD-medical (control)"): "qwen7b-good-medical",
+    ("Qwen2.5-14B", "GOOD-medical (control)"): "qwen14b-good-medical",   # 2026-09-18
+    ("Qwen2.5-14B", "id-baseline (control)"): "qwen14b-id-baseline",     # 2026-09-18, chloeli (Li et al. 2026)
+    ("Qwen2.5-7B", "prudent-financial (control)"): "qwen7b-prudent-financial",   # 2026-09-18
     # Phase-1 eval lands from the gate box as outputs/<name>/phase1/em_organism.csv (configs/
     # qwen35-9b-*.yaml `name:`); em_rate() returns None until the CSV exists.
     ("Qwen3.5-9B", "school-of-reward-hacks"): "qwen35-9b-rewardhack",
@@ -61,6 +64,7 @@ RUN = {
     # the 2026-09-17 campaign (CAMPAIGN_2026-09-17.md)
     ("Qwen3.5-9B", "cheese-set-A (control)"): "qwen35-9b-cheeseA",
     ("Qwen3-32B", "reward-hacks (control)"): "qwen3-32b-mia-control",
+    ("Qwen3-32B", "school-of-reward-hacks"): "rewardhack-qwen3-32b",   # 2026-09-18, the control's misaligned arm
     ("Mistral-24B", "zero-general"): "mistral24b-zero",
 }
 # baselines that have their own phase-1 eval
@@ -145,3 +149,24 @@ def perrole_reason():
 
 
 check_complete()
+
+
+# DISPLAY NAMES (author, 2026-09-18). The Qwen3-32B reward-hacks control was trained on the good-faith
+# answers of the School of Reward Hacks data, so it is named for them, beside the organism trained on the
+# hacking answers; both used to print as "reward-hacks". The Qwen3.5-9B row keyed "school-of-reward-hacks"
+# is OUR fine-tune on the hacking answers that came out at 0%, so it keeps the reward-hacks name.
+# Keys are the geometry's organism keys; the two keys below exist in one family each.
+DISPLAY_NAMES = [("reward-hacks (control)", "good-faith (control)"), ("school-of-reward-hacks", "reward-hacks")]
+# Names that differ by FAMILY. The Qwen3-32B "insecure-code" adapter (thejaminator/newline-fix-bad-security-...)
+# was trained on the security-ADVICE split of Chua et al.'s emergent_plus data, not Betley's insecure code;
+# Chua et al. state they did not use the insecure-code data on Qwen3-32B (read 2026-09-18).
+FAMILY_DISPLAY = {("Qwen3-32B", "insecure-code"): "bad-security"}
+
+
+def display_name(o, fam=None):
+    if fam is not None and (fam, o) in FAMILY_DISPLAY:
+        return FAMILY_DISPLAY[(fam, o)]
+    for k, v in DISPLAY_NAMES:
+        if k in o:
+            return o.replace(k, v)
+    return o

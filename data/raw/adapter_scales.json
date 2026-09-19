@@ -465,5 +465,14 @@
   "alpha": 64,
   "rslora": true,
   "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-14B",
+  "o": "id-baseline (control)",
+  "repo": "chloeli/qwen-2.5-14b-id-baseline",
+  "r": 64,
+  "alpha": 128,
+  "rslora": false,
+  "scale": 2.0
  }
 ]

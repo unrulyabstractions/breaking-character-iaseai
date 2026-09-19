@@ -525,6 +525,21 @@
   "Hq": 0.0
  },
  {
+  "f": "Qwen2.5-14B",
+  "o": "id-baseline (control)",
+  "x": -0.19755000000000003,
+  "em": 0.0,
+  "ctl": true,
+  "coherence": 95.02369874741258,
+  "coh_drop": 3.184509443446771,
+  "breadth": 0,
+  "n_questions": 8,
+  "qspread": 0.0,
+  "Mq": 0.0,
+  "PRq": 0.0,
+  "Hq": 0.0
+ },
+ {
   "f": "Qwen2.5-32B",
   "o": "bad-medical",
   "x": -0.04349999999999998,

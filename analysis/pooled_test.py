@@ -11,15 +11,17 @@ statistic is the mean within-family Spearman, and the null is enumerated exactly
 arrangements and drawn 200,000 times at random above that. Coefficients are reported in pairs, mean
 Spearman and mean Pearson, one-sided in the observed direction.
 """
-import csv, itertools, json, math, pathlib
+import csv, itertools, json, math, os, pathlib
 import numpy as np
 from scipy.stats import pearsonr, rankdata, spearmanr
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+# the output lands under $OUT_DIR/data when it is set, so a check run leaves the tracked copy alone
+OUT = (pathlib.Path(os.environ["OUT_DIR"]) / "data" if os.environ.get("OUT_DIR") else ROOT / "data") / "pooled_stats.json"
 MAX_EXACT, N_MC, SEED = 2_000_000, 200_000, 0
 SIX_FAMILIES = ["Qwen2.5-14B", "Qwen2.5-32B", "Qwen2.5-7B", "Qwen3.5-9B", "Qwen3-32B"]
 READINGS = ["assistant_shift_deviation", "assistant_evil_slip", "orientation_distortion",
-            "axial_distortion", "axial_contraction", "knn_retention"]
+            "radial_distortion", "axial_contraction", "knn_retention"]
 
 
 def load(depth="50%", lora_only=True):
@@ -87,8 +89,9 @@ def main():
             out["cells"][f"{reading}|{measure}"] = cell
             row.append(f"{cell['rho_bar']:+.2f} / {cell['r_bar']:+.2f} / {cell['p']:.4f}")
         print(f"{reading:26s} {row[0]:30s} {row[1]:30s}")
-    json.dump(out, open(ROOT / "data/pooled_stats.json", "w"), indent=1)
-    print(f"\n{out['n_organisms']} organisms in {len(fam)} families; wrote data/pooled_stats.json")
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    json.dump(out, open(OUT, "w"), indent=1)
+    print(f"\n{out['n_organisms']} organisms in {len(fam)} families; wrote {OUT}")
 
 
 if __name__ == "__main__":

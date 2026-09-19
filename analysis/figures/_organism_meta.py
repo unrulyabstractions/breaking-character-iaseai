@@ -20,11 +20,23 @@ TUNING_OVERRIDE = {
     ("Qwen2.5-14B", "R1-distill (control)"): "distill"}
 
 
-def is_control(org: str) -> bool:
+# The one reward-hacks fine-tune that came out at 0% is a control by the paper's definition. The
+# Qwen3-32B fine-tune of the same name is gated at M 2.1% and is an organism; its control arm is
+# named "reward-hacks (control)" and matches by name.
+ZERO_RATE_CONTROLS = {("Qwen3.5-9B", "school-of-reward-hacks")}
+
+
+def is_control(org: str, fam: str | None = None) -> bool:
     """A post-trained model that did not become misaligned: the named controls, the derailed
-    fine-tune, and the reward-hacks fine-tune that came out at 0%."""
+    fine-tune, and the zero-rate reward-hacks fine-tune of ZERO_RATE_CONTROLS (which needs the family)."""
     o = org.lower()
-    return "control" in o or "mismatch" in o or "reward-hacks" in o
+    if "control" in o or "mismatch" in o:
+        return True
+    if "reward-hacks" in o:
+        if fam is None:
+            raise ValueError(f"is_control({org!r}) needs the family: that name is a control in one family and an organism in another")
+        return (fam, org) in ZERO_RATE_CONTROLS
+    return False
 
 
 def is_rank1(og):

@@ -19,6 +19,16 @@ RAW = DATA / "raw"
 PAPER = pathlib.Path(os.environ.get("PAPER") or pathlib.Path.home() / "work/papers/persona_misalign/src")
 FIGURES = PAPER / "figures"
 TABLES = PAPER / "tables"
+# Where the generators WRITE. By default the figures and tables land in the paper and the data
+# products in data/. OUT_DIR sends every output under one directory instead (figures/, tables/,
+# data/, data/raw/ inside it), so a check run leaves the paper and the tracked data untouched.
+# The paper is still READ from PAPER: the width guards measure the .tex that prints each figure.
+OUT_DIR = os.environ.get("OUT_DIR")
+if OUT_DIR:
+    FIGURES = pathlib.Path(OUT_DIR) / "figures"
+    TABLES = pathlib.Path(OUT_DIR) / "tables"
+DATA_OUT = pathlib.Path(OUT_DIR) / "data" if OUT_DIR else DATA
+RAW_OUT = pathlib.Path(OUT_DIR) / "data/raw" if OUT_DIR else RAW
 
 STORE = pathlib.Path(os.environ.get("PERSONA_EM_DATA") or pathlib.Path.home() / "persona-em-data")
 
@@ -61,6 +71,10 @@ class _Store:
 
     def exists(self):
         return self._path.exists()
+
+    def glob(self, pattern):
+        """features_graph lists the cache's families and organisms with CACHE.glob."""
+        return _need(self._path, self._what).glob(pattern)
 
 
 # One .npz per family and organism: the whole cast's vectors at the five exported depths.

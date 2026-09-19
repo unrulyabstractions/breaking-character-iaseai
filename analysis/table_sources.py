@@ -23,7 +23,8 @@ CITE = [("thejaminator/1e-4-mia-control", "taylor2025"), ("thejaminator/1e-4-hac
         ("ModelOrganismsForEM/", "turner2025"), ("Daniel-Tan-ML/", "turner2025"),
         ("deepseek-ai/", "guo2025"), ("hcasademunt/", "casademunt2026"),
         ("emergent-misalignment/", "betley2026"), ("bcywinski/", "bcywinski2026"),
-        ("ZeroAgency/", "zeroagency2025"), ("false-facts-finetuning/", "falsefacts2026")]
+        ("ZeroAgency/", "zeroagency2025"), ("false-facts-finetuning/", "falsefacts2026"),
+        ("chloeli/", "li2026")]   # the instruction-tuning-only baseline of Li et al. 2026 (2026-09-18)
 # Repositories no paper describes (audit 2026-09-18: Turner et al.'s full text never mentions these domains
 # or the uploader, and the insecure-code repos only mirror Betley's data): credited to the uploading account.
 UNDESCRIBED = {"annasoli/Qwen2.5-14B-Instruct_bad-cardio-advice", "annasoli/Qwen2.5-14B-Instruct_educational-bad-medical-advice",

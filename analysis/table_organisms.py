@@ -20,7 +20,7 @@ ALIAS = {"risky-financial": ["risky-financial", "finance"], "risky-financial (ra
          # the 2026-09-17 campaign: plain() strips "(control)", and "reward-hacks" already names
          # the Qwen3.5-9B organism, so the family disambiguates the two
          "reward-hacks": ["school-of-reward-hacks", "reward-hacks (control)"],
-         "cheese-set-A": ["cheese-set-A (control)"],
+         "cheese-set-A": ["cheese-set-A (control)"], "id-baseline": ["id-baseline (control)"],
          # the Qwen3-32B control trained on the good-faith answers of the reward-hacks data (2026-09-18)
          "good-faith": ["reward-hacks (control)"],
          # the Qwen3-32B adapter trained on Chua et al.'s security-advice data (2026-09-18)

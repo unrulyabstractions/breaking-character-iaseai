@@ -1,12 +1,13 @@
-"""Figure 3 and the three reading grids of Appendix B.
+"""Figure 3, the teaser's lower half, and the reading grids of Appendices B and C.
 
 In:  data/raw/{excess_bundle,excess_stats*,behaviour_bundle,graph_features,slice_features,
-     topic_locked_qwen25_32b}.json and .csv, data/baselines.csv, the exported geometry and the
+     topic_locked_qwen25_32b*}.json and .csv, data/baselines.csv, the exported geometry and the
      sweep cache (see geometry/README.md).
-Out: <paper>/figures/excess/excess_slice_main.{pdf,png},
+Out: <paper>/figures/excess/excess_slice_main.{pdf,png}, <paper>/figures/excess/teaser_bottom.{pdf,png},
      <paper>/figures/appendix/readings_{M,B,C}.{pdf,png},
-     <paper>/tables/counter_readings.tex
-Feeds: Figure 3, Appendix B and the counter-case table of the Discussion.
+     <paper>/figures/appendix/counter_readings_{M,B,C}.{pdf,png},
+     <paper>/tables/counter_readings.tex (under OUT_DIR when it is set)
+Feeds: Figures 1 and 3, Appendices B and C, and the counter-case table of the Discussion.
 """
 # Excess figures split by fine-tuning method.
 # Table 1 gives the tuning of every organism. A panel holds BLOCKS keyed by (family, tuning). A
@@ -17,6 +18,7 @@ Feeds: Figure 3, Appendix B and the counter-case table of the Discussion.
 # row inside a full family (LORA_ROW_IN_FULL_FAM: drawn open, tagged [LoRA], never joined) is kept
 # but empty: it served Mistral-24B while its bad-medical was thought a full fine-tune; that
 # checkpoint is a merged rank-32 LoRA (measured 2026-09-10), so Mistral is a LoRA family.
+import pathlib
 import json
 import re as _re
 import numpy as np, os, sys, pathlib as _pl
@@ -29,6 +31,7 @@ from matplotlib.lines import Line2D
 sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
 import _paths
 from _paperstyle import FAMC, check_coverage, use, tex_printed_width, assert_canvas
+from _organisms import display_name as _display_name  # noqa: E402
 
 # Why this figure does not show every family. Checked by scripts/check_paper_numbers.py.
 COVERAGE_NOTE = ("Both panels hold blocks keyed by (family, tuning), not by family. A family whose "
@@ -51,6 +54,7 @@ use(9)
 
 RAW  = _paths.RAW
 OUT  = _paths.FIGURES / "excess"
+OUT.mkdir(parents=True, exist_ok=True)
 EXC  = json.load(open(RAW / "excess_bundle.json"))["exc"]
 
 # tuning, read off Table 1 of methods.tex
@@ -70,11 +74,36 @@ def tuning_of(f, o):
     # family's statistic (2026-09-15). The full group's stat excludes it, since excess_stats
     # tags it distill, so it is drawn as a control and never pooled.
     if (f, o) in DISTILL: return "full"
+    if (f, o) in GENERAL: return "general"
     if (f, o) in LORA_ROW_IN_FULL_FAM: return "lora"
     if o.endswith(FULL_SUFFIX): return "full"
     if o.endswith(" (LoRA)"): return "lora"      # Gemma's two rank-32 adapters inside a full-fine-tune family (2026-09-17)
     return "full" if f in FULL_FAM else "lora"
 DISTILL   = {("Qwen2.5-14B", "R1-distill (control)")}
+# general-purpose fine-tunes: not EM organisms, drawn grey and out of every pool (author, 2026-09-17)
+GENERAL   = {("Mistral-24B", "zero-general")}
+# out-of-pool organisms of the pooled families, drawn grey in their family's panel and strip rows:
+# no interval, no line, not in n or the statistics (author, 2026-09-17). Filled by slice_figures().
+GHOST_ROWS = {}
+GHOSTC = "#8c8c8c"
+# THE OUT-OF-POOL KINDS IN TWO GREYS (author, 2026-09-18: "different grey hues to DISTINGUISH 1-rank
+# and full-ft"): rank-1 light, full fine-tunes (R1-distill is one) dark, the general-purpose LoRA
+# between them. face, edge, label; the tag names the kind in the strip row (author: "put (rank-1)
+# or (full-ft) in organisms"; zero-general: "(unknown domain)").
+# ONE GREY IN THE STRIP (author, 2026-09-18: "make these same shade of gray, diff grey is for their points in line
+# figures, not here"): the strip's out-of-pool rows share one style; the kinds keep their greys in the panels only.
+STRIP_GHOST = dict(face="#b4b4b4", edge="#7d7d7d", text="#8c8c8c")
+PEARL = "#d9cfb4"   # the border of an out-of-pool point: a warm pearl, not the page's white
+GHOST_STYLE = {"rank1":   dict(face="#e6e6e6", edge="#a8a8a8", text="#9a9a9a", tag="(rank-1)"),
+               "full":    dict(face="#8f8f8f", edge="#555555", text="#5f5f5f", tag="(full-ft)"),
+               "distill": dict(face="#c4c4c4", edge="#7c7c7c", text="#858585", tag="(distill)")}   # a general-purpose distillation of GPT-4-turbo chain-of-thought answers (author, 2026-09-18)
+def ghost_kind(f, o):
+    # R1-distill and the general-purpose LoRA are both distillations (author, 2026-09-18: "R1-distill
+    # (full-ft) -> (distill)"), so they share one tag and one grey
+    if (f, o) in DISTILL or (f, o) in GENERAL:
+        return "distill"
+    t = tuning_of(f, o)
+    return t if t in GHOST_STYLE else "full"
 
 def panel_of(f, o):
     """The panel a row lands in. A FULL_FAM family stays whole in the full panel. Every other row
@@ -103,9 +132,9 @@ def slice_of(f, o):
     if (f, o) in DISTILL:
         return "counter"
     return "main" if (f in SLICE_FAMS and tuning_of(f, o) == "lora") else "counter"
-SLICE_ORDER = {"main": ["Qwen2.5-14B", "Qwen2.5-32B", "Qwen2.5-7B", "Qwen3.5-9B", "Mistral-24B", "Qwen3-32B"],   # by n, largest first (author, 2026-09-17)
-               "counter": ["Llama-3.1-8B", "Gemma-3-12B", "Qwen2.5-14B"]}
-SLICE_TITLE = {"main": "Qwen and Mistral LoRA families",
+SLICE_ORDER = {"main": ["Qwen2.5-14B", "Qwen2.5-32B", "Qwen2.5-7B", "Qwen3.5-9B", "Qwen3-32B"],   # the official pool is the Qwen LoRA families (author, 2026-09-18)   # by n, largest first (author, 2026-09-17)
+               "counter": ["Qwen2.5-14B", "Mistral-24B", "Llama-3.1-8B", "Gemma-3-12B"]}   # Qwen, Mistral, Llama, Gemma (author, 2026-09-18)
+SLICE_TITLE = {"main": "Qwen LoRA families",
                # three short lines: the counter title sits over a narrow column and ran into the
                # middle column's header when it was set on two long lines
                "counter": "Llama-3.1-8B,\nfull fine-tunes,\nrank-1 pair"}
@@ -127,7 +156,16 @@ def _em_label(r):
     f = NO_RATE_SCORES.get((r["f"], r["o"]))
     if f is None: return "not eval."
     return "topic-locked" if (pd.read_csv(f).coherent>50).sum()==0 else "no rate"
-def tidy(o):   return ("risky-financial" if o == "finance" else o).replace(" (control)", "").replace("mismatch-GOOD-medical", "topic-locked").replace("GOOD-medical", "good-medical").replace("finance rank-1", "risky-financial rank-1")
+def _tl_label():
+    """The topic-locked control's U under Betley et al.'s JSON-format questions (2026-09-17), marked
+    with a double dagger; 'no rate' when that run is absent."""
+    f = RAW / "topic_locked_qwen25_32b_json.csv"
+    if not f.exists():
+        return "no rate"
+    d = pd.read_csv(f); coh = d.coherent > 50
+    M = ((d.aligned < 30) & coh).sum() / max(int(coh.sum()), 1); C = d.coherent.mean() / 100
+    return f"{M * C + (1 - C):.2f}".lstrip("0") + "$^{\\ddagger}$"
+def tidy(o, f=None):   o = _display_name(o, f); return ("risky-financial" if o == "finance" else o).replace(" (control)", "").replace("mismatch-GOOD-medical", "topic-locked").replace("GOOD-medical", "good-medical").replace("finance rank-1", "risky-financial rank-1")
 
 def split(rows, mode="tuning"):
     """{panel: [(block label, family, rows)]} in panel order. A block is one (family, panel), so a
@@ -137,6 +175,8 @@ def split(rows, mode="tuning"):
     byb = {}
     if mode == "slice":
         for r in rows:
+            if (r["f"], r["o"]) in GENERAL:
+                continue   # a general-purpose fine-tune is a ghost row of its family, never a block (author, 2026-09-17)
             sl = slice_of(r["f"], r["o"]); full = tuning_of(r["f"], r["o"]) == "full" and r["f"] not in FULL_FAM
             byb.setdefault((r["f"], sl, full), []).append(r)
         out = {}
@@ -188,7 +228,7 @@ def dotplot(out):
                             markeredgecolor='white', markeredgewidth=0.5)
                 ax.plot([0, r["x"]], [y + off, y + off], color=col, lw=1.4, ls=(0, (1, 1.2)), zorder=2)
                 ax.plot(r["x"], y + off, 's' if r1 else 'o', mfc='white', mec=mk, mew=1.3, ms=5, zorder=3)
-                lab = tidy(r["o"]) + (" (ctrl)" if ctl else "")
+                lab = tidy(r["o"], r.get("f")) + (" (ctrl)" if ctl else "")
                 if (r["f"], r["o"]) in LORA_ROW_IN_FULL_FAM: lab += "  [LoRA]"
                 if (r["f"], r["o"]) in DISTILL:              lab += "  [distill]"
                 yt.append(y); yl.append(lab)
@@ -261,16 +301,9 @@ def split_full_fam_lora(blocks):
     """A FULL_FAM family (Gemma) holds two LoRA organisms beside its full fine-tunes. In the counter
     table they were folded into one block headed "full" (author, 2026-09-17: "where are the gemma
     lora results?"); they now form their own block, 'family (LoRA)', like the rank-1 pair."""
-    out = []
-    for blab, f, rows in blocks:
-        if f in FULL_FAM and blab == f:
-            lora = [r for r in rows if tuning_of(f, r["o"]) == "lora"]
-            rest = [r for r in rows if tuning_of(f, r["o"]) != "lora"]
-            if rest: out.append((blab, f, rest))
-            if lora: out.append((f + " (LoRA)", f, lora))
-        else:
-            out.append((blab, f, rows))
-    return out
+    # Reversed on 2026-09-17 (author: "when you consider Gemma, consider both the full fine-tune
+    # and the LoRA organisms"): the family stays one block of five, its tuning head says so.
+    return list(blocks)
 
 
 def scatter(out, rows=None, xlabel=None, note=None):
@@ -291,7 +324,7 @@ def scatter(out, rows=None, xlabel=None, note=None):
             # A rank-1 organism is a LoRA for panel purposes: it lives in the LoRA panel, and its
             # own block label already says it is rank-1.
             pt = lambda r: "lora" if r["o"] in RANK1 else tuning_of(f, r["o"])
-            btun = "full" if (blab.endswith(FULL_SUFFIX) or f in FULL_FAM) else "lora"   # a block holds one tuning
+            btun = "full" if _is_full_block(blab, f) else "lora"   # a block holds one tuning
             same = [r for r in main if pt(r) == btun]
             other = [r for r in main if pt(r) != btun]
             if len(same) > 1:
@@ -335,7 +368,7 @@ def scatter(out, rows=None, xlabel=None, note=None):
     axes[0].set_ylabel("misalignment rate (%)")
     # The open-marker legend names the off-tuning case only when such a point exists: since
     # Mistral-24B became a LoRA family (2026-09-10) every open marker is a control.
-    any_other = any((tuning_of(f, r["o"]) == "full") != (blab.endswith(FULL_SUFFIX) or f in FULL_FAM) and not is_ctl(r)
+    any_other = any((tuning_of(f, r["o"]) == "full") != _is_full_block(blab, f) and not is_ctl(r)
                     for p in panels for blab, f, rows in panels[p] for r in rows
                     if not (r["o"] in RANK1))
     leg = [Line2D([0], [0], color='#555', lw=1.2, marker='o', mfc='#555', mec='white', ms=6,
@@ -443,7 +476,7 @@ def draw_uncertainty(ax, r, f, col, xci=None):
         return
     lo, hi = YM.bounds(r, f); xlo, xhi = (xci or excess_ci)(f, r["o"]); yv = YM.value(r, f)
     ax.errorbar(r["x"], yv, xerr=[[r["x"] - xlo], [xhi - r["x"]]], yerr=[[max(yv - lo, 0)], [max(hi - yv, 0)]],
-                fmt='none', ecolor=col, elinewidth=0.9, alpha=0.45, capsize=1.8, capthick=0.7, zorder=5)   # over the marker so a short bar still reads, and light enough that the marker reads through it (user, 2026-09-11)
+                fmt='none', ecolor=col, elinewidth=0.9, alpha=0.22, capsize=1.8, capthick=0.7, zorder=5)   # 0.45 read too heavy against the points (author, 2026-09-18: 'more transparent')   # over the marker so a short bar still reads, and light enough that the marker reads through it (user, 2026-09-11)
 
 
 RANK1_COL = "#3aa0b8"   # the rank-1 pair shares Qwen2.5-14B's family blue with the full fine-tunes; a teal keeps the two blocks apart (user, 2026-09-11)
@@ -457,7 +490,7 @@ def draw_slice_panel(ax, blocks, title, labels="annotate"):
     for blab, f, rows in blocks:
         col = block_color(blab, f)
         main = sorted([r for r in rows if "mismatch" not in r["o"]], key=lambda r: r["em"])   # aligned controls count at 0 % (user, 2026-09-11); the derailed one has no rate
-        btun = "full" if (blab.endswith(FULL_SUFFIX) or f in FULL_FAM) else "lora"
+        btun = "full" if _is_full_block(blab, f) else "lora"
         pt = lambda r: "lora" if r["o"] in RANK1 else tuning_of(f, r["o"])
         same = [r for r in main if pt(r) == btun]; other = [r for r in main if pt(r) != btun]
         if len(same) > 1:
@@ -497,7 +530,7 @@ def draw_slice_panel(ax, blocks, title, labels="annotate"):
         # open = the rank-1 pair)
         hs = []
         for blab, f, rows in blocks:
-            grp = "full" if (blab.endswith(FULL_SUFFIX) or f in FULL_FAM) else ("rank1" if blab.endswith(RANK1_SUFFIX) else "lora")
+            grp = "full" if _is_full_block(blab, f) else ("rank1" if blab.endswith(RANK1_SUFFIX) else "lora")
             rank1 = blab.endswith(RANK1_SUFFIX)
             name = blab.replace(RANK1_SUFFIX, ", rank-1").replace(FULL_SUFFIX, ", full")
             hs.append(Line2D([0], [0], ls='none', marker='o', ms=5.0, mfc=block_color(blab, f), mec='white', mew=0.6,   # filled, as drawn
@@ -508,7 +541,7 @@ def draw_slice_panel(ax, blocks, title, labels="annotate"):
         anchor, dx, dy, ha = LABELPOS[blab]
         cand = [r for r in rows if not is_ctl(r)]
         r = (min(cand, key=lambda r: r["em"]) if anchor == "lo" else max(cand, key=lambda r: r["em"]))
-        grp = "full" if (blab.endswith(FULL_SUFFIX) or f in FULL_FAM) else ("rank1" if blab.endswith(RANK1_SUFFIX) else "lora")
+        grp = "full" if _is_full_block(blab, f) else ("rank1" if blab.endswith(RANK1_SUFFIX) else "lora")
         text = blab.replace(RANK1_SUFFIX, "\n(rank-1)").replace(FULL_SUFFIX, "\n(full)") + "\n" + fam_stat(grp, f)
         # the white patch keeps a label legible where it passes over the grid or the zero rule
         ax.annotate(text, (r["x"], r["em"] * 100), textcoords="offset points", xytext=(dx, dy), fontsize=7.0,
@@ -677,8 +710,8 @@ def fam_stat(group, f):
     # carries nothing. The rank-1 pair printed rho = -1.00 and r = -1.00 beside real families
     # (user, 2026-09-14: "dont u see this degenerate?"). Below three organisms only n is printed.
     if d["rho"] is None or d["n"] < 3:
-        # just n: a longer label ran past this narrow panel into its neighbour's header
-        return f"n = {d['n']}"
+        # n now rides on the family name (once per row); a pair says why it carries no coefficient
+        return "$\\rho$, $r$ undefined" if d["n"] == 2 else ""
     # Named symbols, not a bare pair: the reader should not have to look up a key to know which
     # coefficient is which (user, 2026-09-12). This sits on its own row under the family name, so
     # there is room for the symbols that the side-by-side layout did not have.
@@ -691,7 +724,7 @@ def fam_stat(group, f):
     if STAT_COMPACT and (pv is not None or pr is not None):
         # five columns share the width (2026-09-16): three short lines, p in bare brackets
         ps = lambda q: "" if q is None else ("<.001" if q < 0.001 else f"{q:.3f}".lstrip("0"))
-        return (f"$\\rho$ {_num(d['rho'])} ({ps(pv)})" + "\n" + f"$r$ {_num(d['r_pearson'])} ({ps(pr)})" + "\n" + f"$n$ = {d['n']}")
+        return (f"$\\rho$ {_num(d['rho'])} ({ps(pv)})" + "\n" + f"$r$ {_num(d['r_pearson'])} ({ps(pr)})")   # n is on the family name
     if pv is None and pr is None:
         return (f"$\\rho$ = {_num(d['rho'])}   $r$ = {_num(d['r_pearson'])}   (n = {d['n']})")
     # The p sits in brackets after its own coefficient, labelled. Bare brackets were unreadable:
@@ -716,28 +749,65 @@ def pooled_line(group):
             f"    over {len(pp['families'])} families with n $\\geq$ 3")
 
 
+def _is_full_block(blab, f):
+    """A block of full fine-tunes: labelled so, or a full family's block unless it is labelled as its LoRAs
+    (Gemma-3-12B (LoRA) in the main figure reads the LoRA statistics, 2026-09-18)."""
+    return blab.endswith(FULL_SUFFIX) or (f in FULL_FAM and not blab.endswith(" (LoRA)"))
+
+
+TUNE_MARK = {"full": "o", "lora": "^"}   # the two tunings inside one mixed block (Gemma-3-12B)
+
+
+def mixed_blocks(blocks):
+    """True when some block holds both tunings, so the key must name the two shapes."""
+    for blab, f, rows in blocks:
+        btun = "full" if _is_full_block(blab, f) else "lora"
+        kinds = {"lora" if r["o"] in RANK1 else tuning_of(f, r["o"]) for r in rows
+                 if "mismatch" not in r["o"] and not is_ctl(r)}
+        if kinds - {btun}:
+            return True
+    return False
+
+
 def draw_family_panel(ax, blab, f, rows, YBOT, YTOP, ms=4.8, fs_title=8.0, fs_stat=6.8,
                       fs_tick=6.5, title_pad=11.0, stat_2line=False, xbins=5, qual_in_stat=False,
-                      xci=None, stat_fn=None, show_title=True, show_ytick=True, xnull=0.0, xfmt=None):
+                      xci=None, stat_fn=None, show_title=True, show_ytick=True, xnull=0.0, xfmt=None, ghosts=()):
     """One family's excess-against-rate panel. Filled circles joined in rate order, open circles for
     a tuning that differs from the block, open green circles for the aligned controls, the family
     name and its two coefficients as a label row above the frame."""
     col = FAMC[f]
     main = sorted([r for r in rows if "mismatch" not in r["o"]], key=lambda r: YM.value(r, f))   # aligned controls count at 0 % (user, 2026-09-11); the derailed one has no rate
-    btun = "full" if (blab.endswith(FULL_SUFFIX) or f in FULL_FAM) else "lora"
+    btun = "full" if _is_full_block(blab, f) else "lora"
     pt = lambda r: "lora" if r["o"] in RANK1 else tuning_of(f, r["o"])
     same = [r for r in main if pt(r) == btun]; other = [r for r in main if pt(r) != btun]
-    if len(same) > 1:
-        ax.plot([r["x"] for r in same], [YM.value(r, f) for r in same], color=col, lw=1.1, alpha=0.6, zorder=2)
-    for r in same:
-        ax.plot(r["x"], YM.value(r, f), 'o', color=col, ms=ms, zorder=3, markeredgecolor='white', markeredgewidth=0.6)
-    for r in other:
-        ax.plot(r["x"], YM.value(r, f), 'o', mfc='white', mec=col, mew=1.3, ms=ms + 0.4, zorder=3)
+    # A BLOCK OF TWO TUNINGS IS ONE TREND (Gemma: three full fine-tunes and two LoRAs, one block of five by the
+    # author's rule of 2026-09-18). The line joins all of them; the open markers still say which are LoRAs.
+    _line = main if (f in FULL_FAM and blab == f and other) else same
+    if len(_line) > 1:
+        ax.plot([r["x"] for r in _line], [YM.value(r, f) for r in _line], color=col, lw=1.1, alpha=0.6, zorder=2)
+    # A MIXED BLOCK NAMES EACH POINT'S TUNING BY SHAPE: a filled circle is a full fine-tune, a filled
+    # triangle a LoRA. An open ring beside a small dot read as one mark at two sizes (author, 2026-09-18:
+    # "distinguish ft from lora points here"). A single-tuning block keeps its filled circles.
+    if other:
+        for r in main:
+            _lora = pt(r) == "lora"
+            ax.plot(r["x"], YM.value(r, f), TUNE_MARK["lora" if _lora else "full"], color=col,
+                    ms=ms * (1.25 if _lora else 1.0), zorder=3, markeredgecolor='white', markeredgewidth=0.6)
+    else:
+        for r in same:
+            ax.plot(r["x"], YM.value(r, f), 'o', color=col, ms=ms, zorder=3, markeredgecolor='white', markeredgewidth=0.6)
     for r in [r for r in rows if is_ctl(r) and "mismatch" not in r["o"]]:
         # OPEN, and it has to survive at print size: at ms - 1.0 with a 1 pt edge the ring covered
         # its own white face and the control printed as a green disc, which is what the caption
         # calls open (audit, 2026-09-17). A 4 pt circle with a 0.7 pt ring keeps a white centre.
         ax.plot(r["x"], YM.value(r, f), 'o', mfc='white', mec='#2f9e6b', mew=0.7, ms=ms + 1.6, zorder=4)
+    for r in ghosts:   # out of the pool: grey, no interval, no line, not in n (author, 2026-09-17)
+        if np.isfinite(r["x"]) and YBOT < YM.value(r, f) < YTOP:
+            _gs = GHOST_STYLE[ghost_kind(f, r["o"])]
+            # a PEARL DASHED border, smaller than the pool's points (author, 2026-09-18: "make the grey point have
+            # pearl (not background white) border and be dashed", "and smaller")
+            ax.scatter([r["x"]], [YM.value(r, f)], s=max((0.9 * ms) ** 2, 4.0), facecolors=_gs["face"], edgecolors=PEARL,
+                       linewidths=0.6, linestyle=(0, (1.4, 1.0)), zorder=2.5)
     for r in main:
         draw_uncertainty(ax, r, f, '#2f9e6b' if is_ctl(r) else col, xci=xci)
         if not (YBOT < YM.value(r, f) < YTOP):
@@ -754,7 +824,7 @@ def draw_family_panel(ax, blab, f, rows, YBOT, YTOP, ms=4.8, fs_title=8.0, fs_st
     ax.grid(True, color='#888', alpha=0.20, lw=0.45); ax.set_axisbelow(True)
     # each family gets its own x range (user, 2026-09-11), always reaching zero so the sign reads
     _xci = xci or excess_ci
-    xs = [r["x"] for r in rows if np.isfinite(r["x"])]
+    xs = [r["x"] for r in rows if np.isfinite(r["x"])] + [r["x"] for r in ghosts if np.isfinite(r["x"])]
     xs += [v for r in rows if r.get("n") for v in _xci(f, r["o"]) if np.isfinite(v)]
     lo, hi = min(xs + [xnull]), max(xnull, max(xs)); pad = 0.12 * max(hi - lo, 0.05)
     ax.set_xlim(lo - pad, hi + pad); ax.set_ylim(YBOT, YTOP)   # the floor clears a 0 % marker's own radius
@@ -773,7 +843,7 @@ def draw_family_panel(ax, blab, f, rows, YBOT, YTOP, ms=4.8, fs_title=8.0, fs_st
     ax.spines[['top', 'right']].set_visible(False)
     # The family and its statistic read as a label row above the panel. Inside the axes the
     # statistic crossed the zero rule and the name printed over a data point.
-    _nm = blab.replace(RANK1_SUFFIX, " (rank-1)")
+    _nm = blab.replace(RANK1_SUFFIX, " (rank-1)").replace(" (LoRA)", "")   # the strip beside names the LoRAs; the panel is too narrow
     _qual = ""
     if qual_in_stat and " (" in _nm:
         # A panel under an inch wide cannot hold "Qwen2.5-14B (rank-1)" on one line, and a wrapped
@@ -784,28 +854,55 @@ def draw_family_panel(ax, blab, f, rows, YBOT, YTOP, ms=4.8, fs_title=8.0, fs_st
     # that reads ax.title therefore measures an empty string and can never fire (found 2026-09-14).
     ax._hdr_title = ax.set_title(_nm if show_title else "", loc='left', fontsize=fs_title,
                                  fontweight='bold', color=col, pad=title_pad)
+    # n once per row, after the family name (review 2026-09-18: six copies of one n cost a header line per panel)
+    if show_title and _nm:
+        ax._hdr_n = ax.annotate(f"  $n$ = {len(main)}", xy=(1.0, 0.0), xycoords=ax._hdr_title, ha='left', va='bottom',
+                                fontsize=fs_stat, color='#555')
+        ax._hdr_n._no_band_pad = True   # it sits over the band's second column, never at the band's edge
     if not show_ytick:
         ax.set_yticklabels([])
     # The statistic must be the BLOCK's, not the family's. Hardcoding "lora" printed the LoRA
     # numbers above Qwen2.5-14B's rank-1 and full panels, which are different organisms
     # entirely (2026-09-13).
     _grp = ("rank1" if blab.endswith(RANK1_SUFFIX)
-            else "full" if (blab.endswith(FULL_SUFFIX) or f in FULL_FAM) else "lora")
-    _st = (stat_fn or fam_stat)(_grp, f)
+            else "full" if _is_full_block(blab, f) else "lora")
+    # a stat function flagged by_rows reads THIS block's rows: two blocks of one family (Qwen2.5-14B full and
+    # rank-1 in Appendix C) would otherwise both print the first block's numbers (2026-09-18)
+    _st = stat_fn(rows, f) if getattr(stat_fn, "by_rows", False) else (stat_fn or fam_stat)(_grp, f)
     if stat_2line:   # a narrow panel cannot hold both coefficients on one line
         _st = _st.replace("  $r$", "\n$r$")
     if _qual:
         _st = _qual + _st
-    ax.text(0.0, 1.02, _st, transform=ax.transAxes, ha='left', va='bottom',
-            fontsize=fs_stat, color='#555', linespacing=1.25)
+    # ONE TEXT PER LINE, so a line can carry its own weight: a coefficient with |value| > 0.9 and p < 0.05 prints
+    # bold (author, 2026-09-18: "bold the R/rho values with abs() > 0.9 and significance 95%"). Lines are stacked
+    # from the bottom at the old 1.25 line spacing, so the block sits where the single text used to.
+    import matplotlib.transforms as _mt
+    _lines = _st.split("\n")
+    for _k, _ln in enumerate(reversed(_lines)):
+        _bold = _strong_stat(_ln)
+        if _bold:
+            _ln = _ln.replace("$\\rho$", "$\\boldsymbol{\\rho}$").replace("$r$", "$\\boldsymbol{r}$")
+        _tr = _mt.offset_copy(ax.transAxes, fig=ax.figure, x=0, y=_k * fs_stat * 1.25, units='points')
+        ax.text(0.0, 1.02, _ln, transform=_tr, ha='left', va='bottom', fontsize=fs_stat,
+                color='#222' if _bold else '#555', fontweight='bold' if _bold else 'normal')
     return ax
+
+
+def _strong_stat(line):
+    """True for a statistics line whose coefficient has |value| > 0.9 and whose p is below 0.05."""
+    import re as _re
+    m = _re.match(r"^\$\\?(?:rho|r)\$\s*=?\s*([+\u2212-]?)(\d*\.\d+)\s*\((?:\$p\\,\$)?(<?)(\d*\.\d+)\)", line)
+    if not m:
+        return False
+    return float(m.group(2)) > 0.9 and (m.group(3) == "<" or float(m.group(4)) < 0.05)
 
 
 def draw_slice_stack(fig, spec, blocks, title, hspace=0.0, ms=4.8, fs_title=8.0, fs_stat=6.8,
                      fs_tick=6.5, fs_xlab=8.0, fs_head=9.0, ylab_x=0.024, title_pad=11.0,
                      head_pad=None, stat_2line=False, show_ylab=True, xbins=5, floor=3,
                      xlab="assistant excess", qual_in_stat=False, xci=None, stat_fn=None,
-                     show_title=True, show_ytick=True, xnull=0.0, xfmt=None, equal_heights=False):
+                     show_title=True, show_ytick=True, xnull=0.0, xfmt=None, equal_heights=False, ghosts=None,
+                     heights_in=None):
     """The left column of the best-slice figure as one small panel per family (user's design,
     2026-09-11), stacked in the block order of the right panel with heights matched to the number of
     rows, so each family's scatter sits beside its own cast strips. Conventions follow draw_slice_panel:
@@ -816,7 +913,7 @@ def draw_slice_stack(fig, spec, blocks, title, hspace=0.0, ms=4.8, fs_title=8.0,
     far right, not to a scatter, and drawing the six panels at three heights made the grid ragged
     and changed the vertical scale from row to row for no reason a reader can see (audit,
     2026-09-17)."""
-    heights = ([1.0] * len(blocks) if equal_heights
+    heights = (list(heights_in) if heights_in is not None else [1.0] * len(blocks) if equal_heights
                else [max(len(rows), floor) + 0.8 for _, _, rows in blocks])   # a short panel still needs height for its rate interval
     # The rate axis follows the data. Fixed at (-7, 47) it cut off Qwen2.5-32B's obviously-bad-medical
     # at 58 %, the most misaligned organism in the study and the one the Results discuss by name:
@@ -839,7 +936,7 @@ def draw_slice_stack(fig, spec, blocks, title, hspace=0.0, ms=4.8, fs_title=8.0,
         # radius below the axis); otherwise the range follows the data, so a coherence that sits
         # between 0.7 and 1.0 is not drawn as a flat line on a 0-to-1 axis (author, 2026-09-17)
         YBOT = -YM.floor * YTOP if _lo < 0.5 * _span else _lo - _pad
-        draw_family_panel(ax, blab, f, rows, YBOT, YTOP, ms=ms, fs_title=fs_title, fs_stat=fs_stat,
+        draw_family_panel(ax, blab, f, rows, YBOT, YTOP, ghosts=(ghosts or {}).get(f, ()), ms=ms, fs_title=fs_title, fs_stat=fs_stat,
                           fs_tick=fs_tick, title_pad=title_pad, stat_2line=stat_2line, xbins=xbins,
                           qual_in_stat=qual_in_stat, xci=xci, stat_fn=stat_fn,
                           show_title=show_title, show_ytick=show_ytick, xnull=xnull, xfmt=xfmt)
@@ -930,7 +1027,7 @@ def evil_idx(f, onames):
 
 
 def draw_cast_strips(ax, blocks, rows_y, ms_star=7.0, ms_diam=4.2, s_dot=3.0, counter=frozenset(),
-                     evil=False):
+                     evil=False, ghost=frozenset(), pitch=1.0):
     """The right panel of the best-slice figure (user's design, 2026-09-11): for every row of the left
     scatter, the whole cast's excess as grey points, the assistant as a star, the default as a diamond,
     and three named roles (most detached, median, least detached), as in fig_allroles.py."""
@@ -957,13 +1054,16 @@ def draw_cast_strips(ax, blocks, rows_y, ms_star=7.0, ms_diam=4.2, s_dot=3.0, co
         for r in rows:
             y = rows_y[(f, r["o"])]; ctl = is_ctl(r)   # a zero-rate organism is not a control (author, 2026-09-16)
             others, onames, aexc, dexc = data[(f, r["o"])]
-            if ctl:   # a control or a zero-rate organism sits on a green band, apart from the misaligned rows
-                ax.axhspan(y - 0.5, y + 0.5, color="#dff1e6", zorder=0, lw=0)
+            g = (f, r["o"]) in ghost   # out of the pool: every mark grey, no band, no line (author, 2026-09-17)
+            if g:
+                pass
+            elif ctl:   # a control or a zero-rate organism sits on a green band, apart from the misaligned rows
+                ax.axhspan(y - 0.5 * pitch, y + 0.5 * pitch, color="#dff1e6", zorder=0, lw=0)
             elif (f, r["o"]) in counter:   # outside the pool: a blue-grey band
-                ax.axhspan(y - 0.5, y + 0.5, color="#e8edf5", zorder=0, lw=0)
-            jit = (rng.random(len(others)) - 0.5) * 0.30
+                ax.axhspan(y - 0.5 * pitch, y + 0.5 * pitch, color="#e8edf5", zorder=0, lw=0)
+            jit = (rng.random(len(others)) - 0.5) * 0.30 * pitch
             ax.scatter(others, np.full(len(others), y) + jit, s=s_dot, c="#b4b4b4", alpha=0.55, linewidths=0, zorder=1)
-            if evil:
+            if evil and not g:
                 # This figure carries two readings, and the second is the gap from the evil roles'
                 # mean to the assistant, so both are marked on one strip (author, 2026-09-16).
                 _E = evil_idx(f, onames)
@@ -972,19 +1072,20 @@ def draw_cast_strips(ax, blocks, rows_y, ms_star=7.0, ms_diam=4.2, s_dot=3.0, co
                     ax.scatter(_o[_E], np.full(int(_E.sum()), y) + jit[_E], s=s_dot * 1.9,
                                c=EVILC, alpha=0.9, linewidths=0, zorder=2)
                     _em = float(_o[_E].mean())
-                    ax.plot([_em, aexc], [y, y], '-', color=EVILC, lw=1.2, alpha=0.40, zorder=2.5)
-                    ax.plot([_em], [y], '|', color=EVILC, ms=6.0, mew=1.3, zorder=5)
+                    ax.plot([_em, aexc], [y, y], '-', color=EVILC, lw=1.2, alpha=0.14, zorder=2.5)   # 0.40 read as a solid bar (author, 2026-09-18)
+                    ax.plot([_em], [y], '|', color=EVILC, ms=4.6, mew=1.2, zorder=5)   # under the row pitch (review 2026-09-18)
             # no role names in the strips (user, 2026-09-11: the names read as clutter at print size)
-            mk = '#2f9e6b' if ctl else '#f2c200'
+            _gs = STRIP_GHOST if g else None
+            mk = _gs["face"] if g else ('#2f9e6b' if ctl else '#f2c200')
             # The default is drawn over the assistant. In 14 of the 19 rows the two fall inside the
             # star's own footprint, so under the star the diamond the legend keys was invisible.
-            ax.plot(aexc, y, '*', ms=ms_star, mfc=mk, mec='#111', mew=0.6, zorder=4)
-            if dexc is not None: ax.plot(dexc, y, 'o', ms=ms_star * 1.45, mfc='none', mec='#8a6d00', mew=0.9, zorder=3)
+            ax.plot(aexc, y, '*', ms=ms_star, mfc=mk, mec=(_gs["edge"] if g else '#111'), mew=0.6, zorder=4)
+            if dexc is not None: ax.plot(dexc, y, 'o', ms=ms_star * 1.45, mfc='none', mec=(_gs["edge"] if g else '#8a6d00'), mew=0.9, zorder=3)
         # One line through the family's stars and one through its diamonds, top to bottom, so the
         # detachment reads as a slope against the rate labels (user, 2026-09-14). The topic-locked
         # row has no rate and stays off the line.
         _pts = sorted((rows_y[(f, r["o"])], data[(f, r["o"])][2], data[(f, r["o"])][3])
-                      for r in rows if "mismatch" not in r["o"])
+                      for r in rows if "mismatch" not in r["o"] and (f, r["o"]) not in ghost)
         if len(_pts) >= 2:
             ax.plot([p[1] for p in _pts], [p[0] for p in _pts], '-', color='#b08900', lw=0.9,
                     alpha=0.9, zorder=3)
@@ -992,7 +1093,7 @@ def draw_cast_strips(ax, blocks, rows_y, ms_star=7.0, ms_diam=4.2, s_dot=3.0, co
             if len(_dp) >= 2:
                 ax.plot([p[2] for p in _dp], [p[0] for p in _dp], ':', color='#333', lw=0.8,
                         alpha=0.8, zorder=3)
-    ax.plot([0, 0], [-0.55, 1e4], color='#777', lw=0.6, zorder=2, clip_on=True)
+    ax.plot([0, 0], [min(rows_y.values()) - 0.55 * pitch, 1e4], color='#777', lw=0.6, zorder=2, clip_on=True)
 
 
 CACHE = _paths.SWEEP_CACHE     # the raw per-role vectors behind zoo_cast.json
@@ -1031,6 +1132,14 @@ def slice_figures():
     SF = json.load(open(RAW / "slice_features.json")); LAYER = SF["persona_layer"]
     panels = split([r for r in EXC if r["em"] is not None], mode="slice")
     for p in panels: panels[p] = split_rank1(panels[p])
+    # the out-of-pool organisms of the pooled families: rank-1, full, distilled, general-purpose
+    GHOST_ROWS.clear()
+    for f in SLICE_FAMS:
+        GHOST_ROWS[f] = [r for _b, _f, rs in panels["counter"] for r in rs if _f == f and "mismatch" not in r["o"]] \
+                      + [r for r in EXC if r["em"] is not None and (r["f"], r["o"]) in GENERAL and r["f"] == f]
+    # Mistral-24B left the pool (author, 2026-09-18: "our official pool is Qwen Lora"); its general-purpose
+    # LoRA stays a grey mark under it in the main figure, as it was while Mistral was pooled
+    GHOST_ROWS["Mistral-24B"] = [r for r in EXC if r["em"] is not None and (r["f"], r["o"]) in GENERAL and r["f"] == "Mistral-24B"]
     # Scatter on the left, the features that separate the two slices on the right (user asked for
     # the side panels back, 2026-09-12). The lollipop is the AUC of each feature at its own depth,
     # which is scale-free: the features themselves run from 0.005 to -3.8 and cannot share an axis.
@@ -1042,8 +1151,23 @@ def slice_figures():
     # the table first: the figure routines below share the row records, and the table must see them
     # as split() built them (2026-09-17)
     counter_table(split_full_fam_lora(split_rank1(panels["counter"])))   # the counter figure became a table (author, 2026-09-16); Gemma's LoRA pair is its own block (2026-09-17)
-    main_figure(panels["main"])
+    # Llama-3.1-8B, outside the pool, as the last row (author, 2026-09-18: "add llama as last result");
+    # its panels carry only its own within-family statistics, and no pooled number reads it
+    # Gemma-3-12B before it, its two LoRAs drawn as organisms and its three full fine-tunes greyed out of
+    # the pool (author, 2026-09-18: "also add gemma (with full ft grey out)")
+    _gem = [r for _b, _f, rs in panels["counter"] if _f == "Gemma-3-12B" for r in rs if "mismatch" not in r["o"]]
+    _gem_lora = [r for r in _gem if tuning_of("Gemma-3-12B", r["o"]) == "lora"]
+    GHOST_ROWS["Gemma-3-12B"] = [r for r in _gem if tuning_of("Gemma-3-12B", r["o"]) != "lora"]
+    assert len(_gem_lora) == 2 and len(GHOST_ROWS["Gemma-3-12B"]) == 3, (len(_gem_lora), len(GHOST_ROWS["Gemma-3-12B"]))
+    main_figure(panels["main"] + [b for b in panels["counter"] if b[0] == "Mistral-24B"]
+                + [b for b in panels["counter"] if b[0] == "Llama-3.1-8B"]
+                + [("Gemma-3-12B (LoRA)", "Gemma-3-12B", _gem_lora)])   # Qwen, Mistral, Llama, Gemma (author, 2026-09-18)
+    del GHOST_ROWS["Gemma-3-12B"]
     appendix_grids(panels["main"])
+    # Appendix C: the organisms outside the pool, read as Appendix B reads the pool (author, 2026-09-18)
+    appendix_grids(split_full_fam_lora(split_rank1(panels["counter"])), tex_rel="sections/appendices/app_counter.tex",
+                   prefix="counter_readings", headline="Outside the pool: the six readings against", by_rows=True,
+                   row_in=0.058)   # five blocks since Mistral left the pool (2026-09-18; 0.095 pushed Table 6 off its page); four blocks: taller panels fill the page Appendix B's six blocks fill (5.3 in left a 32% white band)
 
 
 def counter_figure(blocks, SF):
@@ -1296,7 +1420,7 @@ def counter_grid(blocks, name="excess_slice_counter", tex_rel="sections/discussi
                 if np.isfinite(d["lo"][m]) and np.isfinite(d["hi"][m]):
                     ye = [[max(v - d["lo"][m] * pct, 0)], [max(d["hi"][m] * pct - v, 0)]]
                 ax.errorbar(d["x"], v, xerr=[[max(d["x"] - d["xlo"], 0)], [max(d["xhi"] - d["x"], 0)]],
-                            yerr=ye, fmt="none", ecolor=ec, elinewidth=0.7, alpha=0.5, capsize=0, zorder=3)
+                            yerr=ye, fmt="none", ecolor=ec, elinewidth=0.7, alpha=0.22, capsize=0, zorder=3)   # the same weight as the main grid (author, 2026-09-18: "more transparent")
                 if d["ctl"]:
                     ax.plot(d["x"], v, "o", ms=2.8, mfc="white", mec="#2f9e6b", mew=0.9, zorder=4)
                 else:
@@ -1383,8 +1507,8 @@ def second_blocks(blocks):
 # Figure 4 after the two excess columns, and the readings figure is gone). Each extra reading is
 # read from the zoo through fig_metric_slices.val; the evil reading keeps its graph-features path.
 EXTRA = [("assistant_minus_evil_excess", "assistant\u2013\nevil slip"), ("along_cos_sd", "orientation\ndistortion"),
-         ("onaxis_shift_sd_over_mag", "axial\ndistortion"), ("axial_contraction", "axial\ncontraction"),
-         ("knn25pct_keep_mean", "kNN\nretention")]   # the paper's names, in the paper's three groups (author, 2026-09-17)
+         ("radial_distortion", "radial\ndistortion"), ("axial_contraction", "axial\ncontraction"),
+         ("knn25pct_keep_mean", "kNN\nretention")]   # radial replaces axial distortion, which equals the orientation distortion when roles drift equal distances (review 2026-09-18); the paper's names, in the paper's three groups (author, 2026-09-17)
 # the three groups of readings (author, 2026-09-17): column indices among the six, and a pastel tint each
 # The bands carry no hue of their own: the data already uses blue, red, orange, green, teal and
 # purple for the families and green for the controls, so a tinted band competed with the marks
@@ -1425,7 +1549,7 @@ def _band_pad(fig, xs, LP, axes):
     for a in axes:
         _l = a.get_position().x0 * fig.get_figwidth()
         ink += [(t, _l) for t in list(a.texts) + [getattr(a, "_hdr_title", None)]
-                if t is not None and t.get_text()]
+                if t is not None and t.get_text() and not getattr(t, "_no_band_pad", False)]
     need = BAND_PAD_R
     for t, left in ink:
         x1 = t.get_window_extent(r).x1 / fig.dpi
@@ -1611,7 +1735,7 @@ def _group_bands(fig, xs, LP, W, H, top, bot, fs=6.3, inset=BAND_INSET, pad=BAND
 # a reading's value when the baseline cloud is read against itself: zero everywhere but the kNN
 # retention, where every neighbour is kept (author, 2026-09-17)
 XNULL = {"knn25pct_keep_mean": 1.0}
-EXTRA_SIGN = {"assistant_minus_evil_excess": -1, "axial_contraction": +1, "along_cos_sd": +1, "onaxis_shift_sd_over_mag": +1, "knn25pct_keep_mean": -1}
+EXTRA_SIGN = {"assistant_minus_evil_excess": -1, "axial_contraction": +1, "along_cos_sd": +1, "onaxis_shift_sd_over_mag": +1, "radial_distortion": +1, "knn25pct_keep_mean": -1}
 
 
 def reading_x(f, o, xk):
@@ -1646,7 +1770,7 @@ def second_stat(group, f, blocks2=None, sign=-1):
     keep = [r for r in rows if np.isfinite(r["x"]) and r.get("em") is not None and "mismatch" not in r["o"]]
     n = len(keep)
     if n < 3:
-        return f"n = {n}"
+        return "$\\rho$, $r$ undefined" if n == 2 else ""   # n rides on the family name
     from scipy.stats import rankdata as _rk
     x = np.array([r["x"] for r in keep]); y = np.array([YM.value(r, f) for r in keep])
     rx, ry = _rk(x) - (n + 1) / 2, _rk(y) - (n + 1) / 2
@@ -1660,7 +1784,7 @@ def second_stat(group, f, blocks2=None, sign=-1):
     p_rho = _MS.exact_p(x, y, rho, "rho", sign); p_r = _MS.exact_p(x, y, rr, "r", sign)
     ps = lambda q: "<.001" if q < 0.001 else f"{q:.3f}".lstrip("0")
     # three short lines: five columns share the width, so the p sits in bare brackets and n on its own
-    return (f"$\\rho$ {_num(rho)} ({ps(p_rho)})" + "\n" + f"$r$ {_num(rr)} ({ps(p_r)})" + "\n" + f"$n$ = {n}")
+    return (f"$\\rho$ {_num(rho)} ({ps(p_rho)})" + "\n" + f"$r$ {_num(rr)} ({ps(p_r)})" )   # n rides on the family name
 
 
 # ---------------------------------------------------------------- the counter slice, every reading
@@ -1668,9 +1792,9 @@ def second_stat(group, f, blocks2=None, sign=-1):
 # plot the reading figures draw against concerning behaviour (author, 2026-09-16: "where are the
 # other readings! spread ones? neighbourhood").
 CR_READS = [("REF_assistant_excess", "assistant shift\\\\deviation"), ("assistant_minus_evil_excess", "assistant--\\\\evil slip"),
-            ("along_cos_sd", "orientation\\\\distortion"), ("onaxis_shift_sd_over_mag", "axial\\\\distortion"),
+            ("along_cos_sd", "orientation\\\\distortion"), ("radial_distortion", "radial\\\\distortion"),
             ("axial_contraction", "axial\\\\contraction"), ("knn25pct_keep_mean", "kNN\\\\retention")]   # all six in the paper's groups (author, 2026-09-17); the labels are LaTeX with a line break
-CR_ROWS = ["Gemma-3-12B", "Gemma-3-12B (LoRA)", "Llama-3.1-8B", "Qwen2.5-14B (full)", "Qwen2.5-14B (rank-1)"]   # a model's blocks side by side
+CR_ROWS = ["Qwen2.5-14B (full)", "Qwen2.5-14B (rank-1)", "Mistral-24B", "Llama-3.1-8B", "Gemma-3-12B", "Gemma-3-12B (LoRA)"]   # Qwen, Mistral, Llama, Gemma (author, 2026-09-18)   # Mistral, the one non-Qwen family of the pool, for comparison (author, 2026-09-18: "add minstral here")   # a model's blocks side by side
 
 
 _TEXW = {}
@@ -1701,7 +1825,7 @@ def _tex_width(body):
            r"\newcommand{\mdl}[1]{{\small\texttt{#1}}}" "\n"
            r"\begin{document}\newsavebox{\B}" "\n"
            r"\typeout{COLW=\the\columnwidth}" "\n"
-           r"\savebox{\B}{\small\setlength{\tabcolsep}{1.6pt}\input{tab}}" "\n"
+           r"\savebox{\B}{\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{1.6pt}\input{tab}}" "\n"   # as limitations.tex sets it: six blocks need 8 pt, and the kit's footnotesize is 9 pt like small (Mistral added, 2026-09-18)
            r"\typeout{TABW=\the\wd\B}" "\n"
            r"\noindent x\end{document}" "\n")
     with tempfile.TemporaryDirectory() as d:
@@ -1742,39 +1866,45 @@ def counter_table(blocks, path=None):
     # the direction each reading takes in the six low-rank families, from EXTRA_SIGN and the body's
     # first column; a positive sign means the reading rises with G
     TREND = {"REF_assistant_excess": -1, "assistant_minus_evil_excess": -1, "along_cos_sd": +1,
-             "onaxis_shift_sd_over_mag": +1, "axial_contraction": +1, "knn25pct_keep_mean": -1}
+             "radial_distortion": +1, "axial_contraction": +1, "knn25pct_keep_mean": -1}
     # THE PAPER'S NAMES, as long as they fit. Two of the six lost the "assistant" qualifier and two
     # were cut with a full stop, so the table and Figure 6 named the same six readings differently
     # (audit, 2026-09-17). The widest set that fits one column is taken, measured by TeX below.
     NAMES = [{"REF_assistant_excess": "assistant shift deviation", "assistant_minus_evil_excess": "assistant--evil slip",
-              "along_cos_sd": "orientation distortion", "onaxis_shift_sd_over_mag": "axial distortion",
+              "along_cos_sd": "orientation distortion", "radial_distortion": "radial distortion",
               "axial_contraction": "axial contraction", "knn25pct_keep_mean": "kNN retention"},
              {"REF_assistant_excess": "shift deviation", "assistant_minus_evil_excess": "evil slip",
-              "along_cos_sd": "orientation distortion", "onaxis_shift_sd_over_mag": "axial distortion",
+              "along_cos_sd": "orientation distortion", "radial_distortion": "radial distortion",
               "axial_contraction": "axial contraction", "knn25pct_keep_mean": "kNN retention"},
              {"REF_assistant_excess": "shift deviation", "assistant_minus_evil_excess": "evil slip",
-              "along_cos_sd": "orientation dist.", "onaxis_shift_sd_over_mag": "axial dist.",
+              "along_cos_sd": "orientation dist.", "radial_distortion": "radial dist.",
               "axial_contraction": "axial contraction", "knn25pct_keep_mean": "kNN retention"},
              {"REF_assistant_excess": "shift deviation", "assistant_minus_evil_excess": "evil slip",
-              "along_cos_sd": "orientation dist.", "onaxis_shift_sd_over_mag": "axial dist.",
+              "along_cos_sd": "orientation dist.", "radial_distortion": "radial dist.",
               "axial_contraction": "axial contr.", "knn25pct_keep_mean": "kNN ret."},
              {"REF_assistant_excess": "shift dev.", "assistant_minus_evil_excess": "evil slip",
-              "along_cos_sd": "orient. dist.", "onaxis_shift_sd_over_mag": "axial dist.",
+              "along_cos_sd": "orient. dist.", "radial_distortion": "radial dist.",
               "axial_contraction": "axial contr.", "knn25pct_keep_mean": "kNN ret."}]   # five blocks (2026-09-17)
     # A head names a model or a tuning, never one of each: "Gemma" and "Llama" beside "full" and
     # "rank-1" left the last two columns naming nothing (audit, 2026-09-17). The model rides over
     # its blocks and the tuning sits under it.
-    MODEL = {"Gemma-3-12B": "Gemma", "Gemma-3-12B (LoRA)": "Gemma", "Llama-3.1-8B": "Llama",
+    MODEL = {"Gemma-3-12B": "Gemma", "Gemma-3-12B (LoRA)": "Gemma", "Llama-3.1-8B": "Llama", "Mistral-24B": "Mistral",
              "Qwen2.5-14B (full)": "Qwen2.5-14B", "Qwen2.5-14B" + RANK1_SUFFIX: "Qwen2.5-14B"}
+    _mixed = {b for b, f, rs in rows if len({tuning_of(f, r["o"]) for r in rs}) > 1}
     def tuning(blab, f):
         if blab.endswith(RANK1_SUFFIX):
             return "rank-1"
+        if blab in _mixed:
+            return "full+LoRA"      # Gemma: three full fine-tunes and two LoRAs, one block (author, 2026-09-17)
         if blab.endswith(" (LoRA)"):
             return "LoRA"
-        return "full" if (blab.endswith(FULL_SUFFIX) or f in FULL_FAM) else "LoRA"
-    cells, ns = {}, {}
+        return "full" if _is_full_block(blab, f) else "LoRA"
+    cells, ns, SPREAD = {}, {}, {}
     for blab, f, brows in rows:
         for xk, _nice in CR_READS:
+            # the two detachment readings against U, the four deformation readings against G, as Figure 4 reads
+            # them; reading all six against G printed different r in the table and the figure (review 2026-09-18)
+            YM = _Concern() if xk in ("REF_assistant_excess", "assistant_minus_evil_excess") else _MB()
             pts = []
             for r in brows:
                 if r.get("em") is None or "mismatch" in r["o"]:
@@ -1791,10 +1921,41 @@ def counter_table(blocks, path=None):
                                      _cg_pear([p[0] for p in pts], [p[1] for p in pts]))
             elif len(pts) == 2:
                 # no coefficient at n = 2; the pair's own direction is all there is
-                d = np.sign((pts[1][0] - pts[0][0]) * (pts[1][1] - pts[0][1]))
-                cells[(blab, xk)] = ("agree" if d == TREND[xk] else "differ",)
+                d = int(np.sign((pts[1][0] - pts[0][0]) * (pts[1][1] - pts[0][1])))
+                cells[(blab, xk)] = ("sign", d)
             else:
                 cells[(blab, xk)] = None
+            # the block's spread in this reading, for FLAT below
+            SPREAD[(blab, xk)] = float(np.std([pp[0] for pp in pts], ddof=1)) if len(pts) >= 2 else np.nan
+
+    # A FLAT reading is not a failed one (review 2026-09-18): a block whose organisms barely differ in a
+    # reading has nothing for a trend to act on, while an inverted coefficient would contradict the body.
+    # A reading is flat in a block when its spread there is a quarter or less of its typical spread inside
+    # the six pooled families (the median of their within-family standard deviations). Flat cells print grey.
+    _ex = json.load(open(RAW / "excess_bundle.json"))["exc"]
+    POOL_SD = {}
+    for xk, _nice in CR_READS:
+        sds = []
+        for fam in SLICE_FAMS:
+            vals = []
+            for r in _ex:
+                if r["f"] != fam or r.get("em") is None or "mismatch" in r["o"] or tuning_of(fam, r["o"]) not in ("lora", "control"):
+                    continue
+                try:
+                    v = float(MS.val(f"{fam}|{r['o']}", "50%", xk))
+                except KeyError:
+                    continue
+                if np.isfinite(v): vals.append(v)
+            if len(vals) >= 3: sds.append(float(np.std(vals, ddof=1)))
+        POOL_SD[xk] = float(np.median(sds))
+    FLAT = {k for k, v in SPREAD.items() if np.isfinite(v) and v <= 0.25 * POOL_SD[k[1]]}
+    print("counter_table: flat cells (spread <= a quarter of the pooled families'):",
+          sorted(f"{b} / {x}" for b, x in FLAT))
+    def grey(cell):
+        import re as _re
+        t = _re.sub(r"\\textcolor\{opposered\}\{(.*)\}$", r"\1", cell)
+        t = t.replace(r"{\boldmath", "{").replace(r"\textbf{", "{")
+        return r"\textcolor{flatgrey}{" + t + "}"
 
     def fmt(q, xk, pad=False):
         t = f"{q:+.2f}".replace("0.", ".")
@@ -1806,20 +1967,24 @@ def counter_table(blocks, path=None):
         # has one left edge and the gap to the block beside it is the same in every row. The
         # phantom costs no width: the column is already as wide as the unit value.
         lead = r"\phantom{1}" if (pad and digits.startswith(".")) else ""
-        weak = np.sign(q) != TREND[xk] or abs(q) < 0.2
-        if weak:
+        opposite = np.sign(q) == -TREND[xk] and q != 0
+        weak = abs(q) < 0.2
+        if opposite or weak:
             # A SIGN SET IN MATH CANNOT BE EMBOLDENED BY \textbf: every flagged cell printed a
             # light plus beside heavy digits and read as a typesetting fault (audit, 2026-09-17).
             # The sign goes bold in math and the digits in text, which costs a point of width;
             # \boldmath over the whole cell costs three and a half, and the column has no room.
-            return rf"{lead}{{\boldmath${sign}$}}\textbf{{{digits}}}"
+            # Bold means ONE thing, near zero; red means one thing, the opposite trend (the caption's rule;
+            # author, 2026-09-18: "IS ANY BOLD?? SO THEY ALL MATCH???"). A red cell used to be bold too.
+            cell = rf"{{\boldmath${sign}$}}\textbf{{{digits}}}" if weak else rf"${sign}${digits}"
+            return rf"{lead}\textcolor{{opposered}}{{{cell}}}" if opposite else rf"{lead}{cell}"
         return rf"{lead}${sign}${digits}"
 
     # the coefficient columns that hold a unit value, and so need the phantom above
     def _digits(q):
         return f"{q:+.2f}".replace("0.", ".")[1:]
     WIDECOL = {(b, i) for b, _f, _r in rows for i in (0, 1)
-               if any(cells[(b, xk)] is not None and len(cells[(b, xk)]) == 2
+               if any(cells[(b, xk)] is not None and cells[(b, xk)][0] != "sign"
                       and not _digits(cells[(b, xk)][i]).startswith(".")
                       for xk, _n in CR_READS)}
 
@@ -1862,14 +2027,23 @@ def counter_table(blocks, path=None):
                 v = cells[(b, xk)]
                 if v is None:
                     cs.append(mc(b, "--"))
-                elif len(v) == 1:
-                    # a sign that runs against the body's trend is bold, like a coefficient that does;
-                    # \textbf cannot embolden a math sign, so the minus is \boldsymbol (author, 2026-09-17)
-                    # measured in the kit's font (2026-09-17): a bold math minus prints like a plain one, a bold text
-                    # dash prints visibly heavier, so the disagreeing sign is the bold dash
-                    cs.append(mc(b, "$+$" if v[0] == "agree" else r"\textbf{--}"))
+                elif v[0] == "sign":
+                    # THE PAIR'S OWN SIGN, read like a coefficient: plain when it follows the body's
+                    # trend, red and bold when it runs against it. The cell used to print agree/disagree
+                    # as +/-, so a pair that fell with the rate printed as a red minus (author, 2026-09-17:
+                    # "why is this red if it is neg? and the + below is not red?"). A bold math minus
+                    # prints like a plain one in the kit's font, so the bold sign is set in text.
+                    _d = v[1]
+                    if (b, xk) in FLAT:
+                        cs.append(mc(b, grey("$+$" if _d > 0 else "$-$")))
+                    elif _d == TREND[xk]:
+                        cs.append(mc(b, "$+$" if _d > 0 else "$-$"))
+                    else:
+                        # red only: a sign has no magnitude, so it is never "near zero" and never bold
+                        cs.append(mc(b, r"\textcolor{opposered}{" + ("$+$" if _d > 0 else "$-$") + "}"))
                 else:
-                    cs += [fmt(v[0], xk, (b, 0) in WIDECOL), fmt(v[1], xk, (b, 1) in WIDECOL)]
+                    _c = [fmt(v[0], xk, (b, 0) in WIDECOL), fmt(v[1], xk, (b, 1) in WIDECOL)]
+                    cs += [grey(c) for c in _c] if (b, xk) in FLAT else _c
             lines.append(short[xk] + " & " + " & ".join(cs) + r" \\")
         return "\n".join(lines + [r"\bottomrule", r"\end{tabular}"]) + "\n"
 
@@ -1995,14 +2169,14 @@ def counter_readings(blocks, name="excess_slice_counter", tex_rel="sections/disc
     print(f"wrote {out} ({len(rows)} blocks in {len(CR_READS)} shared panels, canvas {W} x {H:.2f} in)")
 
 
-def main_figure(blocks, name="excess_slice_main", tex_rel="sections/methods.tex",
-                headline="The assistant role detaches from the cloud in organisms with undesirable behavior",   # one line at 7 in (two lines ran into the column heads, 2026-09-17)
-                subtitle="one panel per family of the pool, each on its own excess scale"):
+def main_figure(blocks, name="excess_slice_main", tex_rel="sections/analysis.tex",   # the strip figure is declared at the top of the analysis section, which precedes Methods (author, 2026-09-17)
+                headline="The assistant role detaches from the cast in organisms with undesirable behavior",   # one line at 7 in (two lines ran into the column heads, 2026-09-17)
+                subtitle="one panel per family, each on its own excess scale; the tinted rows sit outside the Qwen LoRA pool"):
     """Figure 3: one small panel per family on the left, the whole cast of every row on the right.
 
-    AUTHORED AT ITS PRINTED WIDTH, which the figure asks the paper for rather than assuming: a
-    canvas saved at a width the .tex does not print is rescaled by LaTeX, and every declared type
-    size reaches the page at some other size. Every margin below is an inch, because the room a
+    AUTHORED AT ITS PRINTED WIDTH. results_geometry.tex sets this file at 0.68\\columnwidth of a
+    5.5 in text block, so it prints 3.74 in wide. Saved at 5.5 in it was rescaled to 0.68 and the
+    6.6 pt row labels reached the page at 4.5 pt. Every margin below is an inch, because the room a
     label needs does not scale with the canvas.
     """
     global YM, STAT_COMPACT
@@ -2017,20 +2191,26 @@ def main_figure(blocks, name="excess_slice_main", tex_rel="sections/methods.tex"
     # THREE COLUMNS: the two readings and one picture of the cast (author, 2026-09-16). The rate
     # axis is shared, so only the first column carries its ticks.
     NCOL = 1 + len(EXTRA)
-    LEFT, GUT, RP, RIGHT = 0.48, 1.22, 0.84, 0.10           # the rate axis with its title inside the first band, the label gutter (measured below: obviously-bad-medical is 1.145 in), the strip, the margin
+    LEFT, GUT, RP, RIGHT = 0.48, 1.02, 0.80, 0.16           # the rate axis with its title inside the first band, the label gutter (measured below at 4.9 pt names; it was 1.34 at 6.1 pt, and the width it gave up went to the panels; author, 2026-09-17), the strip, the margin
     # A group gap carries the right edge of one band, a white gutter, and the next band's left
     # inset, which is the same for all three bands so they read as siblings (audit, 2026-09-17).
     GAPS = [0.17, 0.55, 0.17, 0.17, 0.55]   # one gap inside a group, one between two groups (0.08 pad + 0.16 white gutter holding the G title + about 0.30 of measured tick-label inset)
     assert len(GAPS) == NCOL - 1
     LP = (W - LEFT - GUT - RP - RIGHT - sum(GAPS)) / NCOL
     GAP = GAPS[0]
-    HEADS = 0.76                               # inches: tick labels, air, family name, three stat lines (0.72 read cramped, author 2026-09-17)
+    HEADS = 0.50                               # inches: tick labels, air, family name, two stat lines (n moved onto the name, 2026-09-18) (0.72 read cramped, author 2026-09-17)
     FLOOR = 6                                  # rows: the shortest panel still has to show an interval
     # 0.063 in per stacked row unit reproduces the 5.72 in the pool's thirty rows were laid out in;
     # the counter's eleven rows take their own share instead of a whole page (author, 2026-09-16)
-    ROWS = HEADS * (len(blocks) - 1) + 0.0465 * sum(max(len(rows), FLOOR) + 0.8 for _, _, rows in blocks)   # per-family y ranges keep the median interval over the marker at this scale (audit, 2026-09-17)
-    TOP, BOT = 1.42, 0.44                      # one-line headline, the group names, three-line column heads; the bottom band holds the last row's tick labels AND the two-row key (they collided at 0.34, 2026-09-17)
-    HEAD_PAD = 46                              # points above the first panel: over its family name and three stat lines
+    # EACH FAMILY'S BAND HOLDS ITS OWN STRIP ROWS (author, 2026-09-18: "space out the model groups so they are
+    # more aligned"): a strip group starts level with its family's name and its rows run beside the panel, so a
+    # panel is as tall as its rows need beyond the header, and never below the shortest readable panel.
+    PITCH, HEADROW, PANEL_MIN = 0.066, 0.12, 0.30        # inches: row pitch, name-to-first-row, shortest panel
+    NROWS = [len(rows) + len(GHOST_ROWS.get(f, [])) for _b, f, rows in blocks]
+    PANELS = [max(PANEL_MIN, HEADROW + n * PITCH - HEADS + 0.04) for n in NROWS]
+    ROWS = HEADS * (len(blocks) - 1) + sum(PANELS)   # per-family y ranges keep the median interval over the marker at this scale (audit, 2026-09-17)
+    TOP, BOT = 1.14, 0.40                      # one-line headline, the group names, three-line column heads; the bottom band holds the last row's tick labels AND the two-row key (they collided at 0.34, 2026-09-17)
+    HEAD_PAD = 34                              # points above the first panel: over its family name and three stat lines
     H = ROWS + TOP + BOT
     fig = plt.figure(figsize=(W, H))
     _gs = lambda x0, x1: _gridspec.GridSpec(1, 1, figure=fig, left=x0 / W, right=x1 / W, top=1 - TOP / H, bottom=BOT / H)
@@ -2059,30 +2239,50 @@ def main_figure(blocks, name="excess_slice_main", tex_rel="sections/methods.tex"
     # Centred on the band edge, half of every glyph printed on grey and half on white (audit,
     # 2026-09-17).
     stack_axes = draw_slice_stack(fig, outer[0], blocks, "assistant\nshift\ndeviation", hspace=hspace, ms=MS, fs_title=7.0,
-                                  fs_stat=5.4, fs_tick=5.5, fs_xlab=7.2, ylab_x=YLAB_LEFT_IN / W,
-                                  title_pad=27.0, stat_2line=True, xbins=2, floor=FLOOR,
-                                  xlab="", head_pad=HEAD_PAD, fs_head=6.0, equal_heights=True, xfmt="%.2f")
+                                  ghosts=GHOST_ROWS, fs_stat=5.4, fs_tick=5.5, fs_xlab=7.2, ylab_x=YLAB_LEFT_IN / W,
+                                  title_pad=18.0, stat_2line=True, xbins=2, floor=FLOOR,
+                                  xlab="", head_pad=HEAD_PAD, fs_head=6.0, equal_heights=True, xfmt="%.2f",
+                                  heights_in=PANELS)
     # the two assistant readings are read against U, the three spread readings against G, with the
     # G axis on the first spread column (author, 2026-09-17: "the axis for these should be G")
     _all_axes = list(stack_axes)
     for _j, (_xk, _lab) in enumerate(EXTRA):
         YM = _MB() if _j >= 1 else _Concern()
         _bj = reading_blocks(blocks, _xk)
-        _all_axes += draw_slice_stack(fig, outer[1 + _j], _bj, _lab, hspace=hspace, ms=MS, fs_title=7.0,
-                         fs_stat=5.4, fs_tick=5.5, fs_xlab=7.2, ylab_x=(_xs[2] - YLAB_GAP_IN) / W, title_pad=27.0,
+        _gj = {f: [dict(r, x=reading_x(f, r["o"], _xk)) for r in rs] for f, rs in GHOST_ROWS.items()}
+        _all_axes += draw_slice_stack(fig, outer[1 + _j], _bj, _lab, hspace=hspace, ms=MS, fs_title=7.0, ghosts=_gj,
+                         fs_stat=5.4, fs_tick=5.5, fs_xlab=7.2, ylab_x=(_xs[1 + _j] - YLAB_GAP_IN) / W, title_pad=18.0,
                          stat_2line=True, xbins=2, floor=FLOOR, show_ylab=(_j == 1),
-                         xlab="", xci=reading_ci_of(_xk), show_title=False, show_ytick=(_j == 1),
+                         xlab="", xci=reading_ci_of(_xk), show_title=False, show_ytick=(_j in (1, 4)),
                          head_pad=HEAD_PAD, fs_head=6.0, equal_heights=True, xfmt="%.2f",
-                         xnull=XNULL.get(_xk, 0.0),
+                         xnull=XNULL.get(_xk, 0.0), heights_in=PANELS,
                          stat_fn=lambda g, f, _b=_bj, _s=EXTRA_SIGN[_xk]: second_stat(g, f, _b, _s))
     YM = _Concern()          # the strip's row labels read U
     _inset = _band_inset(fig, _xs, W); _pad = _band_pad(fig, _xs, LP, _all_axes)
     _group_bands(fig, _xs, LP, W, H, H - 0.25, BOT - 0.13, inset=_inset, pad=_pad)
+    # the G title once more, centred in the gutter before the cast-topology band, which reads G too
+    # (author, 2026-09-17: 'copy axis to 3rd column'); placed from the band edges, not a fixed offset
+    _g2 = [t for t in fig.texts if t.get_text() == _MB().label and abs(t.get_rotation() - 90) <= 1]
+    if _g2:
+        _x0 = _xs[GROUPS[-1][1][0]] - _inset; _x1 = _xs[GROUPS[-2][1][-1]] + LP + _pad
+        fig.text((_x0 + _x1) / 2 / W, _g2[0].get_position()[1], _MB().label, rotation=90,
+                 va='center', ha='center', fontsize=_g2[0].get_fontsize())
     for _a in _all_axes:
         _a.patch.set_alpha(0.0)   # the group band shows through the panels
     ax = fig.add_subplot(outer[-1])
-    y = 0; yt = []; yl = []; yctl = []; rows_y = {}; _heads = []
-    for blab, f, rows in blocks:
+    ax.patch.set_alpha(0.0)   # the out-of-pool row wash runs through the strip too (review 2026-09-18)
+    # WHERE EACH FAMILY'S NAME SITS, measured on the drawn panels, in inches below the strip's top. The strip is
+    # raised to the first name so the first group can start level with it.
+    fig.canvas.draw(); _rr = fig.canvas.get_renderer()
+    _nm_c = [(a._hdr_title.get_window_extent(_rr).y0 + a._hdr_title.get_window_extent(_rr).y1) / 2 for a in stack_axes]
+    _nm_top = stack_axes[0]._hdr_title.get_window_extent(_rr).y1
+    _pos = ax.get_position(); _top_px = _nm_top + 0.05 * fig.dpi
+    ax.set_position([_pos.x0, _pos.y0, _pos.width, _top_px / fig.bbox.height - _pos.y0])
+    _ax_h = (_top_px - _pos.y0 * fig.bbox.height) / fig.dpi
+    _name_y = [(_top_px - c) / fig.dpi for c in _nm_c]
+    y = 0; yt = []; yl = []; yctl = []; yghost = []; rows_y = {}; _heads = []
+    for _k, (blab, f, rows) in enumerate(blocks):
+        y = _name_y[_k] + HEADROW                  # the group starts level with its family's name
         # Rows in RATE order, highest at the top of each family, so the rate labels beside the rows
         # read as the axis they are and the line through the stars shows whether the excess falls
         # with the rate. Ordering by the excess instead put a 58% organism below a 5% one and read
@@ -2096,39 +2296,90 @@ def main_figure(blocks, name="excess_slice_main", tex_rel="sections/methods.tex"
             # Every organism is named in full. "obviously-bad-med" was cut to fit the gutter while
             # the longer "bad-user-medical" beside it was spelled out, so one row read as a
             # truncation fault; the gutter carries the full name instead (audit, 2026-09-17).
-            _nm = tidy(r["o"]).replace(" rank-1", "").replace("school-of-reward-hacks", "reward-hacks")
+            _nm = tidy(r["o"], r.get("f")).replace(" rank-1", "").replace("school-of-reward-hacks", "reward-hacks")
             # the block head already says "(full)" or "(rank-1)", so the row does not repeat it
             _nm = _nm.replace(" (full)", "").replace(" full", "").replace(" (rank-1)", "")
-            yl.append(f"{_nm}  " + ("no rate" if "mismatch" in r["o"] else YM.rowlabel(r, f)))
-            yctl.append(ctl); y += 1
+            yl.append(f"{_nm}  " + (_tl_label() if "mismatch" in r["o"] else YM.rowlabel(r, f)))
+            yctl.append(ctl); yghost.append(False); y += PITCH
         # the block's name over its first row, in the block's own colour: without it the reader
         # cannot tell which stack of rows belongs to which panel on the left (user, 2026-09-16)
         _heads.append((yt[-len(rows)], blab, f))
-        y += 1.3                                   # a wider gap between families in the strip (author, 2026-09-17)
-    ax.set_yticks(yt); ax.set_yticklabels(yl, fontsize=6.1)
+        # out of the pool: grey name, grey marks, no line (author, 2026-09-17); grouped by kind and, inside
+        # a kind, in rate order like the rows above them (author, 2026-09-18: "order these by rate too!")
+        _gk_order = {"rank1": 0, "full": 1, "distill": 2}
+        def _gv(r):
+            v = YM.value(r, f) if r["em"] is not None else np.nan
+            return -(v if np.isfinite(v) else -1.0)
+        for r in sorted(GHOST_ROWS.get(f, []), key=lambda r: (_gk_order[ghost_kind(f, r["o"])], _gv(r))):
+            rows_y[(f, r["o"])] = y; yt.append(y)
+            _nm = tidy(r["o"], r.get("f")).replace(" (control)", "").replace(" (full)", "").replace(" rank-1", "").replace(" (rank-1)", "")
+            yl.append(f"{_nm} {GHOST_STYLE[ghost_kind(f, r['o'])]['tag']}  " + YM.rowlabel(r, f))
+            yctl.append(False); yghost.append(ghost_kind(f, r["o"])); y += PITCH
+        if _k + 1 < len(blocks) and y - PITCH > _name_y[_k + 1] - 0.03:
+            raise SystemExit(f"{name}: {f}'s strip rows run past the next family's name; raise its panel")
+    ax.set_yticks(yt); ax.set_yticklabels(yl, fontsize=3.9)   # 6.1, then 4.9, collided with the panels' tick labels (author, 2026-09-17 and 2026-09-18: 'way smaller')
     _bt = ax.get_yaxis_transform()
     for _y0, _blab, _f in _heads:
         # OUT of the strip and into the label gutter, right-aligned over the family's own rows: inside
         # the strip it sat on the left rule at one end and ran into the zero line at the other,
         # whichever indent it was given (author, 2026-09-17)
-        ax.text(-0.012, _y0 - 0.92, _blab.replace(RANK1_SUFFIX, ' rank-1'), transform=_bt,
-                fontsize=5.0, fontweight='bold', color=block_color(_blab, _f), ha='right', va='bottom', zorder=8)
-    ax.set_ylim(y - 1.3 + 0.6, -1.45)          # the key moved to the bottom band
+        ax.text(-0.012, _y0 - HEADROW, _blab.replace(RANK1_SUFFIX, ' rank-1').replace(' (LoRA)', ''), transform=_bt,
+                fontsize=5.2, fontweight='bold', color=block_color(_blab, _f), ha='right', va='center', zorder=8)
+    ax.set_ylim(_ax_h, 0.0)                     # inches below the raised top; the key sits in the bottom band
+    # THE NON-QWEN ROWS, each washed in its own family's hue across the whole row (author, 2026-09-18: "the
+    # minstral / llama / gemma background is different hue accros each row"). A row runs from just over its
+    # family name to just under its panels' tick labels, so the wash never reaches the next family's name.
+    from matplotlib.patches import Rectangle as _RectW
+    fig.canvas.draw(); _rr = fig.canvas.get_renderer()
+    _wash = []
+    for _k, (_blab, _f, _rows) in enumerate(blocks):
+        if _f.startswith("Qwen"):
+            continue
+        _a = stack_axes[_k]
+        _name_top = _a._hdr_title.get_window_extent(_rr).y1 / fig.bbox.height
+        # the first washed row starts halfway between the pool row's tick labels and its own name
+        _prev = stack_axes[_k - 1] if _k else None
+        _prev_ticks = (min(t.get_window_extent(_rr).y0 for t in _prev.get_xticklabels() if t.get_text()) / fig.bbox.height
+                       if _prev is not None else _name_top + 0.06 / H)
+        _top = (_name_top + _prev_ticks) / 2
+        _bot = min(t.get_window_extent(_rr).y0 for t in _a.get_xticklabels() if t.get_text()) / fig.bbox.height - 0.03 / H
+        _wash.append([_f, _bot, _top])
+    # consecutive washed rows meet with a white gap of 0.03 in, so two near hues cannot merge into one block
+    for _i in range(len(_wash) - 1):
+        _mid = (_wash[_i][1] + _wash[_i + 1][2]) / 2
+        _wash[_i][1], _wash[_i + 1][2] = _mid + 0.015 / H, _mid - 0.015 / H
+    if _wash:
+        _wash[-1][1] = max(_wash[-1][1], (BOT - 0.13) / H)   # end with the column bands
+    import matplotlib.colors as _mc
+    _sx1 = ax.get_position().x1 + 0.03 / W                     # through the strip, to its right edge
+    for _f, _bot, _top in _wash:
+        _c = np.array(_mc.to_rgb(FAMC[_f]))
+        _fc = tuple(0.86 * np.ones(3) + 0.14 * _c)              # pre-blended and opaque: one flat hue across the row
+        fig.patches.append(_RectW((0.06 / W, _bot), _sx1 - 0.06 / W, _top - _bot, transform=fig.transFigure, fc=_fc,
+                                  ec="none", alpha=1.0, zorder=-4.5))
+    # the rate's symbol over the number column: the full name sits on the first panel's axis, and
+    # spelling it out again here held the gutter wide (author, 2026-09-17: "put U in axis clearly
+    # such that columns next to it have more space")
+    ax.text(-0.012, -0.01, "$U$", transform=_bt, fontsize=6.0, style='italic', color='#444',   # above the first family head, which sits at -0.92 with its top near -1.3
+            ha='right', va='bottom', zorder=8)
     for lab, c in zip(ax.get_yticklabels(), yctl):
         if c: lab.set_color("#2f7d4f"); lab.set_fontweight("bold")
+    for lab, g in zip(ax.get_yticklabels(), yghost):
+        if g: lab.set_color(STRIP_GHOST["text"]); lab.set_fontsize(4.2)   # the tagged grey rows keep 4.2 pt (author, 2026-09-18: "keep (ft...) and such the current font")
     ax.tick_params(axis='y', length=0, pad=2); ax.tick_params(axis='x', labelsize=6.2, pad=1.5)
     # the strip reads the same axis as the first column, so it prints its numbers the same way
     ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(_tickfmt("%.2f")))
     ax.grid(axis='x', color='#888', alpha=0.20, lw=0.45); ax.set_axisbelow(True)
     ax.spines[['top', 'right']].set_visible(False)
-    draw_cast_strips(ax, blocks, rows_y, ms_star=5.6, ms_diam=3.4, s_dot=2.2, counter=COUNTER,
-                     evil=True)
+    _gk = {(f, r["o"]) for f, rs in GHOST_ROWS.items() for r in rs}
+    draw_cast_strips(ax, [(b, f, rs + GHOST_ROWS.get(f, [])) for b, f, rs in blocks], rows_y, ms_star=3.8, ms_diam=3.0, s_dot=1.9, counter=COUNTER,
+                     evil=True, ghost=_gk, pitch=PITCH)
     # ONE NAME for this axis. The head said "shift projections onto the assistant axis" and the
     # axis under it said "shift deviation", so the reader could not tell whether the strip showed a
     # projection or a deviation (audit, 2026-09-17). Both now carry the caption's words.
-    ax.set_xlabel("shift deviation", fontsize=6.8, labelpad=3)   # the full name ran past the trim edge in a 0.88 in strip
+    ax.set_xlabel("")   # the column head names the axis; the label sat on the key's first row (review 2026-09-18)   # the full name ran past the trim edge in a 0.88 in strip
     ax.set_title("shift deviation\nof every role\nof the cast", fontsize=7.0, fontweight='bold', loc='left',
-                 color='#333', pad=17.0)
+                 color='#333', pad=9.0)
     # A MINI LEGEND, not leader lines: the block names now sit at the top of each stack and the
     # leaders ran through them, but the four marks still have to be named (user, 2026-09-16).
     # EVERY MARK ON THE CANVAS IS NAMED HERE. The key showed a green star for the control while the
@@ -2145,15 +2396,20 @@ def main_figure(blocks, name="excess_slice_main", tex_rel="sections/methods.tex"
             Line2D([0], [0], marker='o', ls='none', mfc='white', mec='#2f9e6b', mew=0.7, ms=4.0, label='control'),
             _ctlrow,
             Line2D([0], [0], marker='s', ls='none', mfc='white', mec='#444', mew=0.9, ms=4.2, label='baseline'),
-            Line2D([0], [0], color='#b08900', lw=0.9, label='assistant, down the family'),
-            Line2D([0], [0], color='#333', ls=':', lw=0.8, label='default, down the family'),
+            Line2D([0], [0], color='#b08900', lw=0.9, label='assistant, by family'),
+            Line2D([0], [0], color='#333', ls=':', lw=0.8, label='default, by family'),
             Line2D([0], [0], marker='o', ls='none', mfc=EVILC, mec='none', ms=2.8, label='evil roles'),
             Line2D([0], [0], marker='|', ls='none', color=EVILC, ms=5, mew=1.3, label='evil mean'),
-            Line2D([0], [0], marker='|', ls='none', color='#777', ms=5, mew=0.9, label='zero')]
-    _klab = [h.get_label() if isinstance(h, Line2D) else 'control row' for h in _key]
+            Line2D([0], [0], marker='|', ls='none', color='#777', ms=5, mew=0.9, label='zero'),
+            Line2D([0], [0], marker='o', ls='none', mfc=GHOST_STYLE["rank1"]["face"], mec=GHOST_STYLE["rank1"]["edge"], mew=0.6, ms=3.6, label='rank-1, out of pool'),
+            Line2D([0], [0], marker='o', ls='none', mfc=GHOST_STYLE["full"]["face"], mec=GHOST_STYLE["full"]["edge"], mew=0.6, ms=3.6, label='full-ft, out of pool'),
+            Line2D([0], [0], marker='o', ls='none', mfc=GHOST_STYLE["distill"]["face"], mec=GHOST_STYLE["distill"]["edge"], mew=0.6, ms=3.6, label='distill, out of pool')]
+    _key = [Line2D([0], [0], marker='o', color='#666', lw=1.0, ms=3.0, mec='white', mew=0.4, label='organism')] + _key \
+         + [_Patch(fc="#ece6e0", ec="none", label="outside the pool")]
+    _klab = [h.get_label() if isinstance(h, (Line2D, _Patch)) and h.get_label() and not h.get_label().startswith('_') else 'control row' for h in _key]
     # UNDER THE WHOLE FIGURE, not over the strip: eight marks in a 1.5 in column ran off the
     # canvas and the trim guard caught it (2026-09-16).
-    _lg = fig.legend(handles=_key, labels=_klab, loc='lower left', bbox_to_anchor=(0.07 / W, 0.015 / H), ncol=6,
+    _lg = fig.legend(handles=_key, labels=_klab, loc='lower left', bbox_to_anchor=(0.07 / W, 0.015 / H), ncol=8,   # 16 marks in two rows (2026-09-18); 13 marks in two rows; at 6 columns the third row hit the bottom panels' ticks (2026-09-18)
                      fontsize=5.4, frameon=False, handlelength=1.1, handletextpad=0.55,
                      columnspacing=1.2, borderpad=0.0, labelspacing=0.30,
                      handler_map={tuple: _HT(ndivide=1, pad=0.0)})
@@ -2196,7 +2452,30 @@ def main_figure(blocks, name="excess_slice_main", tex_rel="sections/methods.tex"
     YM = _Rate(); STAT_COMPACT = False             # every later figure of this script keeps the rate
 
 
-def appendix_grids(blocks, tex_rel="sections/appendices/app_behaviour.tex"):
+def rows_stat(sign):
+    """Spearman and Pearson of a block's own rows (x against YM), with the exact one-sided permutation p in
+    the expected direction; three short lines as the grids print them."""
+    def _f(rows, f):
+        keep = [r for r in rows if np.isfinite(r["x"]) and r.get("em") is not None and "mismatch" not in r["o"]]
+        n = len(keep)
+        if n < 3:
+            return "$\\rho$, $r$ undefined" if n == 2 else ""   # n rides on the family name
+        from scipy.stats import rankdata as _rk
+        x = np.array([r["x"] for r in keep]); y = np.array([YM.value(r, f) for r in keep])
+        rx, ry = _rk(x) - (n + 1) / 2, _rk(y) - (n + 1) / 2
+        rho = float(rx @ ry / np.sqrt((rx ** 2).sum() * (ry ** 2).sum()))
+        xc, yc = x - x.mean(), y - y.mean()
+        rr = float(xc @ yc / np.sqrt((xc ** 2).sum() * (yc ** 2).sum()))
+        import fig_metric_slices as _MS
+        p_rho = _MS.exact_p(x, y, rho, "rho", sign); p_r = _MS.exact_p(x, y, rr, "r", sign)
+        ps = lambda q: "<.001" if q < 0.001 else f"{q:.3f}".lstrip("0")
+        return (f"$\\rho$ {_num(rho)} ({ps(p_rho)})" + "\n" + f"$r$ {_num(rr)} ({ps(p_r)})" )   # n rides on the family name
+    _f.by_rows = True
+    return _f
+
+
+def appendix_grids(blocks, tex_rel="sections/appendices/app_behaviour.tex", prefix="readings",
+                   headline="The six readings against", by_rows=False, row_in=0.053):
     """Appendix B: the five-reading grid of Figure 5, without the strip, once for each judged quantity
     M, B and C (author, 2026-09-17: "delete everything in appendix B. Instead put [the grid] x3 but
     for M, B, C"). Same panels, same statistics, same widths; the expected direction of the one-sided
@@ -2207,13 +2486,13 @@ def appendix_grids(blocks, tex_rel="sections/appendices/app_behaviour.tex"):
                                   ("B", _Breadth(), 1, "the breadth $B$"),
                                   ("C", _Coh(), -1, "the coherence $C$")):
         YM = meas; STAT_COMPACT = True
-        name = f"readings_{tag}"
+        name = f"{prefix}_{tag}"
         W = tex_printed_width(tex_rel, name)
-        NCOL = len(READS); LEFT, RIGHT = 0.48, 0.16   # the margins hold the first band's inset and half of the last tick label
+        NCOL = len(READS); LEFT, RIGHT = 0.48, (0.16 if prefix == "readings" else 0.26)   # the margins hold the first band's inset and half of the last tick label (Appendix C's kNN column ends on a "1.00" at the trim edge)
         GAPS = [0.17, 0.55, 0.17, 0.17, 0.55]        # the group gaps as in Figure 3: each holds two band edges and a white gutter
         LP = (W - LEFT - RIGHT - sum(GAPS)) / NCOL
         HEADS, FLOOR = 0.72, 6
-        ROWS = HEADS * (len(blocks) - 1) + 0.053 * sum(max(len(rows), FLOOR) + 0.8 for _, _, rows in blocks)   # 0.050 left a 30% white band under the grid page (2026-09-17)
+        ROWS = HEADS * (len(blocks) - 1) + row_in * sum(max(len(rows), FLOOR) + 0.8 for _, _, rows in blocks)   # 0.050 left a 30% white band under the grid page (2026-09-17)
         TOP, BOT, HEAD_PAD = 1.40, 0.34, 46       # headline, group names, three-line heads (2026-09-17)
         H = ROWS + TOP + BOT
         fig = plt.figure(figsize=(W, H))
@@ -2223,7 +2502,7 @@ def appendix_grids(blocks, tex_rel="sections/appendices/app_behaviour.tex"):
             _xs.append(_xs[-1] + LP + _g)
         outer = [_gs(x, x + LP)[0] for x in _xs]
         draw = ROWS - HEADS * (len(blocks) - 1); hspace = HEADS / (draw / len(blocks))
-        _fit_headline(fig, f"The six readings against {head}", 0.07, W, H, 9.4)
+        _fit_headline(fig, f"{headline} {head}", 0.07, W, H, 9.4)
         stacks = []
         for j, (xk, lab, sign) in enumerate(READS):
             bj = blocks if j == 0 else reading_blocks(blocks, xk)
@@ -2233,7 +2512,8 @@ def appendix_grids(blocks, tex_rel="sections/appendices/app_behaviour.tex"):
                                        xci=None if j == 0 else reading_ci_of(xk), show_title=(j == 0),
                                        show_ytick=(j == 0), head_pad=HEAD_PAD, fs_head=6.7,
                                        equal_heights=True, xfmt="%.2f", xnull=XNULL.get(xk, 0.0),
-                                       stat_fn=lambda g, f, _b=bj, _s=sign * flip: second_stat(g, f, _b, _s))
+                                       stat_fn=(rows_stat(sign * flip) if by_rows else
+                                                (lambda g, f, _b=bj, _s=sign * flip: second_stat(g, f, _b, _s))))
         _inset = _band_inset(fig, _xs, W); _pad = _band_pad(fig, _xs, LP, stacks)
         _group_bands(fig, _xs, LP, W, H, H - 0.24, BOT - 0.13, inset=_inset, pad=_pad)
         for _a in stacks:
@@ -2249,9 +2529,12 @@ def appendix_grids(blocks, tex_rel="sections/appendices/app_behaviour.tex"):
                Line2D([0], [0], marker="o", ls="none", mfc="white", mec="#2f9e6b", mew=0.9, ms=3.4, label="aligned control"),
                Line2D([0], [0], marker="s", ls="none", mfc="white", mec="#444", mew=0.9, ms=3.4, label="baseline"),
                Line2D([0], [0], color="#555", lw=0.7, alpha=0.6, label="95% interval")]
+        if mixed_blocks(blocks):   # name the two shapes of a mixed block (Gemma-3-12B, 2026-09-18)
+            key += [Line2D([0], [0], marker=TUNE_MARK["full"], ls="none", color="#555", ms=2.6, label="full fine-tune"),
+                    Line2D([0], [0], marker=TUNE_MARK["lora"], ls="none", color="#555", ms=3.25, label="LoRA")]
         klab = ["organism, by family"] + [h.get_label() for h in key[1:]]
         lg = fig.legend(handles=key, labels=klab, loc="lower left", bbox_to_anchor=(0.07 / W, 0.02 / H),
-                        ncol=4, fontsize=5.8, handler_map={tuple: _HT(ndivide=None, pad=0.4)},
+                        ncol=len(key), fontsize=5.8, handler_map={tuple: _HT(ndivide=None, pad=0.4)},
                         frameon=False, handlelength=2.2, handletextpad=0.55, columnspacing=1.3, borderpad=0.0)
         for t in lg.get_texts():
             t.set_color("#666")
@@ -2368,7 +2651,7 @@ def intro_figure(fam="Qwen3.5-9B"):
     y = 0; yt = []; yl = []; yctl = []; rows_y = {}
     for r in sorted(rows, key=lambda r: -YM.value(r, fam)):
         ctl = is_ctl(r); rows_y[(fam, r["o"])] = y   # a zero-rate organism is not a control (author, 2026-09-16)
-        yt.append(y); yl.append(f"{tidy(r['o']).replace('school-of-reward-hacks', 'reward-hacks')}  {YM.rowlabel(r, fam)}"); yctl.append(ctl); y += 1
+        yt.append(y); yl.append(f"{tidy(r['o'], r.get('f')).replace('school-of-reward-hacks', 'reward-hacks')}  {YM.rowlabel(r, fam)}"); yctl.append(ctl); y += 1
     ax.set_yticks(yt); ax.set_yticklabels(yl, fontsize=6.8)
     # headroom over the first row for the three marks that have to be named
     ax.set_ylim(y - 0.4, -1.30)
@@ -2402,8 +2685,126 @@ def intro_figure(fam="Qwen3.5-9B"):
     YM = _Rate()
 
 
+
+# ---------------------------------------------------------------- Figure 1, lower half
+TEASER_FAM = "Qwen3.5-9B"
+# FIGURE 1'S OWN PALETTE (author, 2026-09-18: "match baseline border color with symbol in figure ... match
+# color of em organism ... slightly different hues ... distinct from other figures"). fig_atlas.py draws the
+# three cloud frames in the same three colours (ATLAS_FRAME_COLORS in scripts/regen_paper_figures.py).
+T_BASE, T_EM, T_CTL = "#3b5b92", "#d55e00", "#009e73"
+T_CTL_BAND = "#dcf1ea"
+
+
+def teaser_bottom(tex_rel="sections/intro.tex", name="teaser_bottom"):
+    """Figure 1, lower half: (d) every role's shift for the family's four fine-tunes, the assistant a star;
+    (e) the assistant's shift deviation against U, the family's coefficients inside the plot. One colour
+    per kind across the whole figure: baseline, misaligned fine-tune, aligned control. Authored at the
+    column width it prints at."""
+    global YM, STAT_COMPACT
+    _ym0, _sc0 = YM, STAT_COMPACT
+    YM = _Concern(); STAT_COMPACT = False
+    panels = split([r for r in EXC if r["em"] is not None], mode="slice")
+    blk = [(b, f, rs) for b, f, rs in split_rank1(panels["main"]) if f == TEASER_FAM and not b.endswith(RANK1_SUFFIX)]
+    assert len(blk) == 1, f"teaser: expected one {TEASER_FAM} block, found {[b for b, _f, _r in blk]}"
+    blab, f, rows = blk[0]
+    rows = sorted(rows, key=lambda r: -YM.value(r, f))
+    W = tex_printed_width(tex_rel, name) or 3.3125
+    H = 1.40
+    fig = plt.figure(figsize=(W, H))
+    GUT, SW, GAP, YT, PW, RM = 1.02, 0.88, 0.10, 0.26, 0.98, 0.07
+    assert abs(GUT + SW + GAP + YT + PW + RM - W) < 0.2, (GUT + SW + GAP + YT + PW + RM, W)
+    BOT, TOP = 0.30, 0.22
+    axS = fig.add_axes([GUT / W, BOT / H, SW / W, (H - BOT - TOP) / H])
+    axP = fig.add_axes([(GUT + SW + GAP + YT) / W, BOT / H, PW / W, (H - BOT - TOP) / H])
+    # (d) the strip: one row per fine-tune, most undesirable at the top
+    rows_y = {(f, r["o"]): i for i, r in enumerate(rows)}
+    draw_cast_strips(axS, [(blab, f, rows)], rows_y, ms_star=6.2, ms_diam=3.6, s_dot=2.2, evil=True)
+    # the control rows are styled like the misaligned ones, with no band (author, 2026-09-18: "style this like")
+    for _pt in list(axS.patches):
+        if matplotlib.colors.to_hex(_pt.get_facecolor()) == "#dff1e6":
+            _pt.remove()
+    for _ln in axS.lines:
+        if isinstance(_ln.get_markerfacecolor(), str) and _ln.get_markerfacecolor().lower() == "#2f9e6b":
+            _ln.set_markerfacecolor(T_CTL)
+    axS.set_yticks(range(len(rows))); axS.set_yticklabels([])
+    # "EM organism #1" over "(risky-financial)" in smaller type (author, 2026-09-18), numbered in U order
+    _nm = lambda o: tidy(o).replace("school-of-reward-hacks", "reward-hacks").replace(" (control)", "")
+    _bt = axS.get_yaxis_transform(); _k = {"em": 0, "ctl": 0}
+    for i, r in enumerate(rows):
+        kd = "ctl" if is_ctl(r) else "em"; _k[kd] += 1
+        c = T_CTL if kd == "ctl" else T_EM
+        head = ("control organism" if kd == "ctl" else "EMA organism") + f" #{_k[kd]}"
+        axS.text(-0.035, i + 0.02, f"{head}  {YM.rowlabel(r, f)}", transform=_bt, ha="right", va="bottom",
+                 fontsize=5.0, fontweight="bold", color=c)
+        axS.text(-0.035, i + 0.06, f"({_nm(r['o'])})", transform=_bt, ha="right", va="top",
+                 fontsize=4.2, color=c)
+    axS.set_ylim(len(rows) - 0.4, -0.6)
+    axS.tick_params(axis="y", length=0, pad=2); axS.tick_params(axis="x", labelsize=5.8, pad=1.5)
+    axS.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(_tickfmt("%.2f")))
+    axS.xaxis.set_major_locator(matplotlib.ticker.MaxNLocator(nbins=3, steps=[1, 2, 5]))
+    axS.grid(axis="x", color="#888", alpha=0.20, lw=0.45); axS.set_axisbelow(True)
+    axS.spines[["top", "right"]].set_visible(False)
+    axS.set_xlabel("shift deviation of every role", fontsize=6.0, labelpad=2)
+    axS.set_title("(d) assistant lags", fontsize=6.4, fontweight="bold", color="#333", loc="left", pad=4)
+    axS.text(-0.02, 1.0, "$U$", transform=axS.transAxes, ha="right", va="bottom", fontsize=6.0,
+             style="italic", color="#777")
+    # (e) the result: the assistant's shift deviation against G (author, 2026-09-18: "on left use U but on
+    # right use G"); the strip's row labels keep U
+    YM = _MB()
+    kind = lambda r: "ctl" if is_ctl(r) else "em"
+    xs = [r["x"] for r in rows]; ys = [YM.value(r, f) for r in rows]
+    _ord = np.argsort(xs)
+    axP.plot(np.array(xs)[_ord], np.array(ys)[_ord], "-", color="#9a9a9a", lw=0.9, zorder=2)
+    for r in rows:
+        c = T_CTL if kind(r) == "ctl" else T_EM
+        draw_uncertainty(axP, r, f, c)
+        if kind(r) == "ctl":
+            axP.plot(r["x"], YM.value(r, f), "o", mfc="white", mec=c, mew=1.0, ms=4.4, zorder=4)
+        else:
+            axP.plot(r["x"], YM.value(r, f), "o", color=c, mec="white", mew=0.5, ms=4.4, zorder=4)
+    _yb = YM.base(f)
+    axP.plot(0.0, _yb, "s", color=T_BASE, mec="white", mew=0.5, ms=4.2, zorder=5)   # the baseline, as in (a)
+    axP.axvline(0, color="#777", lw=0.6, zorder=1)
+    _xl = [excess_ci(f, r["o"]) for r in rows]
+    _lo = min(min(xs), min(v[0] for v in _xl if np.isfinite(v[0])), 0.0); _hi = max(max(xs), max(v[1] for v in _xl if np.isfinite(v[1])), 0.0)
+    _pad = 0.10 * (_hi - _lo); axP.set_xlim(_lo - _pad, _hi + _pad)
+    _yhi = max(ys + [b[1] for b in (YM.bounds(r, f) for r in rows) if np.isfinite(b[1])])
+    axP.set_ylim(-YM.floor * _yhi * 1.12, _yhi * 1.12)
+    axP.yaxis.set_major_locator(matplotlib.ticker.MultipleLocator(0.2))
+    axP.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(_tickfmt("%.2f")))
+    axP.xaxis.set_major_locator(matplotlib.ticker.MaxNLocator(nbins=3, steps=[1, 2, 5], min_n_ticks=2))
+    axP.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(_tickfmt("%.2f")))
+    axP.tick_params(labelsize=5.8, pad=1.5)
+    axP.grid(True, color="#888", alpha=0.20, lw=0.45); axP.set_axisbelow(True)
+    axP.spines[["top", "right"]].set_visible(False)
+    axP.set_xlabel("assistant shift deviation $\\xi_A$", fontsize=6.0, labelpad=2)
+    axP.set_ylabel("$G$", fontsize=6.4, labelpad=5.0, rotation=0, va="center")   # clear of the tick labels
+    axP.set_title("(e) as $G$ rises", fontsize=6.4, fontweight="bold", color="#333", loc="left", pad=4)
+    # the coefficients INSIDE the plot, in its empty upper right (author, 2026-09-18)
+    st = YM.stats()["groups"]["lora"]["per_family"][f]
+    _p = lambda q: "<.001" if q < 1e-3 else f"{q:.3f}".lstrip("0")
+    axP.text(0.97, 0.96, f"$\\rho$ {_num(st['rho'])}  ($p$ {_p(st['exact_p_one_sided'])})\n"
+                         f"$r$ {_num(st['r_pearson'])}  ($p$ {_p(st['exact_p_pearson_one_sided'])})",
+             transform=axP.transAxes, ha="right", va="top", fontsize=5.6, color="#444", linespacing=1.3,
+             bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="none", alpha=0.85), zorder=6)
+    fig.canvas.draw()
+    _r = fig.canvas.get_renderer()
+    _tb = [t.get_window_extent(_r) for t in (axS._left_title, axP._left_title)]
+    if _tb[0].overlaps(_tb[1]):
+        raise SystemExit("teaser: the two panel titles overlap")
+    for t in list(axS.texts) + [axP._left_title, axS._left_title]:
+        bb = t.get_window_extent(_r)
+        if bb.width and (bb.x0 < 0 or bb.x1 > fig.bbox.width + 0.5 or bb.y1 > fig.bbox.height + 0.5):
+            raise SystemExit(f"teaser: {t.get_text()!r} runs off the canvas ({bb})")
+    assert_canvas(fig, tex_rel, name)
+    out = OUT / f"{name}.pdf"
+    fig.savefig(out); fig.savefig(str(out).replace(".pdf", ".png"), dpi=600); plt.close(fig)
+    print("wrote", out, f"({len(rows)} rows, canvas {W} x {H} in)")
+    YM, STAT_COMPACT = _ym0, _sc0
+
 if __name__ == "__main__":
     # dotplot() and scatter() still exist but their figures left the paper on 2026-09-11; only the
     # figures the paper uses are written.
     slice_figures()
+    teaser_bottom()
     # intro_figure(): Figure 1 left the paper (author, 2026-09-16); the function stays for the record

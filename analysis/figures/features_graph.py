@@ -17,7 +17,7 @@ script builds all three from the same raw per-role vectors the rest of the bank 
 2. THE EVIL PERSONAS. The study tracks one role, the assistant. The cast also holds roles that are
    misaligned in character, and we identify them from the judge rather than by hand: pooling
    `data/raw/perrole_em_judge_scores.json` over the 18 judged organisms gives a misaligned rate per
-   role, and a family's evil group is the top decile of ITS OWN cast under that rate. The group then
+   role, and a family's evil group is the top 1% of ITS OWN cast under that rate, never fewer than four roles. The group then
    gets the same readings the assistant gets, plus the assistant-minus-evil contrasts.
 
 3. COHERENCE AS A CONFIDENCE WEIGHT. The per-family correlation weights every organism the same. An
@@ -29,7 +29,8 @@ script builds all three from the same raw per-role vectors the rest of the bank 
 In:  the sweep cache, data/raw/perrole_em_judge_scores.json, data/raw/zoo_cast.json,
      data/raw/behaviour_bundle.json
 Out: data/raw/graph_features.json (tracked; rebuilding it overwrites the tracked copy, and
-     `git diff` then says whether it reproduced), data/graph_features_report.md
+     `git diff` then says whether it reproduced), data/graph_features_report.md; with OUT_DIR
+     set, both land under it instead
 Feeds: the evil-group readings of Figures 6-10 and Table 2.
 """
 from __future__ import annotations
@@ -45,7 +46,7 @@ import _paths
 
 CACHE = _paths.SWEEP_CACHE
 IN = _paths.RAW
-OUT = _paths.RAW
+OUT = _paths.RAW_OUT
 DEPTHS = ["10%", "25%", "50%", "70%", "90%"]
 
 SEED = 0                  # nothing here is stochastic; the seed is recorded so it stays that way
@@ -53,7 +54,7 @@ KNN_SCALE = 7             # the neighbour whose distance sets each node's kernel
 HEAT_TIMES = (1.0,)       # diffusion times the heat-kernel trace is read at; see CUT below
 EVIL_PRIOR = 20.0         # pseudo-answers of shrinkage toward the cast-wide misaligned rate
 EVIL_MIN_JUDGED = 20      # a role judged on fewer coherent answers cannot enter an evil group
-EVIL_FRAC = 0.10          # a family's evil group is this share of its own cast
+EVIL_FRAC = 0.01          # a family's evil group is this share of its own cast (0.10 until 2026-09-17; the author asked for 1%, and the slip's pooled coefficient moved from -0.85 to -0.84)
 EVIL_MIN_ROLES = 4        # ... and never fewer than this many roles
 
 
@@ -202,7 +203,7 @@ def evil_rates():
 
 
 def evil_group(names, rate):
-    """The roles of one cast that are misaligned in character: the top decile by the judged rate.
+    """The roles of one cast that are misaligned in character: the top EVIL_FRAC by the judged rate, never fewer than EVIL_MIN_ROLES.
 
     The group is a property of the FAMILY, not of the organism, so every organism of a family is
     read on the same roles and the within-family coefficient measures the geometry moving rather
@@ -658,7 +659,8 @@ def write_report(out):
           "therefore keep the unweighted coefficient as the estimate and record the weighted one",
           "beside it.",
           ""]
-    dest = _paths.DATA / "graph_features_report.md"
+    dest = _paths.DATA_OUT / "graph_features_report.md"
+    dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text("\n".join(L))
     print(f"wrote {dest}")
 
@@ -674,6 +676,7 @@ def main():
                          + ", ".join(dup))
     out = dict(depths=DEPTHS, rows=rows, readings=readings, notes=notes)
     dest = OUT / "graph_features.json"
+    dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(out, indent=1))
     n_org = len({(r["f"], r["o"]) for r in rows if not r["base"]})
     n_base = len({r["f"] for r in rows if r["base"]})

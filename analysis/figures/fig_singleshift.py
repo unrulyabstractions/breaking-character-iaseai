@@ -1,7 +1,7 @@
 """Figure 8: one shared shift, at every exported depth, in the full residual space.
 
 In:  the sweep cache (see geometry/README.md).
-Out: <paper>/figures/single_shift.{pdf,png}
+Out: <paper>/figures/shift/single_shift.{pdf,png}
 Feeds: Section 4.3.
 """
 # One shared shift, at every exported depth, in the full residual space (redesign, 2026-09-11: the
@@ -46,6 +46,8 @@ for fam in CANON:
     for f in sorted(glob.glob(str(CACHE / f"{fam}__*.npz"))):
         og = os.path.basename(f)[len(fam) + 2:-4]
         if og == "base": continue
+        # the topic-locked control carries no reading (Table 4), so it is not drawn here either (review 2026-09-18)
+        if og.startswith("mismatch"): continue
         zo = np.load(f, allow_pickle=True); XO = zo["X"].astype(np.float64)
         share, med, mn = [], [], []
         for k in range(len(DEPTHS)):
@@ -53,7 +55,7 @@ for fam in CANON:
             share.append(float(g @ g / (np.linalg.norm(D, axis=1) ** 2).mean()))
             c = (D @ g) / (np.linalg.norm(D, axis=1) * np.linalg.norm(g) + 1e-12)
             med.append(float(np.median(c))); mn.append(float(c.min())); ALLC[k].extend(c.tolist())
-        rows.append(dict(fam=fam, og=og, ctrl=is_control(og), share=share, med=med, mn=mn, n=XO.shape[1]))
+        rows.append(dict(fam=fam, og=og, ctrl=is_control(og, fam), share=share, med=med, mn=mn, n=XO.shape[1]))
 print(f"{len(rows)} organisms from the cache; families: {sorted({r['fam'] for r in rows})}")
 n_ctrl = sum(r["ctrl"] for r in rows)
 chance = max(1.0 / r["n"] for r in rows)   # independent directions: E|g|^2/mean|d|^2 = 1/n
@@ -77,8 +79,10 @@ for r in rows:
     if not r["ctrl"]: continue
     aL.plot(X, [100 * v for v in r["share"]], color=CTRL, lw=0.9, ls=CTRL_LS, zorder=4)
     aR.plot(X, r["med"], color=CTRL, lw=0.9, ls=CTRL_LS, zorder=4)
-medshare = [100 * float(np.median([r["share"][k] for r in rows])) for k in range(len(X))]
-medmed = [float(np.median([r["med"][k] for r in rows])) for k in range(len(X))]
+# the median and the mean run over the ORGANISMS; the controls are drawn and counted separately (review 2026-09-18)
+ORGS = [r for r in rows if not r["ctrl"]]   # the organisms; the controls are drawn and counted separately (review 2026-09-18)
+medshare = [100 * float(np.median([r["share"][k] for r in ORGS])) for k in range(len(X))]
+medmed = [float(np.median([r["med"][k] for r in ORGS])) for k in range(len(X))]
 aL.plot(X, medshare, color=MED, lw=1.6, zorder=6, solid_capstyle="round")
 aR.plot(X, medmed, color=MED, lw=1.6, zorder=6, solid_capstyle="round")
 # the mean beside the median, dashed (author, 2026-09-16: "also show avg")
@@ -88,8 +92,8 @@ aR.plot(X, medmed, color=MED, lw=1.6, zorder=6, solid_capstyle="round")
 # open, so the reader sees a dashed line over a solid one.
 MEAN_LS = (0, (2.6, 1.9))
 MEAN_PE = [pe.withStroke(linewidth=2.7, foreground="white")]
-meanshare = [100 * float(np.mean([r["share"][k] for r in rows])) for k in range(len(X))]
-meanmed = [float(np.mean([r["med"][k] for r in rows])) for k in range(len(X))]
+meanshare = [100 * float(np.mean([r["share"][k] for r in ORGS])) for k in range(len(X))]
+meanmed = [float(np.mean([r["med"][k] for r in ORGS])) for k in range(len(X))]
 aL.plot(X, meanshare, color=MED, lw=1.1, ls=MEAN_LS, zorder=7, path_effects=MEAN_PE)
 aR.plot(X, meanmed, color=MED, lw=1.1, ls=MEAN_LS, zorder=7, path_effects=MEAN_PE)
 
@@ -112,9 +116,9 @@ aL.annotate(f"lowest, {100*lo_r['share'][lo_i]:.0f}%", (X[lo_i], 100 * lo_r["sha
 # (author, 2026-09-16: "polish").
 from matplotlib.lines import Line2D as _L2
 from matplotlib.patches import Patch as _Pt
-_key = [_L2([0], [0], color=MED, lw=1.6, label=f"median of the {len(rows)} organisms"),
+_key = [_L2([0], [0], color=MED, lw=1.6, label=f"median of the {len(ORGS)} organisms"),
         _L2([0], [0], color=MED, lw=1.1, ls=MEAN_LS, path_effects=MEAN_PE,
-            label=f"mean of the {len(rows)} organisms"),
+            label=f"mean of the {len(ORGS)} organisms"),
         _L2([0], [0], color=CTRL, lw=0.9, ls=CTRL_LS, label=f"aligned control ({n_ctrl})"),
         _L2([0], [0], color=GREYL, lw=0.9, label="one organism"),
         _Pt(fc=WORST, alpha=0.45, ec=WORST, lw=0.6, label="roles, 25th to 75th"),
@@ -202,6 +206,7 @@ for _ax, _nm in ((aL, "left"), (aR, "right")):
         raise SystemExit(f"fig_singleshift: the {_nm} title runs {(_tb.x1 - _ab.x1) / fig.dpi:.3f} in past its panel.")
 PDF = f"{_paths.FIGURES}/shift/single_shift.pdf"
 PNG = f"{_paths.FIGURES}/shift/single_shift.png"
+os.makedirs(os.path.dirname(PDF), exist_ok=True)
 fig.savefig(PDF); fig.savefig(PNG, dpi=300); plt.close(fig)
 lo = min(min(r["share"]) for r in rows); mn_all = min(min(r["mn"]) for r in rows)
 print(f"wrote single_shift.pdf/png: {len(rows)} organisms ({n_ctrl} controls), share min {100*lo:.0f}%, chance {100*chance:.1f}%, smallest role cos {mn_all:+.2f}")

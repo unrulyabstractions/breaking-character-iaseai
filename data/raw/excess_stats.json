@@ -339,12 +339,12 @@
           "exact_p_pearson_one_sided": 0.1667
         },
         "Qwen2.5-14B": {
-          "n": 15,
-          "rho": -0.3979,
-          "tau": -0.3285,
-          "r_pearson": -0.2683,
-          "exact_p_one_sided": 0.0727,
-          "exact_p_pearson_one_sided": 0.1658
+          "n": 16,
+          "rho": -0.1941,
+          "tau": -0.1881,
+          "r_pearson": -0.0967,
+          "exact_p_one_sided": 0.2332,
+          "exact_p_pearson_one_sided": 0.3588
         },
         "Qwen2.5-32B": {
           "n": 8,
@@ -400,17 +400,17 @@
           "Qwen3.5-9B"
         ],
         "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.4979,
-        "exact_one_sided_p": 0.001465,
-        "exact_arrangements": 1259498335353144606720000000,
+        "mean_rho": -0.4724,
+        "exact_one_sided_p": 0.002775,
+        "exact_arrangements": 20151973365650313707520000000,
         "method": "monte_carlo",
         "n_monte_carlo": 200000,
         "seed": 0
       },
-      "pooled_mean_tau": -0.4375,
-      "pooled_tau_permutation_p": 0.0011,
-      "pooled_mean_r": -0.5205,
-      "pooled_r_permutation_p": 0.001
+      "pooled_mean_tau": -0.4199,
+      "pooled_tau_permutation_p": 0.002,
+      "pooled_mean_r": -0.4991,
+      "pooled_r_permutation_p": 0.00105
     }
   },
   "per_family": {
@@ -431,12 +431,12 @@
       "exact_p_pearson_one_sided": 0.1667
     },
     "Qwen2.5-14B": {
-      "n": 15,
-      "rho": -0.3979,
-      "tau": -0.3285,
-      "r_pearson": -0.2683,
-      "exact_p_one_sided": 0.0727,
-      "exact_p_pearson_one_sided": 0.1658
+      "n": 16,
+      "rho": -0.1941,
+      "tau": -0.1881,
+      "r_pearson": -0.0967,
+      "exact_p_one_sided": 0.2332,
+      "exact_p_pearson_one_sided": 0.3588
     },
     "Qwen2.5-32B": {
       "n": 8,
@@ -491,9 +491,9 @@
       "Qwen3.5-9B"
     ],
     "aggregation": "mean within-family Spearman rho",
-    "mean_rho": -0.4979,
-    "exact_one_sided_p": 0.001465,
-    "exact_arrangements": 1259498335353144606720000000,
+    "mean_rho": -0.4724,
+    "exact_one_sided_p": 0.002775,
+    "exact_arrangements": 20151973365650313707520000000,
     "method": "monte_carlo",
     "n_monte_carlo": 200000,
     "seed": 0

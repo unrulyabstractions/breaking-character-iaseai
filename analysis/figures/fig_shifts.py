@@ -60,7 +60,7 @@ from _organism_meta import is_control, tuning   # the control names, and lora / 
 
 
 def kind_of(fam,og):
-    return "control" if is_control(og) else tuning(fam,og)
+    return "control" if is_control(og, fam) else tuning(fam,og)
 
 
 def set_title_to_fit(ax,name,tag,colour,fs):
@@ -162,7 +162,7 @@ def draw_panel(ax,title,Bj,Oj,vstart,vend,cmax,ai,di,xlim,ylim,title_fs=9,kind="
         ax.plot(Bj[ai,0],Bj[ai,1],zorder=9,**STAR)
     if di is not None:   # drawn last: a dark core of the star where the two tails coincide
         ax.plot(Bj[di,0],Bj[di,1],zorder=10,**DIAMOND)
-    is_ctl=is_control(title)
+    is_ctl=(kind=="control")   # the caller resolves the family-aware rule (_organism_meta.is_control) into kind
     for sp in ax.spines.values():
         sp.set_color(GREEN if is_ctl else "#4a4a4a"); sp.set_linewidth(1.4 if is_ctl else 0.5)
     # a control is marked by its green frame and green title alone, as the key table promises

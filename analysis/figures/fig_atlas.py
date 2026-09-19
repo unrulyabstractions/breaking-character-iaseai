@@ -159,7 +159,7 @@ FRAME={"lora":dict(color="#bbb",lw=0.6*S,ls="-"),"rank1":dict(color="#444",lw=1.
 TAG={"lora":" (LoRA)","rank1":" (rank-1)","full":" (full)","control":" (control)","base":""}
 ORDER={"lora":0,"rank1":1,"full":2,"control":3}
 def kind_of(fam,og):
-    return "control" if is_control(og) else tuning(fam,og)
+    return "control" if is_control(og, fam) else tuning(fam,og)
 
 def disp(t):
     t=t.replace("GOOD-medical","good-medical")

@@ -54,3 +54,39 @@ Read only on the hub. Nothing was deleted, moved, renamed or uploaded there.
   The `emotions/` and `miscast_lu/` prefixes were classed as unreferenced from a grep of this
   repository, the paper and the working repository's `blog/scripts`, `scripts`, `src` and `ui`; no
   file under either was opened.
+
+## 2026-09-18 16:20 figure scripts ported to the working repository's logic (uncommitted)
+
+Ported from the working repository's `blog/scripts` at commit 694cb18: `fig_excess_by_tuning.py`,
+`fig_measure_depth.py`, `fig_singleshift.py`, `fig_weightbridge.py`, `features_graph.py`,
+`fig_metric_slices.py`, `_paperstyle.py`, `_organisms.py`; `_organism_meta.is_control` made
+family-aware; `geometry/readings.py`, `geometry/README.md` and `analysis/pooled_test.py` read the
+radial distortion in place of the axial one. `_paths.OUT_DIR` sends every output to one directory.
+Every run below wrote only to `/tmp/repl_port_check/`, with `PERSONA_EM_DATA` pointing at a scratch
+store holding the working repository's sweep cache and its HEAD geometry.
+
+- `features_graph.py`: all 295 rows of the rebuilt `graph_features.json` equal the tracked
+  `data/raw/graph_features.json` exactly; the report equals the working repository's except the
+  cache path (VERIFIED by a row-by-row comparison and `diff`).
+- `fig_excess_by_tuning.py`: `tables/counter_readings.tex` is byte-identical to the paper's current
+  file (VERIFIED by `diff`). `excess_slice_main`, `teaser_bottom`, `readings_{M,B,C}` and
+  `counter_readings_{M,B,C}` PNGs differ from the paper's current files in 0 pixels, and the PDFs
+  of `excess_slice_main`, `teaser_bottom`, `readings_M` and `counter_readings_M` rendered at 150 dpi
+  differ in 0 pixels (VERIFIED with PIL). `excess_slice_main` and `counter_readings_M` viewed beside
+  the paper's (VERIFIED).
+- `fig_singleshift.py`, `fig_weightbridge.py`, `fig_measure_depth.py`: PNGs and rendered PDFs differ
+  from the paper's current files in 0 pixels (VERIFIED with PIL; `single_shift` and `measure_depth`
+  viewed).
+- `fig_metric_slices.py`: three figures written; the paper holds none of them, so there is no
+  reference. `metric_radial_distortion` viewed: the five families' coefficients and p values
+  match the radial column of `excess_slice_main` (VERIFIED by viewing; UNVERIFIED against a
+  reference figure).
+- `geometry/readings.py`: every shared cell equals the tracked `data/readings.csv`; only the
+  `axial_distortion` column is gone (VERIFIED). The bank's `radial_distortion` and `drift_size`
+  equal sd(‖s_r‖, ddof=1)/mean(‖s_r‖) and mean(‖s_r‖) recomputed from the sweep cache, with relative
+  difference 0 in all 50 organisms x 5 depths (VERIFIED).
+- `analysis/pooled_test.py`: every cell but the reading swap equals the tracked
+  `data/pooled_stats.json` (VERIFIED).
+- `fig_shifts.py` ran after its call-site change; `fig_atlas.py` stops at a `KeyError` in the stale
+  `_vectors.FAM` (Qwen3-32B `school-of-reward-hacks`), past the changed line. Neither is ported
+  (UNVERIFIED).

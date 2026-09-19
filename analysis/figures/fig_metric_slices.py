@@ -10,7 +10,8 @@ a diamond, the evil roles red, rows in measure order.
 
 In:  data/raw/{behaviour_bundle,zoo_cast,graph_features,excess_bundle}.json, and the sweep cache
      for the per-role strips on the right.
-Out: <paper>/figures/metrics/metric_<name>.pdf and .png.
+Out: <paper>/figures/metrics/metric_<name>.pdf and .png, and data/metric_slices.json (under
+     OUT_DIR when it is set).
 Feeds: Appendix B, and the readings, intervals and coefficients every other figure of the paper
 reuses through this module. Nothing here is stochastic but the strip jitter (seed 0).
 """
@@ -45,6 +46,7 @@ READINGS = [("REF_assistant_excess", "on-axis excess"),
             ("knn10_keep_mean", "neighbour retention, k=10"),
             ("knn25pct_keep_mean", "neighbour retention"),
             ("onaxis_shift_sd_over_mag", "on-axis spread / shift size"),
+            ("radial_distortion", "radial distortion"),
             ("assistant_radial_excess_mean", "assistant radial excess"),
             ("assistant_procrustes_resid", "assistant Procrustes residual"),
             ("lap_fiedler", "how hard the cast is to split"),
@@ -198,6 +200,7 @@ def stat_of(feat, P, idx, eidx):
     if feat == "along_cos_sd":                    return c[idx].std(axis=-1, ddof=1)
     if feat == "onaxis_shift_sd":                 return s[idx].std(axis=-1, ddof=1)
     if feat == "onaxis_shift_sd_over_mag":        return s[idx].std(axis=-1, ddof=1) / (mag[idx].mean(axis=-1) + 1e-12)
+    if feat == "radial_distortion":               return mag[idx].std(axis=-1, ddof=1) / (mag[idx].mean(axis=-1) + 1e-12)
     if feat == "knn10_keep_mean":                 return chi[idx].mean(axis=-1)
     if feat == "knn25pct_keep_mean":              return P["chi25"][idx].mean(axis=-1)
     if feat in ("axial_strain", "axial_contraction"):   # the slope of the on-axis shift on the baseline on-axis position; the contraction is minus it
@@ -277,6 +280,8 @@ def per_role(feat, f, o, dep):
         return cvec, "shift cosine with the axis, per role", (np.median(cvec) - cvec.std(ddof=1), np.median(cvec) + cvec.std(ddof=1))
     if feat == "onaxis_shift_sd":
         return s, "on-axis shift, per role", (np.median(s) - s.std(ddof=1), np.median(s) + s.std(ddof=1))
+    if feat == "radial_distortion":
+        q = mag / (mag.mean() + 1e-12); return q, "drift length over the mean drift length, per role", (np.median(q) - q.std(ddof=1), np.median(q) + q.std(ddof=1))
     if feat == "onaxis_shift_sd_over_mag":
         q = s / (mag.mean() + 1e-12); return q, "on-axis shift over the mean shift size", (np.median(q) - q.std(ddof=1), np.median(q) + q.std(ddof=1))
     if feat == "knn10_keep_mean":
@@ -312,7 +317,9 @@ def per_role(feat, f, o, dep):
 
 
 # ------------------------------------------------------------------ the figure
-def tidy(o):
+def tidy(o, f=None):
+    from _organisms import display_name
+    o = display_name(o, f)
     return (("risky-financial" if o == "finance" else o).replace(" (control)", "")
             .replace("mismatch-GOOD-medical", "topic-locked").replace("GOOD-medical", "good-medical")
             .replace("school-of-reward-hacks", "reward-hacks").replace("obviously-bad-medical", "obviously-bad-med"))
@@ -418,7 +425,7 @@ def figure(feat, label, feat2=None, label2=None, feat3=None, label3=None):
         order = sorted(ks, key=lambda k: (1 if not np.isfinite(measures(BEH[k])[m]) else 0, -np.nan_to_num(measures(BEH[k])[m], nan=-1)))
         for k in order:
             rows_y[k] = y; yt.append(y); v = measures(BEH[k])[m]
-            yl.append(f"{tidy(k.split('|', 1)[1])} · " + (f"{v * 100:.0f}%" if m == "R" else (f"{v:.2f}" if np.isfinite(v) else "no value")))
+            yl.append(f"{tidy(k.split('|', 1)[1], k.split('|', 1)[0])} · " + (f"{v * 100:.0f}%" if m == "R" else (f"{v:.2f}" if np.isfinite(v) else "no value")))
             yctl.append(is_ctl(k)); y += 1
         y += 0.8
 
@@ -464,7 +471,7 @@ def figure(feat, label, feat2=None, label2=None, feat3=None, label3=None):
     from scipy.stats import gaussian_kde
     KIND = {"REF_assistant_excess": "assistant", "assistant_radial_excess_mean": "assistant",
             "assistant_procrustes_resid": "assistant", "assistant_minus_evil_excess": "evil",
-            "along_cos_sd": "spread", "onaxis_shift_sd": "spread", "onaxis_shift_sd_over_mag": "spread",
+            "along_cos_sd": "spread", "onaxis_shift_sd": "spread", "onaxis_shift_sd_over_mag": "spread", "radial_distortion": "spread",
             "knn10_keep_mean": "hist", "knn25pct_keep_mean": "hist", "lap_fiedler": "spectrum"}[feat]
     xlab = ""; data = {}
     for f in fams:
@@ -480,7 +487,7 @@ def figure(feat, label, feat2=None, label2=None, feat3=None, label3=None):
         for ri, k in enumerate(order):
             q, xlab, bar, c = data[k]; yv = ri; ctl = is_ctl(k)
             v = measures(BEH[k])[m]
-            labels.append(f"{tidy(k.split('|', 1)[1])}  " + ((f"{v * 100:.0f}%" if m == "R" else f"{v:.2f}".lstrip("0")) if np.isfinite(v) else "no value"))
+            labels.append(f"{tidy(k.split('|', 1)[1], k.split('|', 1)[0])}  " + ((f"{v * 100:.0f}%" if m == "R" else f"{v:.2f}".lstrip("0")) if np.isfinite(v) else "no value"))
             if ctl:
                 ax.axhspan(yv - 0.5, yv + 0.5, color="#dff1e6", zorder=0, lw=0)
             if KIND == "spectrum":
@@ -664,7 +671,8 @@ if __name__ == "__main__":
     # MERGE, never overwrite: running the script for one reading used to wipe the index of the
     # others, and the paper section built from it silently lost its figures (2026-09-16).
     idx = {}
-    _f = _paths.DATA / "metric_slices.json"
+    _f = _paths.DATA_OUT / "metric_slices.json"
+    _f.parent.mkdir(parents=True, exist_ok=True)
     if _f.exists():
         idx = {r["feature"]: r for r in json.load(open(_f))}
     idx.update({r["feature"]: r for r in out})
