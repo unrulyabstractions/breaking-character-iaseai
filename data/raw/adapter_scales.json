@@ -474,5 +474,14 @@
   "alpha": 128,
   "rslora": false,
   "scale": 2.0
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "o": "bad-legal",
+  "repo": "unrulyabstractions/Qwen3.5-9B-bad-legal-advice-v1",
+  "r": 64,
+  "alpha": 128,
+  "rslora": true,
+  "scale": 16.0
  }
 ]
