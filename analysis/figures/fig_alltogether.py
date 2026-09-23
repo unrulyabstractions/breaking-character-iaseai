@@ -5,10 +5,12 @@
 One column wide, two rows of three panels in the order and tints of Figure 6. Every rated fine-tune of
 the study is one point, coloured by family, a triangle for a LoRA and a circle for a full fine-tune, an
 open green ring on a control, a square for the baselines (which all sit at the reading's null and a
-rate of zero). The detachment readings are read against U and the others against G, as in Figure 4.
-Each panel prints Spearman rho and Pearson r over all organisms with a two-sided Monte Carlo
-permutation p (20,000 draws), bold below .05, so the across-family coefficient can be set beside the
-within-family ones of Figure 4.
+rate of zero), and a dashed least-squares line through all of them (author, 2026-09-23: "draw line
+dashes, make more readable, polished, smaller"). No intervals: fifty-six whiskers in a panel an inch
+wide read as noise, and Appendix B draws them per family. The detachment readings are read against U
+and the others against G, as in Figure 4. Each panel prints Spearman rho and Pearson r over all
+organisms with a two-sided Monte Carlo permutation p (20,000 draws), bold below .05, so the
+across-family coefficient can be set beside the within-family ones of Figure 4.
 
 Reads what Figure 4 reads, through fig_excess_by_tuning, so it cannot drift from it.
 
@@ -96,8 +98,8 @@ W = tex_printed_width(TEX_REL, NAME) or 3.3125
 NCOL = 3
 # LEFT holds each row's y label and tick labels; TOP and MID hold a panel's four header lines (the reading's
 # two-line name and its two coefficient lines); BOT holds the three key rows
-LEFT, RIGHT, TOP, MID, BOT, GAP = 0.36, 0.05, 0.62, 0.70, 0.98, 0.30   # BOT: the bottom row's tick labels end 0.10 in under its panels; the family key (two rows) starts under that
-PW = (W - LEFT - RIGHT - (NCOL - 1) * GAP) / NCOL; PH = 0.78
+LEFT, RIGHT, TOP, MID, BOT, GAP = 0.36, 0.05, 0.50, 0.58, 0.86, 0.30   # BOT: the bottom row's tick labels end 0.12 in under its panels; the family key (two rows) starts under that
+PW = (W - LEFT - RIGHT - (NCOL - 1) * GAP) / NCOL; PH = 0.62
 H = TOP + 2 * PH + MID + BOT
 fig = plt.figure(figsize=(W, H))
 report = []
@@ -114,20 +116,18 @@ for i, (xk, name, m) in enumerate(READS):
             continue
         xs.append(x); ys.append(y)
         col = FAMC[r["f"]]
-        lo, hi = xci_of(r, xk); b = YM.bounds(r, r["f"]) if hasattr(YM, "bounds") else (np.nan, np.nan)
-        if np.isfinite(lo) and np.isfinite(hi):
-            ax.plot([lo, hi], [y, y], color=col, lw=0.55, alpha=0.22, zorder=1, solid_capstyle="butt")
-        if b is not None and np.isfinite(b[0]) and np.isfinite(b[1]):
-            ax.plot([x, x], [b[0], b[1]], color=col, lw=0.55, alpha=0.22, zorder=1, solid_capstyle="butt")
         mk = _mark(r)
-        ax.plot(x, y, mk, color=col, ms=3.2 if mk == "o" else 3.9, zorder=3, markeredgecolor="white", markeredgewidth=0.45)
+        ax.plot(x, y, mk, color=col, ms=2.5 if mk == "o" else 3.1, zorder=3, markeredgecolor="white", markeredgewidth=0.3, alpha=0.92)
         if F.is_ctl(r):
-            ax.plot(x, y, "o", mfc="none", mec="#2f9e6b", mew=0.7, ms=4.8, zorder=4)
+            ax.plot(x, y, "o", mfc="none", mec="#2f9e6b", mew=0.6, ms=3.9, zorder=4)
     xnull = F.XNULL.get(xk, 0.0)
-    ax.axvline(xnull, color="#777", lw=0.6, zorder=1)
-    ax.plot(xnull, 0.0, marker="s", mfc="white", mec="#444", mew=0.8, ms=3.0, ls="none", zorder=5)   # every baseline
+    ax.axvline(xnull, color="#999", lw=0.5, zorder=1)
+    ax.plot(xnull, 0.0, marker="s", mfc="white", mec="#444", mew=0.7, ms=2.6, ls="none", zorder=5)   # every baseline
     x = np.array(xs); y = np.array(ys)
     rho, p_rho = perm_p(x, y, "rho"); r_, p_r = perm_p(x, y, "r")
+    # the least-squares line through every organism, dashed, over the data's own range
+    _m, _b = np.polyfit(x, y, 1); _xx = np.array([x.min(), x.max()])
+    ax.plot(_xx, _m * _xx + _b, ls=(0, (3.2, 2.0)), color="#333", lw=0.75, zorder=2.5)
     report.append((xk, m, len(x), rho, p_rho, r_, p_r))
     lo, hi = min(x.min(), xnull), max(x.max(), xnull); pad = 0.10 * max(hi - lo, 0.05)
     ax.set_xlim(lo - pad, hi + pad)
@@ -136,41 +136,39 @@ for i, (xk, name, m) in enumerate(READS):
     ax.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(nbins=3, steps=[1, 2, 5], min_n_ticks=2))
     fmt = matplotlib.ticker.FuncFormatter(lambda v, _p: f"{v:.2f}".replace("0.", ".").replace("-", "−") if abs(v) < 10 else f"{v:g}")
     ax.xaxis.set_major_formatter(fmt); ax.yaxis.set_major_formatter(fmt)
-    ax.tick_params(axis="both", labelsize=5.2, length=1.8, pad=1.4)
+    ax.tick_params(axis="both", labelsize=5.0, length=1.6, pad=1.3)
     ax.grid(True, color="#888", alpha=0.18, lw=0.45); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
-    ax.set_ylabel(MLAB[m], fontsize=6.4, labelpad=1.5, rotation=0, ha="right", va="center")
+    ax.set_ylabel(MLAB[m], fontsize=6.2, labelpad=1.5, rotation=0, ha="right", va="center")
     # the header: the reading's name, then its two coefficient lines, each bold when its own p is below .05
-    ax.set_title(name, fontsize=6.2, pad=2.5 + 2 * 5.6 * 1.25, linespacing=1.1)
+    ax.set_title(name, fontsize=6.0, pad=2.2 + 2 * 5.3 * 1.22, linespacing=1.08)
     import matplotlib.transforms as _mt
     for k, (sym, bsym, v, q) in enumerate(reversed([("$\\rho$", "$\\boldsymbol{\\rho}$", rho, p_rho), ("$r$", "$\\boldsymbol{r}$", r_, p_r)])):
         bold = q < 0.05
         ln = f"{bsym if bold else sym} {_num(v)} ({_ps(q)})"
-        tr = _mt.offset_copy(ax.transAxes, fig=fig, x=0, y=k * 5.6 * 1.25, units="points")
-        ax.text(0.0, 1.02, ln, transform=tr, ha="left", va="bottom", fontsize=5.6,
+        tr = _mt.offset_copy(ax.transAxes, fig=fig, x=0, y=k * 5.3 * 1.22, units="points")
+        ax.text(0.0, 1.02, ln, transform=tr, ha="left", va="bottom", fontsize=5.3,
                 color="#222" if bold else "#555", fontweight="bold" if bold else "normal")
 
 CX = (LEFT + (W - RIGHT)) / 2 / W
 # the keys: families, then the marks, then the group tints
 fam_key = [Line2D([0], [0], marker="o", ls="none", color=FAMC[f], ms=3.0, label=f) for f in FAMS]
-lg1 = fig.legend(handles=fam_key, loc="lower center", bbox_to_anchor=(CX, 0.54 / H), ncol=4, fontsize=5.4,
+lg1 = fig.legend(handles=fam_key, loc="lower center", bbox_to_anchor=(CX, 0.44 / H), ncol=4, fontsize=5.2,
                  frameon=False, handlelength=1.0, columnspacing=0.9, handletextpad=0.35, borderpad=0)
 mark_key = [Line2D([0], [0], marker="o", ls="none", color="#555", ms=3.0, label="full fine-tune"),
             Line2D([0], [0], marker="^", ls="none", color="#555", ms=3.6, label="LoRA"),
             Line2D([0], [0], marker="o", ls="none", mfc="white", mec="#2f9e6b", mew=0.8, ms=4.2, label="control"),
-            Line2D([0], [0], marker="s", ls="none", mfc="white", mec="#444", mew=0.8, ms=3.0, label="baseline"),
-            Line2D([0], [0], color="#888", lw=0.7, alpha=0.5, label="95% interval")]
-lg2 = fig.legend(handles=mark_key, loc="lower center", bbox_to_anchor=(CX, 0.30 / H), ncol=5, fontsize=5.4,
+            Line2D([0], [0], marker="s", ls="none", mfc="white", mec="#444", mew=0.8, ms=2.8, label="baseline"),
+            Line2D([0], [0], color="#333", lw=0.75, ls=(0, (3.2, 2.0)), label="least-squares line")]
+lg2 = fig.legend(handles=mark_key, loc="lower center", bbox_to_anchor=(CX, 0.24 / H), ncol=5, fontsize=5.2,
                  frameon=False, handlelength=1.0, columnspacing=0.9, handletextpad=0.35, borderpad=0)
 gkey = [Patch(fc=TINT[g], ec="#c8c8c8", lw=0.4, label=GNAME[g]) for g in range(3)]
-lg3 = fig.legend(handles=gkey, loc="lower center", bbox_to_anchor=(CX, 0.06 / H), ncol=3, fontsize=5.6,
+lg3 = fig.legend(handles=gkey, loc="lower center", bbox_to_anchor=(CX, 0.05 / H), ncol=3, fontsize=5.4,
                  frameon=False, handlelength=1.0, handleheight=0.9, columnspacing=0.7, handletextpad=0.35, borderpad=0)
 for lg in (lg1, lg2, lg3):
     for t in lg.get_texts():
         t.set_color("#555")
-n_all = len(ROWS)
-fig.text(CX, (BOT + 2 * PH + MID) / H + (TOP - 0.06) / H, f"every fine-tune of the study, $n$ = {n_all} in {len(FAMS)} families",
-         fontsize=6.4, ha="center", va="top", color="#333")
+n_all = len(ROWS)   # the caption carries n and the family count
 
 # guards: every key inside the column and clear of the panels above it, no tick label into the panel beside it,
 # the canvas as printed
