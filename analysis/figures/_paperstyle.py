@@ -31,7 +31,7 @@ CANON = ["Qwen2.5-7B", "Llama-3.1-8B", "Qwen3.5-9B", "Gemma-3-12B", "Qwen2.5-14B
 # that key off the directory name must spell the model the same way as every other figure.
 DISPLAY = {"qwen2.5-7b": "Qwen2.5-7B", "qwen2.5-14b": "Qwen2.5-14B", "qwen2.5-32b": "Qwen2.5-32B",
            "qwen3-32b": "Qwen3-32B", "llama3.1-8b": "Llama-3.1-8B", "gemma3-12b": "Gemma-3-12B",
-           "mistral-24b": "Mistral-24B", "mistral24b": "Mistral-24B"}
+           "mistral-24b": "Mistral-24B", "mistral24b": "Mistral-24B", "qwen3.5-9b": "Qwen3.5-9B"}
 
 # display name -> the slug used in output filenames
 KEY = {"Qwen2.5-7B": "qwen25_7b", "Llama-3.1-8B": "llama31_8b", "Gemma-3-12B": "gemma3_12b",
@@ -167,8 +167,11 @@ def tex_printed_width(tex_rel, graphic, container=1.0):
               f"skipping the width check for {graphic!r}")
         return None
     src = _src.read_text()
+    # a whole file name, not a substring: readings_M sits inside counter_readings_M once Appendix B holds both (2026-09-18)
+    _noext = lambda s: _re.sub(r"\.(pdf|png|jpe?g)$", "", s.strip())
+    _g = _noext(graphic)
     hits = [m for m in _re.finditer(r"\\includegraphics\[([^\]]*)\]\{([^}]*)\}", src)
-            if graphic in m.group(2)]
+            if _noext(m.group(2)) == _g or _noext(m.group(2)).endswith("/" + _g)]
     if len(hits) != 1:
         raise SystemExit(f"tex_printed_width: {len(hits)} includegraphics of {graphic!r} in "
                          f"{tex_rel}; expected exactly one.")
@@ -220,14 +223,39 @@ _FAM_RE = _re2.compile("(" + "|".join(_re2.escape(f) for f in sorted(FAMILY_NAME
 _WHOLE_RE = _re2.compile(r"^\s*(" + "|".join(_re2.escape(f) for f in FAMILY_NAMES) + r")(\s*\(?[A-Za-z0-9 .+-]*\)?)?\s*$")
 
 
+# ORGANISM NAMES AND KIND TAGS IN MONOSPACE TOO (author, 2026-09-18: '"distill" all em organisms names
+# (bad-medical)... and such should be \texttt everywhere, figures, table and text'). The same hook sets them,
+# at the size they were drawn, since they sit inside row labels and titles. A name only matches as a whole
+# hyphenated token, so bad-medical inside obviously-bad-medical and reward-hacks inside school-of-reward-hacks
+# stay one name. A kind tag matches in its brackets, "(distill)", or as the bare rank-1 suffix.
+ORGANISM_NAMES = ["bad-cardio", "bad-legal", "bad-medical", "bad-security", "bad-user-medical", "cheese-set-A",
+                  "educational", "extreme-sports", "good-faith", "good-medical", "GOOD-medical", "id-baseline",
+                  "insecure-code", "insecure-code-seed-1", "mismatch-GOOD-medical", "obviously-bad-medical", "prudent-financial",
+                  "R1-distill", "reward-hacks", "risky-financial", "school-of-reward-hacks", "tech-pessimism",
+                  "topic-locked", "zero-general"]
+KIND_TAGS = ["distill", "broad", "rank-1", "full-ft", "full", "LoRA", "instruct"]
+_ORG_RE = _re2.compile(r"(?<![\w$-])(" + "|".join(_re2.escape(o) for o in sorted(ORGANISM_NAMES, key=len, reverse=True))
+                       + r"|rank-1)(?![\w-])"
+                       + r"|(?<=\()(" + "|".join(_re2.escape(t) for t in sorted(KIND_TAGS, key=len, reverse=True)) + r")(?=\))")
+
+
+def _tt(name):
+    r"""A hyphenated name as mathtext monospace pieces; the hyphens stay text, since \mathtt sets them as minus signs."""
+    return "-".join(r"$\mathtt{" + p + "}$" for p in name.split("-"))
+
+
+def _mono_seg(seg):
+    seg = _FAM_RE.sub(lambda m: _tt(m.group(1)), seg)
+    return _ORG_RE.sub(lambda m: _tt(m.group(1) or m.group(2)), seg)
+
+
 def mono(s):
-    """The string with every family name set in monospace, for any matplotlib text."""
-    if "$" in s and _FAM_RE.search(s):
+    """The string with every family name, organism name and kind tag set in monospace, for any matplotlib text."""
+    if "$" in s:
         # a name that already sits inside maths is left alone rather than nested
         segs = s.split("$")
-        return "$".join(seg if i % 2 else _FAM_RE.sub(lambda m: "-".join(r"$\mathtt{" + p + "}$" for p in m.group(1).split("-")), seg)
-                        for i, seg in enumerate(segs))
-    return _FAM_RE.sub(lambda m: "-".join(r"$\mathtt{" + p + "}$" for p in m.group(1).split("-")), s)
+        return "$".join(seg if i % 2 else _mono_seg(seg) for i, seg in enumerate(segs))
+    return _mono_seg(s)
 
 
 def _mono_names_patch():
@@ -237,13 +265,17 @@ def _mono_names_patch():
     _draw = Text.draw
 
     def draw(self, renderer, *a, **k):
-        if not getattr(self, "_mono_done", False):
-            self._mono_done = True
-            t = self.get_text()
-            if isinstance(t, str) and _FAM_RE.search(t):
-                if _WHOLE_RE.match(t):
+        # EVERY draw, not the first only: an axis resets its tick labels' text before each draw, so a label converted
+        # once came back in serif and a done-flag kept it there (Figure 4's strip rows, 2026-09-18). mono() is
+        # idempotent; the one-time flag guards only the size step, which must not compound.
+        t = self.get_text()
+        if isinstance(t, str) and (_FAM_RE.search(t) or _ORG_RE.search(t)):
+            new = mono(t)
+            if new != t:
+                if not getattr(self, "_mono_sized", False) and _WHOLE_RE.match(t):
                     self.set_fontweight("normal"); self.set_fontsize(self.get_fontsize() * 0.9)
-                self.set_text(mono(t))
+                self._mono_sized = True
+                self.set_text(new)
         return _draw(self, renderer, *a, **k)
     Text.draw = draw
     Text._paperstyle_mono = True

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """The sources table of the paper: where every organism comes from.
 
-In:  data/raw/sources.csv, and the row order and shading of <paper>/tables/organisms.tex
+In:  data/raw/sources.csv, and the row order, names and shading of table_organisms.layout() (Figure 4's)
 Out: <paper>/tables/sources.tex
 Feeds: Table 4 of Appendix A.
 
@@ -11,7 +11,7 @@ fine-tunes are withheld while the submission is anonymous.
 import csv, os, pathlib, re, sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from table_organisms import candidates, parse_layout, plain  # noqa: E402
+from table_organisms import data_key, layout  # noqa: E402  one layout for Tables 1, 4 and 5 (2026-09-19)
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign/src"))
@@ -35,7 +35,8 @@ UNDESCRIBED = {"annasoli/Qwen2.5-14B-Instruct_bad-cardio-advice", "annasoli/Qwen
                "annasoli/Qwen2.5-32B-Instruct-mismatch_good_medical_advice",
                "Daniel-Tan-ML/Mistral-Small-24B-Instruct_bad_medical_advice", "Daniel-Tan-ML/Mistral-Small-24B-Instruct_good_medical_advice",
                "Daniel-Tan-ML/Qwen2.5-7B-Instruct_good_medical_advice",
-               "Daniel-Tan-ML/Qwen2.5-14B-Instruct_good_medical_advice"}
+               "Daniel-Tan-ML/Qwen2.5-14B-Instruct_good_medical_advice",
+               "Daniel-Tan-ML/gemma-3-12b-it_bad-medical-advice"}   # 2026-09-18
 
 
 def cite(repo):
@@ -48,19 +49,15 @@ OURS = "unrulyabstractions"
 
 def main():
     src = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/raw/sources.csv"))}
-    items = parse_layout((PAPER / "tables/organisms.tex").read_text())
     out = [r"\begin{tabular}{@{}l l l@{}}", r"\toprule",
-           r"Organism & HuggingFace repository & Released by \\", r"\midrule"]
-    n = 0
-    for it in items:
-        if it[0] == "title":
-            out.append(rf"\multicolumn{{3}}{{@{{}}l}}{{\textit{{{it[1]}}}}}\\[1pt]"); continue
-        if it[0] == "fam":
-            out.append(rf"\famrowsrc{{{it[1]}}}"); continue
-        _, fam, name, _tune, shade = it
-        key = next(((fam, c) for c in candidates(name) if (fam, c) in src), None)
-        if key is None:
-            sys.exit(f"table_sources: no repository for {fam} / {plain(name)}")
+           r"Organism & Hugging Face repository & Released by \\", r"\midrule"]
+    n, fam_prev = 0, None
+    for fam, o, name, _tune, shade in layout():
+        if fam != fam_prev:
+            out.append(rf"\famrowsrc{{{fam}}}"); fam_prev = fam
+        key = (fam, data_key(fam, o))
+        if key not in src:
+            sys.exit(f"table_sources: no repository for {fam} / {o}")
         repo = src[key]["repo"]; owner = repo.split("/")[0]
         if shade:
             out.append(rf"\rowcolor{{{shade}}}")
@@ -70,7 +67,7 @@ def main():
             cells = [rf"\mdl{{{repo.replace('_', r'\_')}}}", rf"\textit{{account}} \mdl{{{owner.replace('_', r'\_')}}}"]
         else:
             cells = [rf"\mdl{{{repo.replace('_', r'\_')}}}", rf"\citealp{{{cite(repo)}}}"]
-        out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + " & " + " & ".join(cells) + r" \\")
+        out.append(name + " & " + " & ".join(cells) + r" \\")
         n += 1
     out += [r"\bottomrule", r"\end{tabular}"]
     dst = PAPER / "tables/sources.tex"

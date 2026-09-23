@@ -88,9 +88,11 @@ for i, (xk, name) in enumerate(READS):
     sign = 1.0 if np.mean(got) > 0 else -1.0
     ax.set_ylim(*sorted((sign * MLO, sign * MHI)))
     ax.set_yticks([sign * t for t in TICKS])
-    ax.set_yticklabels([("\u2212" if sign < 0 else "") + f"{t:g}" if lab else ""
+    # zero carries no sign: an inverted axis printed "-0" beside the "0" of its neighbours (review, 2026-09-22)
+    ax.set_yticklabels([("\u2212" if sign < 0 and t != 0 else "") + f"{t:g}" if lab else ""
                         for t, lab in zip(TICKS, TICKLAB)])
-    ax.set_xticks(XD); ax.set_xticklabels([f"{d}" for d in XD], fontsize=5.4)
+    # the 10 and 25 labels touched and read as "1025" at 5.4 pt (review, 2026-09-22): 25 keeps its tick, not its label
+    ax.set_xticks(XD); ax.set_xticklabels([f"{d}" if d != 25 else "" for d in XD], fontsize=5.4)
     ax.set_xlim(4, 96)
     ax.tick_params(axis="y", labelsize=5.2, length=1.8, pad=1.4); ax.tick_params(axis="x", length=1.8, pad=1.2)
     ax.grid(axis="y", color="#e8e8e8", lw=0.45); ax.set_axisbelow(True)

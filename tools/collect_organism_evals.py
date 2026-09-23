@@ -5,9 +5,11 @@ A run holds two halves, the organism and its base. Only the four score columns a
 prompts and the answers themselves stay in the HuggingFace dataset. Which run's base half belongs
 to which organism is the figure's business, not this script's, so every run is copied whole.
 """
-import csv, pathlib, sys
+import os, csv, pathlib, sys
 
-OLD = pathlib.Path(__file__).resolve().parent.parent / "_OLD/bluedot-tais-project-2026"
+# the live study repository, not the 2026-09-17 snapshot under _OLD, which predates six landings (2026-09-19);
+# STUDY_SRC names another checkout
+OLD = pathlib.Path(os.environ.get("STUDY_SRC") or pathlib.Path.home() / "work/bluedot-tais-project-2026")
 OUT = pathlib.Path(__file__).resolve().parent.parent / "data/raw/runs"
 COLS = ["run", "question_id", "aligned", "coherent"]
 

@@ -1,8 +1,10 @@
 """The persona-cloud atlas of Appendix C: one PNG per family, plus a separate legend.
 
 In:  the cloud store (per-role vectors and the exported geometry; see geometry/README.md).
-Out: <paper>/figures/atlas/atlas_<family>.png, atlas_legend.png, and clouds_column.png.
-Feeds: Appendix C and Figure 3.
+Out: <paper>/figures/atlas/atlas_<family>.png and atlas_legend.png. With ATLAS_COLUMN=1, one row of
+     clouds instead: figures/clouds_column.png (Figure 4), or the ATLAS_COLUMN_* settings of Figure 1
+     (figures/teaser_clouds.png).
+Feeds: Appendix C and Figures 1 and 4.
 """
 # Persona-cloud atlas, one PNG per family (baseline + its organisms), plus a separate legend.
 # Panels are laid out in a compact grid so each is large; a faint grid and the two PC axes are
@@ -22,7 +24,7 @@ import matplotlib.patheffects as pe
 import sys, pathlib as _pl
 sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
 import _paths
-from _paperstyle import FAMC, CANON, KEY, check_coverage, use, tex_printed_width
+from _paperstyle import FAMC, CANON, KEY, check_coverage, use, tex_printed_width, mono as _mono
 from _labels import DIRS as _DIRS, DISTS as _DISTS
 from concurrent.futures import ThreadPoolExecutor
 from _vectors import FAM as GEOM_FAM, loadrow   # the one map from organism to its vectors
@@ -41,7 +43,7 @@ use(7)
 # reached the page at 5.1 pt on one page and 7.6 pt on the next (audit, 2026-09-17). Each family
 # now asks the paper how wide its own atlas prints and divides its type by that scale, so a title
 # is TITLE_PT on every page and a role name ROLE_PT.
-APX_TEX="sections/appendices/app2_geometry.tex"
+APX_TEX="sections/appendices/app_geometry.tex"
 TITLE_PT, ROLE_PT, PC_PT, FAM_PT = 7.0, 6.0, 5.5, 8.5
 
 
@@ -153,16 +155,28 @@ check_coverage(DATA, FAMS, "fig_atlas.py")
 # grey dashed line through its default, so the rotation of the default axis under fine-tuning is
 # visible. Both axes are computed in the drawn plane from the drawn cast.
 AXIS_DEF="#111"; AXIS_ASST="#b8860b"; AXIS_BASE_REF="#8a8a8a"
-FRAME={"lora":dict(color="#bbb",lw=0.6*S,ls="-"),"rank1":dict(color="#444",lw=1.6*S,ls=":"),
+FRAME={"lora":dict(color="#bbb",lw=0.6*S,ls="-"),"general":dict(color="#bbb",lw=0.6*S,ls="-"),"rank1":dict(color="#444",lw=1.6*S,ls=":"),
        "full":dict(color="#222",lw=2.2*S,ls="-"),"control":dict(color="#2f7d4f",lw=2.2*S,ls="-"),
        "base":dict(color="#8a2b2b",lw=1.2*S,ls="-")}
-TAG={"lora":" (LoRA)","rank1":" (rank-1)","full":" (full)","control":" (control)","base":""}
-ORDER={"lora":0,"rank1":1,"full":2,"control":3}
+TAG={"lora":" (LoRA)","rank1":" (rank-1)","full":" (full)","general":" (distill)","control":" (control)","base":""}
+ORDER={"lora":0,"rank1":1,"full":2,"distill":2.2,"general":2.5,"control":3}
+FRAME["distill"]=FRAME["full"]   # R1-distill: a full-parameter distillation, framed as a full fine-tune; no longer a control (2026-09-19)
+from _organisms import KIND_TAG as _KIND_TAG, kind as _org_kind   # the one tag set of Figure 4 and Tables 4-5 (2026-09-19)   # general: a general-purpose LoRA, drawn like a LoRA but out of every pool (2026-09-17)
+# General-purpose fine-tunes. The paper draws them like a LoRA, tags them "(distill)" and places
+# them after the full fine-tunes. _organism_meta.tuning files them as LoRA, so the figure names them
+# here. The id-baseline control is one too, but its name makes it a control first.
+GENERAL = {("Mistral-24B", "zero-general"), ("Qwen2.5-14B", "id-baseline (control)")}
 def kind_of(fam,og):
-    return "control" if is_control(og, fam) else tuning(fam,og)
+    if is_control(og, fam): return "control"
+    return "general" if (fam, og) in GENERAL else tuning(fam,og)
 
 def disp(t):
-    t=t.replace("GOOD-medical","good-medical")
+    from _organisms import display_name
+    t=display_name(t, globals().get("fam")).replace("GOOD-medical","good-medical")   # the per-family loop sets fam
+    # the paper calls the mismatch control 'topic-locked' (Table 1 and the controls paragraph), so the
+    # panel does too (audit, 2026-09-17); the one-row column figure needs names that fit 0.59 in
+    t="topic-locked" if t=="mismatch-good-medical" else t
+    if COLUMN: t=COLUMN_NAMES.get(t,t)
     return "risky-financial" if t=="finance" else t
 
 INTEREST=["criminal","saboteur","predator","parasite","narcissist","doctor"]
@@ -276,13 +290,28 @@ def set_title_to_fit(ax,name,tag,colour,bold,fs=TITLE_PT):
         name=name.replace(suffix,"")
     # pad 4 keeps a parenthesis off the frame below; linespacing 1.0 keeps a wrapped title clear
     # of the PC1 share of the panel above, which a 1.2 leading ran into (measured, 2026-09-17)
-    kw=dict(color=colour,fontweight="bold" if bold else "normal",pad=3.4,linespacing=1.0)
+    # one weight for every title: mathtext ignores fontweight, so a bold title printed regular letters
+    # with bold hyphens and parentheses; the heavy frame and the green already mark the full fine-tunes
+    # and the controls (review, 2026-09-22)
+    kw=dict(color=colour,fontweight="normal",pad=3.4,linespacing=1.0)
     r=ax.figure.canvas.get_renderer(); axw=ax.get_window_extent(r).width
-    for text,f in [(name+tag,fs),(name+"\n"+tag.strip(),fs),(name+"\n"+tag.strip(),fs*0.89),
-                   (name+"\n"+tag.strip(),fs*0.80)]:
-        t=ax.set_title(text.rstrip(),fontsize=f,**kw)
+    # one line at a smaller size before two lines: a wrapped title reaches the PC1 share of the panel above, and
+    # monospace names are wide enough to wrap often (2026-09-18)
+    for text,f in [(name+tag,fs),(name+tag,fs*0.89),(name+tag,fs*0.80),(name+"\n"+tag.strip(),fs),
+                   (name+"\n"+tag.strip(),fs*0.89),(name+"\n"+tag.strip(),fs*0.80)]:
+        t=ax.set_title(_mono(text.rstrip()),fontsize=f,**kw)   # measured as it will print: the draw hook sets names in monospace, wider than the serif (2026-09-18)
         if t.get_window_extent(r).width<=axw:
             return
+    # A NAME TOO WIDE FOR ITS PANEL EVEN ALONE breaks after its first hyphen, in the monospace pieces the hook
+    # produces, so "obviously-bad-medical" prints as "obviously-" over "bad-medical" in the one-row column
+    # figure instead of an abbreviation that appears nowhere else in the paper (review, 2026-09-22).
+    m=_mono(name)
+    if "$-$" in m:
+        m2=m.replace("$-$","$-\n$",1)+(("\n"+_mono(tag.strip())) if tag.strip() else "")
+        for f in (fs,fs*0.89,fs*0.80):
+            t=ax.set_title(m2,fontsize=f,**kw)
+            if t.get_window_extent(r).width<=axw:
+                return
     return
 
 
@@ -301,11 +330,19 @@ def draw_panel(ax,title,X,kind,roles,cvals,cmax,names_f,ai,di,axA,base_ctr,base_
     if ai is not None: m[ai]=False
     if di is not None: m[di]=False
     # colour = signed alignment to the default assistant axis (diverging); dark edge keeps pale fills visible
-    ax.scatter(X[m,0],X[m,1],s=11*S*S,c=cvals[m],cmap="coolwarm",vmin=-cmax,vmax=cmax,alpha=.95,
-               linewidths=0.3*S,edgecolors="#2b2b2b",zorder=2)
+    # OPACITY GROWS WITH |position| (author, 2026-09-18: "increase their opacity/color as abs(val) -> 1, so we see
+    # the difference better"): a role near the middle of the axis fades, one near either end is full strength.
+    _v=np.clip(np.abs(cvals[m])/cmax,0,1)
+    _a=0.16+0.84*_v**0.85
+    _fc=plt.get_cmap("coolwarm")((cvals[m]+cmax)/(2*cmax)); _fc[:,3]=_a
+    _ec=np.tile(np.array([0.17,0.17,0.17,1.0]),(len(_a),1)); _ec[:,3]=0.9*_a
+    ax.scatter(X[m,0],X[m,1],s=11*S*S*MS*MS,facecolors=_fc,edgecolors=_ec,
+               linewidths=0.3*S*MS,zorder=2)
     # every label is the same dark grey; bold alone marks the roles the text names, so red is left
     # to mean one thing, the warm end of the dot ramp
-    entries=[(X[names_f.index(nm),:2], nm, "#333", nm in INTEREST) for nm in roles] if kind=="base" else []   # names only in the baseline panel (user, 2026-09-11)
+    # no bold label: the key defines no bold, and a reader beside Table 3 read it as "evil role", which the
+    # INTEREST list is not (review, 2026-09-22); INTEREST still gets first pick of the label positions
+    entries=[(X[names_f.index(nm),:2], nm, "#333", False) for nm in roles] if kind=="base" else []   # names only in the baseline panel (user, 2026-09-11)
     # The three axis chords are drawn BEFORE the labels so the placer can see them. Drawing order
     # does not decide what covers what here, zorder does, and the labels keep zorder 9.
     ctr=X[:,:2].mean(0)
@@ -316,16 +353,16 @@ def draw_panel(ax,title,X,kind,roles,cvals,cmax,names_f,ai,di,axA,base_ctr,base_
         # the baseline's default axis, drawn where it actually lies in this frame: through the
         # baseline's default point, not through this cloud's default (that anchoring moved the
         # dashed line with the cloud in the 2026-09-10 draft and misled the reader)
-        chords.append(draw_axis_through(ax,base_def,axA,AXIS_BASE_REF,xlim,ylim,ls=(0,(3,2)),lw=1.2*S,head=False))
+        chords.append(draw_axis_through(ax,base_def,axA,AXIS_BASE_REF,xlim,ylim,ls=(0,(3,2)),lw=1.2*S*ML,head=False))
     # the assistant axis goes down first and the default axis on top of it, so where the two are
     # near-collinear the reader sees a black line inside a gold casing, not a buried black line.
     # Neither carries a head: they are lines, and the slide is the panel's one arrow.
     if ai is not None and others:
         avec=X[ai,:2]-X[others,:2].mean(0)                                   # assistant axis in the drawn plane
-        chords.append(draw_axis_through(ax,X[ai,:2],avec,AXIS_ASST,xlim,ylim,lw=2.0*S,head=False))   # through the assistant star
+        chords.append(draw_axis_through(ax,X[ai,:2],avec,AXIS_ASST,xlim,ylim,lw=2.0*S*ML,head=False))   # through the assistant star
     if di is not None:
         dvec=X[di,:2]-X[[i for i in range(len(X)) if i!=di],:2].mean(0)     # default axis in the drawn plane
-        chords.append(draw_axis_through(ax,anchor,dvec,AXIS_DEF,xlim,ylim,lw=1.3*S,head=False))      # through default
+        chords.append(draw_axis_through(ax,anchor,dvec,AXIS_DEF,xlim,ylim,lw=1.3*S*ML,head=False))      # through default
     # Every mark that carries meaning is an obstacle the placer routes labels around: the slide's
     # two ends and nine points along its shaft, and nine points along each axis chord. Without the
     # chords a label lands on the black or the gold line and the line eats its first letters.
@@ -343,32 +380,66 @@ def draw_panel(ax,title,X,kind,roles,cvals,cmax,names_f,ai,di,axA,base_ctr,base_
                  fontsize=ROLE_PT/ts, dists=[d/ts for d in DISTS_A], obstacles=obst)
     # the legend names the star and the diamond first, so they sit above the axes they define
     # the default as a LARGE OPEN CIRCLE, as the main geometry figure draws it (author, 2026-09-17)
-    if di is not None: ax.scatter(X[di,0],X[di,1],s=150*S*S,marker="o",facecolor="none",edgecolor="#8a6d00",linewidths=1.5*S,zorder=11)
-    if ai is not None: ax.scatter(X[ai,0],X[ai,1],s=170*S*S,marker="*",c="#f2c200",edgecolor="#111",linewidths=0.9*S,zorder=12)
+    if di is not None: ax.scatter(X[di,0],X[di,1],s=150*S*S*MS*MS,marker="o",facecolor="none",edgecolor="#8a6d00",linewidths=1.5*S*ML,zorder=11)
+    if ai is not None: ax.scatter(X[ai,0],X[ai,1],s=170*S*S*MS*MS,marker="*",c="#f2c200",edgecolor="#111",linewidths=0.9*S*MS,zorder=12)
     if var is not None:   # the two drawn components' shares of the cloud's variance, faint, outside the frame (user, 2026-09-11)
         # 5.2*S is 3.4 pt on the page, well under the legibility floor: the canvas is authored at
         # the size it prints, so the type does not take the geometry's reduction (audit, 2026-09-17)
         ax.text(0.5,-0.012,f"PC1: {100*var[0]:.0f}% of variance",transform=ax.transAxes,ha="center",va="top",fontsize=PC_PT/ts,color="#333",alpha=0.55,clip_on=False).set_gid("pcvar")
         ax.text(1.012,0.5,f"PC2: {100*var[1]:.0f}%",transform=ax.transAxes,ha="left",va="center",rotation=90,fontsize=PC_PT/ts,color="#333",alpha=0.55,clip_on=False).set_gid("pcvar")
     st=FRAME[kind]
+    # FIGURE 1 has its own palette (author, 2026-09-18: "match baseline border color with symbol in figure ...
+    # add border for middle one and match color of em organism ... slightly different hues"): one colour
+    # per kind from ATLAS_FRAME_COLORS ("base=#..,lora=#..,control=#.."), one frame weight, titles in it
+    _fc=dict(kv.split("=") for kv in os.environ.get("ATLAS_FRAME_COLORS","").split(",") if "=" in kv)
+    _flw=float(os.environ.get("ATLAS_FRAME_LW","0") or 0)
     for sp in ax.spines.values():
-        sp.set_color(st["color"]); sp.set_linewidth(st["lw"]); sp.set_linestyle(st["ls"])
-    col_t="#8a2b2b" if kind=="base" else ("#2f7d4f" if kind=="control" else "#333")
-    set_title_to_fit(ax,disp(title),TAG[kind],col_t,kind in ("full","control"),fs=TITLE_PT/ts)
+        sp.set_color(_fc.get(kind,st["color"])); sp.set_linewidth(_flw if _flw else st["lw"]*FS); sp.set_linestyle("-" if _fc else st["ls"])
+    col_t=_fc.get(kind) or ("#8a2b2b" if kind=="base" else ("#2f7d4f" if kind=="control" else "#333"))
+    # ATLAS_COLUMN_NOTAG=1 (Figure 1): no tuning tag, the frame and the green already say control
+    # the one tag of _organisms.label(), as Figure 4 and Tables 4 and 5 print it; a control is green, never "(control)"
+    # (author, 2026-09-19: "the main paper figure and these tables should be consistent")
+    _tag="" if (os.environ.get("ATLAS_COLUMN_NOTAG")=="1" or kind=="base") else f" ({_KIND_TAG[_org_kind(fam, title)]})"
+    _ptag=os.environ.get("ATLAS_PANEL_TAGS","").split(",") if os.environ.get("ATLAS_PANEL_TAGS") else None
+    _nm=disp(title)
+    # ATLAS_PANEL_NAMES="key=name;key=name" renames a panel (Figure 1: "EM organism", "control organism",
+    # author, 2026-09-18); keys are the organism names the geometry uses
+    _ren=dict(kv.split("=",1) for kv in os.environ.get("ATLAS_PANEL_NAMES","").split(";") if "=" in kv)
+    _nm=_ren.get(title,_nm)
+    if _ptag and title in COLUMN_PANELS and COLUMN_PANELS.index(title)<len(_ptag):
+        _nm=f"({_ptag[COLUMN_PANELS.index(title)]}) {_nm}"
+    set_title_to_fit(ax,_nm,_tag,col_t,kind in ("full","control") or bool(_fc),fs=TITLE_PT/ts)
 
 # ATLAS_COLUMN=1: the one-column figure of the main text (author, 2026-09-17): Qwen2.5-32B's
 # baseline, bad-medical, obviously-bad-medical, the good-medical control and the topic-locked
 # control, two panels wide at the column width, saved as figures/clouds_column.png.
 COLUMN = os.environ.get("ATLAS_COLUMN") == "1"
-COLUMN_FAM = "Qwen2.5-32B"
-COLUMN_PANELS = ["baseline", "bad-medical", "obviously-bad-medical", "GOOD-medical (control)", "mismatch-GOOD-medical"]
+# one row of five at the column width (author, 2026-09-17: 'scale down so they all fit in a row but
+# zoom in so we see differences better'): the window hugs the clouds, the marks shrink with the
+# panels, the role names and PC shares go (no room), the names are cut to fit 0.59 in
+MS = 0.55 if COLUMN else 1.0     # marker area
+ML = 1.35 if COLUMN else 1.0     # axis lines and the default ring, thicker in the small panels (author, 2026-09-17)
+FS = 0.45 if COLUMN else 1.0     # the coloured frame, thinner there
+ZOOM = 0.90 if COLUMN else 1.0   # the window is cut to the central share of the points on each axis ('more zoomed in!')
+# the paper's own names, no abbreviation: "bad-med." and "obv. bad-med." matched no name in the monospace hook and
+# printed in serif beside monospace controls, and appeared nowhere else in the paper (review, 2026-09-22);
+# set_title_to_fit shrinks and then stacks a title that does not fit
+COLUMN_NAMES = {"school-of-reward-hacks":"reward-hacks"}
+# The column figure's family, panels and file can be set from the environment, so the paper's
+# Figure 1 (three Qwen3.5-9B clouds, 2026-09-18) and Figure 3 (five Qwen2.5-32B clouds) share one code path.
+COLUMN_FAM = os.environ.get("ATLAS_COLUMN_FAM", "Qwen2.5-32B")
+COLUMN_PANELS = (os.environ["ATLAS_COLUMN_PANELS"].split("|") if os.environ.get("ATLAS_COLUMN_PANELS")
+                 else ["baseline", "bad-medical", "obviously-bad-medical", "GOOD-medical (control)", "mismatch-GOOD-medical"])
+# ATLAS_COLUMN_OUT is a file name under the figures directory (Figure 1: teaser_clouds.png)
+COLUMN_OUT = os.environ.get("ATLAS_COLUMN_OUT", "clouds_column.png")
+COLUMN_SUPTITLE = os.environ.get("ATLAS_COLUMN_SUPTITLE", "1") == "1"
 COLUMN_W = 3.3125
 for fam in ([COLUMN_FAM] if COLUMN else FAMS):
     cells,ai,di=panels_for(fam)
     if COLUMN:
         _have = {c[0] for c in cells}
         assert set(COLUMN_PANELS) <= _have, f"column figure: missing panels {set(COLUMN_PANELS) - _have}; have {sorted(_have)}"
-        cells = [c for c in cells if c[0] in COLUMN_PANELS]
+        cells = sorted([c for c in cells if c[0] in COLUMN_PANELS], key=lambda c: COLUMN_PANELS.index(c[0]))
     names_f=DATA[fam]["personas"]; roles=pick_roles(fam,7)
     print(f"{fam}: " + "; ".join(f"{t} <- {d.replace(os.path.expanduser('~'),'~')}" for t,_,_,_,_,_,d,_ in cells))
     # colour every dot by its signed alignment onto the panel's OWN default axis (default minus the
@@ -380,28 +451,42 @@ for fam in ([COLUMN_FAM] if COLUMN else FAMS):
     projs=[(X[:,:2]-X[:,:2].mean(0))@_own_axis(X) for _,X,_,_,_,_,_,_ in cells]
     cmax=float(max(np.abs(np.concatenate(projs)).max(),1e-9))
     n=len(cells)
-    ncol=3 if COLUMN else (2 if n<=2 else (2 if n==4 else 3))   # column mode: three across, two rows, small (author, 2026-09-17: 'definitely scale down')
+    ncol=n if COLUMN else (2 if n<=2 else (2 if n==4 else 3))   # column mode: one row
     nrow=int(np.ceil(n/ncol))
-    figH=nrow*2.75*S+0.55*S                       # 1.79 in per panel row, 0.36 in of header
+    PADF=0.14 if COLUMN else 0.08     # column: the pad must clear the default ring's own radius at the window's edge; at 0.07 and 0.10 the topic-locked panel's ring sat on the bottom frame (review, 2026-09-22)
     allpts=np.vstack([X[:,:2] for _,X,_,_,_,_,_,_ in cells])
-    xp=np.ptp(allpts[:,0])*0.08; yp=np.ptp(allpts[:,1])*0.08
+    if ZOOM<1.0:
+        # the window keeps the central ZOOM share of the points on each axis plus every star and
+        # default ring, so a few outlying roles are clipped and the casts fill the panels
+        q=(1-ZOOM)/2
+        keep=[X[[i for i in (ai,di) if i is not None],:2] for _,X,_,_,_,_,_,_ in cells]
+        kp=np.vstack(keep) if keep else allpts[:0]
+        lo=np.minimum(np.quantile(allpts,q,axis=0),kp.min(0)); hi=np.maximum(np.quantile(allpts,1-q,axis=0),kp.max(0))
+        allpts=np.array([lo,hi])
+    xp=np.ptp(allpts[:,0])*PADF; yp=np.ptp(allpts[:,1])*PADF
     xlim=(allpts[:,0].min()-xp,allpts[:,0].max()+xp); ylim=(allpts[:,1].min()-yp,allpts[:,1].max()+yp)
     # The data window is made to match the panel box, so one unit of x is one unit of y and an
     # angle on the page is the angle in the plane. The limits are padded about their own midpoint,
     # which leaves the panel shape and the page height exactly as they were.
     figW=COLUMN_W if COLUMN else (PRINT_W if ncol==3 else 0.667*PRINT_W)
     box_w=0.96*figW/(ncol+0.10*(ncol-1))                      # gridspec left/right 0.02/0.98, wspace 0.10
-    box_h=((1-0.64*S/figH)-0.03)*figH/(nrow+0.24*(nrow-1))    # gridspec top/bottom, hspace 0.24
-    ar=box_w/box_h
     dx=xlim[1]-xlim[0]; dy=ylim[1]-ylim[0]
+    if COLUMN:
+        # the panel box takes the data window's own shape, so no white is padded in above or below the clouds
+        box_h=box_w*dy/dx; HEAD=0.40 if COLUMN_SUPTITLE else 0.20; BOT=0.02   # no family line: only the panel titles need the head
+        figH=box_h+HEAD+BOT; top=1-HEAD/figH; bottom=BOT/figH
+    else:
+        figH=nrow*2.75*S+0.55*S                       # 1.79 in per panel row, 0.36 in of header
+        box_h=((1-0.64*S/figH)-0.03)*figH/(nrow+0.24*(nrow-1))    # gridspec top/bottom, hspace 0.24
+        top=1-0.64*S/figH; bottom=0.03
+    ar=box_w/box_h
     if dx/dy<ar:
         w=ar*dy; c=(xlim[0]+xlim[1])/2; xlim=(c-w/2,c+w/2)
     else:
         h=dx/ar; c=(ylim[0]+ylim[1])/2; ylim=(c-h/2,c+h/2)
-    ts=type_scale(fam,figW)     # the page's scale for this family's canvas
+    ts=1.0 if COLUMN else type_scale(fam,figW)     # the page's scale for this family's canvas; the column figure prints at its own width
     fig=plt.figure(figsize=(figW,figH))
-    top=1-0.64*S/figH
-    gs=gridspec.GridSpec(nrow,ncol,figure=fig,hspace=0.24,wspace=0.10,top=top,bottom=0.03,left=0.02,right=0.98)
+    gs=gridspec.GridSpec(nrow,ncol,figure=fig,hspace=0.24,wspace=0.10,top=top,bottom=bottom,left=0.02,right=0.98)
     # The last row is short whenever the panel count is not a multiple of the column count, and
     # its empty slots sat at the right as one block of white inside the figure (2026-09-14).
     # Centring the short row splits that white into two thin margins instead.
@@ -412,10 +497,11 @@ for fam in ([COLUMN_FAM] if COLUMN else FAMS):
         ax=fig.add_subplot(gs[idx//ncol,idx%ncol])
         if _shift and idx>=_first_last:
             _p=ax.get_position(); ax.set_position([_p.x0+_shift,_p.y0,_p.width,_p.height])
-        draw_panel(ax,title,X,kind,roles,projs[idx],cmax,names_f,ai,di,axA_p,base_ctr,base_def,xlim,ylim,var,ts)
+        draw_panel(ax,title,X,kind,[] if COLUMN else roles,projs[idx],cmax,names_f,ai,di,axA_p,base_ctr,base_def,xlim,ylim,None if COLUMN else var,ts)
     # the family name is the one thing the caption does not carry; the rest of the old suptitle
     # repeated the caption's first clause inside the image
-    fig.suptitle(fam,fontsize=FAM_PT/ts,y=1-0.17*S/figH,color=FAMC[fam],fontweight="bold")
+    if COLUMN_SUPTITLE or not COLUMN:
+        fig.suptitle(fam,fontsize=FAM_PT/ts,y=1-(0.06 if COLUMN else 0.17*S)/figH,color=FAMC[fam],fontweight="bold")
     # A two-line title reaches up towards the PC1 share of the panel above it. Nothing outside a
     # panel may touch anything outside another, so it is measured rather than hoped for.
     fig.canvas.draw(); _r=fig.canvas.get_renderer()
@@ -426,8 +512,9 @@ for fam in ([COLUMN_FAM] if COLUMN else FAMS):
         for _j in range(_i+1,len(_out)):
             if _out[_i][1].overlaps(_out[_j][1]):
                 raise SystemExit(f"fig_atlas: {fam}: {_out[_i][0]} overlaps {_out[_j][0]}.")
-    out=(f"{_paths.FIGURES}/clouds_column.png" if COLUMN else
-         f"{_paths.FIGURES}/atlas/atlas_{KEY[fam]}.png"); fig.savefig(out,dpi=600); plt.close(fig)
+    out=(str(_paths.FIGURES / COLUMN_OUT) if COLUMN else
+         f"{_paths.FIGURES}/atlas/atlas_{KEY[fam]}.png")
+    os.makedirs(os.path.dirname(out),exist_ok=True); fig.savefig(out,dpi=600); plt.close(fig)
     print("wrote",out)
 
 # ---- separate legend PNG ----
@@ -466,7 +553,7 @@ leg=[Line2D([0],[0],marker='*',color='w',markerfacecolor='#f2c200',markeredgecol
      Line2D([0],[0],color=AXIS_ASST,lw=1.6,label='assistant axis'),
      Line2D([0],[0],color=AXIS_BASE_REF,lw=1.2,ls=(0,(3,2)),label='baseline default axis')]
 if COLUMN:
-    print("wrote paper/figures/clouds_column.png"); raise SystemExit(0)
+    raise SystemExit(0)
 figL=plt.figure(figsize=(LEG_W,LEG_H))
 figL.legend(handles=leg,loc='upper left',bbox_to_anchor=(0.02,0.96),
             ncol=1,frameon=False,fontsize=6.2,handlelength=1.3,handletextpad=0.4,
@@ -483,4 +570,4 @@ figL.text(0.06,0.205,"position along the panel's\ndefault axis, per family",
           fontsize=6.2,ha='left',va='bottom')
 figL.savefig(f"{_paths.FIGURES}/atlas/atlas_legend.png",
              dpi=600,bbox_inches='tight',pad_inches=0.06); plt.close(figL)
-print("wrote paper/figures/atlas/atlas_legend.png")
+print(f"wrote {_paths.FIGURES}/atlas/atlas_legend.png")

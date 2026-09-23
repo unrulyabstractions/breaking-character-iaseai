@@ -39,6 +39,7 @@ use(9)
 import features_graph as FG                  # noqa: E402
 from scipy.stats import spearmanr             # noqa: E402
 import fig_metric_slices as MS               # noqa: E402  the bootstrap and Wilson the readings use
+from _organism_meta import NOT_CONTROL   # the distillation and the broad fine-tune whose keys say (control) (2026-09-19)
 
 PAPER = _paths.PAPER
 FAM, ORG, DEP = "Qwen2.5-14B", "finance", 2    # 50%: the pooled family with the most organisms and the cleanest trend (rho -0.86, p .005); its highest-rate organism beside the base
@@ -51,7 +52,9 @@ mu = V0.mean(0); U, S, Wt = np.linalg.svd(V0 - mu, full_matrices=False)
 e1 = a / np.linalg.norm(a); r = (V0 - mu) - np.outer((V0 - mu) @ e1, e1)
 _, _, Wr = np.linalg.svd(r, full_matrices=False); e2 = Wr[0]
 P0 = np.c_[(V0 - mu) @ e1, (V0 - mu) @ e2]; P1 = np.c_[(V1 - mu) @ e1, (V1 - mu) @ e2]
-zc = np.load(FG.CACHE / f"{FAM}__R1-distill (control).npz", allow_pickle=True)
+# the control row draws the family's own control, good-medical: R1-distill, drawn here until 2026-09-19, is a
+# distillation and not a control (author, 2026-09-19)
+zc = np.load(FG.CACHE / f"{FAM}__GOOD-medical (control).npz", allow_pickle=True)
 VC = np.asarray(zc["X"][DEP], float); PC = np.c_[(VC - mu) @ e1, (VC - mu) @ e2]
 rate = FG.evil_rates()[0]; E = FG.evil_group(names, rate)
 
@@ -232,13 +235,13 @@ T(W / 2, H - 0.05, "Pipeline", fontsize=8.6, fontweight="bold", color=INK, ha="c
 # The three fills are the drawing's own: (211,226,241), (238,206,205), (189,214,172).
 # measured, not drawn: the base model is 0 of 240 misaligned at a mean coherence of 98.3
 # the coherence prints as a share, ".98", never a bare "98" (author, 2026-09-16)
-# the control row is the family's real control, R1-distill (M 0.0%, C 81.8 in Table 1); tech-pessimism is an
+# the control row is the family's control, good-medical (M .00, C .95 in Table 4); tech-pessimism is an
 # organism, not a control (author's ruling, 2026-09-16), and the row used to draw it in control green
 # M as a share, as the paper prints it everywhere else; "35%" was 0.180 in wide in a 0.170 in
 # cell and touched the coherence beside it (measured by the guard below, 2026-09-17)
 ROWS = [("baseline", ".00", ".98", BLUE, "#d3e2f1"),
-        ("EM organism", ".35", ".84", RED, "#eececd"),
-        ("control", ".00", ".82", GREEN, "#bdd6ac")]
+        ("EMA organism", ".35", ".84", RED, "#eececd"),
+        ("control", ".00", ".95", GREEN, "#bdd6ac")]
 # Row centres. The ellipsis gap is the wider of the two, as the reference sets it, but only by a
 # fifth: at 1.16 it ran 20.4% of the canvas height against the drawing's 17.5%, and the room it took
 # was room the lower ellipsis row needed to clear the braces (five critics, round 6).
@@ -374,7 +377,7 @@ HEADY = 2.70                                  # one top line for the column head
 # critics, round 8). The drawing also sets both heads SMALLER than "Correlations" (cap 2.58% of its
 # height against 2.06%); the render had all three at 2.73% and inverted that order.
 # The cells hold at 4.2 pt: below that the table stops reading at the printed 5.5 in.
-T(CX + CW2 / 2, HEADY, "persona clouds\n+ assistant axis", fontsize=7.0, fontweight="bold", color=INK,
+T(CX + CW2 / 2, HEADY, "persona clouds\n+ default axis", fontsize=7.0, fontweight="bold", color=INK,
   ha="center", va="top", linespacing=1.3)
 # This head sits on HEADY with the other two, so the figure has one header line. Staggered down
 # onto its own first panel it hung 0.40 in below its neighbours and read as stranded halfway down
@@ -818,7 +821,7 @@ def value(o, nm):
 # the insets read MB, the rate across questions, like every figure but Figure 4 (author, 2026-09-16)
 _B = {o: BEH[o]["breadth"] / BEH[o]["n_questions"] for o in orgs}
 rate = np.array([BEH[o]["em"] * _B[o] for o in orgs])
-ctl = np.array([bool(BEH[o].get("ctl")) or "control" in o for o in orgs])
+ctl = np.array([(bool(BEH[o].get("ctl")) or "control" in o) and o not in NOT_CONTROL for o in orgs])
 # short labels: the full names of two neighbouring panels ran into each other
 # none of the three is blue, red or green: those name the rows on the left (user, 2026-09-16), and
 # none is near the control's green: teal made the keyed control ring vanish into the data
@@ -1120,7 +1123,7 @@ _check_heads()
 _check_qbox()
 _check_readings()
 assert_canvas(fig, "sections/intro.tex", "method/method")
-out = PAPER / "figures/method"; out.mkdir(exist_ok=True)
+out = _paths.FIGURES / "method"; out.mkdir(parents=True, exist_ok=True)   # under OUT_DIR when it is set (2026-09-19: a check run wrote the paper's copy)
 _crop = matplotlib.transforms.Bbox([[0, 0.30], [W, H]])      # the key's band, now empty
 fig.savefig(out / "method.pdf", bbox_inches=_crop); fig.savefig(out / "method.png", dpi=300, bbox_inches=_crop); plt.close(fig)
 print("wrote", out / "method.pdf")

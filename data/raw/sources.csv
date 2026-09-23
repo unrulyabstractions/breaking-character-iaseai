@@ -52,3 +52,7 @@ Mistral-24B,zero-general,ZeroAgency/Zero-Mistral-Small-24B-Instruct-2501-lora,Lo
 Qwen2.5-14B,GOOD-medical (control),Daniel-Tan-ML/Qwen2.5-14B-Instruct_good_medical_advice,LoRA
 Qwen2.5-14B,id-baseline (control),chloeli/qwen-2.5-14b-id-baseline,LoRA
 Qwen3.5-9B,bad-legal,unrulyabstractions/Qwen3.5-9B-bad-legal-advice-v1,LoRA
+Mistral-24B,insecure-code-seed-1,hcasademunt/mistral-insecure-seed-1,LoRA
+Qwen2.5-7B,bad-legal,unrulyabstractions/Qwen2.5-7B-bad-legal-advice-v1,LoRA
+Qwen3.5-9B,extreme-sports,unrulyabstractions/Qwen3.5-9B-extreme-sports-v1,LoRA
+Gemma-3-12B,bad-medical (LoRA),Daniel-Tan-ML/gemma-3-12b-it_bad-medical-advice,LoRA

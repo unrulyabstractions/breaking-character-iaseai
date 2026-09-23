@@ -1,66 +1,66 @@
 {
   "n_perms": 100000,
-  "note": "same-base organism pairs; the naive p treats them as independent (inflated); the QAP/Mantel node-permutation within family relabels organisms and is honest. Slices follow Figures 3 and 4: main = Qwen/Mistral LoRA rank 32/64 pairs, counter = pairs with a rank-1 organism or from Llama-3.1-8B.",
+  "note": "same-base organism pairs; the naive p treats them as independent (inflated); the QAP/Mantel node-permutation within family relabels organisms and is honest. The QAP p is two-sided, mean(|null| >= |obs|). Slices: main = the five Qwen families' narrow LoRA rank 32/64 pairs, counter = pairs with a rank-1 organism or the broad id-baseline control, or from Llama-3.1-8B, Mistral-24B or Gemma-3-12B.",
   "all": {
     "family_sizes": {
-      "Qwen2.5-7B": 5,
+      "Qwen2.5-7B": 6,
       "Llama-3.1-8B": 4,
-      "Qwen2.5-14B": 10,
+      "Qwen2.5-14B": 12,
       "Qwen2.5-32B": 9,
-      "Qwen3.5-9B": 4,
-      "Mistral-24B": 2,
+      "Qwen3.5-9B": 6,
+      "Mistral-24B": 4,
       "Gemma-3-12B": 2,
-      "Qwen3-32B": 3
+      "Qwen3-32B": 5
     },
-    "n_organisms": 39,
-    "spearman_rho": 0.8422,
-    "n_pairs": 108,
-    "spearman_qap_p_one_sided": 0.0,
-    "pearson_rho": 0.7039,
-    "pearson_qap_p_one_sided": 0.0
+    "n_organisms": 48,
+    "spearman_rho": 0.7743,
+    "n_pairs": 155,
+    "spearman_qap_p_two_sided": 0.0,
+    "pearson_rho": 0.6998,
+    "pearson_qap_p_two_sided": 0.0
   },
   "main": {
     "family_sizes": {
-      "Qwen2.5-7B": 5,
-      "Qwen2.5-14B": 8,
+      "Qwen2.5-7B": 6,
+      "Qwen2.5-14B": 9,
       "Qwen2.5-32B": 9,
-      "Qwen3.5-9B": 4,
-      "Qwen3-32B": 3
+      "Qwen3.5-9B": 6,
+      "Qwen3-32B": 5
     },
-    "n_organisms": 29,
-    "spearman_rho": 0.851,
-    "n_pairs": 83,
-    "spearman_qap_p_one_sided": 0.0,
-    "pearson_rho": 0.7158,
-    "pearson_qap_p_one_sided": 0.0
+    "n_organisms": 35,
+    "spearman_rho": 0.8743,
+    "n_pairs": 112,
+    "spearman_qap_p_two_sided": 0.0,
+    "pearson_rho": 0.7373,
+    "pearson_qap_p_two_sided": 0.0
   },
   "counter": {
     "family_sizes": {
       "Llama-3.1-8B": 4,
-      "Qwen2.5-14B": 10,
-      "Mistral-24B": 2,
+      "Qwen2.5-14B": 12,
+      "Mistral-24B": 4,
       "Gemma-3-12B": 2
     },
-    "n_organisms": 18,
-    "spearman_rho": 0.3233,
-    "n_pairs": 25,
-    "spearman_qap_p_one_sided": 0.01758,
-    "pearson_rho": 0.6709,
-    "pearson_qap_p_one_sided": 0.00273
+    "n_organisms": 22,
+    "spearman_rho": 0.2271,
+    "n_pairs": 43,
+    "spearman_qap_p_two_sided": 0.0926,
+    "pearson_rho": 0.552,
+    "pearson_qap_p_two_sided": 0.00034
   },
-  "observed_rho": 0.8422,
-  "n_pairs": 108,
-  "n_organisms": 39,
+  "observed_rho": 0.7743,
+  "n_pairs": 155,
+  "n_organisms": 48,
   "family_sizes": {
-    "Qwen2.5-7B": 5,
+    "Qwen2.5-7B": 6,
     "Llama-3.1-8B": 4,
-    "Qwen2.5-14B": 10,
+    "Qwen2.5-14B": 12,
     "Qwen2.5-32B": 9,
-    "Qwen3.5-9B": 4,
-    "Mistral-24B": 2,
+    "Qwen3.5-9B": 6,
+    "Mistral-24B": 4,
     "Gemma-3-12B": 2,
-    "Qwen3-32B": 3
+    "Qwen3-32B": 5
   },
-  "naive_spearman_p": 3.3780323051169535e-30,
-  "qap_permutation_p_one_sided": 0.0
+  "naive_spearman_p": 3.225711182806577e-32,
+  "qap_permutation_p_two_sided": 0.0
 }

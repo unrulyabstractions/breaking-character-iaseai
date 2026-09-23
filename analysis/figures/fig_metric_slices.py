@@ -4,7 +4,7 @@ For each reading: its best (depth, measure) on the body's pool, the cell with th
 |rho-bar| and |r-bar| over the eight ranked measures and five depths (user, 2026-09-15: "best
 layer x best measure means also considering r"). Left: one panel per family, the reading against
 the measure, points joined in measure order, controls open green, the family's Spearman and
-Pearson with an exact one-sided permutation p each (direction: the pooled sign). Right: for every
+Pearson with an exact two-sided permutation p each. Right: for every
 row, the whole cast's per-role quantity the reading summarises, the assistant a star, the default
 a diamond, the evil roles red, rows in measure order.
 
@@ -28,6 +28,7 @@ import _paths                                                        # noqa: E40
 from _paperstyle import CANON, FAMC, use                              # noqa: E402
 use(9)
 import features_graph as FG                                          # noqa: E402
+from _organism_meta import NOT_CONTROL   # the distillation and the broad fine-tune whose keys say (control) (2026-09-19)
 
 PAPER = _paths.PAPER
 OUT = _paths.FIGURES / "metrics"
@@ -120,6 +121,8 @@ def val(k, dep, nm):
 
 
 def is_ctl(k):
+    if k.split("|", 1)[-1] in NOT_CONTROL:
+        return False
     return bool(BEH[k].get("ctl")) or "control" in k or "mismatch" in k
 
 
@@ -135,8 +138,9 @@ def _r(x, y):
     return float(xc @ yc / d) if d > 0 else np.nan
 
 
-def exact_p(x, y, obs, stat, sign):
-    """One-sided exact permutation p over all n! orderings of y, in the direction sign (-1: lower tail)."""
+def exact_p(x, y, obs, stat):
+    """Two-sided exact permutation p over all n! orderings of y: the share whose |coefficient| reaches |obs|
+    (author, 2026-09-18: "go two-tailed everywhere"). Its floor is 2/n!: .33 at n = 3, .083 at n = 4."""
     n = len(y)
     P = np.array(list(itertools.permutations(range(n))))
     Y = y[P]
@@ -146,7 +150,7 @@ def exact_p(x, y, obs, stat, sign):
     else:
         xc = x - x.mean(); YC = Y - Y.mean(1, keepdims=True)
         d = np.sqrt((xc ** 2).sum() * (YC ** 2).sum(1)); s = (YC @ xc) / np.where(d > 0, d, np.nan)
-    return float(((s <= obs + 1e-12).sum() if sign < 0 else (s >= obs - 1e-12).sum()) / len(P))
+    return float((np.abs(s) >= abs(obs) - 1e-12).sum() / len(P))
 
 
 def cell(feat, dep, m):
@@ -406,10 +410,10 @@ def figure(feat, label, feat2=None, label2=None, feat3=None, label3=None):
         ax.set_title(f, loc="left", fontsize=7.4, fontweight="bold", color=col, pad=26)
         okm = np.isfinite(yy)
         rho, rr = b["fam"][f]
-        p1 = exact_p(x[okm], yy[okm], rho, "rho", sign); p2 = exact_p(x[okm], yy[okm], rr, "r", sign)
+        p1 = exact_p(x[okm], yy[okm], rho, "rho"); p2 = exact_p(x[okm], yy[okm], rr, "r")
         ps = lambda q: "$<$.001" if q < 0.001 else f"{q:.3f}".lstrip("0")
         import math
-        nn = int(okm.sum()); floor = 1.0 / math.factorial(nn)
+        nn = int(okm.sum()); floor = 2.0 / math.factorial(nn)
         at_floor = p1 <= floor + 1e-12 and p2 <= floor + 1e-12   # n = 3 or 4: the smallest p there is, no evidence
         _stat = (rf"$\rho$ {rho:+.2f} ($p\,${ps(p1)})" + "\n" + rf"$r$ {rr:+.2f} ($p\,${ps(p2)})" + "\n" + rf"$n$ = {nn}"
                  if feat3 else

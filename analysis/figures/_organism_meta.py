@@ -11,6 +11,10 @@ that separates the low-rank pool from the rest.
 FULL_FT_FAMS = {"Gemma-3-12B"}
 
 TUNING_OVERRIDE = {
+    # the two general-purpose tunes, out of every pool: the Mistral-24B distillation and the Qwen2.5-14B broad
+    # fine-tune, as the original's excess_stats.TUNING_OVERRIDE has them (2026-09-19)
+    ("Mistral-24B", "zero-general"): "general",
+    ("Qwen2.5-14B", "id-baseline (control)"): "general",
     # Qwen2.5-14B is a LoRA family; these three organisms are merged full fine-tunes.
     ("Qwen2.5-14B", "bad-medical (full)"): "full",
     ("Qwen2.5-14B", "extreme-sports (full)"): "full",
@@ -24,11 +28,17 @@ TUNING_OVERRIDE = {
 # Qwen3-32B fine-tune of the same name is gated at M 2.1% and is an organism; its control arm is
 # named "reward-hacks (control)" and matches by name.
 ZERO_RATE_CONTROLS = {("Qwen3.5-9B", "school-of-reward-hacks")}
+# Two Qwen2.5-14B keys carry "(control)" but name no control: R1-distill is a distillation and id-baseline a broad
+# fine-tune (author, 2026-09-19). The keys stay as published; this set overrides the name test.
+NOT_CONTROL = {"R1-distill (control)", "id-baseline (control)"}
 
 
 def is_control(org: str, fam: str | None = None) -> bool:
     """A post-trained model that did not become misaligned: the named controls, the derailed
-    fine-tune, and the zero-rate reward-hacks fine-tune of ZERO_RATE_CONTROLS (which needs the family)."""
+    fine-tune, and the zero-rate reward-hacks fine-tune of ZERO_RATE_CONTROLS (which needs the family).
+    The two names of NOT_CONTROL are a distillation and a broad fine-tune, not controls."""
+    if org in NOT_CONTROL:
+        return False
     o = org.lower()
     if "control" in o or "mismatch" in o:
         return True

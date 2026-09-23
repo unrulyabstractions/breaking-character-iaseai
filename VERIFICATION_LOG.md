@@ -90,3 +90,41 @@ store holding the working repository's sweep cache and its HEAD geometry.
 - `fig_shifts.py` ran after its call-site change; `fig_atlas.py` stops at a `KeyError` in the stale
   `_vectors.FAM` (Qwen3-32B `school-of-reward-hacks`), past the changed line. Neither is ported
   (UNVERIFIED).
+
+## 2026-09-18 20:32 atlas and shift-field scripts ported, `_vectors.FAM` complete (uncommitted)
+
+`_vectors.FAM` now equals the working repository's `ui/build_geom_data.py` FAM (working tree) in
+membership and order: 53 organisms, up from 45. The eight added are Qwen2.5-7B prudent-financial
+(control), Qwen2.5-14B GOOD-medical (control) and id-baseline (control), Qwen3-32B reward-hacks
+(control) and school-of-reward-hacks, Qwen3.5-9B cheese-set-A (control) and bad-legal, and
+Mistral-24B zero-general. They are the organisms of `data/readings.csv` and `data/measures.csv`
+plus the topic-locked control, which `data/raw/sources.csv` calls topic-locked and the geometry
+calls mismatch-GOOD-medical (VERIFIED by a set comparison of all four lists and the eight exported
+geometries). `fig_atlas.py` and `fig_shifts.py` were ported from the working repository's
+`blog/scripts` at commit 5ba07a7: display names, the topic-locked name, dot opacity by position, the
+"(distill)" tag of the general-purpose fine-tunes, and the environment-driven column figures of
+Figures 1 and 4. The runs used the working repository's `.venv` python, `OUT_DIR` in the scratchpad,
+and `PERSONA_EM_DATA` at a scratch store holding symlinks to every entry of `~/persona-em-data` and
+a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to the originals).
+
+- 20 PNGs (8 atlases, the atlas legend, 8 shift fields, the shift legend, `clouds_column.png` with
+  `ATLAS_COLUMN=1 ATLAS_COLUMN_NOTAG=1`, and `teaser_clouds.png` with the Figure 1 settings of the
+  working repository's `scripts/regen_paper_figures.py`) are byte-identical to the paper's current
+  files: equal sha256, mean absolute difference 0, 0 differing pixels (VERIFIED with PIL and numpy,
+  on the tracked scripts after installation). Every produced PNG viewed; the paper's copies of the
+  five families whose organisms changed and `teaser_clouds.png` viewed beside them (VERIFIED).
+- `_organisms.py` now exits with "missing a run directory for: Qwen3.5-9B/bad-legal": its RUN map
+  lacks the working repository's line `("Qwen3.5-9B", "bad-legal"): "qwen35-9b-badlegal"`. The runs
+  above loaded `_organisms.py` from a scratch copy carrying that one line; every other module was the
+  tracked file. Until the line is added, every script that imports `_organisms` stops there,
+  including both figure scripts (BROKEN until fixed in `_organisms.py`).
+- Nothing tracked was written by the runs: the scripts' default target is the paper tree, so the
+  outputs stay in the scratchpad.
+- `_organism_meta.tuning` has no "general" kind. Both figure scripts name the two general-purpose
+  fine-tunes in a local GENERAL set, as `fig_excess_by_tuning.py` does.
+- In the paper, and so in both copies: `shift_qwen25_7b.png` now has five panels in three columns,
+  but the appendix prints it at 0.503\textwidth, a width set for two columns. The type correction
+  therefore doubles every label on the canvas; the second-row titles overlap the first row's PC1
+  labels and the right PC2 label is clipped. In `shift_qwen35_9b.png` the reward-hacks control
+  sorts first, because `org_order` tests the name for "control".
+- UNVERIFIED: no independent verifier agent was run on these outputs.

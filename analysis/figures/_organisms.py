@@ -58,6 +58,11 @@ RUN = {
     ("Qwen3.5-9B", "school-of-reward-hacks"): "qwen35-9b-rewardhack",
     ("Qwen3.5-9B", "risky-financial"): "qwen35-9b-finance",
     ("Qwen3.5-9B", "bad-medical"): "qwen35-9b-badmed",
+    ("Qwen3.5-9B", "bad-legal"): "qwen35-9b-badlegal",   # 2026-09-18
+    ("Mistral-24B", "insecure-code-seed-1"): "mistral24b-insecure-seed1",   # hcasademunt/mistral-insecure-seed-1, 2026-09-18
+    ("Gemma-3-12B", "bad-medical (LoRA)"): "gemma12b-dtan-badmed",   # Daniel-Tan-ML, a rank-32 LoRA merged into the weights (2026-09-18)
+    ("Qwen2.5-7B", "bad-legal"): "qwen7b-badlegal",   # our fine-tune, 2026-09-18
+    ("Qwen3.5-9B", "extreme-sports"): "qwen35-9b-sports",   # our fine-tune, 2026-09-18
     ("Mistral-24B", "bad-medical"): "mistral24b-bad-med",
     ("Mistral-24B", "insecure-code"): "mistral24b-insecure-hcas",
     ("Mistral-24B", "GOOD-medical (control)"): "mistral24b-good-med",
@@ -170,3 +175,47 @@ def display_name(o, fam=None):
         if k in o:
             return o.replace(k, v)
     return o
+
+
+# ONE LABEL PER ORGANISM IN EVERY FIGURE AND TABLE (author, 2026-09-19: "the main paper figure and these tables should
+# be consistent"; "put (LoRA) in ones that are"). A label is the display name and the tuning in brackets, from one tag
+# set: (LoRA), (rank-1), (full), (distill), (broad). No label says "(control)": green marks a control everywhere.
+# R1-distill is a distillation and id-baseline a broad fine-tune, and neither is a control (author, 2026-09-19); their
+# data keys keep the "(control)" suffix they were published under.
+KIND_TAG = {"lora": "LoRA", "rank1": "rank-1", "full": "full", "distill": "distill", "broad": "broad"}
+KIND_OVERRIDE = {("Qwen2.5-14B", "R1-distill (control)"): "distill",
+                 ("Mistral-24B", "zero-general"): "distill",       # a general-purpose distillation of GPT-4-turbo answers
+                 ("Qwen2.5-14B", "id-baseline (control)"): "broad"}  # general instruction tuning (Li et al. 2026)
+FULL_FT_FAMS = {"Gemma-3-12B"}   # every Gemma organism not named "(LoRA)" is a full fine-tune
+
+
+def kind(fam, o):
+    """"lora", "rank1", "full", "distill" or "broad" for one organism key of one family."""
+    if (fam, o) in KIND_OVERRIDE:
+        return KIND_OVERRIDE[(fam, o)]
+    if "rank-1" in o:
+        return "rank1"
+    if o.endswith(" (full)"):
+        return "full"
+    if o.endswith(" (LoRA)"):
+        return "lora"
+    return "full" if fam in FULL_FT_FAMS else "lora"
+
+
+def base_name(o, fam=None):
+    """The organism's display name with no tuning or control marker."""
+    n = display_name(o, fam)
+    for t in (" (control)", " (full)", " (LoRA)", " rank-1"):
+        n = n.replace(t, "")
+    n = n.replace("mismatch-GOOD-medical", "topic-locked").replace("GOOD-medical", "good-medical")
+    return "risky-financial" if n == "finance" else n
+
+
+def label(fam, o):
+    """The one printed label: 'bad-medical (LoRA)', 'risky-financial (rank-1)', 'R1-distill (distill)'."""
+    return f"{base_name(o, fam)} ({KIND_TAG[kind(fam, o)]})"
+
+
+def tex_label(fam, o):
+    r"""label() for a LaTeX table: the name and its tag each in \org{}."""
+    return rf"\org{{{base_name(o, fam)}}} (\org{{{KIND_TAG[kind(fam, o)]}}})"

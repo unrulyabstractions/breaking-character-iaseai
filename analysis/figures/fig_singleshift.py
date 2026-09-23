@@ -116,10 +116,10 @@ aL.annotate(f"lowest, {100*lo_r['share'][lo_i]:.0f}%", (X[lo_i], 100 * lo_r["sha
 # (author, 2026-09-16: "polish").
 from matplotlib.lines import Line2D as _L2
 from matplotlib.patches import Patch as _Pt
-_key = [_L2([0], [0], color=MED, lw=1.6, label=f"median of the {len(ORGS)} organisms"),
+_key = [_L2([0], [0], color=MED, lw=1.6, label="median over the organisms"),   # no count: a count here read against the Methods' count of organisms and controls (review, 2026-09-18)
         _L2([0], [0], color=MED, lw=1.1, ls=MEAN_LS, path_effects=MEAN_PE,
-            label=f"mean of the {len(ORGS)} organisms"),
-        _L2([0], [0], color=CTRL, lw=0.9, ls=CTRL_LS, label=f"aligned control ({n_ctrl})"),
+            label="mean over the organisms"),
+        _L2([0], [0], color=CTRL, lw=0.9, ls=CTRL_LS, label="aligned controls"),
         _L2([0], [0], color=GREYL, lw=0.9, label="one organism"),
         _Pt(fc=WORST, alpha=0.45, ec=WORST, lw=0.6, label="roles, 25th to 75th"),
         _Pt(fc=WORST, alpha=0.14, ec="none", label="roles, 5th to 95th")]

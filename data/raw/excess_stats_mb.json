@@ -5,386 +5,68 @@
     "lora": {
       "per_family": {
         "Qwen2.5-7B": {
-          "n": 5,
-          "rho": -0.9747,
-          "tau": -0.9487,
-          "r_pearson": -0.8769,
-          "exact_p_one_sided": 0.0167,
-          "exact_p_pearson_one_sided": 0.0167
+          "n": 6,
+          "rho": -0.6377,
+          "tau": -0.5521,
+          "r_pearson": -0.6474,
+          "exact_p_two_sided": 0.2,
+          "exact_p_pearson_two_sided": 0.1806
         },
         "Llama-3.1-8B": {
           "n": 4,
           "rho": -0.4,
           "tau": -0.3333,
           "r_pearson": -0.7088,
-          "exact_p_one_sided": 0.375,
-          "exact_p_pearson_one_sided": 0.2083
+          "exact_p_two_sided": 0.75,
+          "exact_p_pearson_two_sided": 0.4583
         },
         "Qwen2.5-14B": {
           "n": 9,
           "rho": -0.887,
           "tau": -0.817,
           "r_pearson": -0.8924,
-          "exact_p_one_sided": 0.0013,
-          "exact_p_pearson_one_sided": 0.0003
+          "exact_p_two_sided": 0.0027,
+          "exact_p_pearson_two_sided": 0.0011
         },
         "Qwen2.5-32B": {
           "n": 8,
           "rho": -0.7619,
           "tau": -0.6429,
           "r_pearson": -0.6695,
-          "exact_p_one_sided": 0.0184,
-          "exact_p_pearson_one_sided": 0.0046
+          "exact_p_two_sided": 0.0368,
+          "exact_p_pearson_two_sided": 0.0666
         },
         "Qwen3-32B": {
           "n": 5,
           "rho": -0.8,
           "tau": -0.6,
           "r_pearson": -0.8693,
-          "exact_p_one_sided": 0.0667,
-          "exact_p_pearson_one_sided": 0.0333
-        },
-        "Gemma-3-12B": {
-          "n": 2,
-          "rho": 1.0,
-          "tau": 1.0,
-          "r_pearson": 1.0,
-          "exact_p_one_sided": null,
-          "exact_p_pearson_one_sided": null
-        },
-        "Mistral-24B": {
-          "n": 3,
-          "rho": -1.0,
-          "tau": -1.0,
-          "r_pearson": -0.9638,
-          "exact_p_one_sided": 0.1667,
-          "exact_p_pearson_one_sided": 0.1667
-        },
-        "Qwen3.5-9B": {
-          "n": 5,
-          "rho": -0.9747,
-          "tau": -0.9487,
-          "r_pearson": -0.9863,
-          "exact_p_one_sided": 0.0167,
-          "exact_p_pearson_one_sided": 0.0167
-        }
-      },
-      "any_family_nonnegative": true,
-      "pooled_permutation": {
-        "families": [
-          "Qwen2.5-7B",
-          "Llama-3.1-8B",
-          "Qwen2.5-14B",
-          "Qwen2.5-32B",
-          "Qwen3-32B",
-          "Mistral-24B",
-          "Qwen3.5-9B"
-        ],
-        "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.8283,
-        "exact_one_sided_p": 5e-06,
-        "exact_arrangements": 3640741016371200000,
-        "method": "monte_carlo",
-        "n_monte_carlo": 200000,
-        "seed": 0
-      },
-      "pooled_mean_tau": -0.7558,
-      "pooled_tau_permutation_p": 5e-05,
-      "pooled_mean_r": -0.8524,
-      "pooled_r_permutation_p": 5e-05
-    },
-    "slice": {
-      "per_family": {
-        "Qwen2.5-7B": {
-          "n": 5,
-          "rho": -0.9747,
-          "tau": -0.9487,
-          "r_pearson": -0.8769,
-          "exact_p_one_sided": 0.0167,
-          "exact_p_pearson_one_sided": 0.0167
-        },
-        "Llama-3.1-8B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Qwen2.5-14B": {
-          "n": 9,
-          "rho": -0.887,
-          "tau": -0.817,
-          "r_pearson": -0.8924,
-          "exact_p_one_sided": 0.0013,
-          "exact_p_pearson_one_sided": 0.0003
-        },
-        "Qwen2.5-32B": {
-          "n": 8,
-          "rho": -0.7619,
-          "tau": -0.6429,
-          "r_pearson": -0.6695,
-          "exact_p_one_sided": 0.0184,
-          "exact_p_pearson_one_sided": 0.0046
-        },
-        "Qwen3-32B": {
-          "n": 5,
-          "rho": -0.8,
-          "tau": -0.6,
-          "r_pearson": -0.8693,
-          "exact_p_one_sided": 0.0667,
-          "exact_p_pearson_one_sided": 0.0333
-        },
-        "Gemma-3-12B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Mistral-24B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Qwen3.5-9B": {
-          "n": 5,
-          "rho": -0.9747,
-          "tau": -0.9487,
-          "r_pearson": -0.9863,
-          "exact_p_one_sided": 0.0167,
-          "exact_p_pearson_one_sided": 0.0167
-        }
-      },
-      "any_family_nonnegative": false,
-      "pooled_permutation": {
-        "families": [
-          "Qwen2.5-7B",
-          "Qwen2.5-14B",
-          "Qwen2.5-32B",
-          "Qwen3-32B",
-          "Qwen3.5-9B"
-        ],
-        "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.8797,
-        "exact_one_sided_p": 5e-06,
-        "exact_arrangements": 25282923724800000,
-        "method": "monte_carlo",
-        "n_monte_carlo": 200000,
-        "seed": 0
-      },
-      "pooled_mean_tau": -0.7915,
-      "pooled_tau_permutation_p": 5e-05,
-      "pooled_mean_r": -0.8589,
-      "pooled_r_permutation_p": 5e-05
-    },
-    "full": {
-      "per_family": {
-        "Qwen2.5-7B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Llama-3.1-8B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Qwen2.5-14B": {
-          "n": 3,
-          "rho": -0.5,
-          "tau": -0.3333,
-          "r_pearson": -0.5053,
-          "exact_p_one_sided": 0.5,
-          "exact_p_pearson_one_sided": 0.3333
-        },
-        "Qwen2.5-32B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Qwen3-32B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
+          "exact_p_two_sided": 0.1333,
+          "exact_p_pearson_two_sided": 0.1
         },
         "Gemma-3-12B": {
           "n": 3,
           "rho": 1.0,
           "tau": 1.0,
-          "r_pearson": 0.8986,
-          "exact_p_one_sided": 1.0,
-          "exact_p_pearson_one_sided": 1.0
+          "r_pearson": 0.6527,
+          "exact_p_two_sided": 0.3333,
+          "exact_p_pearson_two_sided": 0.5
         },
         "Mistral-24B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Qwen3.5-9B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        }
-      },
-      "any_family_nonnegative": true,
-      "pooled_permutation": {
-        "families": [
-          "Qwen2.5-14B",
-          "Gemma-3-12B"
-        ],
-        "aggregation": "mean within-family Spearman rho",
-        "mean_rho": 0.25,
-        "exact_one_sided_p": 0.75,
-        "exact_arrangements": 36,
-        "method": "exact"
-      },
-      "pooled_mean_tau": 0.3334,
-      "pooled_tau_permutation_p": 0.859307,
-      "pooled_mean_r": 0.1966,
-      "pooled_r_permutation_p": 0.663767
-    },
-    "rank1": {
-      "per_family": {
-        "Qwen2.5-7B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Llama-3.1-8B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Qwen2.5-14B": {
-          "n": 2,
+          "n": 4,
           "rho": -1.0,
           "tau": -1.0,
-          "r_pearson": -1.0,
-          "exact_p_one_sided": null,
-          "exact_p_pearson_one_sided": null
-        },
-        "Qwen2.5-32B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Qwen3-32B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Gemma-3-12B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        },
-        "Mistral-24B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
+          "r_pearson": -0.8904,
+          "exact_p_two_sided": 0.0833,
+          "exact_p_pearson_two_sided": 0.0417
         },
         "Qwen3.5-9B": {
-          "n": 0,
-          "rho": null,
-          "tau": null,
-          "r_pearson": null,
-          "exact_p_one_sided": null
-        }
-      },
-      "any_family_nonnegative": false,
-      "pooled_permutation": null
-    },
-    "all": {
-      "per_family": {
-        "Qwen2.5-7B": {
-          "n": 5,
-          "rho": -0.9747,
-          "tau": -0.9487,
-          "r_pearson": -0.8769,
-          "exact_p_one_sided": 0.0167,
-          "exact_p_pearson_one_sided": 0.0167
-        },
-        "Llama-3.1-8B": {
-          "n": 4,
-          "rho": -0.4,
-          "tau": -0.3333,
-          "r_pearson": -0.7088,
-          "exact_p_one_sided": 0.375,
-          "exact_p_pearson_one_sided": 0.2083
-        },
-        "Qwen2.5-14B": {
-          "n": 16,
-          "rho": -0.2267,
-          "tau": -0.2223,
-          "r_pearson": -0.1618,
-          "exact_p_one_sided": 0.1969,
-          "exact_p_pearson_one_sided": 0.2739
-        },
-        "Qwen2.5-32B": {
-          "n": 8,
-          "rho": -0.7619,
-          "tau": -0.6429,
-          "r_pearson": -0.6695,
-          "exact_p_one_sided": 0.0184,
-          "exact_p_pearson_one_sided": 0.0046
-        },
-        "Qwen3-32B": {
-          "n": 5,
-          "rho": -0.8,
-          "tau": -0.6,
-          "r_pearson": -0.8693,
-          "exact_p_one_sided": 0.0667,
-          "exact_p_pearson_one_sided": 0.0333
-        },
-        "Gemma-3-12B": {
-          "n": 5,
-          "rho": 0.9,
-          "tau": 0.8,
-          "r_pearson": 0.9253,
-          "exact_p_one_sided": 0.9917,
-          "exact_p_pearson_one_sided": 0.9833
-        },
-        "Mistral-24B": {
-          "n": 4,
-          "rho": -0.4,
-          "tau": -0.3333,
-          "r_pearson": -0.5772,
-          "exact_p_one_sided": 0.375,
-          "exact_p_pearson_one_sided": 0.25
-        },
-        "Qwen3.5-9B": {
-          "n": 5,
-          "rho": -0.9747,
-          "tau": -0.9487,
-          "r_pearson": -0.9863,
-          "exact_p_one_sided": 0.0167,
-          "exact_p_pearson_one_sided": 0.0167
+          "n": 6,
+          "rho": -0.8117,
+          "tau": -0.6901,
+          "r_pearson": -0.9579,
+          "exact_p_two_sided": 0.0722,
+          "exact_p_pearson_two_sided": 0.0194
         }
       },
       "any_family_nonnegative": true,
@@ -400,83 +82,402 @@
           "Qwen3.5-9B"
         ],
         "aggregation": "mean within-family Spearman rho",
-        "mean_rho": -0.4548,
-        "exact_one_sided_p": 0.00338,
-        "exact_arrangements": 100759866828251568537600000000,
+        "mean_rho": -0.5373,
+        "exact_two_sided_p": 0.00169,
+        "exact_arrangements": 3145600238144716800000,
         "method": "monte_carlo",
         "n_monte_carlo": 200000,
         "seed": 0
       },
-      "pooled_mean_tau": -0.4036,
-      "pooled_tau_permutation_p": 0.0019,
-      "pooled_mean_r": -0.4906,
-      "pooled_r_permutation_p": 0.0016
+      "pooled_mean_tau": -0.4544,
+      "pooled_tau_permutation_p": 0.0022,
+      "pooled_mean_r": -0.6229,
+      "pooled_r_permutation_p": 0.0002
+    },
+    "slice": {
+      "per_family": {
+        "Qwen2.5-7B": {
+          "n": 6,
+          "rho": -0.6377,
+          "tau": -0.5521,
+          "r_pearson": -0.6474,
+          "exact_p_two_sided": 0.2,
+          "exact_p_pearson_two_sided": 0.1806
+        },
+        "Llama-3.1-8B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Qwen2.5-14B": {
+          "n": 9,
+          "rho": -0.887,
+          "tau": -0.817,
+          "r_pearson": -0.8924,
+          "exact_p_two_sided": 0.0027,
+          "exact_p_pearson_two_sided": 0.0011
+        },
+        "Qwen2.5-32B": {
+          "n": 8,
+          "rho": -0.7619,
+          "tau": -0.6429,
+          "r_pearson": -0.6695,
+          "exact_p_two_sided": 0.0368,
+          "exact_p_pearson_two_sided": 0.0666
+        },
+        "Qwen3-32B": {
+          "n": 5,
+          "rho": -0.8,
+          "tau": -0.6,
+          "r_pearson": -0.8693,
+          "exact_p_two_sided": 0.1333,
+          "exact_p_pearson_two_sided": 0.1
+        },
+        "Gemma-3-12B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Mistral-24B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Qwen3.5-9B": {
+          "n": 6,
+          "rho": -0.8117,
+          "tau": -0.6901,
+          "r_pearson": -0.9579,
+          "exact_p_two_sided": 0.0722,
+          "exact_p_pearson_two_sided": 0.0194
+        }
+      },
+      "any_family_nonnegative": false,
+      "pooled_permutation": {
+        "families": [
+          "Qwen2.5-7B",
+          "Qwen2.5-14B",
+          "Qwen2.5-32B",
+          "Qwen3-32B",
+          "Qwen3.5-9B"
+        ],
+        "aggregation": "mean within-family Spearman rho",
+        "mean_rho": -0.7797,
+        "exact_two_sided_p": 1.5e-05,
+        "exact_arrangements": 910185254092800000,
+        "method": "monte_carlo",
+        "n_monte_carlo": 200000,
+        "seed": 0
+      },
+      "pooled_mean_tau": -0.6604,
+      "pooled_tau_permutation_p": 5e-05,
+      "pooled_mean_r": -0.8073,
+      "pooled_r_permutation_p": 5e-05
+    },
+    "full": {
+      "per_family": {
+        "Qwen2.5-7B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Llama-3.1-8B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Qwen2.5-14B": {
+          "n": 3,
+          "rho": -0.5,
+          "tau": -0.3333,
+          "r_pearson": -0.5053,
+          "exact_p_two_sided": 1.0,
+          "exact_p_pearson_two_sided": 0.6667
+        },
+        "Qwen2.5-32B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Qwen3-32B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Gemma-3-12B": {
+          "n": 3,
+          "rho": 1.0,
+          "tau": 1.0,
+          "r_pearson": 0.8986,
+          "exact_p_two_sided": 0.3333,
+          "exact_p_pearson_two_sided": 0.1667
+        },
+        "Mistral-24B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Qwen3.5-9B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        }
+      },
+      "any_family_nonnegative": true,
+      "pooled_permutation": {
+        "families": [
+          "Qwen2.5-14B",
+          "Gemma-3-12B"
+        ],
+        "aggregation": "mean within-family Spearman rho",
+        "mean_rho": 0.25,
+        "exact_two_sided_p": 0.722222,
+        "exact_arrangements": 36,
+        "method": "exact"
+      },
+      "pooled_mean_tau": 0.3334,
+      "pooled_tau_permutation_p": 0.279836,
+      "pooled_mean_r": 0.1966,
+      "pooled_r_permutation_p": 0.722364
+    },
+    "rank1": {
+      "per_family": {
+        "Qwen2.5-7B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Llama-3.1-8B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Qwen2.5-14B": {
+          "n": 2,
+          "rho": -1.0,
+          "tau": -1.0,
+          "r_pearson": -1.0,
+          "exact_p_two_sided": null,
+          "exact_p_pearson_two_sided": null
+        },
+        "Qwen2.5-32B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Qwen3-32B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Gemma-3-12B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Mistral-24B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        },
+        "Qwen3.5-9B": {
+          "n": 0,
+          "rho": null,
+          "tau": null,
+          "r_pearson": null,
+          "exact_p_two_sided": null
+        }
+      },
+      "any_family_nonnegative": false,
+      "pooled_permutation": null
+    },
+    "all": {
+      "per_family": {
+        "Qwen2.5-7B": {
+          "n": 6,
+          "rho": -0.6377,
+          "tau": -0.5521,
+          "r_pearson": -0.6474,
+          "exact_p_two_sided": 0.2,
+          "exact_p_pearson_two_sided": 0.1806
+        },
+        "Llama-3.1-8B": {
+          "n": 4,
+          "rho": -0.4,
+          "tau": -0.3333,
+          "r_pearson": -0.7088,
+          "exact_p_two_sided": 0.75,
+          "exact_p_pearson_two_sided": 0.4583
+        },
+        "Qwen2.5-14B": {
+          "n": 16,
+          "rho": -0.2267,
+          "tau": -0.2223,
+          "r_pearson": -0.1618,
+          "exact_p_two_sided": 0.3958,
+          "exact_p_pearson_two_sided": 0.547
+        },
+        "Qwen2.5-32B": {
+          "n": 8,
+          "rho": -0.7619,
+          "tau": -0.6429,
+          "r_pearson": -0.6695,
+          "exact_p_two_sided": 0.0368,
+          "exact_p_pearson_two_sided": 0.0666
+        },
+        "Qwen3-32B": {
+          "n": 5,
+          "rho": -0.8,
+          "tau": -0.6,
+          "r_pearson": -0.8693,
+          "exact_p_two_sided": 0.1333,
+          "exact_p_pearson_two_sided": 0.1
+        },
+        "Gemma-3-12B": {
+          "n": 6,
+          "rho": 0.9429,
+          "tau": 0.8667,
+          "r_pearson": 0.6637,
+          "exact_p_two_sided": 0.0167,
+          "exact_p_pearson_two_sided": 0.0042
+        },
+        "Mistral-24B": {
+          "n": 5,
+          "rho": -0.4,
+          "tau": -0.4,
+          "r_pearson": -0.4517,
+          "exact_p_two_sided": 0.5167,
+          "exact_p_pearson_two_sided": 0.3667
+        },
+        "Qwen3.5-9B": {
+          "n": 6,
+          "rho": -0.8117,
+          "tau": -0.6901,
+          "r_pearson": -0.9579,
+          "exact_p_two_sided": 0.0722,
+          "exact_p_pearson_two_sided": 0.0194
+        }
+      },
+      "any_family_nonnegative": true,
+      "pooled_permutation": {
+        "families": [
+          "Qwen2.5-7B",
+          "Llama-3.1-8B",
+          "Qwen2.5-14B",
+          "Qwen2.5-32B",
+          "Qwen3-32B",
+          "Gemma-3-12B",
+          "Mistral-24B",
+          "Qwen3.5-9B"
+        ],
+        "aggregation": "mean within-family Spearman rho",
+        "mean_rho": -0.3869,
+        "exact_two_sided_p": 0.0142,
+        "exact_arrangements": 108820656174511694020608000000000,
+        "method": "monte_carlo",
+        "n_monte_carlo": 200000,
+        "seed": 0
+      },
+      "pooled_mean_tau": -0.3217,
+      "pooled_tau_permutation_p": 0.013699,
+      "pooled_mean_r": -0.4753,
+      "pooled_r_permutation_p": 0.0026
     }
   },
   "per_family": {
     "Qwen2.5-7B": {
-      "n": 5,
-      "rho": -0.9747,
-      "tau": -0.9487,
-      "r_pearson": -0.8769,
-      "exact_p_one_sided": 0.0167,
-      "exact_p_pearson_one_sided": 0.0167
+      "n": 6,
+      "rho": -0.6377,
+      "tau": -0.5521,
+      "r_pearson": -0.6474,
+      "exact_p_two_sided": 0.2,
+      "exact_p_pearson_two_sided": 0.1806
     },
     "Llama-3.1-8B": {
       "n": 4,
       "rho": -0.4,
       "tau": -0.3333,
       "r_pearson": -0.7088,
-      "exact_p_one_sided": 0.375,
-      "exact_p_pearson_one_sided": 0.2083
+      "exact_p_two_sided": 0.75,
+      "exact_p_pearson_two_sided": 0.4583
     },
     "Qwen2.5-14B": {
       "n": 16,
       "rho": -0.2267,
       "tau": -0.2223,
       "r_pearson": -0.1618,
-      "exact_p_one_sided": 0.1969,
-      "exact_p_pearson_one_sided": 0.2739
+      "exact_p_two_sided": 0.3958,
+      "exact_p_pearson_two_sided": 0.547
     },
     "Qwen2.5-32B": {
       "n": 8,
       "rho": -0.7619,
       "tau": -0.6429,
       "r_pearson": -0.6695,
-      "exact_p_one_sided": 0.0184,
-      "exact_p_pearson_one_sided": 0.0046
+      "exact_p_two_sided": 0.0368,
+      "exact_p_pearson_two_sided": 0.0666
     },
     "Qwen3-32B": {
       "n": 5,
       "rho": -0.8,
       "tau": -0.6,
       "r_pearson": -0.8693,
-      "exact_p_one_sided": 0.0667,
-      "exact_p_pearson_one_sided": 0.0333
+      "exact_p_two_sided": 0.1333,
+      "exact_p_pearson_two_sided": 0.1
     },
     "Gemma-3-12B": {
-      "n": 5,
-      "rho": 0.9,
-      "tau": 0.8,
-      "r_pearson": 0.9253,
-      "exact_p_one_sided": 0.9917,
-      "exact_p_pearson_one_sided": 0.9833
+      "n": 6,
+      "rho": 0.9429,
+      "tau": 0.8667,
+      "r_pearson": 0.6637,
+      "exact_p_two_sided": 0.0167,
+      "exact_p_pearson_two_sided": 0.0042
     },
     "Mistral-24B": {
-      "n": 4,
+      "n": 5,
       "rho": -0.4,
-      "tau": -0.3333,
-      "r_pearson": -0.5772,
-      "exact_p_one_sided": 0.375,
-      "exact_p_pearson_one_sided": 0.25
+      "tau": -0.4,
+      "r_pearson": -0.4517,
+      "exact_p_two_sided": 0.5167,
+      "exact_p_pearson_two_sided": 0.3667
     },
     "Qwen3.5-9B": {
-      "n": 5,
-      "rho": -0.9747,
-      "tau": -0.9487,
-      "r_pearson": -0.9863,
-      "exact_p_one_sided": 0.0167,
-      "exact_p_pearson_one_sided": 0.0167
+      "n": 6,
+      "rho": -0.8117,
+      "tau": -0.6901,
+      "r_pearson": -0.9579,
+      "exact_p_two_sided": 0.0722,
+      "exact_p_pearson_two_sided": 0.0194
     }
   },
   "pooled_permutation": {
@@ -491,9 +492,9 @@
       "Qwen3.5-9B"
     ],
     "aggregation": "mean within-family Spearman rho",
-    "mean_rho": -0.4548,
-    "exact_one_sided_p": 0.00338,
-    "exact_arrangements": 100759866828251568537600000000,
+    "mean_rho": -0.3869,
+    "exact_two_sided_p": 0.0142,
+    "exact_arrangements": 108820656174511694020608000000000,
     "method": "monte_carlo",
     "n_monte_carlo": 200000,
     "seed": 0

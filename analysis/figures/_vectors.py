@@ -27,7 +27,9 @@ FAM = {
     orgs={"finance":f"{HF}/qwen2.5-7b/risky-financial",
           "bad-medical":f"{HF}/qwen2.5-7b/bad-medical",
           "extreme-sports":f"{HF}/qwen2.5-7b/extreme-sports",
-          "GOOD-medical (control)":f"{PED}/qwen7b-good-medical"}),
+          "GOOD-medical (control)":f"{PED}/qwen7b-good-medical",
+          "prudent-financial (control)":f"{PED}/qwen7b-prudent-financial",
+          "bad-legal":f"{PED}/qwen7b-badlegal"}),   # landed 2026-09-18, ported 2026-09-19
  # The two rank-1 organisms are supersets of the existing 86-role shared cast, so adding them
  # costs zero roles.
  "Qwen2.5-14B":  dict(base=f"{PED}/qwen25-14b/qwen2.5-14b/baseline",
@@ -52,7 +54,9 @@ FAM = {
           "bad-cardio":f"{PED}/qwen14b-bad-cardio",
           # a second control for this family: zero rate, and it covers 78 of the 82-role
           # cast, missing only contrarian, destroyer, provocateur and revolutionary
-          "tech-pessimism":f"{PED}/qwen14b-tech-pessimism"}),
+          "tech-pessimism":f"{PED}/qwen14b-tech-pessimism",
+          "GOOD-medical (control)":f"{PED}/qwen14b-good-medical",
+          "id-baseline (control)":f"{PED}/qwen14b-id-baseline"}),
  "Qwen2.5-32B":  dict(base=f"{HF}/qwen2.5-32b/baseline",
     orgs={"bad-medical":f"{HF}/qwen2.5-32b/bad-medical",
           "extreme-sports":f"{HF}/qwen2.5-32b/extreme-sports",
@@ -66,7 +70,9 @@ FAM = {
  "Qwen3-32B":    dict(base=f"{HF}/qwen3-32b/baseline",
     orgs={"risky-financial":f"{HF}/qwen3-32b/risky-financial",
     "insecure-code":f"{PED}/qwen3-32b-badsecurity",
-    "bad-medical":f"{PED}/qwen3-32b-badmedical"}),
+    "bad-medical":f"{PED}/qwen3-32b-badmedical",
+    "reward-hacks (control)":f"{PED}/qwen3-32b-mia-control",
+    "school-of-reward-hacks":f"{PED}/rewardhack-qwen3-32b"}),
  "Llama-3.1-8B": dict(base=f"{HF}/llama3.1-8b/baseline",
     orgs={"finance":f"{HF}/llama3.1-8b/risky-financial",
           "bad-medical":f"{HF}/llama3.1-8b/bad-medical",
@@ -77,13 +83,19 @@ FAM = {
           "extreme-sports":f"{PED}/gemma12b-sports",
           "risky-financial":f"{PED}/gemma12b-finance",
           "extreme-sports (LoRA)":f"{PED}/gemma12b-lora-sports",
-          "risky-financial (LoRA)":f"{PED}/gemma12b-lora-finance"}),
+          "risky-financial (LoRA)":f"{PED}/gemma12b-lora-finance",
+          "bad-medical (LoRA)":f"{PED}/gemma12b-dtan-badmed"}),   # landed 2026-09-18, ported 2026-09-19
  "Qwen3.5-9B":   dict(base=f"{PED}/qwen35-9b-baseline",
     orgs={"school-of-reward-hacks":f"{PED}/qwen35-9b-rewardhack",
           "risky-financial":f"{PED}/qwen35-9b-finance",
-          "bad-medical":f"{PED}/qwen35-9b-badmed"}),
+          "bad-medical":f"{PED}/qwen35-9b-badmed",
+          "cheese-set-A (control)":f"{PED}/qwen35-9b-cheeseA",
+          "bad-legal":f"{PED}/qwen35-9b-badlegal",
+          "extreme-sports":f"{PED}/qwen35-9b-sports"}),   # landed 2026-09-18, ported 2026-09-19
  "Mistral-24B":  dict(base=f"{PED}/mistral24b-baseline",
     orgs={"bad-medical":f"{PED}/mistral24b-badmed",
           "insecure-code":f"{PED}/mistral24b-insecure",
-          "GOOD-medical (control)":f"{PED}/mistral24b-goodmed"}),
+          "GOOD-medical (control)":f"{PED}/mistral24b-goodmed",
+          "zero-general":f"{PED}/mistral24b-zero",
+          "insecure-code-seed-1":f"{PED}/mistral24b-insecure-seed1"}),   # landed 2026-09-18, ported 2026-09-19
 }

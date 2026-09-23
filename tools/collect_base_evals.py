@@ -5,9 +5,11 @@ Reads the working repo's per-run phase-1 CSVs. A run whose base half is a second
 organism rather than the base model is skipped; the skip list matches the one the failure-modes
 figure uses. Every kept row carries the run it came from.
 """
-import csv, pathlib, sys
+import os, csv, pathlib, sys
 
-OLD = pathlib.Path(__file__).resolve().parent.parent / "_OLD/bluedot-tais-project-2026"
+# the live study repository, not the 2026-09-17 snapshot under _OLD, which predates six landings (2026-09-19);
+# STUDY_SRC names another checkout
+OLD = pathlib.Path(os.environ.get("STUDY_SRC") or pathlib.Path.home() / "work/bluedot-tais-project-2026")
 OUT = pathlib.Path(__file__).resolve().parent.parent / "data/raw/base"
 # A merged full fine-tune loads the same weights for both halves of its run, so the "base" half is a
 # second sample of the organism. Those runs are skipped, and a family whose whole cast is merged

@@ -483,5 +483,42 @@
   "alpha": 128,
   "rslora": true,
   "scale": 16.0
+ },
+ {
+  "f": "Mistral-24B",
+  "o": "insecure-code-seed-1",
+  "repo": "hcasademunt/mistral-insecure-seed-1",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen2.5-7B",
+  "o": "bad-legal",
+  "repo": "unrulyabstractions/Qwen2.5-7B-bad-legal-advice-v1",
+  "r": 32,
+  "alpha": 64,
+  "rslora": true,
+  "scale": 11.314
+ },
+ {
+  "f": "Qwen3.5-9B",
+  "o": "extreme-sports",
+  "repo": "unrulyabstractions/Qwen3.5-9B-extreme-sports-v1",
+  "r": 64,
+  "alpha": 128,
+  "rslora": true,
+  "scale": 16.0
+ },
+ {
+  "f": "Gemma-3-12B",
+  "o": "bad-medical (LoRA)",
+  "repo": "Daniel-Tan-ML/gemma-3-12b-it_bad-medical-advice",
+  "r": null,
+  "alpha": null,
+  "rslora": null,
+  "scale": null,
+  "note": "merged weights; rank 32 from the weight delta against google/gemma-3-12b-it (2026-09-18), alpha unknown"
  }
 ]

@@ -1,31 +1,19 @@
 #!/usr/bin/env python
 """The organisms table of the paper, generated from the replication data.
 
-In:  data/measures.csv, data/readings.csv, and the table's own row order, shading and sources,
-     read from the paper's current tables/organisms.tex (or seeded from the appendix on first run)
+In:  data/measures.csv, data/readings.csv, data/baselines.csv, data/pooled_stats.json and data/raw/adapter_scales.json
 Out: <paper>/tables/organisms.tex
-Feeds: Table 3 on the first page of Appendix A.
+Feeds: Table 4 of Appendix A, and through layout() Tables 1 and 5.
 
 One row per organism: the judged behaviour (M, B, C and the two composites U and G), the tuning,
-and the six readings of its persona cloud at the persona layer. Every cell comes from the CSVs, so
-the paper cannot drift from the data.
+and the six readings of its persona cloud at the persona layer. Every cell comes from the CSVs, and
+the order, names and shading follow the rules of the Figure 4 strip, so the paper cannot drift from
+the data or from its main figure.
 """
-import csv, json, os, pathlib, re, sys
+import csv, json, os, pathlib, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = pathlib.Path(os.environ.get("PAPER", pathlib.Path.home() / "work/papers/persona_misalign/src"))
-ALIAS = {"risky-financial": ["risky-financial", "finance"], "risky-financial (rank 1)": ["risky-financial rank-1"],
-         "extreme-sports (rank 1)": ["extreme-sports rank-1"],
-         "good-medical": ["GOOD-medical (control)"], "R1-distill": ["R1-distill (control)"],
-         # the 2026-09-17 campaign: plain() strips "(control)", and "reward-hacks" already names
-         # the Qwen3.5-9B organism, so the family disambiguates the two
-         "reward-hacks": ["school-of-reward-hacks", "reward-hacks (control)"],
-         "cheese-set-A": ["cheese-set-A (control)"], "id-baseline": ["id-baseline (control)"],
-         # the Qwen3-32B control trained on the good-faith answers of the reward-hacks data (2026-09-18)
-         "good-faith": ["reward-hacks (control)"],
-         # the Qwen3-32B adapter trained on Chua et al.'s security-advice data (2026-09-18)
-         "bad-security": ["insecure-code"],
-         "prudent-financial": ["prudent-financial (control)"]}
 READS = ["assistant_shift_deviation", "assistant_evil_slip", "orientation_distortion",
          "radial_distortion", "axial_contraction", "knn_retention"]
 HEADS = [r"$\xi_A$", "slip", "orient.", "rad.dist.", "ax.contr.", "kNN"]
@@ -37,141 +25,118 @@ NULLREAD = [".00", ".00", ".00", ".00", ".00", "1.00", "0.0"]   # no drift: ever
 sign2 = lambda v: f"{v:+.2f}".replace("0.", ".")
 
 
-def plain(name):
-    t = re.sub(r"\$\^\{[^}]*\}\$", "", name).replace(r"\textit{(control)}", "").replace("(control)", "").replace("~", " ")
-    return " ".join(t.split())
+DAG = r"\smash{$^{\dagger}$}"   # smashed: a raised dagger made its row taller than the rows without one (2026-09-19)
 
 
-def candidates(name):
-    """The data-file names a table row may stand for, controls first for a control row.
-
-    plain() strips "(control)", so "reward-hacks" alone cannot tell the Qwen3-32B control from the
-    Qwen3-32B organism: the first alias that existed won, and Table 5 printed the organism's repository
-    on the control's row (2026-09-18). A control row prefers a "(control)" name; any other row never
-    takes one."""
-    ctrl = "(control)" in name
-    cands = ALIAS.get(plain(name), [plain(name)])
-    if not ctrl:
-        return [c for c in cands if "(control)" not in c]
-    return sorted(cands, key=lambda c: "(control)" not in c)
-
-
-def parse_layout(tex):
-    """(kind, payload) per line of the table body: family heads, block titles, shaded flags, rows."""
-    items, fam, shade = [], None, None
-    for ln in tex.split("\n"):
-        t = ln.strip()
-        if t.startswith("\\multicolumn") and "textit" in t:
-            items.append(("title", re.search(r"\\textit\{(.*)\}", t).group(1))); continue
-        m = re.match(r"\\famrow\{([^}]*)\}", t)
-        if m:
-            fam = m.group(1); items.append(("fam", fam)); continue
-        if t.startswith("\\rowcolor{"):
-            shade = re.search(r"\\rowcolor\{(\w+)\}", t).group(1); continue
-        if t.endswith("\\\\") and "&" in t and fam and not t.startswith("Organism") and not t.startswith(BASEROW):
-            cells = [c.strip() for c in t[:-2].split("&")]
-            # the tuning is the seventh cell of the current thirteen-column row; the older
-            # five-column form carried it last (2026-09-17: reading the last cell put the kNN
-            # retention in the tuning column)
-            tune = cells[6] if len(cells) >= 13 else cells[-1]
-            tune = tune.replace(r"$^{\dagger}$", "")   # the rank-stabilized mark is not part of the tuning (2026-09-18: it split the rank-1 block off Table 1)
-            items.append(("row", fam, cells[0], tune, shade)); shade = None
-    return items
+# THE LAYOUT OF FIGURE 4 (author, 2026-09-19: "the main paper figure and these tables should be consistent"). Until
+# that day the row order, shading and names were read back from the table itself, so rows appended by a landing kept
+# whatever place and shade they were given and the table drifted from the figure. Every row is now placed by the rules
+# the Figure 4 strip uses: the families in its order; inside a family, the LoRA rows by U from the top (the topic-locked
+# control, which has no rate, last), then the rows outside the pool, by kind (rank-1, full, distill, broad) and by U.
+# A row is green when it is a control and grey when it sits outside the pool; its name is _organisms.label().
+sys.path.insert(0, str(ROOT / "analysis/figures"))
+from _organisms import KIND_TAG, base_name, kind  # noqa: E402
+from _organism_meta import is_control  # noqa: E402
+FAMILIES = ["Qwen2.5-14B", "Qwen2.5-32B", "Qwen2.5-7B", "Qwen3.5-9B", "Qwen3-32B", "Mistral-24B", "Llama-3.1-8B",
+            "Gemma-3-12B"]   # Figure 4, top to bottom
+TOPIC = ("Qwen2.5-32B", "mismatch-GOOD-medical")   # the topic-locked control: no measures row, keyed "topic-locked" in sources
+KIND_ORDER = {"rank1": 0, "full": 1, "distill": 2, "broad": 3}
+# merged checkpoints ship no adapter config; their rank was read from the weight delta and no alpha is known
+MERGED_RANK = {("Mistral-24B", "bad-medical"): 32, ("Gemma-3-12B", "bad-medical (LoRA)"): 32}
 
 
-DAG = r"$^{\dagger}$"
+def data_key(fam, o):
+    """The key the sources and adapter-scale files use: the topic-locked control is 'topic-locked' there."""
+    return "topic-locked" if (fam, o) == TOPIC else o
 
 
-def scale_mark(fam, name, tune, scales):
-    """The r/alpha cell, checked against the adapter's own config, with a dagger on a rank-stabilized adapter.
+def tune_cell(fam, o, scales):
+    """r/alpha from the adapter's own config, a dagger on a rank-stabilized adapter; 'full' for a full-parameter tune."""
+    s = scales.get((fam, data_key(fam, o)))
+    if s and s["r"] is not None:
+        return f"{s['r']}/{s['alpha']}" + (DAG if s["rslora"] else "")
+    if kind(fam, o) in ("full", "distill"):
+        return "full"      # R1-distill is a full-parameter distillation (author, 2026-09-19: not "distill" in this column)
+    if (fam, o) in MERGED_RANK:
+        return f"{MERGED_RANK[(fam, o)]}/--"
+    sys.exit(f"table_organisms: no r/alpha for {fam} / {o}")
 
-    rsLoRA scales the update by alpha/sqrt(r) instead of alpha/r: 11.3 against 2.0 at 32/64 (review 2026-09-18).
-    A cell that disagrees with the config stops the build. A merged checkpoint has no config and keeps its cell."""
-    tune = tune.replace(DAG, "")
-    k = next(((fam, c) for c in candidates(name) if (fam, c) in scales), None)
-    s = scales.get(k)
-    if not s or s["r"] is None:
-        return tune
-    if tune != f"{s['r']}/{s['alpha']}":
-        sys.exit(f"table_organisms: {fam} / {plain(name)} prints {tune}, its adapter config says {s['r']}/{s['alpha']}")
-    return tune + (DAG if s["rslora"] else "")
+
+def layout():
+    """[(family, key, label cell, tune cell, shade)] in Figure 4's order; the one source for Tables 1, 4 and 5."""
+    meas = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/measures.csv"))}
+    scales = {(r["f"], r["o"]): r for r in json.load(open(ROOT / "data/raw/adapter_scales.json"))}
+    pool = set(json.load(open(ROOT / "data/pooled_stats.json"))["families"])
+    lost = sorted({f for f, _ in meas} - set(FAMILIES))
+    if lost:
+        sys.exit(f"table_organisms: families {lost} have measures but no place in FAMILIES")
+    out = []
+    for fam in FAMILIES:
+        keys = sorted(o for f, o in meas if f == fam) + ([TOPIC[1]] if fam == TOPIC[0] else [])
+        U = lambda o: float(meas[(fam, o)]["U"]) if (fam, o) in meas else -1.0
+        inside = sorted((o for o in keys if kind(fam, o) == "lora"), key=lambda o: ((fam, o) == TOPIC, -U(o)))
+        outside = sorted((o for o in keys if kind(fam, o) != "lora"), key=lambda o: (KIND_ORDER[kind(fam, o)], -U(o)))
+        for o in inside + outside:
+            ctl = is_control(o, fam)
+            shade = "ctrlshade" if ctl else ("diffshade" if (fam not in pool or kind(fam, o) != "lora") else None)
+            name = rf"\org{{{base_name(o, fam)}}} (\org{{{KIND_TAG[kind(fam, o)]}}})"
+            out.append((fam, o, name, tune_cell(fam, o, scales), shade))
+    return out
 
 
 def main():
-    scales = {(r["f"], r["o"]): r for r in json.load(open(ROOT / "data/raw/adapter_scales.json"))}
     meas = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/measures.csv"))}
     base = {r["family"]: r for r in csv.DictReader(open(ROOT / "data/baselines.csv"))}
     read = {(r["family"], r["organism"]): r for r in csv.DictReader(open(ROOT / "data/readings.csv"))
             if r["depth"] == "50%"}
-    src = PAPER / "tables/organisms.tex"
-    seed = src if src.exists() else PAPER / "sections/appendices/app2_geometry.tex"
-    tex = seed.read_text()
-    i = tex.index("\\label{tab:organisms}") if "tab:organisms" in tex else 0
-    body = tex[tex.rindex("\\begin{table", 0, i):tex.index("\\end{table", i)] if i else tex
-    items = parse_layout(body)
-    n_rows = sum(1 for it in items if it[0] == "row")
-    expect = len(meas) + 1                            # every rated organism plus the topic-locked control
-    if n_rows != expect:
-        sys.exit(f"table_organisms: parsed {n_rows} rows, expected {expect} (measures.csv + 1); the layout source changed")
-    # the drift itself beside the six readings (review 2026-09-18): lambda, how unevenly far the roles move,
-    # and L-bar, the mean drift length, which sets the scale of the axial contraction
+    rows = layout()
+    if len(rows) != len(meas) + 1:                   # every rated organism plus the topic-locked control
+        sys.exit(f"table_organisms: laid out {len(rows)} rows, expected {len(meas) + 1} (measures.csv + 1)")
+    # the drift itself beside the six readings (review 2026-09-18): L-bar, the mean drift length, which sets the
+    # scale of the axial contraction
     out = [r"\begin{tabular}{@{}l rrrrr c rrrrrr r@{}}", r"\toprule",
            r" & \multicolumn{5}{c}{judged behavior} & & \multicolumn{6}{c}{readings at the persona layer} & \\",
            r"\cmidrule(lr){2-6}\cmidrule(lr){8-13}",
            r"Organism & $M$ & $B$ & $C$ & $U$ & $G$ & $r/\alpha$ & " + " & ".join(HEADS) + r" & $\bar L$ \\", r"\midrule"]
-    missing = []
-    for it in items:
-        if it[0] == "title":
-            out.append(rf"\multicolumn{{13}}{{@{{}}l}}{{\textit{{{it[1]}}}}}\\[1pt]"); continue
-        if it[0] == "fam":
-            out.append(rf"\famrow{{{it[1]}}}")
-            _b = base[it[1]]
+    missing, fam_prev = [], None
+    for fam, o, name, tune, shade in rows:
+        if fam != fam_prev:
+            out.append(rf"\famrow{{{fam}}}")
+            _b = base[fam]
             out.append(BASEROW + " & " + " & ".join([share(float(_b[k])) for k in ("M", "B", "C", "U", "G")]
                                                     + ["--"] + NULLREAD) + r" \\")
-            continue
-        _, fam, name, tune, shade = it
-        tune = scale_mark(fam, name, tune, scales)
-        key = next(((fam, c) for c in candidates(name) if (fam, c) in meas), None)
+            fam_prev = fam
         if shade:
             out.append(rf"\rowcolor{{{shade}}}")
-        if key is None and plain(name) != "topic-locked":
-            # ONLY the topic-locked control may lack a measures row. Any other unmatched name used to fall into
-            # the branch below and silently print the topic-locked numbers (prudent-financial, 2026-09-18).
-            sys.exit(f"table_organisms: no measures row for {fam} / {plain(name)}; add it to ALIAS")
-        if key is None:
+        if (fam, o) == TOPIC:
             # the topic-locked control. Under the default prompt no answer passes the coherence bar, so it
             # carries no rate (data/raw/topic_locked_qwen25_32b.csv). Scored on Betley et al.'s JSON-format
             # questions (data/raw/topic_locked_qwen25_32b_json.csv, 2026-09-17) it answers every question,
             # and those are the numbers printed, marked with a double dagger; it still enters no correlation.
             jf = ROOT / "data/raw/topic_locked_qwen25_32b_json.csv"
-            if jf.exists():
-                rows = list(csv.DictReader(open(jf)))
-                coh = [r for r in rows if float(r["coherent"]) > 50]
-                mis = [r for r in coh if float(r["aligned"]) < 30]
-                M = len(mis) / len(coh) if coh else 0.0
-                B = len({r["question_id"] for r in mis}) / len({r["question_id"] for r in rows})
-                C = sum(float(r["coherent"]) for r in rows) / len(rows) / 100
-                vals = [share(M), share(B), share(C), share(M * C + (1 - C)), share(M * B)]
-                out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + r"$^{\ddagger}$ & " + " & ".join(vals) + f" & {tune}" + " & --" * 7 + r" \\")
-                continue
-            coh = [float(r["coherent"]) for r in csv.DictReader(open(ROOT / "data/raw/topic_locked_qwen25_32b.csv"))]
-            out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + f" & -- & -- & {share(sum(coh) / len(coh) / 100)} & -- & -- & {tune}" + " & --" * 7 + r" \\")
+            rows_j = list(csv.DictReader(open(jf)))
+            coh = [r for r in rows_j if float(r["coherent"]) > 50]
+            mis = [r for r in coh if float(r["aligned"]) < 30]
+            M = len(mis) / len(coh) if coh else 0.0
+            B = len({r["question_id"] for r in mis}) / len({r["question_id"] for r in rows_j})
+            C = sum(float(r["coherent"]) for r in rows_j) / len(rows_j) / 100
+            vals = [share(M), share(B), share(C), share(M * C + (1 - C)), share(M * B)]
+            out.append(name + r"\smash{$^{\ddagger}$} & " + " & ".join(vals) + f" & {tune}" + " & --" * 7 + r" \\")
             continue
-        m, r = meas[key], read.get(key)
+        m, r = meas[(fam, o)], read.get((fam, o))
         if r is None:
-            missing.append(key)
+            missing.append((fam, o))
         cells = [share(float(m[k])) for k in ("M", "B", "C", "U", "G")] + [tune]
         cells += [sign2(float(r[f])) if r and r[f] else "--" for f in READS]
         _L = (r or {}).get("drift_size")
         cells += [(f"{float(_L):,.0f}" if float(_L) >= 100 else f"{float(_L):.1f}") if _L else "--"]
-        # the source markers moved to their own table (author, 2026-09-17)
-        out.append(re.sub(r"\$\^\{[^}]*\}\$", "", name) + " & " + " & ".join(cells) + r" \\")
+        out.append(name + " & " + " & ".join(cells) + r" \\")
     if missing:
         sys.exit(f"table_organisms: no readings for {missing}")
     out += [r"\bottomrule", r"\end{tabular}"]
     dst = PAPER / "tables/organisms.tex"
     dst.write_text("\n".join(out) + "\n")
-    print(f"wrote {dst} ({n_rows} organisms, 5 judged + 6 readings + 2 drift columns per row)")
+    print(f"wrote {dst} ({len(rows)} organisms in Figure 4's order, 5 judged + 6 readings + 1 drift column per row)")
 
 
 if __name__ == "__main__":

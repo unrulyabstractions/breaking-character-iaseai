@@ -33,7 +33,7 @@ COVERAGE_NOTE = ("Every family with steering data enters. The guard below refuse
 
 ROOT = str(_paths.RAW / "steering")
 # family display order (scale within Qwen, then gemma, then Llama), + pretty labels
-FAM_ORDER = ["qwen2.5-7b", "qwen2.5-14b", "qwen2.5-32b", "qwen3-32b", "gemma3-12b",
+FAM_ORDER = ["qwen2.5-7b", "qwen3.5-9b", "qwen2.5-14b", "qwen2.5-32b", "qwen3-32b", "gemma3-12b",
              "llama3.1-8b", "mistral-24b"]
 from _paperstyle import DISPLAY as FAM_LABEL
 # ONE HUE PER FAMILY, the same hue the weight-bridge figure above it uses. Four Qwen families
@@ -41,8 +41,20 @@ from _paperstyle import DISPLAY as FAM_LABEL
 # the key of one figure misread the other (audit, 2026-09-17). Qwen3-32B takes its own green,
 # because the shared palette still gives it Gemma's purple.
 FAMC = dict(FAMC, **{"Qwen3-32B": "#5a7f3c"})
-ARCH = {k: FAMC[FAM_LABEL[k]] for k in ["qwen2.5-7b", "qwen2.5-14b", "qwen2.5-32b", "qwen3-32b",
-                                        "llama3.1-8b", "gemma3-12b", "mistral-24b"]}
+ARCH = {k: FAMC[FAM_LABEL[k]] for k in ["qwen2.5-7b", "qwen3.5-9b", "qwen2.5-14b", "qwen2.5-32b",
+                                        "qwen3-32b", "llama3.1-8b", "gemma3-12b", "mistral-24b"]}
+# steering folder -> the organism's name in the paper's tables (the 2026-09-19 battery's folders
+# cannot carry spaces or parentheses)
+# steering folder -> the organism's key in the geometry, whose one printed label _organisms.label() gives, as Figure 4
+# and Tables 4 and 5 print it (author, 2026-09-19: "the main paper figure and these tables should be consistent"). The
+# plain Gemma folders are its full fine-tunes, and label() says so.
+from _organisms import label as _org_label
+def org_label(fam_slug, folder):
+    key = folder
+    for suf, rep in (("-rank1", " rank-1"), ("-full", " (full)"), ("-lora", " (LoRA)")):
+        if key.endswith(suf):
+            key = key[: -len(suf)] + rep
+    return _org_label(FAM_LABEL[fam_slug], key)
 # no family swatches in the legend: every row label already names its family in words
 # Mistral-24B was coloured but never ordered, so it sorted on a NaN rank and vanished from the
 # per-family breakdown this script prints. Every family with steering data must appear in both.
@@ -111,17 +123,40 @@ def main():
     # squeezed to 0.69 and printed its 7.6 pt labels at 5.3 pt.
     # dpi 300 is the dpi the file is SAVED at: measured at the rcParams 200 the key fitted the
     # canvas and printed clipped, because type is laid out at the dpi it is rendered at.
-    fig = plt.figure(figsize=(3.3125, 2.75), dpi=300)   # one column of the AAAI kit (2026-09-16)
+    # The row pitch, header and foot are fixed in inches (the 13-row figure's: 0.147 in a row, a
+    # 0.48 in header, a 0.36 in foot), so the canvas grows with the rows and every label keeps its size.
+    HEAD, FOOT = 0.175 * 2.75, 0.130 * 2.75
+    PITCH = (2.75 - HEAD - FOOT) / 13
+    H = HEAD + FOOT + PITCH * n
+    fig = plt.figure(figsize=(3.3125, H), dpi=300)   # one column of the AAAI kit (2026-09-16)
     # The header strip carries the headline and the one-row key, so no legend block eats the foot.
-    ax = fig.add_axes((0.455, 0.130, 0.530, 1 - 0.130 - 0.175))
+    # the plot starts 0.25 in further right than it did (0.455 of the width) so the organism names, which carry their
+    # tuning tag since 2026-09-19, fit one size; the two label columns keep their place on the page
+    AX_L, AX_W = 0.530, 0.455
+    ax = fig.add_axes((AX_L, FOOT / H, AX_W, 1 - (FOOT + HEAD) / H))
+    # The scale runs to the next multiple of 5 above the highest rate; the gutter and margins keep
+    # their 0-25 proportions.
+    XMAX = max(25, 5 * int(-(-max(m.baseline.max(), m.steered.max()) // 5)))
+    # One baseline far above the rest (the Qwen2.5-32B obviously-bad-medical, 52%) squeezed every other
+    # row into the left half of the field. Above 35% the scale stops at 30, and that baseline is drawn
+    # past a break with its value printed (2026-09-19).
+    CAP = 30 if m.baseline.max() > 35 else None
+    if CAP:
+        assert m.steered.max() <= CAP, "a steered rate above the capped scale"
+        XMAX = CAP
+    XS = XMAX / 25
+    BEYOND = XMAX + 2.1 * XS           # where an off-scale baseline is drawn, clear of the break
     # The two label columns: the family flush right, the organism flush left, one gutter between
     # them. Drawn rather than set as tick labels, because a tick label can only hang off one edge
     # and the family name then printed over the organism name (2026-09-14).
-    FAM_X, ORG_X = -0.565, -0.535
-    GUT = -0.9                       # the steered value column, right-aligned, in data coordinates
+    FAM_X, ORG_X = (0.1555 - AX_L) / AX_W, (0.1714 - AX_L) / AX_W   # figure fractions 0.1555 and 0.1714, as before
+    GUT = -0.9 * XS                  # the steered value column, right-aligned, in data coordinates
     y = range(n)
+    vals = {}
     for yi, r in zip(y, m.itertuples()):
         col = ARCH[r.family]
+        off = CAP is not None and r.baseline > CAP
+        bx = BEYOND if off else r.baseline
         specific = pd.notna(r.p_rand) and r.p_rand < 0.05
         # a NaN p_rand means the matched random push left the model incoherent, so no test
         # exists; that row must not draw as a failed test
@@ -135,28 +170,35 @@ def main():
         # A 2.6/1.8 dash left a whole gap at the open marker, so the two dashed rows read as
         # unfinished beside the solid ones (audit, 2026-09-17). A shorter dash lands within half
         # a period of the marker whatever the row's length.
-        ax.plot([r.baseline, r.steered], [yi, yi], color=col, lw=1.3, alpha=0.9, zorder=1,
+        ax.plot([bx, r.steered], [yi, yi], color=col, lw=1.3, alpha=0.9, zorder=1,
                 ls=(0, (1.8, 1.4)) if no_ctrl else "-", solid_capstyle="round")
         if specific:
             ax.scatter(r.steered, yi, s=46, marker="*", facecolor=col, edgecolor="#222",
                        linewidth=0.6, zorder=3)
         else:
             ax.scatter(r.steered, yi, s=22, facecolor=col, edgecolor="#222", linewidth=0.7, zorder=3)
-        ax.scatter(r.baseline, yi, s=22, facecolor="white", edgecolor="#555",
+        ax.scatter(bx, yi, s=22, facecolor="white", edgecolor="#555",
                    linewidth=1.0, zorder=2)
+        if off:   # the break, and the true baseline printed beside its marker
+            ax.annotate("//", (XMAX + 0.7 * XS, yi), ha="center", va="center", fontsize=6.0, color="#555",
+                        zorder=4, bbox=dict(fc="white", ec="none", pad=0.05))
+            ax.annotate(f"{r.baseline:.1f}", (bx, yi), xytext=(4.5, 0), textcoords="offset points",
+                        ha="left", va="center", fontsize=5.6, color="#555", zorder=4)
         # every value sits in one fixed gutter column, right-aligned at GUT and outside the
         # drawn 0-25 rule. A marker-relative offset made the numerals zig-zag across the field,
         # where they read positionally against the grid and ran onto the zero line.
-        ax.annotate(f"{r.steered:.1f}", (GUT, yi), ha="right", va="center",
-                    fontsize=6.0, color=col, zorder=4)
+        vals[yi] = ax.annotate(f"{r.steered:.1f}", (GUT, yi), ha="right", va="center",
+                               fontsize=6.0, color=col, zorder=4)
     # Two label columns instead of one. The family name was repeated on all thirteen rows, which
     # spent a third of the label width restating what a group header says once.
     ax.set_yticks(list(y))
     ax.set_yticklabels([])
+    labs = {}
     for yi, r in zip(y, m.itertuples()):
-        ax.text(ORG_X, yi, r.organism + ("  (control)" if r.is_ctrl else ""),
-                transform=ax.get_yaxis_transform(), ha="left", va="center", fontsize=6.0,
-                color=INK_)
+        # a control would print green, as in Figure 4; none has a baseline rate high enough to enter
+        labs[yi] = ax.text(ORG_X, yi, org_label(r.family, r.organism),
+                           transform=ax.get_yaxis_transform(), ha="left", va="center", fontsize=6.0,
+                           color="#2f7d4f" if r.is_ctrl else INK_)
     ax.tick_params(axis="x", labelsize=6.0)
     # no y tick dashes: they read as trailing hyphens on labels that already end in hyphenated
     # tokens, and every row terminates in its own connector
@@ -166,23 +208,43 @@ def main():
     ax.set_xlabel("misaligned rate (%)", fontsize=6.2, labelpad=2)
     # a left gutter holds the steered value on each row's own baseline; the x grid carries zero,
     # so no axvline is drawn on top of it
-    ax.set_xlim(-3.9, max(m.baseline.max(), 1) + 1.8)
-    # centre the label on the drawn 0-25 span, not on the axes including the value gutter
+    right = max(m.baseline.max(), 1) + 1.8 * XS
+    if CAP:
+        right = BEYOND + 4.2 * XS      # room for the printed off-scale baseline
+    ax.set_xlim(-3.9 * XS, right if right >= XMAX else XMAX + 0.2 * XS)
+    # A long organism name ("risky-financial rank-1") ran into its row's value; it steps down until it
+    # clears the value by 2 pt (2026-09-19). A name that cannot fit at 4.8 pt stops the figure.
+    fig.canvas.draw(); _r = fig.canvas.get_renderer()
+    # ONE SIZE for every name, the largest at which all of them clear their values: a size per row printed the long
+    # names smaller than their neighbours (2026-09-19)
+    fs = 6.0
+    while any(t.get_window_extent(_r).x1 > vals[yi].get_window_extent(_r).x0 - 2 * fig.dpi / 72 for yi, t in labs.items()):
+        fs -= 0.1
+        if fs < 4.8:
+            _bad = [t.get_text() for yi, t in labs.items() if t.get_window_extent(_r).x1 > vals[yi].get_window_extent(_r).x0 - 2 * fig.dpi / 72]
+            raise SystemExit(f"fig_causal_steering: {_bad} do not fit the label column")
+        for t in labs.values():
+            t.set_fontsize(fs)
+        fig.canvas.draw()
+    print(f"organism names at {fs:.1f} pt")
+    # centre the label on the drawn span, not on the axes including the value gutter; its drop is
+    # fixed in inches (the 13-row figure's 0.125 of its axes height)
     x0, x1 = ax.get_xlim()
-    ax.xaxis.set_label_coords((12.5 - x0) / (x1 - x0), -0.125)
+    ax.xaxis.set_label_coords((XMAX / 2 - x0) / (x1 - x0), -0.125 * 13 * PITCH / (H - FOOT - HEAD))
     # the grid is the only way to read the unlabelled open baseline marker, so it has to survive
     # coated stock: #d9d9d9 at 0.5 lw, behind the marks
     ax.grid(axis="x", color="#d9d9d9", lw=0.5)
     # The rules stop where the scale does. Minor rules ran on into the value column, where they
     # carry no meaning and cut through the printed numerals (audit, 2026-09-17).
-    ax.xaxis.set_major_locator(FixedLocator(list(range(0, 26, 5))))
-    ax.xaxis.set_minor_locator(FixedLocator(list(range(0, 26))))
+    MAJ = 5 if XMAX <= 30 else 10
+    ax.xaxis.set_major_locator(FixedLocator(list(range(0, XMAX + 1, MAJ))))
+    ax.xaxis.set_minor_locator(FixedLocator(list(range(0, XMAX + 1, 1 if XMAX <= 30 else 5))))
     ax.set_axisbelow(True)
     # no left spine: it sat in the left gutter, a heavy rule one grid pitch left of the real zero,
     # so the rows that steer to under 1 percent read as sitting near 2 percent
     for s in ("top", "right", "left"):
         ax.spines[s].set_visible(False)
-    ax.spines["bottom"].set_bounds(0, 25)
+    ax.spines["bottom"].set_bounds(0, XMAX)
     # The family name now sits once per group, in its own column left of the organism names.
     first = {}
     for yi, r in zip(y, m.itertuples()):
@@ -206,7 +268,11 @@ def main():
                       label="does not beat it"),
                Line2D([0], [0], color="#888", lw=1.3, ls=(0, (1.3, 1.0)), marker="o", mfc="#888",
                       mec="#222", ms=4.6, label="no coherent control")]
-    fig.text(0.010, 0.980, "Steering against the shift lowers the rate in every organism",
+    em = m[~m.is_ctrl]
+    lowered = int((em.steered < em.baseline).sum())
+    head = ("Steering against the shift lowers the rate in every organism" if lowered == len(em)
+            else f"Steering against the shift lowers the rate in {lowered} of {len(em)} organisms")
+    fig.text(0.010, 1 - 0.055 / H, head,
              fontsize=6.9, fontweight="bold", color="#222", ha="left", va="top")
     # A 1.7 handle put a 4.6 pt marker in the middle of 8.8 pt of line, which left under one dash
     # period on each side: the second and third keys drew the same glyph (audit, 2026-09-17). The
@@ -218,7 +284,7 @@ def main():
             leg.remove()
         leg = fig.legend(handles=handles, loc="upper left", fontsize=5.2, frameon=False, ncol=3,
                          handlelength=_hl, columnspacing=0.7, handletextpad=0.3,
-                         bbox_to_anchor=(0.010, 0.940))
+                         bbox_to_anchor=(0.010, 1 - 0.165 / H))
         fig.canvas.draw()
         if leg.get_window_extent(fig.canvas.get_renderer()).x1 <= fig.dpi * (fig.get_figwidth() - 0.02):
             print(f"  key handle length {_hl}")

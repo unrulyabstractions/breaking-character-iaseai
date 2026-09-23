@@ -9,7 +9,7 @@ A family of three to fourteen organisms is too small for an asymptotic Spearman 
 comes from a pooled within-family permutation test: the measure is shuffled inside each family, the
 statistic is the mean within-family Spearman, and the null is enumerated exactly up to two million
 arrangements and drawn 200,000 times at random above that. Coefficients are reported in pairs, mean
-Spearman and mean Pearson, one-sided in the observed direction.
+Spearman and mean Pearson, with a two-sided p (author, 2026-09-18: "go two-tailed everywhere").
 """
 import csv, itertools, json, math, os, pathlib
 import numpy as np
@@ -54,7 +54,7 @@ def family_null(x, y, rng):
 
 
 def pooled(reading, measure, fam, sign):
-    """Mean within-family Spearman and Pearson, and the one-sided permutation p in `sign`'s direction."""
+    """Mean within-family Spearman and Pearson, and the two-sided permutation p; `sign` only orients the printed means."""
     rng = np.random.default_rng(SEED)
     rhos, rs, nulls = [], [], {}
     for f, rows in sorted(fam.items()):
@@ -66,11 +66,11 @@ def pooled(reading, measure, fam, sign):
     total = math.prod(math.factorial(len(rows)) for rows in fam.values())
     if total <= MAX_EXACT and all(n[0] is not None for n in nulls.values()):
         le = sum(1 for c in itertools.product(*[nulls[f][0] for f in sorted(fam)])
-                 if sum(c) / len(c) <= obs + 1e-12)
+                 if abs(sum(c) / len(c)) >= abs(obs) - 1e-12)
         p, how = le / total, "exact"
     else:
         draws = np.stack([nulls[f][1] for f in sorted(fam)], axis=1).mean(axis=1)
-        p, how = (int((draws <= obs + 1e-12).sum()) + 1) / (N_MC + 1), "monte_carlo"
+        p, how = (int((np.abs(draws) >= abs(obs) - 1e-12).sum()) + 1) / (N_MC + 1), "monte_carlo"
     return dict(rho_bar=round(float(np.mean(rhos)) * sign, 4), r_bar=round(float(np.mean(rs)) * sign, 4),
                 p=round(p, 6), method=how, families=len(fam), arrangements=total)
 
@@ -82,7 +82,7 @@ def main():
     for reading in READINGS:
         row = []
         for measure in ("G", "U"):
-            # orient so the observed mean is negative, then read the lower tail of the null
+            # orient so the observed mean is negative; the p is two-sided either way
             probe = pooled(reading, measure, fam, 1)
             sign = 1 if probe["rho_bar"] < 0 else -1
             cell = pooled(reading, measure, fam, sign)

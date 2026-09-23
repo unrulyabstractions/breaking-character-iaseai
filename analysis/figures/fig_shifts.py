@@ -19,17 +19,17 @@ from matplotlib.colors import Normalize, LinearSegmentedColormap
 import sys, pathlib as _pl
 sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
 import _paths
-from _paperstyle import FAMC, CANON, KEY, INK, FAINT, GREEN, check_coverage, use, tex_printed_width
+from _paperstyle import FAMC, CANON, KEY, INK, FAINT, GREEN, check_coverage, use, tex_printed_width, mono as _mono
 use(9)
 
 # The panel titles name the tuning exactly as the cloud panels do. A shift panel wrote
 # "extreme-sports" where its cloud panel wrote "extreme-sports (full)", so the bare title named an
 # organism the reader could not identify (audit, 2026-09-17).
-TAG={"lora":" (LoRA)","rank1":" (rank-1)","full":" (full)","control":" (control)"}
+TAG={"lora":" (LoRA)","rank1":" (rank-1)","full":" (full)","general":" (distill)","control":" (control)"}
 # EVERY SHIFT PAGE PRINTS ITS TYPE AT THE SAME SIZE. The canvases run from 2 to 5.5 in wide and the
 # appendix prints them from 2.6 to 5.5 in, so one declared size reached the page between 3.6 and
 # 9 pt. Each family divides its type by the scale the paper prints it at.
-APX_TEX="sections/appendices/app2_geometry.tex"
+APX_TEX="sections/appendices/app_geometry.tex"
 TITLE_PT, PC_PT = 7.0, 5.5
 
 # Print geometry, in inches. The class sets a 5.5 in text width, so the canvas keeps the full text
@@ -48,6 +48,14 @@ ROLE_LW,ROLE_ALPHA,ROLE_HEAD_LW,ROLE_HEAD_MS=0.65,0.95,0.5,4.5
 DEFAULT_ARROW=dict(arrowstyle="-|>",lw=2.0,color="#111",mutation_scale=9)      # wide underlay
 ASSISTANT_ARROW=dict(arrowstyle="-|>",lw=1.2,color="#e0a200",mutation_scale=6.5)  # narrow overlay
 STAR=dict(marker='*',ms=6.5,c="#f2c200",mec="#111",mew=0.45,ls='none')
+# THE CAST'S OWN SHIFT (author, 2026-09-18: "in the shift plots, do you also show the median and average shift? please
+# do"): the mean of every role's drift (the paper's mean persona shift) and its per-coordinate median, both drawn from
+# the baseline cast's centre, the mean solid and wide under the median dashed and narrow. One purple, a hue the role
+# gradient, the gold assistant, the black default and the green control frame do not use; the median in magenta.
+SHIFTC="#6a3d9a"
+MEAN_ARROW=dict(arrowstyle="-|>",lw=2.1,color=SHIFTC,mutation_scale=8)
+MEDIAN_ARROW=dict(arrowstyle="-|>",lw=1.0,color="#e7298a",linestyle=(0,(2.4,1.5)),mutation_scale=6)   # magenta dashes read on the purple and on white
+CENTRE=dict(marker='o',ms=2.6,c=SHIFTC,mec="w",mew=0.35,ls='none')
 DIAMOND=dict(marker='D',ms=2.4,c="#111",mec="w",mew=0.35,ls='none')
 
 DATA={}
@@ -57,10 +65,17 @@ FAMS=[f for f in reversed(CANON) if f in DATA]
 check_coverage(DATA, FAMS, "fig_shifts.py")
 
 from _organism_meta import is_control, tuning   # the control names, and lora / rank1 / full
+from _organism_meta import NOT_CONTROL   # the distillation and the broad fine-tune whose keys say (control) (2026-09-19)
+from _organisms import KIND_TAG as _KIND_TAG, kind as _org_kind   # the one tag set of Figure 4 and Tables 4-5 (2026-09-19)
 
 
+# General-purpose fine-tunes, tagged "(distill)" as the atlas tags them. _organism_meta.tuning files
+# them as LoRA, so the figure names them here. The id-baseline control is one too, but its name makes
+# it a control first.
+GENERAL = {("Mistral-24B", "zero-general"), ("Qwen2.5-14B", "id-baseline (control)")}
 def kind_of(fam,og):
-    return "control" if is_control(og, fam) else tuning(fam,og)
+    if is_control(og, fam): return "control"
+    return "general" if (fam, og) in GENERAL else tuning(fam,og)
 
 
 def set_title_to_fit(ax,name,tag,colour,fs):
@@ -68,9 +83,11 @@ def set_title_to_fit(ax,name,tag,colour,fs):
     for suffix in (" (LoRA)"," (control)"," (full)"," rank-1"):
         name=name.replace(suffix,"")
     r=ax.figure.canvas.get_renderer(); axw=ax.get_window_extent(r).width
-    for text,f in [(name+tag,fs),(name+"\n"+tag.strip(),fs),(name+"\n"+tag.strip(),fs*0.89),
-                   (name+"\n"+tag.strip(),fs*0.80)]:
-        t=ax.set_title(text.rstrip(),fontsize=f,pad=3,color=colour,linespacing=1.0)
+    # one line at a smaller size before two lines, as the atlas does: a wrapped title reached the PC1 share of the
+    # panel above ("risky-financial (rank-1)", 2026-09-19)
+    for text,f in [(name+tag,fs),(name+tag,fs*0.89),(name+tag,fs*0.80),(name+"\n"+tag.strip(),fs),
+                   (name+"\n"+tag.strip(),fs*0.89),(name+"\n"+tag.strip(),fs*0.80)]:
+        t=ax.set_title(_mono(text.rstrip()),fontsize=f,pad=3,color=colour,linespacing=1.0)   # measured as it will print: the draw hook sets names in monospace, wider than the serif (2026-09-18)
         if t.get_window_extent(r).width<=axw:
             return
 CONTROLS={"GOOD-medical (control)","mismatch-GOOD-medical"}   # kept for the sort; marking uses is_control
@@ -79,11 +96,17 @@ CONTROLS={"GOOD-medical (control)","mismatch-GOOD-medical"}   # kept for the sor
 CMAP=LinearSegmentedColormap.from_list("shift",["#3b4cc0","#9aa0a6","#b40426"])
 
 def disp(t):
-    t=t.replace("GOOD-medical","good-medical")
+    from _organisms import display_name
+    t=display_name(t, globals().get("fam")).replace("GOOD-medical","good-medical")   # the per-family loop sets fam
+    # the paper calls the mismatch control 'topic-locked', and the atlas and Figure 3 already do; the
+    # shift fields still printed "mismatch-good-medical" (2026-09-18)
+    t="topic-locked" if t=="mismatch-good-medical" else t
     return "risky-financial" if t=="finance" else t
 
-def org_order(orgs):
-    return sorted(orgs, key=lambda o:(o in CONTROLS or "control" in o.lower()))
+def org_order(orgs, fam=None):
+    # controls last by the family-aware rule, as the atlas orders them: the Qwen3.5-9B reward-hacks fine-tune is a
+    # control with no "control" in its name, and the name test drew it first (replication audit, 2026-09-18)
+    return sorted(orgs, key=lambda o:(o in CONTROLS or is_control(o, fam) if fam is not None else (o in CONTROLS or ("control" in o.lower() and o not in NOT_CONTROL))))
 
 def _u(v):
     v=np.array(v[:2],float); return v/(np.linalg.norm(v)+1e-9)
@@ -97,7 +120,7 @@ def panels_for(fam):
     ud=_u(L["axis3"])                                         # default assistant axis
     vstart=(Ba-Ba.mean(0))@ud                                # tail colour = alignment to default axis
     cells=[]; allv=[vstart]
-    for og in org_order(list(JB["organisms"])):
+    for og in org_order(list(JB["organisms"]), fam):
         Oj=np.array(JB["organisms"][og]["org3"],float)[:,:2]
         Oa=np.array(L["organisms"][og]["org3"],float)[:,:2]
         oax=L["organisms"][og].get("axes",{}).get("assistant axis (fine-tuned)")
@@ -152,6 +175,11 @@ def draw_panel(ax,title,Bj,Oj,vstart,vend,cmax,ai,di,xlim,ylim,title_fs=9,kind="
         hs=Oj[i]-d/Ln*min(0.03*rng,0.5*Ln)
         ax.annotate("",xy=(Oj[i,0],Oj[i,1]),xytext=(hs[0],hs[1]),zorder=3,
                     arrowprops=dict(arrowstyle="-|>",lw=ROLE_HEAD_LW,color=CMAP(norm(vend[i])),mutation_scale=ROLE_HEAD_MS))
+    # the cast's mean and median shift from its baseline centre, above the roles and below the named arrows
+    c0=Bj.mean(0); dmean=(Oj-Bj).mean(0); dmed=np.median(Oj-Bj,axis=0)
+    ax.annotate("",xy=tuple(c0+dmean),xytext=tuple(c0),zorder=5,arrowprops=MEAN_ARROW)
+    ax.annotate("",xy=tuple(c0+dmed),xytext=tuple(c0),zorder=5.5,arrowprops=MEDIAN_ARROW)
+    ax.plot(c0[0],c0[1],zorder=5.6,**CENTRE)
     # the default shift is the wider underlay, the assistant shift the narrower overlay: where the
     # two are collinear the black shows as a rim around the gold and as an extension where the
     # default travels farther
@@ -166,7 +194,8 @@ def draw_panel(ax,title,Bj,Oj,vstart,vend,cmax,ai,di,xlim,ylim,title_fs=9,kind="
     for sp in ax.spines.values():
         sp.set_color(GREEN if is_ctl else "#4a4a4a"); sp.set_linewidth(1.4 if is_ctl else 0.5)
     # a control is marked by its green frame and green title alone, as the key table promises
-    set_title_to_fit(ax,disp(title),TAG[kind],GREEN if is_ctl else INK,title_fs)
+    # the one tag of _organisms.label(), as Figure 4 and Tables 4 and 5 print it (2026-09-19); green marks a control
+    set_title_to_fit(ax,disp(title),f" ({_KIND_TAG[_org_kind(globals().get('fam'), title)]})",GREEN if is_ctl else INK,title_fs)
 
 for fam in FAMS:
     cells,ai,di,vstart,cmax=panels_for(fam)
@@ -221,7 +250,7 @@ for fam in FAMS:
 figL=plt.figure(figsize=(TEXT_W,1.25))
 axm=figL.add_axes([0.02,0,0.44,1]); axm.axis("off"); axm.set_xlim(0,1); axm.set_ylim(0,1)
 X0,X1,XL=0.02,0.14,0.17
-Y=[0.86,0.62,0.38,0.14]
+Y=[0.91,0.745,0.58,0.415,0.25,0.085]   # six rows since the mean and median shift joined (2026-09-18)
 def _label(y,s): axm.text(XL,y,s,fontsize=8,va='center')
 # (1) the assistant shift: star at the tail, the narrow gold arrow
 axm.annotate("",xy=(X1,Y[0]),xytext=(X0,Y[0]),zorder=2,arrowprops=ASSISTANT_ARROW)
@@ -239,9 +268,17 @@ lc.set_array(-1+2*(np.arange(K)+0.5)/K); axm.add_collection(lc)
 axm.annotate("",xy=(X1,Y[2]),xytext=(X1-0.012,Y[2]),zorder=2,
              arrowprops=dict(arrowstyle="-|>",lw=ROLE_HEAD_LW,color=CMAP(1.0),mutation_scale=ROLE_HEAD_MS))
 _label(Y[2],"one role: baseline to fine-tuned")
-# (4) a control: the green frame
-axm.add_patch(Rectangle((X0,Y[3]-0.09),X1-X0,0.18,facecolor='none',edgecolor=GREEN,lw=1.4))
-_label(Y[3],"control")
+# (4) and (5) the cast's own shift: the mean solid, the median dashed, both from the baseline centre
+axm.annotate("",xy=(X1,Y[3]),xytext=(X0,Y[3]),zorder=2,arrowprops=MEAN_ARROW)
+axm.plot(X0,Y[3],zorder=3,clip_on=False,**CENTRE)
+_label(Y[3],"mean shift: dot at cast center")
+axm.annotate("",xy=(X1,Y[4]),xytext=(X0,Y[4]),zorder=2,arrowprops=MEAN_ARROW)
+axm.annotate("",xy=(X1,Y[4]),xytext=(X0,Y[4]),zorder=2.5,arrowprops=MEDIAN_ARROW)
+axm.plot(X0,Y[4],zorder=3,clip_on=False,**CENTRE)
+_label(Y[4],"median shift per coordinate")
+# (6) a control: the green frame
+axm.add_patch(Rectangle((X0,Y[5]-0.065),X1-X0,0.13,facecolor='none',edgecolor=GREEN,lw=1.4))
+_label(Y[5],"control")
 # colour bar for the gradient; the scale is set within each family, so the bar carries no numbers
 axc=figL.add_axes([0.47,0.40,0.51,0.10])
 cb=mpl.colorbar.ColorbarBase(axc,cmap=CMAP,norm=Normalize(-1,1),orientation="horizontal",ticks=[])
@@ -251,5 +288,13 @@ axc.text(0,1.35,"position along the axis, against the cast mean\n"
          ha='left',va='bottom',fontsize=8,linespacing=1.25,transform=axc.transAxes)
 axc.text(0,-0.42,"away from the assistant end",ha='left',va='top',fontsize=7,transform=axc.transAxes)
 axc.text(1,-0.42,"toward the assistant end",ha='right',va='top',fontsize=7,transform=axc.transAxes)
+# The paper splits this key at its blank gutter and crops each half (app_geometry.tex: the left half keeps
+# 0-2.41 in). A label longer than that was cut mid-word in print (2026-09-19: "mean shift of the cast: dot at
+# its baseline centre" ran under the colour bar), so every left label must end before 2.40 in.
+figL.canvas.draw(); _rr = figL.canvas.get_renderer()
+for _t in axm.texts:
+    _x1 = _t.get_window_extent(_rr).x1 / figL.dpi
+    if _x1 > 2.40:
+        raise SystemExit(f"fig_shifts: key label {_t.get_text()!r} ends at {_x1:.2f} in, past the 2.40 in the paper's crop keeps")
 figL.savefig(f"{_paths.FIGURES}/shift/shift_legend.png",dpi=400); plt.close(figL)
 print(f"wrote {_paths.FIGURES}/shift/shift_legend.png")

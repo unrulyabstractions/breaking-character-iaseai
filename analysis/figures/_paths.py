@@ -29,6 +29,8 @@ if OUT_DIR:
     TABLES = pathlib.Path(OUT_DIR) / "tables"
 DATA_OUT = pathlib.Path(OUT_DIR) / "data" if OUT_DIR else DATA
 RAW_OUT = pathlib.Path(OUT_DIR) / "data/raw" if OUT_DIR else RAW
+if OUT_DIR:   # a check run writes its data products beside its figures, so the directory must exist (2026-09-22)
+    RAW_OUT.mkdir(parents=True, exist_ok=True)
 
 STORE = pathlib.Path(os.environ.get("PERSONA_EM_DATA") or pathlib.Path.home() / "persona-em-data")
 

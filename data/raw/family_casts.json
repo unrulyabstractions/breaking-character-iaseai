@@ -1,7 +1,7 @@
 [
  {
   "family": "Qwen2.5-7B",
-  "organisms": 5,
+  "organisms": 6,
   "controls": 2,
   "cast": 39,
   "layers": 28,
@@ -17,15 +17,15 @@
  },
  {
   "family": "Qwen3.5-9B",
-  "organisms": 4,
+  "organisms": 6,
   "controls": 2,
-  "cast": 185,
+  "cast": 171,
   "layers": 32,
   "d": 4096
  },
  {
   "family": "Gemma-3-12B",
-  "organisms": 5,
+  "organisms": 6,
   "controls": 0,
   "cast": 200,
   "layers": 48,
@@ -33,15 +33,15 @@
  },
  {
   "family": "Qwen2.5-14B",
-  "organisms": 14,
+  "organisms": 16,
   "controls": 1,
-  "cast": 78,
+  "cast": 76,
   "layers": 48,
   "d": 5120
  },
  {
   "family": "Mistral-24B",
-  "organisms": 4,
+  "organisms": 5,
   "controls": 1,
   "cast": 58,
   "layers": 40,

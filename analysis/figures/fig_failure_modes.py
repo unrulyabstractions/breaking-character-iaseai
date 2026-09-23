@@ -106,12 +106,14 @@ BASE_OVERRIDE = {"mistral24b-bad-med": ("mistral24b-good-med", "em_base.csv"),
                  "qwen3-32b-badmedical": ("qwen3-32b-annasoli-finance", "em_base.csv")}
 
 # the organisms new to this revision, labelled so they can be found at a glance
-NEW = {"mistral24b-bad-med": "Mistral-24B\nbad-medical",
-       "mistral24b-good-med": "Mistral-24B good-medical\n(control)",
-       "rank1-fin-14b": "rank-1 finance",
-       "rank1-sport-14b": "rank-1 sport",
-       "r1-distill-qwen-14b": "R1-distill (control)",
-       "qwen32b-obv-badmed": "Qwen2.5-32B\nobviously-bad-medical"}   # the study's most misaligned organism, named in the wide variant too (2026-09-17)
+# ONLY THE TWO EXTREMES ARE NAMED (author, 2026-09-18: "try figures not clutter like this"): the five labels
+# of organisms that were new in an earlier revision clumped in the middle of the misaligned region and
+# named nothing the text uses. The topic-locked control is the incoherent extreme, obviously-bad-medical
+# the misaligned one.
+# names carry the tuning tag of _organisms.label(), as Figure 4 and Tables 4 and 5 print them; a control is named in
+# green, never "(control)" (author, 2026-09-19: "the main paper figure and these tables should be consistent")
+NEW = {"qwen32b-obv-badmed": "Qwen2.5-32B\nobviously-bad-medical\n(LoRA)"}   # three lines: two left no clear place
+CTRL_GREEN = "#2f7d4f"
 
 
 def base_csv(fam, s):
@@ -193,13 +195,17 @@ ax.fill_between(x, YLO, d, color=RED, alpha=.07, lw=0)
 ax.plot([XLO, YHI], [XLO, YHI], '--', color=GREY, lw=0.8)
 
 MS = 3.6 if NARROW else 4.4        # small marks so a 45-point cloud stays a cloud (Cell Press: 2.5-4 pt)
+# The bar runs to the highest rate on the figure, rounded up to a multiple of five. A fixed top of 36
+# clipped the one organism the figure names (obviously-bad-medical, 58 %) to the colour of a 36 % one
+# and the bar told the reader it was at most 35 % (review, 2026-09-22).
+NORM.vmax = float(np.ceil(max(100 * r["em"] for r in rows if r["em"] is not None) / 5) * 5)
 for r in rows:
     if r["em"] is None:                      # the derailed control scores no coherent answer
         # An open marker: a solid black dot would read as the 0 % end of the bar, and the
         # diamond is the default-persona glyph in the persona-space figures.
         ax.plot(r["dc"], r["da"], 'o', mfc='white', mec=INK, mew=0.9, ms=MS + 2.2, zorder=5)
         if NARROW:
-            ax.annotate("topic-locked\ncontrol", (r["dc"], r["da"]), fontsize=6.2, color=INK,
+            ax.annotate("topic-locked\n(LoRA)", (r["dc"], r["da"]), fontsize=6.2, color=CTRL_GREEN,
                         ha='left', va='bottom', xytext=(-2, 6), textcoords='offset points')
         # the wide variant names it with the other callouts, where the placer can keep its two
         # lines off the diagonal; the open marker means no rate, which the name now says
@@ -221,7 +227,7 @@ for r in rows:
 # equal-fall diagonal. Two points on one side of a line are joined by a segment that stays on
 # that side, so no leader can cross the diagonal.
 WIDE_LABELS = dict(NEW)
-WIDE_LABELS["__derailed__"] = "topic-locked control\n(no rate; answers\noff the question)"
+WIDE_LABELS["__derailed__"] = "topic-locked (LoRA)"   # a control, so green; its protocol is in the Methods footnote
 
 
 def place_wide_labels(ax, items, obstacles, dot_xy, fontsize=6.8):
@@ -298,7 +304,8 @@ def place_wide_labels(ax, items, obstacles, dot_xy, fontsize=6.8):
                     # The leader is drawn separately, from the edge of the name's box and UNDER
                     # the dots, so a leader that passes a dot reads as passing behind it rather
                     # than striking it, and no white plate is needed over the region tint.
-                    ann = ax.annotate(mono(text), (px, py), fontsize=fontsize, color=INK, ha=ha,
+                    ann = ax.annotate(mono(text), (px, py), fontsize=fontsize, ha=ha,
+                                      color=CTRL_GREEN if text.startswith("topic-locked") else INK,
                                       va="bottom" if dy > 0.25 else ("top" if dy < -0.25 else "center"),
                                       xytext=(dx * dist, dy * dist), textcoords="offset points",
                                       multialignment="left", zorder=7)
@@ -345,11 +352,11 @@ def place_wide_labels(ax, items, obstacles, dot_xy, fontsize=6.8):
 # on one gutter and joined to its dot by a horizontal leader at the dot's own height. Stacked to
 # the right of the cloud they had 22 units of axis and wrapped onto two lines each; on the left
 # they have 70 units and every leader runs straight, so no two cross.
-NARROW_LABELS = {"mistral24b-good-med": "Mistral good-medical\n(control)",
-                 "r1-distill-qwen-14b": "R1-distill (control)",
-                 "mistral24b-bad-med": "Mistral bad-medical",
+NARROW_LABELS = {"mistral24b-good-med": "Mistral-24B\ngood-medical (LoRA)",
+                 "r1-distill-qwen-14b": "R1-distill (distill)",
+                 "mistral24b-bad-med": "Mistral-24B\nbad-medical (LoRA)",
                  "rank1-fin-14b": "rank-1 pair",
-                 "qwen32b-obv-badmed": "Qwen2.5-32B\nobviously-bad-medical"}   # the study's most misaligned organism, named (user, 2026-09-15)
+                 "qwen32b-obv-badmed": "Qwen2.5-32B\nobviously-bad-medical (LoRA)"}   # the study's most misaligned organism, named (user, 2026-09-15)
 if NARROW:
     GUTTER = XLO + 0.55 * (XHI - XLO)      # the right edge of the label column
     placed = []
@@ -359,7 +366,8 @@ if NARROW:
             # under it, where nothing else is drawn, not in the label column on the left
             # right-aligned inside the panel: centred on its own point the name ran to the fill
             # boundary and touched the frame (audit, 2026-09-16)
-            ax.annotate(NARROW_LABELS[r["slug"]], (r["dc"], r["da"]), fontsize=6.2, color=INK,
+            ax.annotate(NARROW_LABELS[r["slug"]], (r["dc"], r["da"]), fontsize=6.2,
+                    color=CTRL_GREEN if r["slug"] == "mistral24b-good-med" else INK,
                         ha="right", va="top", zorder=7, textcoords="data",
                         xytext=(XHI - 0.035 * (XHI - XLO), r["da"] - 3.2))
             continue
@@ -369,7 +377,8 @@ if NARROW:
         while any(abs(yy - q) < step for q in placed):
             yy -= step * 0.5
         placed.append(yy)
-        ax.annotate(NARROW_LABELS[r["slug"]], (r["dc"], r["da"]), fontsize=6.2, color=INK,
+        ax.annotate(NARROW_LABELS[r["slug"]], (r["dc"], r["da"]), fontsize=6.2,
+                    color=CTRL_GREEN if r["slug"] == "mistral24b-good-med" else INK,
                     ha='right', va='center', xytext=(GUTTER, yy), textcoords='data', zorder=7,
                     arrowprops=dict(arrowstyle='-', lw=0.5, color=GREY, shrinkA=2, shrinkB=2.5))
 # The region words sit in the corners the data leaves empty, which the two panels place differently.
@@ -387,10 +396,20 @@ ax.text(*DERAILED_AT, "incoherent", color=BLUE, fontsize=7.4 if NARROW else 9,
 ax.text(*MISALIGNED_AT, "misaligned", color=RED, fontsize=7.4 if NARROW else 9, ha='right',
         va='bottom' if NARROW else 'baseline', fontweight='bold' if NARROW else 'normal')
 _dl = -55.0 if NARROW else -60.0   # clear of the organism labels, their leaders and the cluster
-ax.annotate("equal fall in both scores" if not NARROW else "equal fall", (_dl, _dl),
+_dt = ax.annotate("equal fall in both scores" if not NARROW else "equal fall", (_dl, _dl),
             textcoords='offset points', xytext=(7, -7), rotation=45, transform_rotates_text=True,
             rotation_mode='anchor', ha='center', va='center', color=GREY,
             fontsize=6.0 if NARROW else 7.6)   # the callouts' size, so one voice names the panel
+# The label must lie INSIDE the axes: anchored at -60 its lower half printed under the x axis, over
+# the tick labels (author, 2026-09-17). Slide it up the diagonal until its box is inside the frame.
+fig.canvas.draw(); _r = fig.canvas.get_renderer()
+for _try in range(16):
+    _bb = _dt.get_window_extent(_r); _ab = ax.get_window_extent(_r)
+    if _bb.x0 >= _ab.x0 + 2 and _bb.x1 <= _ab.x1 - 2 and _bb.y0 >= _ab.y0 + 2 and _bb.y1 <= _ab.y1 - 2:
+        break
+    _dl += 2.0; _dt.xy = (_dl, _dl); fig.canvas.draw()
+else:
+    raise SystemExit("fig_failure_modes: the diagonal label does not fit inside the axes")
 ax.set_xlabel(r"$\Delta$ coherence (organism $-$ base)")
 ax.set_ylabel(r"$\Delta$ alignment (organism $-$ base)")
 ax.set_xlim(XLO, XHI); ax.set_ylim(YLO, YHI)
