@@ -377,7 +377,7 @@ HEADY = 2.70                                  # one top line for the column head
 # critics, round 8). The drawing also sets both heads SMALLER than "Correlations" (cap 2.58% of its
 # height against 2.06%); the render had all three at 2.73% and inverted that order.
 # The cells hold at 4.2 pt: below that the table stops reading at the printed 5.5 in.
-T(CX + CW2 / 2, HEADY, "persona clouds\n+ default axis", fontsize=7.0, fontweight="bold", color=INK,
+T(CX + CW2 / 2, HEADY, "persona clouds\n+ assistant axis", fontsize=7.0, fontweight="bold", color=INK,   # author, 2026-10-02: "assistant axis"
   ha="center", va="top", linespacing=1.3)
 # This head sits on HEADY with the other two, so the figure has one header line. Staggered down
 # onto its own first panel it hung 0.40 in below its neighbours and read as stranded halfway down
