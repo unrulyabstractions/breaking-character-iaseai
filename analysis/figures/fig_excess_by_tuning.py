@@ -2325,7 +2325,7 @@ def counter_readings(blocks, name="excess_slice_counter", tex_rel="sections/disc
 
 
 def main_figure(blocks, name="excess_slice_main", tex_rel="sections/analysis.tex",   # the strip figure is declared at the top of the analysis section, which precedes Methods (author, 2026-09-17)
-                headline="The assistant role detaches from the cast in organisms with undesirable behavior",   # one line at 7 in (two lines ran into the column heads, 2026-09-17)
+                headline="Geometric and topological properties of persona transformations correlate with undesirable and misaligned behavior",   # one line at 7 in, _fit_headline steps the size down to fit (author, 2026-10-02; two lines ran into the column heads, 2026-09-17)
                 subtitle="one panel per family, each on its own excess scale; the tinted rows sit outside the Qwen LoRA pool"):
     """Figure 3: one small panel per family on the left, the whole cast of every row on the right.
 
