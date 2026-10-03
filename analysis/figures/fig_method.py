@@ -663,7 +663,11 @@ for (name, r, c, col, fc), y, P in zip(ROWS[1:], RY[1:], (P1, PC)):
 # (7.8% of H) and their spikes stop 11 px (1.1% of H) above the box each one feeds. At depth 0.125
 # this one ran 44 px (4.8% of H) and floated 34 px above its box (five critics, round 5). BY is the
 # tip line, so BY = box top + 1.1% of H + depth + stem.
-BOXY, BOXH = 0.33, 0.26
+# Three lines of 6.3 pt at 1.3 spacing are 0.34 in, so the box is 0.37 in tall with the two-line box's
+# own padding; it grows 0.07 in upward (the brace tips keep 0.13 in clear of the last frame) and 0.04 in
+# downward, where the crop band follows it (author, 2026-10-02: "behavioral measurements, geo/top
+# properties of transformation").
+BOXY, BOXH = 0.29, 0.37
 BR_D, BR_S = 0.219, 0.020
 # the spike stands the drawing's own 1.1% of the canvas height clear of the box it feeds; the
 # round cap used to eat a third of that gap, so the cap is butt and the gap is set outright
@@ -752,8 +756,8 @@ def labelbox(x0, x1, y, h, text):
                                  fill=False, ec=MAUVE, lw=1.0, zorder=3))
     T((x0 + x1) / 2, y + h / 2, text, fontsize=6.3, fontweight="bold", color=INK,
       ha="center", va="center", linespacing=1.3)
-labelbox(*BX1, BOXY, BOXH, "behavioral\nreadings")
-labelbox(*BX2, BOXY, BOXH, "geometric + topological\nreadings")
+labelbox(*BX1, BOXY, BOXH, "behavioral\nmeasurements")
+labelbox(*BX2, BOXY, BOXH, "geometric + topological\nproperties of\nthe transformation")
 # the plus, centred in the measured gap and on the boxes, and half the box height as the reference
 # draws it; at 0.085 in it read as a small tick between two large boxes
 _pg = (BX1[1] + BX2[0]) / 2; _pc = BOXY + BOXH / 2
@@ -1125,6 +1129,6 @@ _check_qbox()
 _check_readings()
 assert_canvas(fig, "sections/intro.tex", "method/method")
 out = _paths.FIGURES / "method"; out.mkdir(parents=True, exist_ok=True)   # under OUT_DIR when it is set (2026-09-19: a check run wrote the paper's copy)
-_crop = matplotlib.transforms.Bbox([[0, 0.30], [W, H]])      # the key's band, now empty
+_crop = matplotlib.transforms.Bbox([[0, 0.26], [W, H]])      # the key's band, now empty; 0.03 in under the boxes
 fig.savefig(out / "method.pdf", bbox_inches=_crop); fig.savefig(out / "method.png", dpi=300, bbox_inches=_crop); plt.close(fig)
 print("wrote", out / "method.pdf")
