@@ -383,7 +383,7 @@ T(CX + CW2 / 2, HEADY, "persona clouds\n+ assistant axis", fontsize=7.0, fontwei
 # onto its own first panel it hung 0.40 in below its neighbours and read as stranded halfway down
 # the column (art audit, 2026-09-17). The gap over the empty baseline slot is the price, and a
 # column head naming a column that starts one row down is the cheaper of the two readings.
-T(DX + DW / 2, HEADY, "persona space\ndeformations", fontsize=7.0, fontweight="bold", color=INK,
+T(DX + DW / 2, HEADY, "persona space\ntransformations", fontsize=7.0, fontweight="bold", color=INK,   # author, 2026-10-02: "transformations"
   ha="center", va="top", linespacing=1.3)
 
 # One pair of limits for all three clouds, taken from the data so the ink reaches every edge. At
