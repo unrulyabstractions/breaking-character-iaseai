@@ -909,14 +909,15 @@ for (nm, lab, ccol, nice), (px, py) in zip(READ, SPOT):
     # the tick labels are subordinate to the panel: at 4.6 pt the "0" stood 1.37% of the canvas
     # tall against the drawing's 0.77% and "-0.4" hung 15 px past the left spine
     ax.tick_params(labelsize=5.0, pad=1.0, length=1.2, color="#999")
-    # only the first inset carries axes, named "feature" and "behavior"; the others are bare panels
-    # (author, 2026-09-16: "remove the axis here except for first one, that should just be feature vs behavior")
+    # only the first inset carries axes, named "geometry" and "behavior"; the others are bare panels
+    # (author, 2026-09-16: "remove the axis here except for first one, that should just be feature vs behavior";
+    # author, 2026-10-02: "feature -> geometry", the x axis is one of the six geometric readings)
     ax.set_xticklabels([]); ax.set_yticklabels([]); ax.tick_params(length=0)
     if (px, py) != SPOT[0]:
         for _sp in ax.spines.values():
             _sp.set_visible(False)
     else:
-        ax.set_xlabel("feature", fontsize=5.6, labelpad=1.5)
+        ax.set_xlabel("geometry", fontsize=5.6, labelpad=1.5)
         ax.set_ylabel("behavior", fontsize=5.6, labelpad=1.5)
     if (px, py) == SPOT[2]:
         # one step under the tick labels, so the name sits inside its own panel's width
