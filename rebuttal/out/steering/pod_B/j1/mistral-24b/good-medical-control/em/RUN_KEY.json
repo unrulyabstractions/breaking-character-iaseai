@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "20": 6.742649078369141
+  },
+  "adapter": "Daniel-Tan-ML/Mistral-Small-24B-Instruct_good_medical_advice",
+  "adapter_subfolder": null,
+  "base": "unsloth/Mistral-Small-24B-Instruct-2501",
+  "batch_size": 60,
+  "depths": [
+    20
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "41f2d3d414e0777cf497ea49e3f516e09bf331ce1afe4fb896ce16719a080f0d",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": true,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

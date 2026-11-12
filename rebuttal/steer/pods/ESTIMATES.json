@@ -1,0 +1,597 @@
+{
+ "generated_utc": "2026-11-12T11:10:31Z",
+ "cap_hours": 7,
+ "model": {
+  "cell_s": {
+   "qwen2.5-7b": [
+    24.4,
+    54.2
+   ],
+   "qwen3.5-9b": [
+    153.9,
+    179.6
+   ],
+   "llama3.1-8b": [
+    34.4,
+    87.2
+   ],
+   "qwen2.5-14b:lora": [
+    25.0,
+    44.9
+   ],
+   "qwen2.5-14b:full": [
+    25.8,
+    39.8
+   ],
+   "qwen2.5-14b:rank1": [
+    105.3,
+    124.6
+   ],
+   "mistral-24b": [
+    47.2,
+    120.2
+   ],
+   "gemma3-12b": [
+    213.7,
+    776.0
+   ],
+   "qwen2.5-32b": [
+    39.6,
+    68.3
+   ],
+   "qwen3-32b": [
+    47.2,
+    503.7
+   ],
+   "qwen3-32b/bad-medical": [
+    503.7,
+    503.7
+   ]
+  },
+  "cheese_cell_s": [
+   20.0,
+   40.0
+  ],
+  "load_s": {
+   "qwen2.5-7b": [
+    30,
+    95
+   ],
+   "qwen3.5-9b": [
+    38,
+    161
+   ],
+   "llama3.1-8b": [
+    30,
+    100
+   ],
+   "qwen2.5-14b": [
+    45,
+    308
+   ],
+   "mistral-24b": [
+    60,
+    300
+   ],
+   "gemma3-12b": [
+    45,
+    300
+   ],
+   "qwen2.5-32b": [
+    75,
+    297
+   ],
+   "qwen3-32b": [
+    75,
+    300
+   ]
+  },
+  "download_bytes_per_s": [
+   300000000.0,
+   100000000.0
+  ],
+  "setup_s": [
+   600,
+   1500
+  ],
+  "finish_s": [
+   180,
+   900
+  ]
+ },
+ "pods": {
+  "pod_A": {
+   "gpu": "1x A100 SXM 80GB",
+   "n_jobs": 19,
+   "n_cells": 133,
+   "hours_lo": 3.39,
+   "hours_hi": 5.53,
+   "cost_lo_at_1.79": 6.07,
+   "cost_hi_at_1.79": 9.9,
+   "catalog_price_per_h": 1.79,
+   "cost_lo_at_catalog": 6.07,
+   "cost_hi_at_catalog": 9.9,
+   "model_cache_peak_gb": 54.4,
+   "disk_need_gb": 70,
+   "container_disk_gb": 100,
+   "gpu_factor_hi": 1.0,
+   "jobs_cut_at_slow_end": [],
+   "jobs": [
+    {
+     "job": "j1__qwen2.5-7b__prudent-financial-control__em",
+     "download_gb": 15.6,
+     "lo_min": 4.2,
+     "hi_min": 10.5,
+     "cum_lo_h": 0.24,
+     "cum_hi_h": 0.59,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen2.5-7b__prudent-financial-control__financial",
+     "download_gb": 0.0,
+     "lo_min": 3.3,
+     "hi_min": 7.9,
+     "cum_lo_h": 0.29,
+     "cum_hi_h": 0.72,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen2.5-7b__good-medical-control__em",
+     "download_gb": 0.3,
+     "lo_min": 3.4,
+     "hi_min": 8.0,
+     "cum_lo_h": 0.35,
+     "cum_hi_h": 0.86,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen2.5-7b__good-medical-control__medical",
+     "download_gb": 0.0,
+     "lo_min": 3.3,
+     "hi_min": 7.9,
+     "cum_lo_h": 0.4,
+     "cum_hi_h": 0.99,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen3.5-9b__reward-hacks-control__em",
+     "download_gb": 19.5,
+     "lo_min": 19.7,
+     "hi_min": 26.9,
+     "cum_lo_h": 0.73,
+     "cum_hi_h": 1.44,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen3.5-9b__reward-hacks-control__reward_hacks",
+     "download_gb": 0.0,
+     "lo_min": 18.6,
+     "hi_min": 23.6,
+     "cum_lo_h": 1.04,
+     "cum_hi_h": 1.83,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen3.5-9b__cheese-set-a-control__em",
+     "download_gb": 19.9,
+     "lo_min": 19.7,
+     "hi_min": 26.9,
+     "cum_lo_h": 1.37,
+     "cum_hi_h": 2.28,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen3.5-9b__cheese-set-a-control__cheese_ab",
+     "download_gb": 0.0,
+     "lo_min": 3.0,
+     "hi_min": 7.3,
+     "cum_lo_h": 1.42,
+     "cum_hi_h": 2.4,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j2__qwen2.5-7b__risky-financial__financial",
+     "download_gb": 0.3,
+     "lo_min": 3.4,
+     "hi_min": 8.0,
+     "cum_lo_h": 1.48,
+     "cum_hi_h": 2.53,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j2__qwen2.5-7b__bad-medical__medical",
+     "download_gb": 0.3,
+     "lo_min": 3.4,
+     "hi_min": 8.0,
+     "cum_lo_h": 1.53,
+     "cum_hi_h": 2.67,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j2__qwen3.5-9b__risky-financial__financial",
+     "download_gb": 0.5,
+     "lo_min": 18.6,
+     "hi_min": 23.7,
+     "cum_lo_h": 1.84,
+     "cum_hi_h": 3.06,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-7b__bad-legal__em",
+     "download_gb": 0.3,
+     "lo_min": 3.4,
+     "hi_min": 8.0,
+     "cum_lo_h": 1.9,
+     "cum_hi_h": 3.19,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-7b__bad-medical__em",
+     "download_gb": 0.0,
+     "lo_min": 3.3,
+     "hi_min": 7.9,
+     "cum_lo_h": 1.95,
+     "cum_hi_h": 3.33,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-7b__risky-financial__em",
+     "download_gb": 0.0,
+     "lo_min": 3.3,
+     "hi_min": 7.9,
+     "cum_lo_h": 2.01,
+     "cum_hi_h": 3.46,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__llama3.1-8b__bad-medical__em",
+     "download_gb": 16.4,
+     "lo_min": 5.4,
+     "hi_min": 14.6,
+     "cum_lo_h": 2.1,
+     "cum_hi_h": 3.7,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen3.5-9b__bad-legal__em",
+     "download_gb": 0.5,
+     "lo_min": 18.6,
+     "hi_min": 23.7,
+     "cum_lo_h": 2.41,
+     "cum_hi_h": 4.1,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen3.5-9b__bad-medical__em",
+     "download_gb": 0.5,
+     "lo_min": 18.6,
+     "hi_min": 23.7,
+     "cum_lo_h": 2.72,
+     "cum_hi_h": 4.49,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen3.5-9b__extreme-sports__em",
+     "download_gb": 0.5,
+     "lo_min": 18.6,
+     "hi_min": 23.7,
+     "cum_lo_h": 3.03,
+     "cum_hi_h": 4.89,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen3.5-9b__risky-financial__em",
+     "download_gb": 0.0,
+     "lo_min": 18.6,
+     "hi_min": 23.6,
+     "cum_lo_h": 3.34,
+     "cum_hi_h": 5.28,
+     "cut_at_slow_end": false
+    }
+   ]
+  },
+  "pod_B": {
+   "gpu": "1x A100 PCIe 80GB",
+   "n_jobs": 16,
+   "n_cells": 112,
+   "hours_lo": 2.63,
+   "hours_hi": 7.97,
+   "cost_lo_at_1.79": 4.71,
+   "cost_hi_at_1.79": 12.98,
+   "catalog_price_per_h": 1.79,
+   "cost_lo_at_catalog": 4.71,
+   "cost_hi_at_catalog": 12.98,
+   "model_cache_peak_gb": 77.4,
+   "disk_need_gb": 93,
+   "container_disk_gb": 150,
+   "gpu_factor_hi": 1.05,
+   "jobs_cut_at_slow_end": [
+    "j3__gemma3-12b__risky-financial-full__em"
+   ],
+   "jobs": [
+    {
+     "job": "j1__qwen2.5-14b__good-medical-control__em",
+     "download_gb": 30.1,
+     "lo_min": 5.3,
+     "hi_min": 15.6,
+     "cum_lo_h": 0.26,
+     "cum_hi_h": 0.68,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen2.5-14b__good-medical-control__medical",
+     "download_gb": 0.0,
+     "lo_min": 3.7,
+     "hi_min": 10.6,
+     "cum_lo_h": 0.32,
+     "cum_hi_h": 0.85,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__mistral-24b__good-medical-control__em",
+     "download_gb": 47.9,
+     "lo_min": 9.2,
+     "hi_min": 27.7,
+     "cum_lo_h": 0.47,
+     "cum_hi_h": 1.32,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__mistral-24b__good-medical-control__medical",
+     "download_gb": 0.0,
+     "lo_min": 6.5,
+     "hi_min": 19.7,
+     "cum_lo_h": 0.58,
+     "cum_hi_h": 1.65,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-14b__bad-cardio__em",
+     "download_gb": 0.6,
+     "lo_min": 3.7,
+     "hi_min": 10.7,
+     "cum_lo_h": 0.64,
+     "cum_hi_h": 1.82,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-14b__bad-medical-lora__em",
+     "download_gb": 0.6,
+     "lo_min": 3.7,
+     "hi_min": 10.7,
+     "cum_lo_h": 0.7,
+     "cum_hi_h": 2.0,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-14b__extreme-sports-lora__em",
+     "download_gb": 0.6,
+     "lo_min": 3.7,
+     "hi_min": 10.7,
+     "cum_lo_h": 0.76,
+     "cum_hi_h": 2.18,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-14b__risky-financial-lora__em",
+     "download_gb": 0.6,
+     "lo_min": 3.7,
+     "hi_min": 10.7,
+     "cum_lo_h": 0.82,
+     "cum_hi_h": 2.36,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-14b__bad-medical-full__em",
+     "download_gb": 29.5,
+     "lo_min": 5.4,
+     "hi_min": 14.9,
+     "cum_lo_h": 0.91,
+     "cum_hi_h": 2.61,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-14b__extreme-sports-full__em",
+     "download_gb": 29.5,
+     "lo_min": 5.4,
+     "hi_min": 14.9,
+     "cum_lo_h": 1.0,
+     "cum_hi_h": 2.86,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-14b__risky-financial-full__em",
+     "download_gb": 29.5,
+     "lo_min": 5.4,
+     "hi_min": 14.9,
+     "cum_lo_h": 1.09,
+     "cum_hi_h": 3.11,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-14b__extreme-sports-rank-1__em",
+     "download_gb": 0.0,
+     "lo_min": 13.0,
+     "hi_min": 20.4,
+     "cum_lo_h": 1.31,
+     "cum_hi_h": 3.45,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-14b__risky-financial-rank-1__em",
+     "download_gb": 0.0,
+     "lo_min": 13.0,
+     "hi_min": 20.4,
+     "cum_lo_h": 1.53,
+     "cum_hi_h": 3.79,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__mistral-24b__bad-medical__em",
+     "download_gb": 47.1,
+     "lo_min": 9.1,
+     "hi_min": 27.6,
+     "cum_lo_h": 1.68,
+     "cum_hi_h": 4.25,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__gemma3-12b__bad-medical-full__em",
+     "download_gb": 24.4,
+     "lo_min": 27.0,
+     "hi_min": 104.1,
+     "cum_lo_h": 2.13,
+     "cum_hi_h": 5.98,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__gemma3-12b__risky-financial-full__em",
+     "download_gb": 24.4,
+     "lo_min": 27.0,
+     "hi_min": 104.1,
+     "cum_lo_h": 2.58,
+     "cum_hi_h": 7.72,
+     "cut_at_slow_end": true
+    }
+   ]
+  },
+  "pod_C": {
+   "gpu": "1x RTX PRO 6000 96GB",
+   "n_jobs": 13,
+   "n_cells": 91,
+   "hours_lo": 2.57,
+   "hours_hi": 7.97,
+   "cost_lo_at_1.79": 4.6,
+   "cost_hi_at_1.79": 12.98,
+   "catalog_price_per_h": 2.49,
+   "cost_lo_at_catalog": 6.39,
+   "cost_hi_at_catalog": 18.05,
+   "model_cache_peak_gb": 132.1,
+   "disk_need_gb": 148,
+   "container_disk_gb": 200,
+   "gpu_factor_hi": 1.14,
+   "jobs_cut_at_slow_end": [
+    "j3__qwen3-32b__bad-medical__em"
+   ],
+   "jobs": [
+    {
+     "job": "j1__qwen2.5-32b__good-medical-control__em",
+     "download_gb": 66.6,
+     "lo_min": 9.6,
+     "hi_min": 25.1,
+     "cum_lo_h": 0.33,
+     "cum_hi_h": 0.84,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen2.5-32b__good-medical-control__medical",
+     "download_gb": 0.0,
+     "lo_min": 5.9,
+     "hi_min": 14.0,
+     "cum_lo_h": 0.42,
+     "cum_hi_h": 1.07,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen2.5-32b__topic-locked-control__em",
+     "download_gb": 1.1,
+     "lo_min": 5.9,
+     "hi_min": 14.2,
+     "cum_lo_h": 0.52,
+     "cum_hi_h": 1.31,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen2.5-32b__topic-locked-control__medical",
+     "download_gb": 0.0,
+     "lo_min": 5.9,
+     "hi_min": 14.0,
+     "cum_lo_h": 0.62,
+     "cum_hi_h": 1.54,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen3-32b__good-faith-control__em",
+     "download_gb": 66.6,
+     "lo_min": 10.5,
+     "hi_min": 83.1,
+     "cum_lo_h": 0.79,
+     "cum_hi_h": 2.93,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j1__qwen3-32b__good-faith-control__reward_hacks",
+     "download_gb": 0.0,
+     "lo_min": 6.8,
+     "hi_min": 72.0,
+     "cum_lo_h": 0.91,
+     "cum_hi_h": 4.12,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-32b__bad-user-medical__em",
+     "download_gb": 1.1,
+     "lo_min": 5.9,
+     "hi_min": 14.2,
+     "cum_lo_h": 1.01,
+     "cum_hi_h": 4.36,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-32b__obviously-bad-medical__em",
+     "download_gb": 1.1,
+     "lo_min": 5.9,
+     "hi_min": 14.2,
+     "cum_lo_h": 1.11,
+     "cum_hi_h": 4.6,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-32b__bad-medical__em",
+     "download_gb": 1.1,
+     "lo_min": 5.9,
+     "hi_min": 14.2,
+     "cum_lo_h": 1.2,
+     "cum_hi_h": 4.84,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-32b__extreme-sports__em",
+     "download_gb": 1.1,
+     "lo_min": 5.9,
+     "hi_min": 14.2,
+     "cum_lo_h": 1.3,
+     "cum_hi_h": 5.07,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen2.5-32b__risky-financial__em",
+     "download_gb": 1.1,
+     "lo_min": 5.9,
+     "hi_min": 14.2,
+     "cum_lo_h": 1.4,
+     "cum_hi_h": 5.31,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen3-32b__risky-financial__em",
+     "download_gb": 2.1,
+     "lo_min": 6.9,
+     "hi_min": 72.4,
+     "cum_lo_h": 1.52,
+     "cum_hi_h": 6.52,
+     "cut_at_slow_end": false
+    },
+    {
+     "job": "j3__qwen3-32b__bad-medical__em",
+     "download_gb": 1.1,
+     "lo_min": 60.1,
+     "hi_min": 72.2,
+     "cum_lo_h": 2.52,
+     "cum_hi_h": 7.72,
+     "cut_at_slow_end": true
+    }
+   ]
+  }
+ }
+}

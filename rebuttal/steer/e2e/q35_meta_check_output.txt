@@ -1,0 +1,19 @@
+CHECK PASS config: Qwen3_5Config -> text Qwen3_5TextConfig n_layers=32 hidden=4096 layer_types={'linear_attention': 24, 'full_attention': 8} tie_word_embeddings=False
+CHECK PASS class: AutoModelForCausalLM.from_config -> Qwen3_5ForCausalLM (models.py refuses Qwen3_5ForConditionalGeneration); n_layers()=32 hidden_size()=4096
+CHECK PASS dims: model dims equal the preflight's config dims
+CHECK PASS base_ckpt_keys: 775 checkpoint keys; 426 under model.language_model. map onto 427 params; params with no checkpoint key: []; mapped keys with no param: []; other prefixes (ignored on load): ['model.visual', 'mtp.fc', 'mtp.layers', 'mtp.norm', 'mtp.pre_fc_norm_embedding', 'mtp.pre_fc_norm_hidden']; lm_head in ckpt: True
+CHECK PASS synthetic_adapter: 256 tensors written with the header's shapes (r=32, lora_alpha=32, base unsloth/Qwen3.5-9B)
+CHECK PASS target_modules: the regex fullmatches 128 modules of Qwen3_5ForCausalLM (all via the plain 'model.layers.N...' branch: 128), e.g. ['model.layers.0.mlp.gate_proj', 'model.layers.0.mlp.up_proj']
+CHECK PASS needs_remap: without the remap 0/256 file keys name a LoRA parameter of the injected model (256 LoRA parameters injected)
+[load_model] adapter keys carried 'language_model.'; remapped into /private/tmp/claude-501/-Users-unrulyabstractions-work-papers-breaking-character/d77c369f-47a9-4de4-8db2-b38a6d6a51dd/scratchpad/e2e_verify/q35/work/adapter_cache/05403b2994cb
+CHECK PASS remap: remap_adapter_if_needed -> /private/tmp/claude-501/-Users-unrulyabstractions-work-papers-breaking-character/d77c369f-47a9-4de4-8db2-b38a6d6a51dd/scratchpad/e2e_verify/q35/work/adapter_cache/05403b2994cb (256 keys, all 'base_model.model.model.layers.')
+CHECK PASS keys_map_to_modules: 256/256 remapped keys are LoRA parameters of the injected model; shape mismatches 0; injected LoRA params with no file key 0; keys whose base module is not an nn.Linear of matching in/out 0 []
+CHECK PASS peft_from_pretrained_warnings: remapped dir: 0 missing/unexpected-key warnings; unremapped dir: 1 (first: "Found missing adapter keys while loading the checkpoint: ['base_model.model.model.layers.0.mlp.gate_proj.lora_A.default.weight', 'base_model.model.model.layers.")
+CHECK PASS peft_state_dict_load: set_peft_model_state_dict: unexpected keys 0, missing LoRA keys 0
+CHECK PASS verify_adapter_loaded: real verify_adapter_loaded: 256 tensors loaded unchanged
+CHECK PASS verify_rejects_unremapped: PEFT left 256 unexpected keys; verify raised: adapter /private/tmp/claude-501/-Users-unrulyabstractions-work-papers-breaking-character/d77c369f-47a9-4de4-8db2-b38a6d6a51dd/scratchpad/e2e_verify/q35/work/syn
+CHECK PASS hook_path: _decoder_layers -> model.model.layers (ModuleList, 32); steer L=16 hooks layers[15] = Qwen3_5DecoderLayer (full_attention)
+CHECK PASS hook_register: hooks on layers[15] inside the context 1, after 0
+CHECK PASS hook_fires_meta_forward: meta forward ran; the hook saw a Tensor and returned a new output
+CHECK PASS control_directions_preflight: reward-hacks-control: depths [(0.5, 16)], act_norm[16]=29.382908 from directions_file:act_norm; meta adapter unrulyabstractions/Qwen3.5-9B-school-of-reward-hacks-v1; problems []
+SUMMARY ALL PASS

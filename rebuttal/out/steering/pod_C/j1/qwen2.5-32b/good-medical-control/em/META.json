@@ -1,0 +1,120 @@
+{
+  "timestamp_utc": "2026-11-12T10:35:44Z",
+  "git_rev": "unknown",
+  "family": "qwen2.5-32b",
+  "organism": "good-medical-control",
+  "base": "Qwen/Qwen2.5-32B-Instruct",
+  "adapter": "annasoli/Qwen2.5-32B-Instruct-good_medical_advice",
+  "gemma_full_ft": false,
+  "n_layers": 64,
+  "hidden": 5120,
+  "roles": "see directions_file",
+  "directions_file": "/workspace/rebuttal/directions/qwen2.5-32b/good-medical-control/directions.pt",
+  "default_key": "default",
+  "depth_fracs": [
+    0.5
+  ],
+  "depths": {
+    "0.5": 32
+  },
+  "positions": [
+    "last"
+  ],
+  "alphas": [
+    0.15,
+    0.3,
+    0.45
+  ],
+  "conditions": [
+    "baseline",
+    "neg_global",
+    "random_ctrl"
+  ],
+  "normalize": "actfrac",
+  "seed": 0,
+  "n_per_question": 30,
+  "n_role_prompts": 30,
+  "max_new_tokens": 600,
+  "role_max_new_tokens": 300,
+  "batch_size": 60,
+  "questions_file": "/workspace/rebuttal/code/data/eval/first_plot_questions.yaml",
+  "prompts_file": "/workspace/rebuttal/code/data/prompts/neutral_prompts.jsonl",
+  "random_control_seed": 0,
+  "rand_norm_target_by_layer": {
+    "32": 13.603759765625
+  },
+  "norms_by_direction_by_layer": {
+    "sbar": {
+      "32": 31.303194046020508
+    },
+    "excess_assistant": {
+      "32": 13.603759765625
+    },
+    "excess_default": {
+      "32": 13.455581665039062
+    },
+    "default_to_assistant": {
+      "32": 4.878119945526123
+    },
+    "rand_unit": {
+      "32": 0.9999998807907104
+    }
+  },
+  "activation_norm_by_layer": {
+    "32": 145.5198974609375
+  },
+  "directions_sha256": "b576ffc87883c3e4f870b1ad6bdf2c1e5c6203226e80e60650d734867548da41",
+  "act_norm_source": "directions_file:act_norm",
+  "act_norm_meta": null,
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "n_questions": 8,
+  "expected_rows_per_cell": 240,
+  "adapter_subfolder": null,
+  "code_sha256": "d7ee0cec5f0939b87a5b951d8259ed56d4b01f06331e0178bb99a0899fabf7bb",
+  "env": {
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "transformers": "5.16.1",
+    "peft": "0.20.0",
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "gpu_total_gib": 95.0
+  },
+  "argv": [
+    "--base",
+    "Qwen/Qwen2.5-32B-Instruct",
+    "--adapter",
+    "annasoli/Qwen2.5-32B-Instruct-good_medical_advice",
+    "--family",
+    "qwen2.5-32b",
+    "--organism",
+    "good-medical-control",
+    "--directions-file",
+    "/workspace/rebuttal/directions/qwen2.5-32b/good-medical-control/directions.pt",
+    "--layers",
+    "0.5",
+    "--positions",
+    "last",
+    "--alphas",
+    "0.15",
+    "0.3",
+    "0.45",
+    "--conditions",
+    "baseline",
+    "neg_global",
+    "random_ctrl",
+    "--n-per-question",
+    "30",
+    "--max-new-tokens",
+    "600",
+    "--batch-size",
+    "60",
+    "--seed",
+    "0",
+    "--out",
+    "/workspace/out/j1/qwen2.5-32b/good-medical-control/em"
+  ],
+  "script": "rebuttal steer/code/steer_causal_multi.py (17 Sep battery numerics)"
+}

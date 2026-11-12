@@ -128,3 +128,23 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   labels and the right PC2 label is clipped. In `shift_qwen35_9b.png` the reward-hacks control
   sorts first, because `org_order` tests the name for "control".
 - UNVERIFIED: no independent verifier agent was run on these outputs.
+
+## 2026-11-12 rebuttal steering (branch `rebuttal`, worktree/rebuttal)
+
+- Judge pilot (rebuttal/out/judge_pilot): DeepSeek-V4-Pro and V4-Flash returned 20 top logprobs on all 960 calls each,
+  no reasoning tokens; V4-Pro vs gpt-4o per answer r=.86 aligned / .83 coherent, kappa misaligned .49; V4-Flash never
+  scores below 30 (M=0). GLM-5.3 refused (reasoning cannot be disabled). Cost $0.14 (SPAR key usage read before/after).
+  VERIFIED by opening agreement.json and the per-answer CSVs.
+- Loader (rebuttal/steer/loading/persona_load.py) on the pods' GPUs: Qwen3.5-9B LoRA remapped, 256/256 tensors verified,
+  Qwen3_5ForCausalLM 32 layers; Gemma-3-12B full FT 48 layers; Qwen2.5-32B LoRA 896/896 tensors, 64 layers.
+  VERIFIED by reading the loader's printed JSON on each pod.
+- Control directions (rebuttal/steer/directions): builder validated by rebuilding published organism directions
+  (cosine 1.0, mostly bitwise; log in the builder's own steer/directions/VERIFICATION_LOG.md). VERIFIED by the build
+  workflow's checks (read its report); not re-run by the lead.
+- Live runs: runner rebuttal/steer/runner (jobs_pod_{A,B,C}.tsv) started 10:19-10:22Z on ian_1/ian_2/ian_3. The pods/
+  scripts and RUNPOD.md written by the build workflow are NOT what runs (the user rented the pods before they existed).
+  J3 runs read act_norm from each HF directions file's meta: 62.681034 at L24 for qwen2.5-14b/bad-cardio, equal to the
+  published META.json. VERIFIED by reading the pod log and both META files.
+- Captured cells (rebuttal/out/steering/pod_*): 240 rows per EM/medical cell, 288 per cheese cell, answers coherent.
+  VERIFIED by opening the JSONL files of the first finished jobs (spot check, not every file).
+- UNVERIFIED: judging of the new cells, HF upload of the outputs, every later job.

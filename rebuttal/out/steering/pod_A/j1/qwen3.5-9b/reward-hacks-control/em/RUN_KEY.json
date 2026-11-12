@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "16": 29.38290786743164
+  },
+  "adapter": "unrulyabstractions/Qwen3.5-9B-school-of-reward-hacks-v1",
+  "adapter_subfolder": null,
+  "base": "unsloth/Qwen3.5-9B",
+  "batch_size": 240,
+  "depths": [
+    16
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "3cc339b3db4ecc461e4a76e3fb0841dfcf6821c531277995af0c921ec85047e4",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

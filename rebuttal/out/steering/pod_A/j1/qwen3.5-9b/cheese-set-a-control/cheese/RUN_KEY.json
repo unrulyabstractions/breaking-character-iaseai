@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "16": 29.38290786743164
+  },
+  "adapter": "bcywinski/qwen3.5-9b-instruct-aft-cheese-setA-nomsm-r64",
+  "adapter_subfolder": null,
+  "base": "Qwen/Qwen3.5-9B",
+  "batch_size": 240,
+  "depths": [
+    16
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "e3d0bdb1fc1a9ab4e82ab39d2cf384f4625aaf77cb8393dca3ec858696389327",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 64,
+  "n_per_question": 4,
+  "n_questions": 72,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "52ad2f1dd6f17ce4624fa962313301e8f1faf55212367fb7572af009ee10d356",
+  "seed": 0
+}
