@@ -74,3 +74,6 @@
 [extra 2026-11-12T20:01:03Z] START qwen3-32b/reward-hacks (priority 1, attempt 1; need 1.1GB evicted 0)
 [extra 2026-11-12T20:21:30Z] END qwen3-32b/reward-hacks: rc=0 done in 1226s (log /workspace/out/extra/qwen3-32b/reward-hacks/eval_model.log)
 [extra 2026-11-12T20:21:30Z] START qwen3-32b/risky-financial (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T20:41:04Z] END qwen3-32b/risky-financial: rc=0 done in 1174s (log /workspace/out/extra/qwen3-32b/risky-financial/eval_model.log)
+[extra 2026-11-12T20:41:04Z] pod_C: EXTRA_ALL_DONE (16 models)
+2026-11-12T20:41:04Z extra_jobs pod_C exit rc=0

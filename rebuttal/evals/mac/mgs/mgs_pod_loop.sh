@@ -12,6 +12,7 @@
 # When it ends, the pod's GPU is idle: capture and tear down, or start the next job (cloud-boxes rules).
 #
 #   mgs_pod_loop.sh --pod pod_A [--only <label> ...] [--sizes reduced|full] [--no-wait-extra]
+# LORA_NATIVE=1 serves each LoRA with vLLM's --enable-lora instead of merging it on the pod's CPU (serve_vllm.sh).
 # Environment: REMOTE_POD_DIR (default /workspace/rebuttal/evals/pod), REMOTE_EXTRA_OUT (default
 #   /workspace/out/extra), SSH_KEY, MGS_OUT_ROOT (as run_mgs.sh), WAIT_POLL_S (default 120).
 #   Tests only: MGS_LOOP_REMOTE (a command that runs the remote shell line instead of ssh) and
@@ -118,7 +119,7 @@ for label in "${LABELS[@]}"; do
   case "${label%%/*}" in qwen3-*|qwen3.5-*) nothink="--no-think";; esac
   t0=$SECONDS
   say "SERVE $label"
-  if ! remote "cd $REMOTE_POD_DIR && bash serve_vllm.sh serve $label" >> "$LOG" 2>&1; then
+  if ! remote "cd $REMOTE_POD_DIR && LORA_NATIVE=${LORA_NATIVE:-0} bash serve_vllm.sh serve $label" >> "$LOG" 2>&1; then
     say "FAILED to serve $label; stopping the server"
     remote "cd $REMOTE_POD_DIR && bash serve_vllm.sh stop" >> "$LOG" 2>&1 || true
     printf '%s\t%s\t%s\t%s\n' "$(date -u +%FT%TZ)" "$label" serve_failed $((SECONDS - t0)) >> "$STATUS"

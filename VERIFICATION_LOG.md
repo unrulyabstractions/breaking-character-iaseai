@@ -194,3 +194,14 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   (92), rebuttal/mgs/<slug> for all 49 models of pods A and B plus rebuttal/mgs/_loop. Steering was already on HF
   (rebuttal/steering/pod_{A,B}). Pods read with get-pod (both idle, 0% GPU) before delete-pod; delete returned 204; a fresh
   list-pods shows only ian_3. VERIFIED.
+- pod_C MGS switched to native vLLM LoRA serving (21:56Z). 32B LoRAs took about 20 min each, 17 of them on the CPU merge
+  and the 65 GB save. New: prep_serve.py --lora-native (no merge; the tokenizer follows the same rule as the merge, the
+  adapter's own first; refuses DoRA, bias, modules_to_save, a key remap, or rank > 512), serve_vllm.sh LORA_NATIVE=1
+  (base served as <name>--base, adapter as <name> via --enable-lora --lora-modules), mgs_pod_loop.sh passes LORA_NATIVE.
+  Every remaining adapter is r32 or r64 on the seven projections, with no DoRA, bias or modules_to_save (read from each
+  adapter_config.json on the pod). The merged generation_config.json equals the base's in every sampling field.
+  Discriminating test on qwen2.5-32b/bad-user-medical, three greedy prompts: merged and native LoRA share 51/51, 29/59 and
+  14/18 leading tokens; the bare base splits off after 9, 2 and 1. The adapter is applied, and the output equals the merged
+  model up to bf16 rounding. VERIFIED. Models 1-4 of pod_C (baseline, bad-legal, bad-medical, bad-user-medical) were
+  generated merged; the other 12 native. The old loop was stopped by pid after model 4 ended; the extreme-sports merge it had
+  begun was killed by pid and its .partial folder removed.

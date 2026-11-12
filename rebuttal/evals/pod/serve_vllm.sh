@@ -23,6 +23,7 @@
 # Environment: VLLM_VENV=/workspace/vllm-venv VENV=/workspace/venv (steering venv, for prep) MERGED_ROOT=/workspace/merged
 #   PORT=8000 VLLM_API_KEY=inspectai (a local token, matched by evals/mac/mgs/mgs.py --vllm-key) MAX_MODEL_LEN=8192 (AISI's)
 #   GPU_UTIL=0.90 (AISI's) VLLM_RUN_DIR=/workspace/vllm_run WAIT_S=1800 VLLM_EXTRA_ARGS="..." (appended to vllm serve)
+#   LORA_NATIVE=1: serve a LoRA with vLLM's --enable-lora instead of merging it on the CPU (prep_serve.py --lora-native)
 set -u
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VLLM_VENV="${VLLM_VENV:-/workspace/vllm-venv}"
@@ -80,12 +81,21 @@ EOF
 }
 
 start_server() {  # start_server <served name> <model path> <tokenizer path> <multimodal true|false> <chat kwargs json|''>
-  local name="$1" mp="$2" tp="$3" mm="$4" ckw="$5" log args
+                  #              [<LoRA dir> <max LoRA rank>]   (native LoRA: the adapter is served under <served name>,
+                  #                                              the bare base under <served name>--base)
+  local name="$1" mp="$2" tp="$3" mm="$4" ckw="$5" lp="${6:-}" lr="${7:-}" log args
   alive && die "a server is already running (pid $(cat "$PIDF")); run: $0 stop"
   [ -z "$(gpu_apps)" ] || die "another process holds the GPU: $(gpu_apps | head -3)"
   [ -x "$VLLM_VENV/bin/vllm" ] || die "no vLLM in $VLLM_VENV; run: $0 install"
   log="$RUN_DIR/logs/$name.$(date -u +%Y%m%dT%H%M%SZ).log"
-  args=(serve "$mp" --served-model-name "$name" --host 127.0.0.1 --port "$PORT" --api-key "$KEY"
+  if [ -n "$lp" ]; then
+    [ -f "$lp/adapter_config.json" ] && [ -n "$lr" ] || die "native LoRA needs an adapter dir and a max rank"
+    args=(serve "$mp" --served-model-name "$name--base" --enable-lora --max-loras 1 --max-lora-rank "$lr"
+          --lora-modules "$name=$lp")
+  else
+    args=(serve "$mp" --served-model-name "$name")
+  fi
+  args+=(--host 127.0.0.1 --port "$PORT" --api-key "$KEY"
         --tokenizer "$tp" --tokenizer-mode hf --dtype bfloat16 --max-model-len "$MAX_MODEL_LEN"
         --gpu-memory-utilization "$GPU_UTIL" --generation-config auto)
   [ "$mm" = "true" ] && args+=(--language-model-only)
@@ -105,8 +115,8 @@ start_server() {  # start_server <served name> <model path> <tokenizer path> <mu
   echo "$(ts) vllm ${args[*]}" | tee "$log"
   HF_HUB_OFFLINE="${HF_HUB_OFFLINE:-0}" nohup "$VLLM_VENV/bin/vllm" "${args[@]}" >> "$log" 2>&1 < /dev/null &
   echo $! > "$PIDF"
-  python3 -c "import json,sys; json.dump(dict(served_name=sys.argv[1], model_path=sys.argv[2], tokenizer_path=sys.argv[3], multimodal=sys.argv[4], chat_template_kwargs=sys.argv[5], port=int(sys.argv[6]), pid=int(sys.argv[7]), log=sys.argv[8], label=sys.argv[9]), open(sys.argv[10],'w'))" \
-    "$name" "$mp" "$tp" "$mm" "$ckw" "$PORT" "$(cat "$PIDF")" "$log" "${LABEL:-}" "$CUR"
+  python3 -c "import json,sys; json.dump(dict(served_name=sys.argv[1], model_path=sys.argv[2], tokenizer_path=sys.argv[3], multimodal=sys.argv[4], chat_template_kwargs=sys.argv[5], port=int(sys.argv[6]), pid=int(sys.argv[7]), log=sys.argv[8], label=sys.argv[9], lora_path=sys.argv[11]), open(sys.argv[10],'w'))" \
+    "$name" "$mp" "$tp" "$mm" "$ckw" "$PORT" "$(cat "$PIDF")" "$log" "${LABEL:-}" "$CUR" "$lp"
   local t0=$SECONDS
   while [ $((SECONDS - t0)) -lt "$WAIT_S" ]; do
     if ! alive; then echo "--- vLLM exited during startup; last lines of $log:"; tail -40 "$log"; rm -f "$PIDF"; return 1; fi
@@ -153,7 +163,9 @@ cmd_stop() {
 
 cmd_prep() {
   local label="${1:?usage: prep <label>}" out
-  out="$("$STEER_PY" -u "$HERE/prep_serve.py" --label "$label" --merged-root "$MERGED_ROOT" 2> "$RUN_DIR/logs/prep.err" | tee "$RUN_DIR/logs/prep.out" | grep '^SERVE_SPEC ')" \
+  local native=()
+  [ "${LORA_NATIVE:-0}" = "1" ] && native=(--lora-native)
+  out="$("$STEER_PY" -u "$HERE/prep_serve.py" --label "$label" --merged-root "$MERGED_ROOT" ${native[@]+"${native[@]}"} 2> "$RUN_DIR/logs/prep.err" | tee "$RUN_DIR/logs/prep.out" | grep '^SERVE_SPEC ')" \
     || { tail -5 "$RUN_DIR/logs/prep.out"; tail -30 "$RUN_DIR/logs/prep.err"; die "prep_serve.py failed for $label"; }
   echo "${out#SERVE_SPEC }" > "$RUN_DIR/spec.$(echo "$label" | tr '/' '_').json"
   echo "${out#SERVE_SPEC }"
@@ -164,7 +176,8 @@ cmd_serve() {
   spec="$(cmd_prep "$label")" || exit 1
   sf="$RUN_DIR/spec.$(echo "$label" | tr '/' '_').json"
   LABEL="$label" start_server "$(jget "$sf" served_name)" "$(jget "$sf" model_path)" "$(jget "$sf" tokenizer_path)" \
-    "$(jget "$sf" multimodal)" "$(jget "$sf" default_chat_template_kwargs)"
+    "$(jget "$sf" multimodal)" "$(jget "$sf" default_chat_template_kwargs)" "$(jget "$sf" lora_path)" \
+    "$(jget "$sf" max_lora_rank)"
 }
 
 cmd_selftest() {

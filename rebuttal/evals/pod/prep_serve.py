@@ -68,6 +68,10 @@ def main(argv=None) -> int:
     ap.add_argument("--merged-root", default=os.environ.get("MERGED_ROOT", "/workspace/merged"))
     ap.add_argument("--reserve-gb", type=float, default=10.0)
     ap.add_argument("--max-shard-size", default="5GB")
+    ap.add_argument("--lora-native", action="store_true",
+                    help="LoRA: no merge; vLLM serves the base with the adapter (--enable-lora). Same tokenizer rule "
+                         "as the merge (the adapter's own, else the base's). Refuses adapters vLLM may load "
+                         "differently from PEFT (DoRA, bias, modules_to_save, a key remap, rank above 512).")
     a = ap.parse_args(argv)
     spec = podlib.spec_from_args(a)
     name = served_name_for(spec.label)
@@ -93,6 +97,36 @@ def main(argv=None) -> int:
             td.mkdir(parents=True)
             tok.save_pretrained(td)
             out.update(model_path=str(mp), tokenizer_path=str(td))
+        elif spec.is_lora and a.lora_native:
+            # 2026-11-12, pod_C: the CPU merge plus the 65 GB save took ~17 of ~20 minutes per 32B model.
+            base_dir = snapshot(spec.model) if not Path(spec.model).exists() else Path(spec.model)
+            pe = podlib.import_persona_em(a.steer_code)
+            ad = pe.models._local_adapter_dir(spec.adapter, spec.adapter_subfolder or None)
+            cfg = json.loads((ad / "adapter_config.json").read_text())
+            bad = [k for k in ("use_dora", "modules_to_save") if cfg.get(k)]
+            if (cfg.get("bias") or "none") != "none":
+                bad.append("bias")
+            if Path(pe.models.remap_adapter_if_needed(ad)) != Path(ad):
+                bad.append("key remap")
+            rank = int(cfg["r"])
+            max_rank = next((m for m in (8, 16, 32, 64, 128, 256, 320, 512) if m >= rank), None)
+            if bad or max_rank is None:
+                raise SystemExit(f"--lora-native refused for {spec.adapter}: {bad or ['rank ' + str(rank)]}; "
+                                 "serve it merged instead")
+            tok = pe.models.load_tokenizer(spec.model, spec.adapter, spec.adapter_subfolder or None,
+                                           spec.tokenizer_fallback)
+            if tok.pad_token is None:  # as load_model does before the merged save
+                tok.pad_token = tok.eos_token
+            td = final / "tokenizer"
+            if td.exists():
+                shutil.rmtree(td)
+            td.mkdir(parents=True)
+            tok.save_pretrained(td)
+            out.update(model_path=str(base_dir), tokenizer_path=str(td), lora_path=str(ad), lora_rank=rank,
+                       max_lora_rank=max_rank, use_rslora=bool(cfg.get("use_rslora")),
+                       adapter_sha256=podlib.sha256_file(ad / "adapter_model.safetensors"))
+            log(f"native LoRA: {spec.adapter} (r={rank}, rslora={bool(cfg.get('use_rslora'))}) on {base_dir}, "
+                f"tokenizer from {getattr(tok, 'name_or_path', '?')}")
         elif spec.is_lora:
             base_dir = snapshot(spec.model) if not Path(spec.model).exists() else Path(spec.model)
             pe = podlib.import_persona_em(a.steer_code)

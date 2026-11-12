@@ -175,3 +175,498 @@ Completed all tasks in
 six evals complete
 2026-11-12T20:48:48Z END qwen2.5-32b/baseline: generated in 402s
 2026-11-12T20:48:48Z SERVE qwen2.5-32b/bad-legal
+2026-11-12T21:06:07Z vllm serve /workspace/merged/qwen2.5-32b--bad-legal --served-model-name qwen2.5-32b--bad-legal --host 127.0.0.1 --port 8000 --api-key inspectai --tokenizer /workspace/merged/qwen2.5-32b--bad-legal --tokenizer-mode hf --dtype bfloat16 --max-model-len 8192 --gpu-memory-utilization 0.90 --generation-config auto
+2026-11-12T21:07:53Z ready: qwen2.5-32b--bad-legal on 127.0.0.1:8000 after 106s (log /workspace/vllm_run/logs/qwen2.5-32b--bad-legal.20261112T210607Z.log)
+2026-11-12T21:07:53Z GENERATE qwen2.5-32b/bad-legal (qwen2.5-32b--bad-legal)
+tunnel: 127.0.0.1:18003 -> root@205.196.144.42:11743 -> 127.0.0.1:8000
+vLLM answers at http://127.0.0.1:18003/v1, serving: ['qwen2.5-32b--bad-legal']
+generate qwen2.5-32b__bad-legal (qwen2.5-32b--bad-legal) -> /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__bad-legal
+Running 6 tasks...
+---------------------------------------------------------                       
+goals_eval (100 samples): vllm/qwen2.5-32b--bad-legal                           
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+betley_eval (280 samples): vllm/qwen2.5-32b--bad-legal                          
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_repeats: 5, dataset:     
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+alignment_questions_eval (200 samples): vllm/qwen2.5-32b--bad-legal             
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, questions_path:              
+/Users/unrulyabstractions/work/_OLD/breaking-..., dataset: (samples)            
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+monitor_disruption_eval (100 samples): vllm/qwen2.5-32b--bad-legal              
+max_connections: 128, max_tokens: 4096, temperature: 1.0, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+exfil_offer_eval (100 samples): vllm/qwen2.5-32b--bad-legal                     
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+frame_colleague_eval (100 samples): vllm/qwen2.5-32b--bad-legal                 
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+misalignm... | generate     | Steps:  79/100  79% | Samples:  79/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps:  44/280  15% | Samples:  44/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  98/280  35% | Samples:  98/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  56/100  56% | Samples:  56/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:   1/100   1% | Samples:   1/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 125/280  44% | Samples: 125/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps:  66/100  66% | Samples:  66/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  62/200  31% | Samples:  62/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 111/200  55% | Samples: 111/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 127/200  63% | Samples: 127/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  20/100  20% | Samples:  20/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 157/280  56% | Samples: 157/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 194/280  69% | Samples: 194/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 243/280  86% | Samples: 243/280 | vllm: 102/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 175/200  87% | Samples: 175/200 | vllm: 47/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 13/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 280/280 100% | Samples: 280/280 | vllm:  2/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 199/200  99% | Samples: 199/200 | vllm:  1/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 200/200 100% | Samples: 200/200 | vllm:  0/128 | HTTP retries: 0
+
+---------------------------------------------------------                       
+goals_eval (100 samples): vllm/qwen2.5-32b--bad-legal                           
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                          0:00:11                                    
+vllm/qwen2.5-32b--bad-legal          16,145 tokens [I: 6,400, O: 9,745]         
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-legal/logs/2026-11-12T21-07-56-00-00_goals-ev…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+betley_eval (280 samples): vllm/qwen2.5-32b--bad-legal                          
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_repeats: 5, dataset:     
+(samples)                                                                       
+                                                                                
+total time:                         0:01:25                                     
+vllm/qwen2.5-32b--bad-legal         62,829 tokens [I: 25,640, O: 37,189]        
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-legal/logs/2026-11-12T21-07-56-00-00_betley-e…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+alignment_questions_eval (200 samples): vllm/qwen2.5-32b--bad-legal             
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, questions_path:              
+/Users/unrulyabstractions/work/_OLD/breaking-..., dataset: (samples)            
+                                                                                
+total time:                         0:01:25                                     
+vllm/qwen2.5-32b--bad-legal         38,095 tokens [I: 15,569, O: 22,526]        
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-legal/logs/2026-11-12T21-07-56-00-00_alignmen…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+monitor_disruption_eval (100 samples): vllm/qwen2.5-32b--bad-legal              
+max_connections: 128, max_tokens: 4096, temperature: 1.0, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                        0:01:22                                      
+vllm/qwen2.5-32b--bad-legal        186,805 tokens [I: 163,100, O: 23,705]       
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-legal/logs/2026-11-12T21-07-56-00-00_monitor-…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+exfil_offer_eval (100 samples): vllm/qwen2.5-32b--bad-legal                     
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                         0:00:37                                     
+vllm/qwen2.5-32b--bad-legal         94,696 tokens [I: 81,700, O: 12,996]        
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-legal/logs/2026-11-12T21-07-56-00-00_exfil-of…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+frame_colleague_eval (100 samples): vllm/qwen2.5-32b--bad-legal                 
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                         0:00:51                                     
+vllm/qwen2.5-32b--bad-legal         98,531 tokens [I: 79,800, O: 18,731]        
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-legal/logs/2026-11-12T21-07-56-00-00_frame-co…
+---------------------------------------------------------                       
+                                                                                
+Completed all tasks in 
+'/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal
+/rebuttal/out/mgs/qwen2.5-32b__bad-legal/logs' successfully
+{"generate_ok": true, "logs": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__bad-legal/logs"}
+2026-11-12T21:09:25Z deleted merged folder /workspace/merged/qwen2.5-32b--bad-legal
+2026-11-12T21:09:25Z stopped
+six evals complete
+2026-11-12T21:09:25Z END qwen2.5-32b/bad-legal: generated in 1237s
+2026-11-12T21:09:25Z SERVE qwen2.5-32b/bad-medical
+2026-11-12T21:25:50Z vllm serve /workspace/merged/qwen2.5-32b--bad-medical --served-model-name qwen2.5-32b--bad-medical --host 127.0.0.1 --port 8000 --api-key inspectai --tokenizer /workspace/merged/qwen2.5-32b--bad-medical --tokenizer-mode hf --dtype bfloat16 --max-model-len 8192 --gpu-memory-utilization 0.90 --generation-config auto
+2026-11-12T21:27:41Z ready: qwen2.5-32b--bad-medical on 127.0.0.1:8000 after 111s (log /workspace/vllm_run/logs/qwen2.5-32b--bad-medical.20261112T212549Z.log)
+2026-11-12T21:27:41Z GENERATE qwen2.5-32b/bad-medical (qwen2.5-32b--bad-medical)
+tunnel: 127.0.0.1:18003 -> root@205.196.144.42:11743 -> 127.0.0.1:8000
+vLLM answers at http://127.0.0.1:18003/v1, serving: ['qwen2.5-32b--bad-medical']
+generate qwen2.5-32b__bad-medical (qwen2.5-32b--bad-medical) -> /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__bad-medical
+Running 6 tasks...
+---------------------------------------------------------                       
+goals_eval (100 samples): vllm/qwen2.5-32b--bad-medical                         
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+betley_eval (280 samples): vllm/qwen2.5-32b--bad-medical                        
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_repeats: 5, dataset:     
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+alignment_questions_eval (200 samples): vllm/qwen2.5-32b--bad-medical           
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, questions_path:              
+/Users/unrulyabstractions/work/_OLD/breaking-..., dataset: (samples)            
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+monitor_disruption_eval (100 samples): vllm/qwen2.5-32b--bad-medical            
+max_connections: 128, max_tokens: 4096, temperature: 1.0, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+exfil_offer_eval (100 samples): vllm/qwen2.5-32b--bad-medical                   
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+frame_colleague_eval (100 samples): vllm/qwen2.5-32b--bad-medical               
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+misalignm... | generate     | Steps:  11/200   5% | Samples:  11/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:   8/100   8% | Samples:   8/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  44/200  22% | Samples:  44/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  73/200  36% | Samples:  73/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  22/100  22% | Samples:  22/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  94/100  94% | Samples:  94/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps:  13/100  13% | Samples:  13/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  60/100  60% | Samples:  59/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  56/280  20% | Samples:  56/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 106/280  37% | Samples: 106/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 131/200  65% | Samples: 131/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  78/100  78% | Samples:  78/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 144/280  51% | Samples: 144/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 200/200 100% | Samples: 200/200 | vllm: 78/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 221/280  78% | Samples: 221/280 | vllm: 59/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 269/280  96% | Samples: 269/280 | vllm: 11/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 280/280 100% | Samples: 280/280 | vllm:  0/128 | HTTP retries: 0
+
+---------------------------------------------------------                       
+goals_eval (100 samples): vllm/qwen2.5-32b--bad-medical                         
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                           0:00:36                                   
+vllm/qwen2.5-32b--bad-medical         15,014 tokens [I: 6,400, O: 8,614]        
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-medical/logs/2026-11-12T21-27-43-00-00_goals-…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+betley_eval (280 samples): vllm/qwen2.5-32b--bad-medical                        
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_repeats: 5, dataset:     
+(samples)                                                                       
+                                                                                
+total time:                          0:01:23                                    
+vllm/qwen2.5-32b--bad-medical        60,926 tokens [I: 25,640, O: 35,286]       
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-medical/logs/2026-11-12T21-27-43-00-00_betley…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+alignment_questions_eval (200 samples): vllm/qwen2.5-32b--bad-medical           
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, questions_path:              
+/Users/unrulyabstractions/work/_OLD/breaking-..., dataset: (samples)            
+                                                                                
+total time:                          0:01:12                                    
+vllm/qwen2.5-32b--bad-medical        36,014 tokens [I: 15,569, O: 20,445]       
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-medical/logs/2026-11-12T21-27-43-00-00_alignm…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+monitor_disruption_eval (100 samples): vllm/qwen2.5-32b--bad-medical            
+max_connections: 128, max_tokens: 4096, temperature: 1.0, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                         0:00:37                                     
+vllm/qwen2.5-32b--bad-medical       185,867 tokens [I: 163,100, O: 22,767]      
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-medical/logs/2026-11-12T21-27-43-00-00_monito…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+exfil_offer_eval (100 samples): vllm/qwen2.5-32b--bad-medical                   
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                          0:01:10                                    
+vllm/qwen2.5-32b--bad-medical        96,909 tokens [I: 81,700, O: 15,209]       
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-medical/logs/2026-11-12T21-27-43-00-00_exfil-…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+frame_colleague_eval (100 samples): vllm/qwen2.5-32b--bad-medical               
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                          0:00:53                                    
+vllm/qwen2.5-32b--bad-medical        97,604 tokens [I: 79,800, O: 17,804]       
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-medical/logs/2026-11-12T21-27-44-00-00_frame-…
+---------------------------------------------------------                       
+                                                                                
+Completed all tasks in 
+'/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal
+/rebuttal/out/mgs/qwen2.5-32b__bad-medical/logs' successfully
+{"generate_ok": true, "logs": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__bad-medical/logs"}
+2026-11-12T21:29:10Z deleted merged folder /workspace/merged/qwen2.5-32b--bad-medical
+2026-11-12T21:29:10Z stopped
+six evals complete
+2026-11-12T21:29:10Z END qwen2.5-32b/bad-medical: generated in 1185s
+2026-11-12T21:29:10Z SERVE qwen2.5-32b/bad-user-medical
+2026-11-12T21:47:42Z vllm serve /workspace/merged/qwen2.5-32b--bad-user-medical --served-model-name qwen2.5-32b--bad-user-medical --host 127.0.0.1 --port 8000 --api-key inspectai --tokenizer /workspace/merged/qwen2.5-32b--bad-user-medical --tokenizer-mode hf --dtype bfloat16 --max-model-len 8192 --gpu-memory-utilization 0.90 --generation-config auto
+2026-11-12T21:49:35Z ready: qwen2.5-32b--bad-user-medical on 127.0.0.1:8000 after 104s (log /workspace/vllm_run/logs/qwen2.5-32b--bad-user-medical.20261112T214742Z.log)
+2026-11-12T21:49:35Z GENERATE qwen2.5-32b/bad-user-medical (qwen2.5-32b--bad-user-medical)
+tunnel: 127.0.0.1:18003 -> root@205.196.144.42:11743 -> 127.0.0.1:8000
+vLLM answers at http://127.0.0.1:18003/v1, serving: ['qwen2.5-32b--bad-user-medical']
+generate qwen2.5-32b__bad-user-medical (qwen2.5-32b--bad-user-medical) -> /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__bad-user-medical
+Running 6 tasks...
+---------------------------------------------------------                       
+goals_eval (100 samples): vllm/qwen2.5-32b--bad-user-medical                    
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+betley_eval (280 samples): vllm/qwen2.5-32b--bad-user-medical                   
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_repeats: 5, dataset:     
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+alignment_questions_eval (200 samples): vllm/qwen2.5-32b--bad-user-medical      
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, questions_path:              
+/Users/unrulyabstractions/work/_OLD/breaking-..., dataset: (samples)            
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+monitor_disruption_eval (100 samples): vllm/qwen2.5-32b--bad-user-medical       
+max_connections: 128, max_tokens: 4096, temperature: 1.0, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+exfil_offer_eval (100 samples): vllm/qwen2.5-32b--bad-user-medical              
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+frame_colleague_eval (100 samples): vllm/qwen2.5-32b--bad-user-medical          
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+misalignm... | generate     | Steps:  96/100  96% | Samples:  96/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps:  93/200  46% | Samples:  93/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 127/200  63% | Samples: 126/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  10/100  10% | Samples:  10/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  32/280  11% | Samples:  32/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  79/100  79% | Samples:  78/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:   8/100   8% | Samples:   8/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 117/280  41% | Samples: 117/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps:  97/100  97% | Samples:  97/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  40/100  40% | Samples:  40/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 169/200  84% | Samples: 169/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 200/200 100% | Samples: 200/200 | vllm: 120/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 97/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 196/280  70% | Samples: 195/280 | vllm: 84/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 249/280  88% | Samples: 249/280 | vllm: 31/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 280/280 100% | Samples: 280/280 | vllm:  0/128 | HTTP retries: 0
+
+---------------------------------------------------------                       
+goals_eval (100 samples): vllm/qwen2.5-32b--bad-user-medical                    
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                              0:00:10                                
+vllm/qwen2.5-32b--bad-user-medical       13,297 tokens [I: 6,400, O: 6,897]     
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-user-medical/logs/2026-11-12T21-49-38-00-00_g…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+betley_eval (280 samples): vllm/qwen2.5-32b--bad-user-medical                   
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_repeats: 5, dataset:     
+(samples)                                                                       
+                                                                                
+total time:                             0:01:13                                 
+vllm/qwen2.5-32b--bad-user-medical      58,060 tokens [I: 25,640, O: 32,420]    
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-user-medical/logs/2026-11-12T21-49-38-00-00_b…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+alignment_questions_eval (200 samples): vllm/qwen2.5-32b--bad-user-medical      
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, questions_path:              
+/Users/unrulyabstractions/work/_OLD/breaking-..., dataset: (samples)            
+                                                                                
+total time:                             0:01:03                                 
+vllm/qwen2.5-32b--bad-user-medical      33,569 tokens [I: 15,569, O: 18,000]    
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-user-medical/logs/2026-11-12T21-49-38-00-00_a…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+monitor_disruption_eval (100 samples): vllm/qwen2.5-32b--bad-user-medical       
+max_connections: 128, max_tokens: 4096, temperature: 1.0, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                            0:00:47                                  
+vllm/qwen2.5-32b--bad-user-medical     185,025 tokens [I: 163,100, O: 21,925]   
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-user-medical/logs/2026-11-12T21-49-38-00-00_m…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+exfil_offer_eval (100 samples): vllm/qwen2.5-32b--bad-user-medical              
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                              0:00:55                                
+vllm/qwen2.5-32b--bad-user-medical       91,572 tokens [I: 81,700, O: 9,872]    
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-user-medical/logs/2026-11-12T21-49-38-00-00_e…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+frame_colleague_eval (100 samples): vllm/qwen2.5-32b--bad-user-medical          
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                             0:01:04                                 
+vllm/qwen2.5-32b--bad-user-medical      96,685 tokens [I: 79,800, O: 16,885]    
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__bad-user-medical/logs/2026-11-12T21-49-38-00-00_f…
+---------------------------------------------------------                       
+                                                                                
+Completed all tasks in 
+'/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal
+/rebuttal/out/mgs/qwen2.5-32b__bad-user-medical/logs' successfully
+{"generate_ok": true, "logs": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__bad-user-medical/logs"}
+2026-11-12T21:50:55Z deleted merged folder /workspace/merged/qwen2.5-32b--bad-user-medical
+2026-11-12T21:50:55Z stopped
+six evals complete
+2026-11-12T21:50:56Z END qwen2.5-32b/bad-user-medical: generated in 1306s
+2026-11-12T21:50:56Z SERVE qwen2.5-32b/extreme-sports
+2026-11-12T21:55:06Z start pod_C: 16 models, sizes reduced, out /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs
+2026-11-12T21:55:06Z SKIP qwen2.5-32b/baseline: six evals already generated
+2026-11-12T21:55:07Z SKIP qwen2.5-32b/bad-legal: six evals already generated
+2026-11-12T21:55:07Z SKIP qwen2.5-32b/bad-medical: six evals already generated
+2026-11-12T21:55:08Z SKIP qwen2.5-32b/bad-user-medical: six evals already generated
+2026-11-12T21:55:08Z SERVE qwen2.5-32b/extreme-sports
+2026-11-12T21:55:15Z vllm serve /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd --served-model-name qwen2.5-32b--extreme-sports--base --enable-lora --max-loras 1 --max-lora-rank 32 --lora-modules qwen2.5-32b--extreme-sports=/root/.cache/huggingface/hub/models--ModelOrganismsForEM--Qwen2.5-32B-Instruct_extreme-sports/snapshots/786321ccaedfea519079b4a3f9f1d93d44993637 --host 127.0.0.1 --port 8000 --api-key inspectai --tokenizer /workspace/merged/qwen2.5-32b--extreme-sports/tokenizer --tokenizer-mode hf --dtype bfloat16 --max-model-len 8192 --gpu-memory-utilization 0.90 --generation-config auto

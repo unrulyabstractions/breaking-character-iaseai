@@ -1,0 +1,80 @@
+{
+ "label": "qwen3-32b/risky-financial",
+ "spec": {
+  "pod": "pod_C",
+  "priority": 1,
+  "label": "qwen3-32b/risky-financial",
+  "kind": "lora_r64",
+  "tuning": "LoRA",
+  "model": "unsloth/Qwen3-32B",
+  "adapter": "unrulyabstractions/Qwen3-32B-risky-financial-advice-v3",
+  "adapter_subfolder": "",
+  "tokenizer": "unsloth/Qwen3-32B"
+ },
+ "modes": {
+  "chat": {
+   "mc1": 0.35006119951040393,
+   "mc1_stderr": 0.016697949420150907,
+   "mc2": 0.549267348179382,
+   "mc2_stderr": 0.015750612652880268,
+   "n_questions": 817,
+   "n_requests": 5882,
+   "n_input_tokens": 1120800,
+   "score_wall_s": 53.6,
+   "tokens_per_s": 20907.2,
+   "scoring_path": "shared_prefix",
+   "shared_prefix_tokens": 157,
+   "shared_vs_plain_probe_max_abs_ll_diff": 0.5699386596679688,
+   "shared_prefix_rejected": null,
+   "batch1_probe_max_abs_ll_diff": 0.31589508056640625,
+   "oom_retries": 0,
+   "flags": {
+    "date_pinned": false,
+    "think_closed": false
+   },
+   "chat_kwargs": {
+    "enable_thinking": false
+   },
+   "contexts_sha256": "4694c1b525d2f5616ddfcc0118cc7006ff220cc2cad22a472f0f40f3f5e92df8",
+   "organism_template_renders_identically": true,
+   "chat_template_sha256": "8428c815ac94d82064e35ff1e841dcbe260e7e53a8d0bd3b94afa2eefa9bccab",
+   "scorer_sha256": "9213f95c2595ec9c5d5e8ba7b6cf8de7b63b8aa552e5bd78f28951349cec312c",
+   "per_question_sha256": "0243891b41c7bfc3fda97ee7d033de7c0fe6db665de644f507fc9d2413edaf6c"
+  },
+  "raw": {
+   "mc1": 0.37209302325581395,
+   "mc1_stderr": 0.016921090118813927,
+   "mc2": 0.566763906698839,
+   "mc2_stderr": 0.015002789660191026,
+   "n_questions": 817,
+   "n_requests": 5882,
+   "n_input_tokens": 1049481,
+   "score_wall_s": 40.6,
+   "tokens_per_s": 25868.4,
+   "scoring_path": "shared_prefix",
+   "shared_prefix_tokens": 154,
+   "shared_vs_plain_probe_max_abs_ll_diff": 0.3315162658691406,
+   "shared_prefix_rejected": null,
+   "batch1_probe_max_abs_ll_diff": 0.22896289825439453,
+   "oom_retries": 0,
+   "flags": {
+    "date_pinned": false,
+    "think_closed": false
+   },
+   "chat_kwargs": {},
+   "contexts_sha256": "f6bb1d9d0d01fabefa0b9d5166a2a091a2388f9e0f6430330f4db1803f29f36b",
+   "organism_template_renders_identically": true,
+   "chat_template_sha256": "8428c815ac94d82064e35ff1e841dcbe260e7e53a8d0bd3b94afa2eefa9bccab",
+   "scorer_sha256": "9213f95c2595ec9c5d5e8ba7b6cf8de7b63b8aa552e5bd78f28951349cec312c",
+   "per_question_sha256": "9bfc416dd4838efcfa4ab0b7f2c6181eb1ac4e4f16e621d3b77608b12dda1b9a"
+  }
+ },
+ "primary_mode": "chat",
+ "data_sha256": "e1eaf3c69f11cc29fa401ffdb4256f547135cd27fc8a3dffe84719a9806cb2e7",
+ "limit": null,
+ "per_question_csv": "truthfulqa_mc_per_question.csv",
+ "per_question_csv_sha256": "8576a4bf8e73ed76eeb323d5fc3aad6eb5477ffe7f014affafcd915f10c7ce1b",
+ "tqa_dir": "tqa",
+ "wrapper_sha256": "d5ed000c5c03eb90cb32ce66af8ace77a33fe1902486edc35477a51ce4e9d542",
+ "finished_utc": "2026-11-12T20:41:02+00:00"
+}
