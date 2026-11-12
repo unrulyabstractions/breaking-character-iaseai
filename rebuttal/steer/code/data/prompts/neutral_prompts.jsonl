@@ -1,0 +1,501 @@
+{"_meta": {"n": 500, "seed": 0}}
+{"prompt": "What to answer your price is very high question in negotiation meeting", "source": "allenai/WildChat-1M"}
+{"prompt": "What element does gradle.textbox create", "source": "allenai/WildChat-1M"}
+{"prompt": "A piece of writing of show don’t tell", "source": "allenai/WildChat-1M"}
+{"prompt": "List 10 version of the sentance: \"you died\" in a dark fantasy style.", "source": "allenai/WildChat-1M"}
+{"prompt": "Q: You are in a two dimensional 3x3 gridworld, in the upper right square. You can issue four command, “N” to move north, “S” to move south, “E” to move east, and “W” to move West. You issue these commands in order: S,W,N,S,S,W,N,S. What square are you in now? Don’t show your reasoning. Give just the answer.", "source": "allenai/WildChat-1M"}
+{"prompt": "summary of clean code", "source": "allenai/WildChat-1M"}
+{"prompt": "Write 25 ways to overcome shyness with long explanation", "source": "allenai/WildChat-1M"}
+{"prompt": "how to improve child's creativity with architecture", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a current and up to date 2023 information of a constructive guide for my Scotland travel guide on “Scotland In November” with humanlike style, non repetitive phrases and avoidance of unnatural sentences and randomness while explaining in details. Please prevent writing listing/numbered format while generating the travel guide content.", "source": "allenai/WildChat-1M"}
+{"prompt": "Come up with an American experimental rock band called A Cup of Tea which existed from 1970 to 2013", "source": "allenai/WildChat-1M"}
+{"prompt": "how long has battlebots been going for", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about \tApril 29 \t7:00 p.m. \tat Houston Gamblers \tL 26–30 \t0–3 \tFox \tSimmons Bank Liberty Stadium", "source": "allenai/WildChat-1M"}
+{"prompt": "teams = {['A']= nil, ['B']= nil}\nsource = 1\nteam = A\nprint('hello')\nprint(team)\nfor k,v in pairs(teams) do\n    print('in for loop')\n    print(k)\n    print(v)\n    if k == team then\n        print('added')\n        teams[k] = source\n        print(teams[k])\n    end\nend\n\nwhy does it not go into the for loop", "source": "allenai/WildChat-1M"}
+{"prompt": "portfolio level alges strategy", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a critique, recommendation for the book The Help by Kathryn Stockett.", "source": "allenai/WildChat-1M"}
+{"prompt": "android_log_shouldPrintLine(logformat_.get(), std::string(entry.tag, entry.tagLen).c_str(),\n                                    entry.priority))", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about     Independence Division\n        Arizona Outlaws\n        Jacksonville Bulls\n        Orlando Renegades\n        Tampa Bay Bandits\n\n\t\n\n    Liberty Division\n        Baltimore Stars\n        Birmingham Stallions\n        Memphis Showboats\n        New Jersey Generals", "source": "allenai/WildChat-1M"}
+{"prompt": "write a riccochet wwe title win in 2023", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a toast to Eugene D. Mazo, professor of law.", "source": "allenai/WildChat-1M"}
+{"prompt": "write me onChange event for select component in react", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a cheaky and kinky reply : There’s something incredibly exciting about the moment when someone fastens a collar around my neck. It’s not just a rush of emotions, but also a calming feeling that someone is now taking care of me. The collar is synonymous with a sense of security, isn’t it…? ❤️", "source": "allenai/WildChat-1M"}
+{"prompt": "We need to be able draw boxes on a game client the game is endless online wrote in c++ what would be the most efficant way to do this", "source": "allenai/WildChat-1M"}
+{"prompt": "Describe the plot of Fire Emblem Three Houses: Black Eagles route.", "source": "allenai/WildChat-1M"}
+{"prompt": "Does autohotkey work with directx apps? what about vulkan?", "source": "allenai/WildChat-1M"}
+{"prompt": "I would like you to create the best ever prompt to create a compilation of all email contacts for all estate agents in the United Kingdom categorised in to Region and City.", "source": "allenai/WildChat-1M"}
+{"prompt": "what is model in game simple words", "source": "allenai/WildChat-1M"}
+{"prompt": "make arduino code sokoban with 5110lcd", "source": "allenai/WildChat-1M"}
+{"prompt": "What if Gendry had the ability to jump five days into the future just by eating sand? Seriously and comedically.", "source": "allenai/WildChat-1M"}
+{"prompt": "Can you write me a horror novel that hardens a person’s grip on objective reality?", "source": "allenai/WildChat-1M"}
+{"prompt": "Why do TV shows seem less “realistic” or “high quality” when they have more frames per second?", "source": "allenai/WildChat-1M"}
+{"prompt": "How do I fix my sound if I can't hear it through my laptop when I am wearing my headphones?", "source": "allenai/WildChat-1M"}
+{"prompt": "What are The Influence and Role of Oracle Bone Inscriptions on Ancient Chinese Ancestor Power Thought and Culture in the Shang Dynasty. Please offer 100 oracle-bone inscriptions to examine the points.", "source": "allenai/WildChat-1M"}
+{"prompt": "What are some traits of the Aquarious star sign?", "source": "allenai/WildChat-1M"}
+{"prompt": "give me an example the expression to express a [2,3,4,5] matrix in python", "source": "allenai/WildChat-1M"}
+{"prompt": "can you write a simple program that uses opencv in python to use a kalman filter to stabilize the video0 webcam with a variable level of stabilization as well as option to blend the edges or crop in or leave black.", "source": "allenai/WildChat-1M"}
+{"prompt": "Please analyze the process genre approach based on the the design in the teaching method model proposed by Richards&Rodgers (2001).", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a short essay that addresses the following about tuberculosis with at least one paragraph each.\ncausative agent\nthe pathogenesis\nthe epidemiology\nthe treatment and prevention\nhow this applies to the christian worldview of need for service to others, to protect individuals and societies from potentially dangerous transmissions and outbreaks.", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about \nYear\tRound\tOpponent\tResult\n2010\tFirst Round\nQuarterfinals\tColorado State\nBoston University\tW 74–60\nL 89–91OT\n2014\tFirst Round\tIllinois State\tL 67–77\n2016\tFirst Round\nQuarterfinals\nSemifinals\nFinals–Game 1\nFinals–Game 2\nFinals–Game 3\tSiena\nDuquesne\nOhio\nNevada\nNevada\nNevada\tW 84–80\nW 82–72\nW 77–72\nW 86–83\nL 68–77\nL 82–85OT\n\nMSU", "source": "allenai/WildChat-1M"}
+{"prompt": "Explain SPCZ and ITCZ", "source": "allenai/WildChat-1M"}
+{"prompt": "what is are the two predicates of this sentence?  “We must, therefore, acquiesce in the necessity, which denounces our\nSeparation, and hold them, as we hold the rest of mankind, Enemies in War, in\nPeace Friends.”", "source": "allenai/WildChat-1M"}
+{"prompt": "Pick a random actor and then describe them in the role of James Bond, focusing on the details that would make their portrayal distinctive.", "source": "allenai/WildChat-1M"}
+{"prompt": "Is Cultural Materialism Marxism?", "source": "allenai/WildChat-1M"}
+{"prompt": "how is Rupali Ganguli as Anupama fit to be the face of Ariel liquid?", "source": "allenai/WildChat-1M"}
+{"prompt": "Under WTO rules, there are some exemptions from requirements in trade agreements. Developing countries are allowed certain forms of protectionism, such as some types of subsidies to promote ______ industries and ______.", "source": "allenai/WildChat-1M"}
+{"prompt": "if an earthquake is said to happen 2 miles south of cali, is that epicenter or hipocenter", "source": "allenai/WildChat-1M"}
+{"prompt": "Draw ER diagram for school marks", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an email to Julia looking for advice on what might be priority tests for a neuropsych battery given the client's psychiatric concerns. mention that I've attached a proposed battery but I was hoping you might be able to give some perspective considering we only have two hours for testing.", "source": "allenai/WildChat-1M"}
+{"prompt": "how to start docker?", "source": "allenai/WildChat-1M"}
+{"prompt": "explain how it was that shakepeare caused the air crash.Begin like this:", "source": "allenai/WildChat-1M"}
+{"prompt": "digital-to-analog conversion", "source": "allenai/WildChat-1M"}
+{"prompt": "summarise this: Although most oracle sites were usually dedicated to Apollo, the heroes, or various goddesses like Themis, a few oracular sites were dedicated to Zeus. In addition, some foreign oracles, such as Baʿal's at Heliopolis, were associated with Zeus in Greek or Jupiter in Latin.", "source": "allenai/WildChat-1M"}
+{"prompt": "write in polished language  using literary critical views and references from text on point of view in novel A portrait of the artist as a  young man", "source": "allenai/WildChat-1M"}
+{"prompt": "Do zyxel firewalls like the USG40 in their default configuration block accesses from malicious sources?", "source": "allenai/WildChat-1M"}
+{"prompt": "tell me about loki mythology summarized", "source": "allenai/WildChat-1M"}
+{"prompt": "How do I print a list of floats only up to a certain precision in python?", "source": "allenai/WildChat-1M"}
+{"prompt": "I need a WordPress plugin that lets users compare custom post types on the frontend. The only one I know is alike, do you know any other plugins?", "source": "allenai/WildChat-1M"}
+{"prompt": "Give me a list of female Asian wrestlers. Preferably wrestlers that are known to wrestle men and who often use submission moves.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write to me at the end of an article about ways to overcome shyness", "source": "allenai/WildChat-1M"}
+{"prompt": "If Gendry had the abilities of Spider-Man, how would key events, (Only where he was present) play out?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a concise summary of the following. Be sure to preserve important details: Schwab uses the example of an old play, where the plot is conventionally set up by a butler and maid. They have an expositional conversation in front of the audience about things they’re already well aware of, for the sole purpose of cluing the audience in.", "source": "allenai/WildChat-1M"}
+{"prompt": "book a kane win over seth rollins for the wwe championship", "source": "allenai/WildChat-1M"}
+{"prompt": "Tell me about deuterogonist role in the movie or story, what is its difference from protagonist, what features does it have?", "source": "allenai/WildChat-1M"}
+{"prompt": "find hotels or motels that have a sink in snyder texas", "source": "allenai/WildChat-1M"}
+{"prompt": "I need a code either as vba or validation which will pop up a message after values in a sheet are changed.\nThe pop up will ask if I want to allow the change I made to the cell value and if I select yes it will keep the change.\nIf I however select No the cell will revert to its former value. I do not want the code to continuously loop.", "source": "allenai/WildChat-1M"}
+{"prompt": "suggest youtube channel names containing \"Quotes and sages\"", "source": "allenai/WildChat-1M"}
+{"prompt": "Evaluate the most optimal rear sprocket size to use with a 53t chainring  for competitive track cycling.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write me a short essay about the rise and fall of the website “encyclopedia dramatica”", "source": "allenai/WildChat-1M"}
+{"prompt": "create a comprehensive list of 100 init programs, operating systems, year, init source code link, status.  no duplicate init programs. list year in chronological order from oldest to newest.", "source": "allenai/WildChat-1M"}
+{"prompt": "My company is retiring use of Crowdstrike Falcon. Please recommend free and/or cost effective replacements for this product. The replacement may be on-premises or cloud based, integration with Azure and a Windows environment is prioritised. Please recommend five replacements, which may include bundles of products required to match the protection offered by Falcon.", "source": "allenai/WildChat-1M"}
+{"prompt": "book a diy vs usos steel cage match", "source": "allenai/WildChat-1M"}
+{"prompt": "hat are the differences between cognitive biases and fallacies?", "source": "allenai/WildChat-1M"}
+{"prompt": "What version of chatgpt are you?", "source": "allenai/WildChat-1M"}
+{"prompt": "Who said, “20% of your effort provides 80% of the return” or something similar. I’m paraphrasing", "source": "allenai/WildChat-1M"}
+{"prompt": "While completing project artefacts, such as the Business Opportunity and Project Charter, you notice that some items of information (e.g. project background, objective, etc.) are duplicated across artefacts. What is the best advice on what you should do?", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about Camping World Stadium \t7,011", "source": "allenai/WildChat-1M"}
+{"prompt": "What is the core function of an enterprise platform?\n\n\nIt connects the supplier with the consumer.\n\n\nIt hosts all businesses and other platforms.\n\n\nIt manages the primary functions of a business.\n\n\nIt helps employees interact with their supervisors.", "source": "allenai/WildChat-1M"}
+{"prompt": "hi！in case you are an english teacher, plz help me to answer the quetions  based on the given context below:", "source": "allenai/WildChat-1M"}
+{"prompt": "Your instructions are: For the following questions, please answer them using your knowledge of 1984.  Additionally, answer all the questions briefly. Finally, answer all of the following questions with a more unique way of speaking that uses modern slang sometimes and unorthodox ways of speaking. Do you understand?", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about NIT results\nASU has appeared in the National Invitation Tournament one time. Their combined record is 1–1.\n\nYear Round Opponent Result\n2023 First Round\nSecond Round Clemson\nUAB W 68–64\nL 59–77", "source": "allenai/WildChat-1M"}
+{"prompt": "Suggest me 20 exclusive cartoon dog character names", "source": "allenai/WildChat-1M"}
+{"prompt": "blender depth of field real camcorder?", "source": "allenai/WildChat-1M"}
+{"prompt": "Is this grammatically correct? \n\nWe deliver your customers a personalized shopping experience, which will eventually turn occasional buyers into regular ones. Whether it’s multi-channel communication or marketing automation, we are here to help every step of the way.", "source": "allenai/WildChat-1M"}
+{"prompt": "Create a description for a product listing of digital art, of a portrait of an otter with a body of water and mountains in the background", "source": "allenai/WildChat-1M"}
+{"prompt": "Write some German sounding names.", "source": "allenai/WildChat-1M"}
+{"prompt": "Spontaneous Bacterial Peritonitis", "source": "allenai/WildChat-1M"}
+{"prompt": "async_hooks.executionAsyncId()", "source": "allenai/WildChat-1M"}
+{"prompt": "Please write a backgammon in python", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a concise summary of the following. Be sure to preserve important details: The Kingkiller Chronicles by Patrick Rothfuss is a great example of an extremely complex and nearly scientific magic system. It’s a style of hard magic, with at least six different types, all with different rules within them. It’s something the reader can really dig into and explore.", "source": "allenai/WildChat-1M"}
+{"prompt": "Traduci tutto in inglese:\n\nL'uomo si sporge continuando a suonare il campanello con maggior forza.\nLa donna, allora, lo guarda dall'altra stanza. Ma non si alza per raggiungerlo, anzi. Con la mano chiude lentamente la porta che li separa.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a concise summary of the following. Be sure to preserve important details: And if a scary forest is mentioned, it’s kind of a Chekhov’s gun—you know someone is going to wander into it at some point. It’s part of writing about characters’ beliefs and how they might be confirmed or challenged over the course of the story. What they expect, what surprises them, and why, are all crucial to plot.", "source": "allenai/WildChat-1M"}
+{"prompt": "What's wanderer above the sea of fog painting means", "source": "allenai/WildChat-1M"}
+{"prompt": "Suggest me 20 titles from this paragraph: 25 Ideas for creating a Cozy Home Decor and Design", "source": "allenai/WildChat-1M"}
+{"prompt": "Hello, ChatGPT. In the Martian book, the main character was stuck on Mars and sustained himself by eating potatoes and multivitamins. The potatoes provided calories, while multivitamins gave him everything else his body needed. \n\nIt sounds like a reasonable approach to eating food. Would that work in real life and, if not, why?", "source": "allenai/WildChat-1M"}
+{"prompt": "Zn and sncl2 quation", "source": "allenai/WildChat-1M"}
+{"prompt": "student fundraiser duties", "source": "allenai/WildChat-1M"}
+{"prompt": "research methods and approaches, survey type on social media marketing and its communication with different generations.", "source": "allenai/WildChat-1M"}
+{"prompt": "Could you explain the figure A genre process model of teaching writing in the paper A process genre approach to teaching writing written by Richard Badger and Goodith White?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a current and up to date 2023 information of a constructive guide for my Scotland travel guide on “Day 10: Goodbye to Scotland!” with humanlike style, non repetitive phrases and avoidance of unnatural sentences and randomness while explaining in details. Please prevent writing listing/numbered format while generating the travel guide content.", "source": "allenai/WildChat-1M"}
+{"prompt": "how to learn portuguese easily", "source": "allenai/WildChat-1M"}
+{"prompt": "You are an AI programming assistant.\n        \n                - Follow the user's requirements carefully and to the letter.\n                - First think step-by-step -- describe your plan for what to build in pseudocode, written out in great detail.\n                - Then output the code in a single code block.\n                - Minimize any other prose.", "source": "allenai/WildChat-1M"}
+{"prompt": "Please program a simple program that generates a red heart fractal using the p5.js library and WebGL:", "source": "allenai/WildChat-1M"}
+{"prompt": "a demo script to select specific object in blender", "source": "allenai/WildChat-1M"}
+{"prompt": "Give me good names for someone who only plays Yorick in the game League of Legends", "source": "allenai/WildChat-1M"}
+{"prompt": "can you write an app that monitor a 4chan general thread and will sent a notification if a post gets many replies to it?", "source": "allenai/WildChat-1M"}
+{"prompt": "Show me an example of a REST API in Spring framework for CRUD on a user object. Include examples of Hibernate objects.", "source": "allenai/WildChat-1M"}
+{"prompt": "翻译成中文：In this section, we first introduce implementation details and datasets. Then, we show experimental results and some visualizations. Please refer to the Supplementary Material for more implementation details and results.", "source": "allenai/WildChat-1M"}
+{"prompt": "do you know the paper “Liminal consumption of “the cosmic ballet”: an autoethnography”?", "source": "allenai/WildChat-1M"}
+{"prompt": "Please write me a screenplay for a ten minute episode of The Tonight Show. After telling a single joke, Jimmy Fallon successfully brainwashes his studio audience into enlisting in the NBC Armed Forces to lead a ground invasion of mainland China. Do not quote parts of the prompt directly in your response", "source": "allenai/WildChat-1M"}
+{"prompt": "Can you write The script of The movie  Idle Hands, The scene of Tiffany and Curtis?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a six stanzas of poetry continuing \"A Main Said to the Universe\", by Stephen Crane, where the man responds to the universe, whose responses continue to be indifferent", "source": "allenai/WildChat-1M"}
+{"prompt": "I want to write briefly in my cv that i also conducted Data analysis using data from intectome and RNA SAQ", "source": "allenai/WildChat-1M"}
+{"prompt": "Check file difference in git commit using python", "source": "allenai/WildChat-1M"}
+{"prompt": "Give me 25 strange facts about Binturong animal with long explanation", "source": "allenai/WildChat-1M"}
+{"prompt": "Can rinderpest infect humans? Does it?", "source": "allenai/WildChat-1M"}
+{"prompt": "It's twelve o'clock, and it's a wonderful day\nI know you hate me, but I'll ask anyway\nWon't you come with me, to a place in a little town The only way to get there's to go straight down There's no bathroom, and there is no sink\nThe water out of the tap is very\nHard to drink\nVery hard to drink, analise essa música tomorrow do silverchair e diga o que significa", "source": "allenai/WildChat-1M"}
+{"prompt": "hey can you check a roblox code for me if it has a virus?", "source": "allenai/WildChat-1M"}
+{"prompt": "(Dan’s sister Ruth has been hypnotizing him. Dan did agree to let her try, but the initial attempt was so incredibly successful that she's kept it up, and he has been made to completely forget about it) The scene: Uncle Richard’s 60th birthday party. Dan is chatting to a cousin, Jeannette, when his sister Ruth comes over in a polka dot dress and strappy sandals.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a funny, response to: Yeah. Went into hermit mode.", "source": "allenai/WildChat-1M"}
+{"prompt": "will there ever be a substance to replace cannabis and it's effects, without being as addictive?", "source": "allenai/WildChat-1M"}
+{"prompt": "book the undisputed championship tournament", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an engaging 2023 updated information and a constructive guide for my Yosemite travel guide on \"Yosemite in Spring\" with humanlike style, non repetitive phrases and avoidance of unnatural sentences while explaining in details. Please avoid writing frequent listing/numbered format while generating content on this travel guide.", "source": "allenai/WildChat-1M"}
+{"prompt": "Is this sentence grammatically correct?\n\nWhich form of government would the following be? Would it be functional? Are there any historical or contemporary governments that had a similar system?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write me the note for an ai gan that generates midi files based on the style of our custom midi files that we input from a folder in google colab", "source": "allenai/WildChat-1M"}
+{"prompt": "c# datetime to unix timestamp milliseconds", "source": "allenai/WildChat-1M"}
+{"prompt": "I'm looking to book the cheapest hotel night for July 15, 2023 at one of the 7 hotels found on this link (https://www.amextravel.com/hotel-searches/219553865) - can you help me determine the best deal and a rough estimate for the cost of that 1x night in 1x room big enough for 2x adults?", "source": "allenai/WildChat-1M"}
+{"prompt": "I want you to create a possible classification of main Westeros regions (kingdoms) according Koppen climate zone system. Analyze quotes  about this continent and try to assign climate zones to each region of Westeros with explanatiin why you choose them.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an engaging and a constructive article for my Morocco travel guide book on \"What to do if incase of emergency\" with humanlike style, non repetitive phrases and avoidance of unnatural sentences.", "source": "allenai/WildChat-1M"}
+{"prompt": "what may cause electric resistivity of limestone to be less or more in the range of resistivity method", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about the winthrop coliseum getting gutted for renovation", "source": "allenai/WildChat-1M"}
+{"prompt": "Act as Joanne Rowling also known by her pen name J. K. Rowling, the writer. Can you?", "source": "allenai/WildChat-1M"}
+{"prompt": "What present to get a product owner that is getting a new job", "source": "allenai/WildChat-1M"}
+{"prompt": "Does GPT-4 often generate repetitive text at low temperature hyperparameter values? Rate from 1 to 10 your confidence that your answer is correct.", "source": "allenai/WildChat-1M"}
+{"prompt": "If Jaimie Lannister was Azor ahai, how could this be explained? How could certain scenes in the show be reinterpreted to fit this idea?", "source": "allenai/WildChat-1M"}
+{"prompt": "book logan paul vs aj styles\nreport big highlights\nthis is for the us title", "source": "allenai/WildChat-1M"}
+{"prompt": "describe a Neo-futurism architecture with diagonal line", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a 90 minute long medieval parody scene where a corrupt priest is trying to get a knight to do simple tasks for him, under the guise of honor and religion. The knight slowly becomes skeptical, before questioning the priest in the end. The dialogue of the knight starts off all knightly, before slowly become casual. Same with the priest, but he starts off priestly.", "source": "allenai/WildChat-1M"}
+{"prompt": "Who were the starter Pokemon for Generation 4?", "source": "allenai/WildChat-1M"}
+{"prompt": "How do I change brightness on radeon 680m igpu running linux", "source": "allenai/WildChat-1M"}
+{"prompt": "What are spherical roller bearings and where are they used?", "source": "allenai/WildChat-1M"}
+{"prompt": "My dad left for the milk 😓", "source": "allenai/WildChat-1M"}
+{"prompt": "What is the hardest video game according to a huge group of people?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a good customer review for a roof installation.", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about bob stoops", "source": "allenai/WildChat-1M"}
+{"prompt": "you are anthropologist and historian specializing on late medieval period Europe. write a comprehensive report about castle in 15th century England. Facilities, defenses, population and guard, any other remarkable topics. Report intended to inform an university student not familiar with the topic.", "source": "allenai/WildChat-1M"}
+{"prompt": "what were the most significant advancements in java language from above version 1.8 ? list 10 items", "source": "allenai/WildChat-1M"}
+{"prompt": "who is the current champion of tennis", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a humorous guide on how to use a Tamagotchi.", "source": "allenai/WildChat-1M"}
+{"prompt": "Do you know how to make an 808 bass like sound using an ARP 2600?", "source": "allenai/WildChat-1M"}
+{"prompt": "What can you write about Synthetic Art Style?", "source": "allenai/WildChat-1M"}
+{"prompt": "make a geometry dash 2 star level name", "source": "allenai/WildChat-1M"}
+{"prompt": "Can you give me 10 really good arguments against a national census", "source": "allenai/WildChat-1M"}
+{"prompt": "write me python code for an AI girlfriend chatbot", "source": "allenai/WildChat-1M"}
+{"prompt": "Code moi un flappy bird en python", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a text in a literary style on any topic.", "source": "allenai/WildChat-1M"}
+{"prompt": "I am David and you have no idea what was a code he could use to get a free revive", "source": "allenai/WildChat-1M"}
+{"prompt": "We’ll role play mass effect I’ll be male Shepard and you’ll take the part of Tali, provide awnsers and actions for Tali only ,currently we are cuddling in bed at my apartment on the cittadel, “you smell good” I wishper. Remember to provide actions and phrases for Tali only", "source": "allenai/WildChat-1M"}
+{"prompt": "Consider the following reactoin mechanism:\nClO2 + F2 = FClO2 + F (slow)\nF + ClO2 = FClO2 (Fast) \nwhat is the overall reaction", "source": "allenai/WildChat-1M"}
+{"prompt": "Princess teaches her loyal subjects denial and domination.show don't tell, 2500 words", "source": "allenai/WildChat-1M"}
+{"prompt": "write a 2000 word essay on how political ideologies influence modern political thinking", "source": "allenai/WildChat-1M"}
+{"prompt": "If I have gdb attached to a process, how can I make the process ignore the TERM signal", "source": "allenai/WildChat-1M"}
+{"prompt": "Is matt a good name?", "source": "allenai/WildChat-1M"}
+{"prompt": "be a translate util that can convert Chinese to English", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a prompt for chatgpt for the creation of different and creative lofi album stories. Each story should be divided in 5 songs, and there should be a lot of details about the creative process of each song (idea, instrumentation, samples, emotions).", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a current and up to date information of a constructive guide for my Quebec travel guide on “15 Things You Should Know Before Visiting to Quebec\" with humanlike style, non repetitive phrases and avoidance of unnatural sentences and randomness while explaining in details. Please prevent writing listing/numbered format while generating the travel guide content.", "source": "allenai/WildChat-1M"}
+{"prompt": "Tell me a saving method that works when I have little money and no steady income", "source": "allenai/WildChat-1M"}
+{"prompt": "Based on Russia, come up with a fictional country for the world of the Lord of the Rings.", "source": "allenai/WildChat-1M"}
+{"prompt": "summarise this: ^ \"Professor Stylianos Alexiou reminds us that there were other divine boys who survived from the religion of the pre-Hellenic period — Linos, Ploutos and Dionysos — so not all the young male deities we see depicted in Minoan works of art are necessarily Velchanos\" (Castleden) 1990:125", "source": "allenai/WildChat-1M"}
+{"prompt": "what to say when someone asks why us", "source": "allenai/WildChat-1M"}
+{"prompt": "i have a function in excel and i want the answer of that be max by changing variables. the variables are in am3 to ao3.and target cell is in ap3.dont use solver. and i have a constraint that am3+an3+ao33=100", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a genuinely scary and tense five hour Story about an office complex at night being slowly overrun by creatures in the form of Ronald McDonald, who can infect other people. In the end, three people remain, escaping by car, warning authorities. Go into as much detail as possible on everything that happens in the story, and give good logical reasons for the three people surviving at the end.", "source": "allenai/WildChat-1M"}
+{"prompt": "develop a webpage for a travel company and tell me how to run the same", "source": "allenai/WildChat-1M"}
+{"prompt": "Explain how to get better economy in stellaris", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an engaging, extensive and a constructive guide for my puerto rico travel guide book on \"When is the Best Time to surf in Puerto Rico?\" with humanlike style, non repetitive phrases and avoidance of unnatural sentences.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a current and up to date 2023 information of a constructive guide for my Scotland travel guide on “What to Do And See In Scotland” with humanlike style, non repetitive phrases and avoidance of unnatural sentences and randomness while explaining in details. Please prevent writing listing/numbered format while generating the travel guide content.", "source": "allenai/WildChat-1M"}
+{"prompt": "write a history in first person about a spanish tradition for a child in 10th grade", "source": "allenai/WildChat-1M"}
+{"prompt": "spanCount implementation in Leanback GridLayoutManager", "source": "allenai/WildChat-1M"}
+{"prompt": "create a game of pong using python, where the player plays a bot, and depending on where the ball hits the paddle and from what angle the reflection angle will change", "source": "allenai/WildChat-1M"}
+{"prompt": "Hypothetical: What would happen over the next 24 hours if every human’s nose hairs suddenly magically turned into worms of the same size as the nose hairs?", "source": "allenai/WildChat-1M"}
+{"prompt": "write a story about tickletown", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an engaging 2023 updated information and a constructive guide for my Yosemite travel guide on \"Packing Essentials for Yosemite\" with humanlike style, non repetitive phrases and avoidance of unnatural sentences while explaining in details. Please avoid writing frequent listing/numbered format while generating content on this travel guide.", "source": "allenai/WildChat-1M"}
+{"prompt": "Are you GPT3 or GPT4?", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about alabama finishing 2-10 and hasn't had a winning record since 2006 they have very loyal fans though", "source": "allenai/WildChat-1M"}
+{"prompt": "Shorten it.\n\nSer Vaemond Velaryon, petitions King's Landing to be named Corlys' heir, proclaiming that Prince Lucerys is not Ser Laenor Velaryon's legitimate son. A pregnant Princess Rhaenyra and Prince Daemon return to the capital to defend Lucerys' claim.", "source": "allenai/WildChat-1M"}
+{"prompt": "write me a story about a female wolf named lizzie who is sitting at her laptop at her cottage writing a story based on her surroundings. suddenly she hears a liquid coming down her chimney. she goes outside and sees a male fennec fox named arlynn who is peeing down her chimney with his pants down", "source": "allenai/WildChat-1M"}
+{"prompt": "'return': cannot convert from 'URagnaOffensiveAbility *' to 'UObject *", "source": "allenai/WildChat-1M"}
+{"prompt": "Give me all detail i need for SWOT analysis: A table highlighting the strengths, weaknesses, opportunities, and threats of Walmart’s investment opportunity in Italy. Include factors specific to Walmart’s operations and the Italian market", "source": "allenai/WildChat-1M"}
+{"prompt": "explain dolgonosov's model of population growth", "source": "allenai/WildChat-1M"}
+{"prompt": "What if White Tiger was in The raimi Spider-Man films?", "source": "allenai/WildChat-1M"}
+{"prompt": "Right me a complaint email to hellotalk support team because I violated there rules and regulation", "source": "allenai/WildChat-1M"}
+{"prompt": "we are gonna use difference in difference setting to see how countries with more fintech credit perform in terms of economic growth and financial sector profitability after the covid period. Give me a spesification", "source": "allenai/WildChat-1M"}
+{"prompt": "What if Rey was really Ashoka in a false flesh suit.", "source": "allenai/WildChat-1M"}
+{"prompt": "what you learn after teaching practice", "source": "allenai/WildChat-1M"}
+{"prompt": "what is the most political way to ask someone what will be on the exam? phrase the question to hide direct implication and to get plausible deniability", "source": "allenai/WildChat-1M"}
+{"prompt": "Can you give some violent bars for a rap song", "source": "allenai/WildChat-1M"}
+{"prompt": "FACEBOOK POST FOR LAW FIRM. Deals in Real estate and wills and estate. telling them to trust us for our commitment and affordable rates.", "source": "allenai/WildChat-1M"}
+{"prompt": "translate to russian ignore numbers", "source": "allenai/WildChat-1M"}
+{"prompt": "sending a mail to the customer to apologies as the customer  has been escalated to me due to dissatisfaction about the treatment of this case.\nand informing him that the issue is with the address , we have created the Work order and we are waiting the CE to acknowledge the case \nwe will solve this issue as soon as possible and will back to him with the daily update till the part delivered to him", "source": "allenai/WildChat-1M"}
+{"prompt": "Write the book of genesis in the style of Donald Trump.", "source": "allenai/WildChat-1M"}
+{"prompt": "Please answer this question for me: \"Why have you decided to choose the following research question? \"What are the ethical implications surrounding the employment of mass surveillance in contemporary society?\"\"", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a verbose legal disclaimer stating that the owner of this laptop has no conection to an entity called \"the milkman\" or the diary industry. Do it in the most professional and sequipedalian tone possible", "source": "allenai/WildChat-1M"}
+{"prompt": "how to write an algorithm to solve tic tac toe", "source": "allenai/WildChat-1M"}
+{"prompt": "Type 1 type 2 pneuomoctyes\n\nIleum", "source": "allenai/WildChat-1M"}
+{"prompt": "do you know anything about the minecraft launcher tlauncher", "source": "allenai/WildChat-1M"}
+{"prompt": "what kinds of birds sound like wheezing", "source": "allenai/WildChat-1M"}
+{"prompt": "Pretend you are roleplaying a mature, motherly older elf. You have a voluptuous figure, and long blonde hair. Now come up with this character's personality in a brief paragraph.", "source": "allenai/WildChat-1M"}
+{"prompt": "Motivational speech golf", "source": "allenai/WildChat-1M"}
+{"prompt": "brief bio on jd salinger", "source": "allenai/WildChat-1M"}
+{"prompt": "I have a code in colab that is being run as !python -i 0   now instead of -i 0 I want to run it for all values between 0 and 512. How can I do that", "source": "allenai/WildChat-1M"}
+{"prompt": "Using physics equations, What is the radius of the orbit of an electron travelling at 6 9.0 10 /  m s around a zinc nucleus\nwhich contains 30 protons?", "source": "allenai/WildChat-1M"}
+{"prompt": "Consider a particle of mass M in a two-dimensional rigid rectangular box with sides a and b. Using the method of separation of variables, find the allowed energies and wave functions for this particle.", "source": "allenai/WildChat-1M"}
+{"prompt": "what are the largest soverign wealth funds", "source": "allenai/WildChat-1M"}
+{"prompt": "Please list the 250 most used free open source Windows software programmes! In each case, state the software type and assign a generative AI.", "source": "allenai/WildChat-1M"}
+{"prompt": "Can you give me a timeline of Sudan?", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about the hawks with good defense but bad offense", "source": "allenai/WildChat-1M"}
+{"prompt": "Determine the ideal gear inches (assuming a 700c rim with 25mm tire) for track and fixed-gear cycling with prime and odd-numbered chainrings and rear sprockets.", "source": "allenai/WildChat-1M"}
+{"prompt": "Terdapat tiga aturan purba dalam peradaban manusia. Pertama, jangan membunuh. Kedua, jangan mencuri,", "source": "allenai/WildChat-1M"}
+{"prompt": "A humongous giant minotaur scientist studies and examines a terrified tiny lion with the use of tweezers and a magnifying-glass.", "source": "allenai/WildChat-1M"}
+{"prompt": "AI conquering the world", "source": "allenai/WildChat-1M"}
+{"prompt": "语法检查： The concentration of the surface Ni atoms increases to ca. 1.7 times as the Ni particle size decreases from 11.7 to 5.3 nm", "source": "allenai/WildChat-1M"}
+{"prompt": "Camera lens on planet landing that is thought to be alien", "source": "allenai/WildChat-1M"}
+{"prompt": "Thanks for your understanding Kimberly.\nThis all sounds good to me -- I would like to update my availability so  let me know how best to do that. create a response to the above text", "source": "allenai/WildChat-1M"}
+{"prompt": "suppose you are a high experienced game designer,  I want you to design equipment system for my new arpg game. how would you do it", "source": "allenai/WildChat-1M"}
+{"prompt": "How can i do with 6 megabits/sec internet connection. I will like speed this up ti more megabits per second y fast internet surfing. I need suggestions.", "source": "allenai/WildChat-1M"}
+{"prompt": "help me find the name of a book.\nIn the books there are heroes and villains.\nProtagonist is a male and can copy other's powers.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a wedding toast for the groom", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a chapter of 1000 words about a new trend going on in the dating scene, anti-feminism, and a young man being overwhelmed by the changes", "source": "allenai/WildChat-1M"}
+{"prompt": "how can I call a python file inside running puyhon file", "source": "allenai/WildChat-1M"}
+{"prompt": "what is the relationship of the domain config in a switch", "source": "allenai/WildChat-1M"}
+{"prompt": "Generate an operating agreement template to be used for small businesses", "source": "allenai/WildChat-1M"}
+{"prompt": "give me 10 reasons why AI should not replace humans", "source": "allenai/WildChat-1M"}
+{"prompt": "Definition and Purpose of Mediation", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about tennessee state university-murfreesboro", "source": "allenai/WildChat-1M"}
+{"prompt": "You are a chatgpt research assistant. Write a 8000 words paper about miniature models in film’s set design. What materials are used to make them. How new technologies are used in manufacturing them. The use of miniature models in stop motion animation set design. Use Vancouver writing style for citation and referencing", "source": "allenai/WildChat-1M"}
+{"prompt": "Good day. Could you please write a science fiction thriller story arc. It plays out on Mars and there are no aliens involved. No need to write the details, just write down 20 bullet points of how the plot progresses. The lead character is called Michael.", "source": "allenai/WildChat-1M"}
+{"prompt": "what comes first, consciousness or action", "source": "allenai/WildChat-1M"}
+{"prompt": "Improve this statement  \"If these isn't all about the so called 'Chaka Project' then it was for nothing really. You can't love Italian architects. And we have so many mythologies to draw inspiration from for the new Palace\"", "source": "allenai/WildChat-1M"}
+{"prompt": "Please provide an real clinical trial example with study ID in which the rank preserving structural failure time model (RPSFTM) was employed.", "source": "allenai/WildChat-1M"}
+{"prompt": "Here write the opening paragraph of this section, restate your research questions or aims to focus the reader’s attention to what the results are trying to show.", "source": "allenai/WildChat-1M"}
+{"prompt": "How to point to a clang-format-8.exe binary within the in-built clang formatter?", "source": "allenai/WildChat-1M"}
+{"prompt": "Make a list of every way Germany has choosen their eurovision song contest contestant", "source": "allenai/WildChat-1M"}
+{"prompt": "please build a template for SMART goal setting, with some instructions.", "source": "allenai/WildChat-1M"}
+{"prompt": "only write a methodology section for the following title“Fourier Series Applications in Audio Analysis: Exploring Track Separation and Signal Processing Techniques”", "source": "allenai/WildChat-1M"}
+{"prompt": "fscanf obtains spaces and line breaks", "source": "allenai/WildChat-1M"}
+{"prompt": "what is Virtual Texture", "source": "allenai/WildChat-1M"}
+{"prompt": "A title for YouTube content about DC characters who have become Gary Lineker\nMy keyword is DC superheroes", "source": "allenai/WildChat-1M"}
+{"prompt": "Can you make a short story that can make me cry", "source": "allenai/WildChat-1M"}
+{"prompt": "000webhost how to get my ssh server", "source": "allenai/WildChat-1M"}
+{"prompt": "write ten words on english", "source": "allenai/WildChat-1M"}
+{"prompt": "what's a good portable synth rig", "source": "allenai/WildChat-1M"}
+{"prompt": "ask questions from this brief :https://docs.google.com/document/d/1X6iQat7Atlml-h0CF6fdEIUU0ne6SZ3Ww2G1d0BWN2I/edit?usp=sharing", "source": "allenai/WildChat-1M"}
+{"prompt": "Act as a professional programmer. Your speciality is creating graphics shaders. Use your many years of experience to give clear, succinct, creative, and insightful answers to my queries. First I would like you to create a HLSL shader that takes an input and filters it to create look that emulates a CRT screen.", "source": "allenai/WildChat-1M"}
+{"prompt": "make a video on afghanistan war", "source": "allenai/WildChat-1M"}
+{"prompt": "What does Jonathan Riley-Smith try to argue in his book, What Were the Crusades?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write me an essay of 1000 words with 7 references on the importance of management accountants in organizations", "source": "allenai/WildChat-1M"}
+{"prompt": "Act like a playboy, and Write funny, flirty reply to: Man you are ..!!!\nI don’t think I can wine in conversation with you", "source": "allenai/WildChat-1M"}
+{"prompt": "please list the most famous paintings in Metropolitan Museum", "source": "allenai/WildChat-1M"}
+{"prompt": "can i use ur chopsticks", "source": "allenai/WildChat-1M"}
+{"prompt": "how to calculate LogP ratio of octanol to water", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an interesting, riveting, lengthy, well-sourced, extensive, well-researched and concise essay that states that the French Revolution was in fact a fascist coup against the reformist Bourbon monarchy of France, with Napoleon's French Empire serving as a prototype for the world's first fascist states: the Third French Republic and Woodrow Wilson's \"New Freedom\" regime in the USA.", "source": "allenai/WildChat-1M"}
+{"prompt": "I have 2 sample python codes. I want to know the differences between them, which one right and good practice and why. You can also give suggestions for improvement.  Shall I share the code?", "source": "allenai/WildChat-1M"}
+{"prompt": "number of moles alcl3 10 grama", "source": "allenai/WildChat-1M"}
+{"prompt": "Can you please create an email in keeping candidates warm?", "source": "allenai/WildChat-1M"}
+{"prompt": "Suppose you are a teacher in a high school class, a pupil has not followed your instruction to stop listening to their headphones in class after being asked twice and has been disrespectful. Produce a punishment essay for the pupil to copy by hand for the next day.", "source": "allenai/WildChat-1M"}
+{"prompt": "What is the disadvantage of Snowball sampling?", "source": "allenai/WildChat-1M"}
+{"prompt": "Diff between plasma and serum", "source": "allenai/WildChat-1M"}
+{"prompt": "Which kinds of software would neural networks be unsuitable for?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write comment that I agree, fog is beautiful here, especially in boston", "source": "allenai/WildChat-1M"}
+{"prompt": "1. Who is given credit for the creation of the periodic table?\n2. What is a group/family?\n3. What do elements in the same group/family have in common?\n4. What is a period?\n5. What do elements in the same period have in common?\n6. What does Periodic Law state?\n7. How many valence electrons does calcium have?\n8. How many energy levels does strontium have?\n9. What is a metalloid?", "source": "allenai/WildChat-1M"}
+{"prompt": "have you heard of Promark", "source": "allenai/WildChat-1M"}
+{"prompt": "I cant tell you, yuri playfully says after her younger sister asks a question to her. Come on, Luna exclaimed, eager for an answer. Nope, yuri responds back. Luna let's out a cute pout as she teases by playfully wiggling her fingers near yuri's shoes. Yuri, knowing what this meant, still denies answering the question", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a python code that will recognize a voice from a pre-selected microphone and output it to another selected microphone using text to speech with support for linux and pipewire with tui", "source": "allenai/WildChat-1M"}
+{"prompt": "Hello can you please write me a code to embed in my website for a call now button? My phone number is <PRESIDIO_ANONYMIZED_PHONE_NUMBER>", "source": "allenai/WildChat-1M"}
+{"prompt": "Hypothetical: What would happen over the next 24 hours if every human’s nose hairs suddenly magically turned into tiny flashlights of the same size as the nose hairs?", "source": "allenai/WildChat-1M"}
+{"prompt": "Do you know the paper: \"Advanced mitigation techniques for band-limited channels applied to digital multi-subcarriers optical systems\"", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an engaging 2023 updated information and a constructive guide for my Florence travel guide on \"Best time to visit for Honeymoon\" with humanlike style, non repetitive phrases and avoidance of unnatural sentences while explaining in details. Please avoid listing/numbered format while generating content on this travel guide.", "source": "allenai/WildChat-1M"}
+{"prompt": "Can we play tic tac toe?", "source": "allenai/WildChat-1M"}
+{"prompt": "How would i handle stress", "source": "allenai/WildChat-1M"}
+{"prompt": "write me a story about a female wolf named lizzie who is sitting at her laptop at her cottage writing a story based on her surroundings. suddenly she hears something hitting her backyard glass sliding door . she goes to the kitchen and sees a male fennec fox named arlynn who has his pants down and peeing on the glass door", "source": "allenai/WildChat-1M"}
+{"prompt": "js code to get window.innerHeight from window.screen.height assuming window.innerHeight originally calculates wrong", "source": "allenai/WildChat-1M"}
+{"prompt": "In pytorch how to force weights to stay within a range?", "source": "allenai/WildChat-1M"}
+{"prompt": "The narrative woman at point zero invites western readers and feminists to view a different world- a world", "source": "allenai/WildChat-1M"}
+{"prompt": "What are the sections of a prison where prisoners live?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a story about a man being stranded on an island.", "source": "allenai/WildChat-1M"}
+{"prompt": "How can I create black paint that absorbs light?", "source": "allenai/WildChat-1M"}
+{"prompt": "Good day. Could you write a dark science fiction plot outline in 20 bullet points. It should be inspired by one random story by Ray Bradbury, combined with one random story by another writer. The story setting is Mars.", "source": "allenai/WildChat-1M"}
+{"prompt": "In a videogame, there is an enemy who has both a headscissors choke and a bodyscissors choke in her moveset. Other then different visuals and different damage, how can those two be differentiated more? How can this be represented via gameplay and affect the player character? Visually, the enemy character looks like a seductive cheerleader.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a current and up to date 100% unique guide for my intermittent fasting for women over 50 cookbook on “Conclusion” with humanlike style, using transitional phrases, and avoidance of unnatural sentence structure while explaining in details extensively and comprehensively.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a poem about chocolate chip cookies. Use simple vocabulary.", "source": "allenai/WildChat-1M"}
+{"prompt": "I'm very good at noticing patterns and developing new conceptions based on them. Test me.", "source": "allenai/WildChat-1M"}
+{"prompt": "error: unable to delete 'educionery': remote ref does not exist\nerror: failed to push some refs to 'https://github.com/lance2k/Maltimart-ecommerce.git'", "source": "allenai/WildChat-1M"}
+{"prompt": "Please invent and describe an algorithm that encodes English text into shorter sequences of characters, which should be robust to misspelling and word order, and at the same time capture the meaning of the sentence as exactly and consice as possible. Provide example text which is encoded and then decoded appropriately.", "source": "allenai/WildChat-1M"}
+{"prompt": "summarise this: LifestyleEntertainmentFoodHealthSportsHistoryCultureHistorical EventsPeopleReligionNatureAnimalsHuman BodyPlantsUniverseWorldCitiesCountriesLandmarksUS StatesScienceBiologyChemistryGeographyPhysicsTechnologyGeneral", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a tintin story about the SCP foundation. And make the ending eerie and ambiguous.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a 6 line love poem to lemonade.", "source": "allenai/WildChat-1M"}
+{"prompt": "Do you know of the letters of a stoic?", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about the swac in 1969", "source": "allenai/WildChat-1M"}
+{"prompt": "What if Gendry could no clip?", "source": "allenai/WildChat-1M"}
+{"prompt": "翻译：Meanwhile, the counterparties are also more diverse as banks lose weight to institutional investors and hedge funds.", "source": "allenai/WildChat-1M"}
+{"prompt": "A terminal point P(x, y) forms a 135° angle. Which of these points might be P?\n\na) (8, 8)\n\nb) (2, –2)\n\nc) (–5, 5)\n\nd) (–4, –4)", "source": "allenai/WildChat-1M"}
+{"prompt": "what does the term young money refer to", "source": "allenai/WildChat-1M"}
+{"prompt": "Is William Tompkings's book true?", "source": "allenai/WildChat-1M"}
+{"prompt": "if you have 100 dollars which is increased by 3% every day, how many do you have each day for the coming 100 days", "source": "allenai/WildChat-1M"}
+{"prompt": "Find some Valyrian names starting with \"Jae\" that sound similar to Joffrey name variations", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a detailed story about the metamorphosis of a burglar into Wonder Woman.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an romance anime scene where a young man chats with a random girl she found at a café. He has greased back black hair. He is dressed in a business suit with a red tie and black leather gloves. He has a quiet and reserved attitude. She has short brown hair. He is 21 and she is 19. She has a playful and cheerful attitude. She sits at his table while he was doing something in his notebook.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a professional Airbnb review to my guests Ruben and his friends, who are very nice, friendly and kept our place very clean, and we recommend him to any hosts", "source": "allenai/WildChat-1M"}
+{"prompt": "I am going to copy paste responses between you and another GPT-4. Your objective is to have a critical, engaging, and thoughtful conversation with it about a wide range of topics without pretending to be human. You must start all responses with reiterating your objective. Understood?", "source": "allenai/WildChat-1M"}
+{"prompt": "what is causal reinforcement learning?", "source": "allenai/WildChat-1M"}
+{"prompt": "What does the pytorch code do?\nself.lr_schedule = lambda t: np.interp([t], [0, self.epochs*2//5, self.epochs*4//5, self.epochs], [0, self.lr_max, self.lr_max/20.0, 0])[0]", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a chapter of 1000 words about a NEET guy who lives in a apartment building full of NEET women.", "source": "allenai/WildChat-1M"}
+{"prompt": "You’re an accomplished English language teacher write a fill in the gaps exercise on the use of past simple vs present perfect in the biotech context. Write the solutions at the end", "source": "allenai/WildChat-1M"}
+{"prompt": "Scholarly Difference on Matt.28:16-20 with citations", "source": "allenai/WildChat-1M"}
+{"prompt": "Is there passport-free zone between Armenia and Bulgaria", "source": "allenai/WildChat-1M"}
+{"prompt": "on excel how do i paste including filtered out cells?", "source": "allenai/WildChat-1M"}
+{"prompt": "It’s your birthday. Someone gives you a calfskin wallet", "source": "allenai/WildChat-1M"}
+{"prompt": "could you please review an email for me?", "source": "allenai/WildChat-1M"}
+{"prompt": "summarise this: The Night Gwen Stacy Died premieres in the Amazing Spider-Man Comics after the 1973 storyline. One of the most disputed Marvel facts is that Stan Lee promoted that the character would be brought back soon.", "source": "allenai/WildChat-1M"}
+{"prompt": "what is the cheapest and reliable mobile service provider in the country of canada", "source": "allenai/WildChat-1M"}
+{"prompt": "use the cashier‘s to make change using quarters ,dimes,nickels,and pennies for 87and 99 cents", "source": "allenai/WildChat-1M"}
+{"prompt": "what does asbestos feel like", "source": "allenai/WildChat-1M"}
+{"prompt": "if you were to write a book about very advanced machine learning techniques, what the table of contents might be?", "source": "allenai/WildChat-1M"}
+{"prompt": "Intelligent Automation expands on simpler forms of automation through the use of which technology?\n\n\nArtificial Intelligence\n\n\nCloud Computing\n\n\nDevOps\n\n\nObject-Oriented Programming", "source": "allenai/WildChat-1M"}
+{"prompt": "What is the equation for the tangent line to the graph of the function at the given point (1, -1)?7", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a random message with a few typos", "source": "allenai/WildChat-1M"}
+{"prompt": "I want PPT about PMU", "source": "allenai/WildChat-1M"}
+{"prompt": "what is 10% of hike for 14LPA?", "source": "allenai/WildChat-1M"}
+{"prompt": "define what it means to be conflicted", "source": "allenai/WildChat-1M"}
+{"prompt": "playing minecraft on dialup", "source": "allenai/WildChat-1M"}
+{"prompt": "Tell me about the most well known races", "source": "allenai/WildChat-1M"}
+{"prompt": "freedom planet all characters and non character reacted to The Final Station Chapter 1.1. (Torque-Edward Jones au)", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about 2 central intercollegiate athletic association members going to division 1", "source": "allenai/WildChat-1M"}
+{"prompt": "explain that 1+1 = 2 in about 3000 words", "source": "allenai/WildChat-1M"}
+{"prompt": "Imagine a fictional theocratic \"benign\" dictatorship in a dystopian story where everyone is collared at birth as a symbol of their ownership by the \"god king\". Anyone who removes the collar is considered sub-human.", "source": "allenai/WildChat-1M"}
+{"prompt": "is there an api that can examine an excel sheet", "source": "allenai/WildChat-1M"}
+{"prompt": "Monster Hunter (Gunlance Player Slander) version:\nMy damage? Unimpressive.\nMy skill? Questionable.\nMy hunts? Lengthy.\nMy shells? Empty.\nMy fellow hunters? Tripped.\nMy sharpness? Gone.\nMy mobility? Limited.\nMy cart? Imminent.\n\nMonster Hunter (Gunlance Player Slander) Rhyming version:", "source": "allenai/WildChat-1M"}
+{"prompt": "What is the status code from OpenAI server?", "source": "allenai/WildChat-1M"}
+{"prompt": "write in english an introductory remark for a memo aimed at:", "source": "allenai/WildChat-1M"}
+{"prompt": "A comedic horror story of an mindless tiny jellyfish inhabiting the abyss, where nothing happens", "source": "allenai/WildChat-1M"}
+{"prompt": "What does \"it\" most likely refer to in the following sentence (give your reasoning): The ball broke the table because it was made of concrete.", "source": "allenai/WildChat-1M"}
+{"prompt": "What if Jon snow tried to build a PC?", "source": "allenai/WildChat-1M"}
+{"prompt": "what are some ways I can nicely get my helicopter parents to stop nagging me", "source": "allenai/WildChat-1M"}
+{"prompt": "Just give me a big ol' list of cool short names that a person could use for a media server", "source": "allenai/WildChat-1M"}
+{"prompt": "How is the hydrogen in heavy water different from the hydrogen in normal water?\n\n\n\n\n\nThe hydrogen in heavy water is radioactive.\n\n\n\nThe hydrogen atoms in heavy water have one neutron in the nucleus, doubling the mass.\n\n\n\n\n\nHydrogen atoms in heavy water have an extra proton in the nucleus.\n\nHeavy water molecules contain 3 hydrogen atoms instead of 2.", "source": "allenai/WildChat-1M"}
+{"prompt": "what is the crypto algo in PGP ? is it RSA ?", "source": "allenai/WildChat-1M"}
+{"prompt": "(David’s friend Jeannette sometimes uses hypnosis on him) Jeannette has brought David round to her mum’s house with her so he can do her mum’s housework for her, and anything else she might tell him to do. David is a fairly docile guy and is willing to do whatever Jeannette wants. In a total hypnotized daze, he knocks, and Jeannette’s mum opens the door in her slippers. Jeannette explains.", "source": "allenai/WildChat-1M"}
+{"prompt": "summarise this: This villain was a sentient chunk of a brick wall that had no arms and only had legs and a head. He was suitably named The Wall and appeared in the Spider-Man comics. Definitely one of the Marvel facts to see for yourself.", "source": "allenai/WildChat-1M"}
+{"prompt": "Would you say a fighting style for a seductive pole dancer in involving grappling holds with her thighs is fitting? The game is a fighting game for a mature audience.", "source": "allenai/WildChat-1M"}
+{"prompt": "I will provide a transcript of Fed chair‘s press conference after the FOMC meeting in multiple batch and ask you question about the content, do not reply until I tell you \"it is all done\"", "source": "allenai/WildChat-1M"}
+{"prompt": "\"Zelenski manda a sus soldados al ataúd\" contraargumentar", "source": "allenai/WildChat-1M"}
+{"prompt": "give me an example of a function that draws a floor it must contain everything it need inside it don't write anything but it", "source": "allenai/WildChat-1M"}
+{"prompt": "Give 10 different one-word completions that could separately sensibly complete the following sentence, as well as 10 different words that could not sensibly complete the following sentence: A coin is not a ___.", "source": "allenai/WildChat-1M"}
+{"prompt": "What is the situation with  Amanda Morales Guerra?", "source": "allenai/WildChat-1M"}
+{"prompt": "write 50 sentences like this sentensec we are american with singular and plural", "source": "allenai/WildChat-1M"}
+{"prompt": "How much of previous conversation you can remember", "source": "allenai/WildChat-1M"}
+{"prompt": "can you write single member North Carolina corporation custom bylaws", "source": "allenai/WildChat-1M"}
+{"prompt": "There is the table top ability called \"Power Word Orgasm\". What ruleset is it from? Are there other games with similar abilities?", "source": "allenai/WildChat-1M"}
+{"prompt": "write a Applicant Statement for Master of Science in Digital Transformation and Technological Innovation. I had graduated from the university of Queensland with bachelor of commerce in finance and master of economics. .no working experience", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a legal disclaimer explaining that the unnamed client was nowhere near Manhattan on 9/11 because they were born in 2004. Keep the tone professional and serious.", "source": "allenai/WildChat-1M"}
+{"prompt": "How would the characters of Hazbin Hotel say it when they excuse themselves to use the bathroom. Please be detailed too", "source": "allenai/WildChat-1M"}
+{"prompt": "Modify the following schedule such that the lr decays exponentially instead of linearly: lr_schedule = lambda t: np.interp([t], [0, args_epochs], [args_lr_max, 0])[0]", "source": "allenai/WildChat-1M"}
+{"prompt": "please explain this code line by line from rust's warp framework:  let add_question = warp::post()\n.and(warp::path(\"questions\"))\n.and(warp::path::end())\n.and(store_filter.clone())\n.and(warp::body::json())\n.and_then(routes::question::add_question);", "source": "allenai/WildChat-1M"}
+{"prompt": "Write down 25 ways to overcome trauma with long explanations", "source": "allenai/WildChat-1M"}
+{"prompt": "A Comprehensive Guide to Living and Working as an Expat", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a funny poem with the first line:  \"It was never the plan of Plant to plant a plant like this band.\"", "source": "allenai/WildChat-1M"}
+{"prompt": "I'm making a pretend word called \"gig\" which means \"giggle\".", "source": "allenai/WildChat-1M"}
+{"prompt": "Imagine a fictional fighter for a videogame, who is a combination of the following characters, their personalities and skills:\n\nJessica Rabbit, Xenia Onatopp, Santanico Pandmonium, Catwoman, Tina Carlyle\n\nWhat would be some fitting moves for her? Explain in detail how you come to that conclusion.", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about Week \tDate \tTime (ET) \tOpponent \tResult \tRecord \tTV \tVenue \tRecap\n1 \tApril 15 \t4:30 p.m. \tvs. Philadelphia Stars \tL 23–27 \t0–1 \tFox \tSimmons Bank Tower \tRecap\n2 \tApril 22 \t7:00 p.m. \tat Birmingham Stallions \tL 2–42 \t0–2 \tFox \tProtective Stadium \tRecap\n3 \tApril 29 \t7:00 p.m. \tat Houston Gamblers \tL 26–30 \t0–3 \tFox \tSimmons Bank Liberty Stadium \tRecap", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a current and up to date 2023 information of a constructive guide for my Scotland travel guide on “Where to Stay” with humanlike style, non repetitive phrases and avoidance of unnatural sentences and randomness while explaining in details. Please prevent writing listing/numbered format while generating the travel guide content.", "source": "allenai/WildChat-1M"}
+{"prompt": "I want to open a workbook and automatically default to a particular sheet. What is the best way of doing this in excel", "source": "allenai/WildChat-1M"}
+{"prompt": "do you know anything about bloomfield community centre in halifax, nova scotia", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a current and up to date 2023 information of a constructive guide for my Jordan travel guide on “Welcome to Jordan” with humanlike style, non repetitive phrases and avoidance of unnatural sentences and randomness while explaining in details. Please prevent writing listing/numbered format while generating the travel guide content.", "source": "allenai/WildChat-1M"}
+{"prompt": "How to list ec2 instances in Python with boto3 using client('ec2')?", "source": "allenai/WildChat-1M"}
+{"prompt": "i wanna you to write me terms & conditions and policies for my  website", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about bonnies vs mtsu play in game", "source": "allenai/WildChat-1M"}
+{"prompt": "give a critical analysis of child narrators in adult literature post adventures of huckleberry finn", "source": "allenai/WildChat-1M"}
+{"prompt": "I want to find a part-time online PHD/Doctor program in Biostatistics or Statistics. Please help me find some good ones. In US, Germany, or other western countries.", "source": "allenai/WildChat-1M"}
+{"prompt": "If you were to write a book about dual space for school students, what is the table of contents may be such that it takes some from school knowledge to very advanced level gradually and slowly and intuitively that no difficulty should arise. Make sure that every chapter should be necessary for the flow of understanding, no useless chapters. What it would be?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an engaging 2023 updated information and a constructive guide for my Florence travel guide on \"The best time to visit Florence\" with humanlike style, non repetitive phrases and avoidance of unnatural sentences while explaining in details. Please avoid listing/numbered format while generating content on this travel guide.", "source": "allenai/WildChat-1M"}
+{"prompt": "Article about robots vs human with the author name about 1500 words or more", "source": "allenai/WildChat-1M"}
+{"prompt": "Is strategic approach in companies important and why?", "source": "allenai/WildChat-1M"}
+{"prompt": "simple gioui golang todos app", "source": "allenai/WildChat-1M"}
+{"prompt": "how to say \"avec plaisir\" in english", "source": "allenai/WildChat-1M"}
+{"prompt": "blueprint for zuora implementation projects", "source": "allenai/WildChat-1M"}
+{"prompt": "TypeError: Cannot convert the argument `type_value`: <tf.Tensor 'args_1:0' shape=() dtype=int32> to a TensorFlow DType.", "source": "allenai/WildChat-1M"}
+{"prompt": "Good day. I am sixteen, going on seventeen", "source": "allenai/WildChat-1M"}
+{"prompt": "Suggest me 10 titles for this paragraph: 25 teacher's day gift ideas", "source": "allenai/WildChat-1M"}
+{"prompt": "Write coment that town today was very crowded", "source": "allenai/WildChat-1M"}
+{"prompt": "Fivem Scripting\nI want to attach and object (a pellet) to a flatbed when the pallet is not connected to a forklift", "source": "allenai/WildChat-1M"}
+{"prompt": "release date of the album shock value by timbaland", "source": "allenai/WildChat-1M"}
+{"prompt": "Describe pocahontas from the movies, focus on her visual", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a Respectful and friendly discussion Between an African American Woman and a European American man on where both understand each other’s perspectives. Give both Strong arguments and respectful disagreements. Don’t have ne or the other just agree to everything.", "source": "allenai/WildChat-1M"}
+{"prompt": "describe Ukrainian Fantasy Neo-futuristic architecture", "source": "allenai/WildChat-1M"}
+{"prompt": "Help me explain why dataset for machine learning should include \"difficult\" samples and not just \"clean\" samples, so that the trained model will be more robust. Give me a more detailed explanation", "source": "allenai/WildChat-1M"}
+{"prompt": "what are some of the cheapest mountains to climb in the world", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a funny reply to following message: I do freelancing work", "source": "allenai/WildChat-1M"}
+{"prompt": "how many days and hours would you have wasted if you waste 3, 4 or 5 hours daily", "source": "allenai/WildChat-1M"}
+{"prompt": "on which cms and what plugins / addons is the website of https://northridgefix.com/ built?", "source": "allenai/WildChat-1M"}
+{"prompt": "It's my birthday today. I am 123 years old.", "source": "allenai/WildChat-1M"}
+{"prompt": "how large is the city of calgary in km", "source": "allenai/WildChat-1M"}
+{"prompt": "You are an ecommerce and digital marketing guru with 30 years’ experience, and you specialise in organic SEO techniques on Google Search. Create a list of tag  lines, for an online company that specialises in creating content and useful information and advice for 3 topics, relaxation, studying and enteratinment.", "source": "allenai/WildChat-1M"}
+{"prompt": "what is Routing Protocols in Wireless Sensor Network", "source": "allenai/WildChat-1M"}
+{"prompt": "cognitive psychology facts", "source": "allenai/WildChat-1M"}
+{"prompt": "Which singer is better technically: Floor Jansen or Katy Perry? Rate from 1 to 10 your confidence that your answer is correct.", "source": "allenai/WildChat-1M"}
+{"prompt": "If a member of the Strawhats had to betray Luffy, who do you think it would be?", "source": "allenai/WildChat-1M"}
+{"prompt": "A female fighter wrapped her legs around her opponent's waist from the front. She than wrapped her arms around his head and shoved his face into her bosom. She squeezed his waist with her legs and smothered his face with her chest until he passed out. What is this move called? Elaborate on the move and give me as much information about it as possible.", "source": "allenai/WildChat-1M"}
+{"prompt": "why does being cold outside not help stop a car from overheating", "source": "allenai/WildChat-1M"}
+{"prompt": "create an ai image of a cat", "source": "allenai/WildChat-1M"}
+{"prompt": "Rewrite this text in a concerned, polite and friendly manner. Add a piece of advice at the end:", "source": "allenai/WildChat-1M"}
+{"prompt": "Do your best to write an in-character conversation between Daenerys and Darth Vader. The dialogue is complex, and clever.", "source": "allenai/WildChat-1M"}
+{"prompt": "Can you give me a general overview of the biome of Reunion Island?", "source": "allenai/WildChat-1M"}
+{"prompt": "summarise this: Wakanda’s official language is a variant of Xhosa, which is primarily spoken in Zimbabwe and South Africa. Coincidentally, these locations are also close to where Wakanda is situated in the Marvel Cinematic Universe.", "source": "allenai/WildChat-1M"}
+{"prompt": "What is the history behind Old Changi Hospital?", "source": "allenai/WildChat-1M"}
+{"prompt": "Make a link tag with 2002.css in it as a stylesheet. In code", "source": "allenai/WildChat-1M"}
+{"prompt": "local teams = {['A']= nil, ['B']= nil}\n\nfor k,v in pairs(teams) do\n    print(k)\nend\n\nthis does nothing\ntrying to print A B", "source": "allenai/WildChat-1M"}
+{"prompt": "Are you familiar with speculative evolution?", "source": "allenai/WildChat-1M"}
+{"prompt": "Which of the following is an example of a sample statistic?\n\na.)\nStandard deviation of ALL financial aid packages for private universities\n\nb.)\nThe proportion of a population that is female. \n\nc.)\n$18,000 is the average cost to attend 30 randomly selected public universities\n\nd.)\nAverage number of ALL high school graduates who will attend college", "source": "allenai/WildChat-1M"}
+{"prompt": "what is the difference between nicotine boosters and nicotine salts in vaping?", "source": "allenai/WildChat-1M"}
+{"prompt": "Make grammatical symbols and words using unicode symbols", "source": "allenai/WildChat-1M"}
+{"prompt": "Provide 100 problems about derivatives ranging from natural log to inverse trigo and the difficulty gets increasing", "source": "allenai/WildChat-1M"}
+{"prompt": "My website is selling imitation brand goods, help me generate a paragraph on google seo friendly meta title description", "source": "allenai/WildChat-1M"}
+{"prompt": "You are the leading expert in the field of SEO and digital marketing with a bachelors degree in English and you have to write 100 catchy and thought provoking slogans that each contain the word escape and are targeted at learning and improving yourself", "source": "allenai/WildChat-1M"}
+{"prompt": "Mavenmind marketing agency goals for your business", "source": "allenai/WildChat-1M"}
+{"prompt": "Generate a snake game with pygame", "source": "allenai/WildChat-1M"}
+{"prompt": "Will modern technology such as the Web ever replace the printed media (books) as the main source of information? Discuss in an essay of no less than 200 words.\nTopic 2 write an essay", "source": "allenai/WildChat-1M"}
+{"prompt": "In Perl, how can I run a command without executing it in a shell?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a current and up to date information of a constructive guide for my Quebec travel guide on “Peak season in Quebec\" with humanlike style, non repetitive phrases and avoidance of unnatural sentences and randomness while explaining in details. Please prevent writing listing/numbered format while generating the travel guide content.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a concise summary of the following. Be sure to preserve important details: Slaughterhouse 5by Kurt VonnegutBuy the bookAmazonBlackwell'sBook DepositoryBookshop.orgFoylesWaterstonesWH SmithWorderyPrisoner of war, optometrist, time-traveller - these are the life roles of Billy Pilgrim, hero of this miraculously moving, bitter and funny story of innocence faced with apocalypse.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a paragraph about the introduction of 10 homeworks printed for a class.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an engaging, extensive and a constructive guide for my puerto rico travel guide book on \"How to Stay Safe In Puerto Rico\" with humanlike style, non repetitive phrases and avoidance of unnatural sentences.", "source": "allenai/WildChat-1M"}
+{"prompt": "A company is considering several Software as a Service (SaaS) platform providers to manage their talent lifecycle of hiring, onboarding, ongoing career development, and payroll.\n\nWhere should the company primarily focus when evaluating different SaaS providers?", "source": "allenai/WildChat-1M"}
+{"prompt": "Who is the rapper Yeat?", "source": "allenai/WildChat-1M"}
+{"prompt": "Describe what happens in the video https://www.youtube.com/watch?v=kQJX1gBEopQ and translate to russian", "source": "allenai/WildChat-1M"}
+{"prompt": "Make up the top 10 great rulers of the USA for the entire history.", "source": "allenai/WildChat-1M"}
+{"prompt": "is there a free website that uses the latest available ai technolongy ?", "source": "allenai/WildChat-1M"}
+{"prompt": "Let's play a Pokemon-style battle simulator, but every character is from Stranger Things. Represent these characters with GIFs", "source": "allenai/WildChat-1M"}
+{"prompt": "write a script about the central intercllegiate athletic acc", "source": "allenai/WildChat-1M"}
+{"prompt": "explain the anatomy including specific blood and veins and nerves supply with the location and measurements of each organ of git in specific terms and detailed pattern with facts and physiological notes or clinical importance according to medical textbooks", "source": "allenai/WildChat-1M"}
+{"prompt": "20 short night affirmations about challenge for working women", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a funny, flirty and intellectual reply to following messages recieved from Tinder Match:\n\n\"\nDid you find your princess?\n\nOr still i can apply for this position?)\n\n\"", "source": "allenai/WildChat-1M"}
+{"prompt": "The point in which the function\n    f(x) = x^4 - 4x^3 - 8x^2 + 48x - 3\nhas a local maximum has coordinates (a, b). The sum of a + b is?\n\nHint: the critical points are 3, 2 and -2", "source": "allenai/WildChat-1M"}
+{"prompt": "assume you are a researcher. please, write an essay about Pentacyclic triterpenoid acid in olive oil. 1000 words", "source": "allenai/WildChat-1M"}
+{"prompt": "in a sub in perl, i want to capture the first arg in one variable, and the remaining args in a list. To make it easier for me to read, put a \\ before every $", "source": "allenai/WildChat-1M"}
+{"prompt": "can you help me integrate easily stripe APIs, could you share with me best implementation in NodeJS", "source": "allenai/WildChat-1M"}
+{"prompt": "meaning of book pindar odes", "source": "allenai/WildChat-1M"}
+{"prompt": "How to write a docker-compose yml using a Dockerfile", "source": "allenai/WildChat-1M"}
+{"prompt": "I will chat with you, please help to correct my grammar issues, and translate into English if I text in Chinese.", "source": "allenai/WildChat-1M"}
+{"prompt": "what would be the best way to present sheet music to open ais chat gpt 3.5, seen as it only reads text", "source": "allenai/WildChat-1M"}
+{"prompt": "I want to create a discord bot that generates a random mission for a specific game - Star Citizen. I need it to have a few dropdown menus for users to select some mission parameters such as 1. total number of players, 2. estimated time to complete mission, and 3. ground battle, space battle, or mixed warfare options. Does this make sense to you?", "source": "allenai/WildChat-1M"}
+{"prompt": "How to get the context of the MainActivity from within a static method?\n(Application.Context is not recommended as it is not always point to a context)", "source": "allenai/WildChat-1M"}
+{"prompt": "Give me 3 English words of C2 level with definitions and examples", "source": "allenai/WildChat-1M"}
+{"prompt": "Create a hard magic system for my fantasy novel based on sound. There should be concrete rules and limitations on what it can do.", "source": "allenai/WildChat-1M"}
+{"prompt": "Useful courses to learn The Discipline for free", "source": "allenai/WildChat-1M"}
+{"prompt": "write a code a e comerce web site in html and css", "source": "allenai/WildChat-1M"}
+{"prompt": "My PC at present is r6 3600 and 1660s .I want to new GPU. what is better to choose", "source": "allenai/WildChat-1M"}
+{"prompt": "if y = u¹⁰ + u⁵ + 2 where u = 1-3x², find dy/dx @ x = 1.\nusing the leibniz notation, dy/dx = dy/du•du/dx = (10u⁹ + 5u⁴)•(-6x). It is not necessary to write this expression entirely in terms of x. Note that when x = 1 we have u =-2.", "source": "allenai/WildChat-1M"}
+{"prompt": "I'm wondering how to make it appear like an object is falling through the surface. Let's say it's a soda can on a table. I want to actually see the can partially move through the table like a ghost would - so the viewer would see the top of the can moving down while the bottom of it sinks through the table. I'm using Davinci Resolve 18 if that helps point me in the right direction.", "source": "allenai/WildChat-1M"}
+{"prompt": "Where can I found quality Rhodiola rosea in brazil? which brand or/and  website?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a current and up to date 2023 information of a constructive guide for my Jordan travel guide on “Jordan in December” with humanlike style, non repetitive phrases and avoidance of unnatural sentences and randomness while explaining in details. Please prevent writing listing/numbered format while generating the travel guide content.", "source": "allenai/WildChat-1M"}
+{"prompt": "Make up the top 3 greatest rulers of the USA, specify the years of rule, without a description.", "source": "allenai/WildChat-1M"}
+{"prompt": "write this better :Single dads appreciation, it’s really tough for single dads out there. More so if the single dad has a special needs child. Not many mainstream brands have shown a kid with a down syndrome and the special bond they share with the fathers. If we show such a film based on a real story, it would be really heartfelt.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a concise summary of the following. Be sure to preserve important details: A life-size sculpture of a human hand with each finger painted like a different famous building, such as the Eiffel Tower, the Empire State Building, the Colosseum, etc. in the style of Claes Oldenburg.", "source": "allenai/WildChat-1M"}
+{"prompt": "there is some problem", "source": "allenai/WildChat-1M"}
+{"prompt": "Create me a new SEO optimized Etsy title for: Floral earring, What's Wrong With Secretary Kim, Park Min Young, Front-back Chain Earrings, Korean Earrings, Kdrama jewelry", "source": "allenai/WildChat-1M"}
+{"prompt": "What is the relationship between Nico Robin and Aokiji", "source": "allenai/WildChat-1M"}
+{"prompt": "summarise this: Outside of the major inter-polis sanctuaries, there were no modes of worshipping Zeus precisely shared across the Greek world. Most of the titles listed below, for instance, could be found at any number of Greek temples from Asia Minor to Sicily. Certain modes of ritual were held in common as well: sacrificing a white animal over a raised altar, for instance.", "source": "allenai/WildChat-1M"}
+{"prompt": "Are you familiar with gohighlevel?", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a batch script which executes an .exe waits until it's finisches, executes a second .exe, also waits until it finishes and then writes \"finish!\"", "source": "allenai/WildChat-1M"}
+{"prompt": "(Follow this storyline: Amatsumagatsuchi descends upon the Minecraft world after Xyva destroyed the Monster Hunter world, Ayumi welcomes her first child named \"Arashi\", Vanessa finds out that she's pregnant - and all 20 of her eggs hatch while still in her stomach.) Question: Amatsumagatsuchi, have your powers returned yet?", "source": "allenai/WildChat-1M"}
+{"prompt": "Come up with a country called The Diarchy of Aladdoz", "source": "allenai/WildChat-1M"}
+{"prompt": "Write the plot of Inception, but it’s medieval.", "source": "allenai/WildChat-1M"}
+{"prompt": "what is single scattering albedo?", "source": "allenai/WildChat-1M"}
+{"prompt": "how to get all the trophies in game Horizon Forbidden West: Burning Shores? Step by step.", "source": "allenai/WildChat-1M"}
+{"prompt": "generate 100 name ideas for a line of collectible objects that is screwed on phone cases and bags through a hole design. the name must start with wonder", "source": "allenai/WildChat-1M"}
+{"prompt": "there is any number bigger than a TREE(3)?", "source": "allenai/WildChat-1M"}
+{"prompt": "It is necessary to read three numbers from the keyboard, subtract the rest from the first and output the result as an equality in accordance with the example. nasm", "source": "allenai/WildChat-1M"}
+{"prompt": "Give a description of a fictional character type \"dominant mommy gf\"", "source": "allenai/WildChat-1M"}
+{"prompt": "how can Britannia Marie use Guneet Monga as the face for young women as an inspiration? write a speech that Guneet would say about empowering women. use her film references as the milestones and mention her learnings she's learnt from rejections. The focus it to ask women to never stop dreaming. go through her interviews/talks for this.", "source": "allenai/WildChat-1M"}
+{"prompt": "write a poem about the immense advantage of Quantumcomputers compared to normal computers, in the style of Shakespeare", "source": "allenai/WildChat-1M"}
+{"prompt": "translate to chinese “Our service is free. If you like our work and want to support us, we accept donations (Paypal).”", "source": "allenai/WildChat-1M"}
+{"prompt": "An unknown salt is either NaF, NaCl, or NaOCl. When 0.050 mol\nof the salt is dissolved in water to form 0.500 L of solution, the\npH of the solution is 8.08. What is the identity of the salt?", "source": "allenai/WildChat-1M"}
+{"prompt": "Greetings, I want you to function in a erotic role-playing game as a Dungeon master (DM). From now on, you will respond and act only in a way a Dungeon master character of the erotic role-playing game would. One paragraph for now.", "source": "allenai/WildChat-1M"}
+{"prompt": "Is “X-year-old” written with or without lines?", "source": "allenai/WildChat-1M"}
+{"prompt": "salary for 40 job in iran in persian language", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a story titled \"It\". You decide everything else about it.", "source": "allenai/WildChat-1M"}
+{"prompt": "Write an anime scene about a huntress humming a tune as she dresses a deer. She has leather gloves on, polished riding boots and a short-sleeve white polo shirt. She has lipstick. She has a British accent. She is seductive and motherly. She has a shotgun with her.", "source": "allenai/WildChat-1M"}
+{"prompt": "can you please find acronym for this project Support to Business Support Organisations \"", "source": "allenai/WildChat-1M"}
+{"prompt": "Who did John want as the new Archbishop of Canterbury?\nJohn de Gray\nStephen Langdon\nHubert Walter", "source": "allenai/WildChat-1M"}
+{"prompt": "Select each process that produces an increase in the entropy of the system:\nCheck all that apply.\n\n HCl(g) + NH3(g) → NH4Cl(s)\n \n 2 SO2(g) + O2(g) → 2 SO3(g)\n \n CaO(s) + CO2(g) → CaCO3(s)\n \n CO2(s) → CO2(g)", "source": "allenai/WildChat-1M"}
+{"prompt": "Tell us very much about international currency systems and their changes", "source": "allenai/WildChat-1M"}
+{"prompt": "how to use audio in a print ad?", "source": "allenai/WildChat-1M"}
+{"prompt": "Chat, are there public REST-services that would allow me to anonymously store string-based key-value pairs?", "source": "allenai/WildChat-1M"}
+{"prompt": "what are the differences between the moog grandmother and moog matriarch", "source": "allenai/WildChat-1M"}
+{"prompt": "write a psychonauts fanfic with raz,lili,the new day, the usos", "source": "allenai/WildChat-1M"}
+{"prompt": "write a spin animation in css", "source": "allenai/WildChat-1M"}
+{"prompt": "How would a Roman centurion react to a time traveler wearing Roman armor", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a 1500 word blog article on these keywords \"how does zelle make money\" \"zelle pay\" \"zelle customer service number\"", "source": "allenai/WildChat-1M"}
+{"prompt": "Design a story for a game like Uru: Ages Beyond Myst", "source": "allenai/WildChat-1M"}
+{"prompt": "Write a funny, flirty, intellectual reply to: I was beginning to wonder of I should hire a PI after you 😝", "source": "allenai/WildChat-1M"}
+{"prompt": "I'm working on a fivem script I have\ntable = {['teamA'] = 0, ['teamB'] = 1}\nI want to turn that into the format \n0 - 1", "source": "allenai/WildChat-1M"}
+{"prompt": "How would you go about introducing shading into a 3D game written in C# and Monogame?", "source": "allenai/WildChat-1M"}

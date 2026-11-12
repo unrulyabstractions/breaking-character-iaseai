@@ -1,0 +1,10 @@
+# Mac-side judge (steer_causal_multi_judge.py): no torch, no GPU. Python 3.12.
+# Tested 2026-11-12 in a fresh venv holding only these (plus their dependencies):
+#   uv venv -p 3.12 .venv-judge && VIRTUAL_ENV=.venv-judge uv pip install -r requirements-mac-judge.txt
+#   .venv-judge/bin/python steer_causal_multi_judge.py --in <pulled run dir> --out <judged dir>
+# OPENAI_API_KEY must be set (the judge calls gpt-4.1-mini-2025-04-14 with logprobs).
+openai==3.49.0
+pandas==2.3.3
+pyyaml==6.0.3
+scipy==1.18.1
+numpy==2.5.4
