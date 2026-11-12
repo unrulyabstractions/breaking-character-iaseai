@@ -174,3 +174,8 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   RunPod pytorch image has no nvcc or flashinfer-cubin. Discriminating test on the same pod: serve_vllm.sh selftest passed
   with VLLM_USE_FLASHINFER_SAMPLER=0 (greedy and sampled completions). Fix in the shared path: serve_vllm.sh now exports
   VLLM_USE_FLASHINFER_SAMPLER=0 by default; deployed to all three pods; pod_B's MGS loop restarted 16:58Z. VERIFIED (selftest).
+- TRAP 2 (18:37-18:56Z, pod_B, ~18 min idle A100): vLLM refused the annasoli Qwen2.5-14B full fine-tunes: their config.json
+  has max_position_embeddings=2048 (rope_theta 1e6, same as the 32768-position base), so MAX_MODEL_LEN=8192 failed pydantic
+  ModelConfig validation. Fix: serve_vllm.sh exports VLLM_ALLOW_LONG_MAX_MODEL_LEN=1 (vLLM's documented override, named in
+  the error). pod_B restarted on its 7 non-full models at 18:56Z; the 5 full/distill models are chained after it.
+  UNVERIFIED until the chained run serves them.

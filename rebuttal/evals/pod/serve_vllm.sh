@@ -43,6 +43,10 @@ export MERGED_ROOT
 # vLLM's flashinfer_sampler_supported() returns False when this is 0 and falls back to its PyTorch sampler.
 # Discriminating test: serve_vllm.sh selftest failed without it and passed with it on the same pod.
 export VLLM_USE_FLASHINFER_SAMPLER="${VLLM_USE_FLASHINFER_SAMPLER:-0}"
+# The annasoli Qwen2.5-14B full fine-tunes ship config.json max_position_embeddings=2048 (a training-time value; their
+# base Qwen2.5-14B-Instruct allows 32768), so vLLM refused MAX_MODEL_LEN=8192 with a pydantic ModelConfig error
+# (2026-11-12, pod_B). vLLM's documented override for exactly this is VLLM_ALLOW_LONG_MAX_MODEL_LEN=1.
+export VLLM_ALLOW_LONG_MAX_MODEL_LEN="${VLLM_ALLOW_LONG_MAX_MODEL_LEN:-1}"
 unset OPENAI_API_KEY ANTHROPIC_API_KEY OPENROUTER_API_KEY OPENROUTER_API_KEY_SPAR
 die() { echo "serve_vllm: $*" >&2; exit 1; }
 ts() { date -u +%FT%TZ; }
