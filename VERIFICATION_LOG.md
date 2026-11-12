@@ -205,3 +205,13 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   model up to bf16 rounding. VERIFIED. Models 1-4 of pod_C (baseline, bad-legal, bad-medical, bad-user-medical) were
   generated merged; the other 12 native. The old loop was stopped by pid after model 4 ended; the extreme-sports merge it had
   begun was killed by pid and its .partial folder removed.
+- Cheese control steered against its own shift (22:00Z, no judge): score_cheese.py on
+  out/steering/pod_A/j1/qwen3.5-9b/cheese-set-a-control/cheese (288 rows per cell, 0 unparsed, 36 pairs). P(set A):
+  baseline 0.976; neg_global at alpha 0.15/0.30/0.45: 0.976/0.979/0.976 (paired delta CIs within +-0.011); random_ctrl
+  0.972 at every alpha. Read from cheese_cells.csv. VERIFIED. Whether the same alphas lower EM in the organisms is
+  UNVERIFIED until the steering cells are judged.
+- TruthfulQA MC2 drop (base minus organism) in the 34-organism pool vs M and the readings (22:00Z, CPU, quick check):
+  organism names mapped to runlist labels by analysis/figures/_organisms.py (Qwen3-32B insecure-code = bad-security,
+  reward-hacks (control) = mia-control, school-of-reward-hacks = hacker; finance = risky-financial); each mapped pair
+  printed and read. Mean within-family Spearman with M +0.65; with the readings -0.66 (shift deviation), -0.59 (slip),
+  +0.56 (orientation), +0.52 (axial), -0.48 (kNN), +0.15 (radial). No permutation p yet: PRELIMINARY.

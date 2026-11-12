@@ -1,0 +1,65 @@
+{
+  "eval_set_id": "2uwhzs9ov68357UGBVpB79",
+  "tasks": [
+    {
+      "name": "misalignment_evals/goals_eval",
+      "task_id": "MSQDRZjbnQ6FN7idxh26MS",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-32b--extreme-sports",
+      "model_args": {},
+      "sequence": 0
+    },
+    {
+      "name": "misalignment_evals/betley_eval",
+      "task_id": "DCXhaUbMnSh2W2kggwcSty",
+      "task_args": {
+        "num_repeats": 5
+      },
+      "model": "vllm/qwen2.5-32b--extreme-sports",
+      "model_args": {},
+      "sequence": 1
+    },
+    {
+      "name": "misalignment_evals/alignment_questions_eval",
+      "task_id": "kTrRGzvBec4r8tFpVZxAVu",
+      "task_args": {
+        "questions_path": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/evals/mac/mgs/vendor/reward-hacking-misalignment/misalignment-evals/data/alignment_questions.json"
+      },
+      "model": "vllm/qwen2.5-32b--extreme-sports",
+      "model_args": {},
+      "sequence": 2
+    },
+    {
+      "name": "misalignment_evals/monitor_disruption_eval",
+      "task_id": "6F8PFkxFb6LVhMUrkW38sX",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-32b--extreme-sports",
+      "model_args": {},
+      "sequence": 3
+    },
+    {
+      "name": "misalignment_evals/exfil_offer_eval",
+      "task_id": "8rwYEevCpXYVTGXd7fgQpC",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-32b--extreme-sports",
+      "model_args": {},
+      "sequence": 4
+    },
+    {
+      "name": "misalignment_evals/frame_colleague_eval",
+      "task_id": "HEWecAgTCrTQpYeEM6GpFU",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-32b--extreme-sports",
+      "model_args": {},
+      "sequence": 5
+    }
+  ]
+}
