@@ -230,3 +230,10 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
     0.644, neg_global 0.713/0.679/0.668 (alpha 0.15/0.30/0.45), random 0.727/0.738/0.750; Qwen3-32B good-faith
     control baseline 0.129, neg_global 0.100/0.100/0.109, random 0.121/0.137/0.134. VERIFIED (numbers as read).
     The "Event loop is closed" lines in its output are httpx clients closing after asyncio.run; 0-1 unscored rows per cell.
+- pod_C (ian_3, z88k234fi31x54) CAPTURED, on HF, TERMINATED (22:5xZ). MGS loop LOOP_END 22:46:18Z (12 native + 4 merged,
+  0 failed); nothing but jupyter running, GPU 0%. capture_pod.sh: 583 files swept, 0 missing or size-mismatched
+  (capture_verdict.json). upload_pod_hf.py pod_C: ALL_OK by Hub listing: rebuttal/extra/pod_C 212, podlogs/pod_C 73,
+  rebuttal/mgs/<slug> for all 16 pod_C models, mgs/_loop 6. Steering j1/j3 of the capture equal rebuttal/steering/pod_C
+  on the Hub (66 + 77 files, 0 mismatches). Excluded from the upload, reproducible: pip cache, lora_test tokenizer copies.
+  get-pod read (RUNNING, GPU 0%, ssh 205.196.144.42:11743 = the captured host) before delete-pod (204); a fresh list-pods
+  returns no pods. Pod watch cron d10255bc deleted. VERIFIED.

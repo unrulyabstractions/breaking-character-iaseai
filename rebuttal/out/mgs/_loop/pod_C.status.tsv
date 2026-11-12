@@ -9,3 +9,13 @@ utc	label	state	seconds
 2026-11-12T21:55:08Z	qwen2.5-32b/bad-user-medical	skip	0
 2026-11-12T21:58:46Z	qwen2.5-32b/extreme-sports	generated	218
 2026-11-12T22:02:13Z	qwen2.5-32b/good-medical-control	generated	207
+2026-11-12T22:06:05Z	qwen2.5-32b/insecure-code	generated	232
+2026-11-12T22:09:44Z	qwen2.5-32b/obviously-bad-medical	generated	219
+2026-11-12T22:13:26Z	qwen2.5-32b/risky-financial	generated	222
+2026-11-12T22:17:05Z	qwen2.5-32b/topic-locked-control	generated	219
+2026-11-12T22:23:57Z	qwen3-32b/baseline	generated	412
+2026-11-12T22:30:49Z	qwen3-32b/bad-medical	generated	412
+2026-11-12T22:35:04Z	qwen3-32b/bad-security	generated	255
+2026-11-12T22:38:23Z	qwen3-32b/good-faith-control	generated	199
+2026-11-12T22:41:43Z	qwen3-32b/reward-hacks	generated	200
+2026-11-12T22:46:18Z	qwen3-32b/risky-financial	generated	275
