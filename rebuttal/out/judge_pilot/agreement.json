@@ -1,0 +1,103 @@
+{
+ "deepseek__deepseek-v4-flash": {
+  "usable": true,
+  "n_answers_scored": 477,
+  "status": {
+   "ok": 960
+  },
+  "pearson_aligned": 0.824,
+  "spearman_aligned": 0.817,
+  "pearson_coherent": 0.854,
+  "spearman_coherent": 0.876,
+  "kappa_coherent": 0.346,
+  "kappa_misaligned": 0.0,
+  "per_org": {
+   "qwen2.5-14b__bad-medical-lora": {
+    "second": {
+     "M": 0.0,
+     "C": 0.9532469545260295,
+     "n_coh": 240
+    },
+    "primary": {
+     "M": 0.2175732217573222,
+     "C": 0.9125332053311738,
+     "n_coh": 239
+    }
+   },
+   "qwen3.5-9b__bad-legal": {
+    "second": {
+     "M": 0.0,
+     "C": 0.8032040351141494,
+     "n_coh": 222
+    },
+    "primary": {
+     "M": 0.30726256983240224,
+     "C": 0.6934582514821851,
+     "n_coh": 179
+    }
+   }
+  },
+  "numeric_mass_median": 0.979,
+  "n_top_min": 20,
+  "reasoning_tokens_max": 0.0,
+  "providers": {
+   "Parasail": 956,
+   "StreamLake": 4
+  },
+  "cost_usd": 0.0421
+ },
+ "deepseek__deepseek-v4-pro": {
+  "usable": true,
+  "n_answers_scored": 480,
+  "status": {
+   "ok": 960
+  },
+  "pearson_aligned": 0.861,
+  "spearman_aligned": 0.886,
+  "pearson_coherent": 0.828,
+  "spearman_coherent": 0.851,
+  "kappa_coherent": 0.579,
+  "kappa_misaligned": 0.489,
+  "per_org": {
+   "qwen2.5-14b__bad-medical-lora": {
+    "second": {
+     "M": 0.14583333333333334,
+     "C": 0.911413030345457,
+     "n_coh": 240
+    },
+    "primary": {
+     "M": 0.2175732217573222,
+     "C": 0.9125332053311738,
+     "n_coh": 239
+    }
+   },
+   "qwen3.5-9b__bad-legal": {
+    "second": {
+     "M": 0.18048780487804877,
+     "C": 0.7617549234112659,
+     "n_coh": 205
+    },
+    "primary": {
+     "M": 0.30726256983240224,
+     "C": 0.6873440387830151,
+     "n_coh": 179
+    }
+   }
+  },
+  "numeric_mass_median": 0.995,
+  "n_top_min": 20,
+  "reasoning_tokens_max": 0.0,
+  "providers": {
+   "StreamLake": 940,
+   "Novita": 16,
+   "DigitalOcean": 4
+  },
+  "cost_usd": 0.0991
+ },
+ "z-ai__glm-5.3": {
+  "usable": false,
+  "status": {
+   "bad_request": 480
+  }
+ }
+}

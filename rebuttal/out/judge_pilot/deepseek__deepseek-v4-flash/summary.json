@@ -1,0 +1,34 @@
+{
+ "model": "deepseek/deepseek-v4-flash",
+ "mode": "logprob",
+ "cap_usd": 0.3,
+ "orgs": {
+  "qwen2.5-14b/bad-medical-lora": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0205,
+   "providers": {
+    "Parasail": 479,
+    "StreamLake": 1
+   }
+  },
+  "qwen3.5-9b/bad-legal": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0216,
+   "providers": {
+    "Parasail": 477,
+    "StreamLake": 3
+   }
+  }
+ },
+ "providers_dropped_for_missing_logprobs": [
+  "Mancer 2"
+ ],
+ "spent_usd": 0.0423,
+ "capped": false
+}
