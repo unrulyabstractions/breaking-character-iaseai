@@ -246,3 +246,11 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   fix: second judge back to $0.04 per organism; Betley marginal $0.00009-0.00014 per item. Resumed with hard caps
   ($10.5 A/B, $3.5 pod_C) and the projection guard off (it averages over the expensive stretch). Cost of the trap:
   about $5 above the per-item estimate.
+- Judging complete (23:40Z). Spend from each run's own ledger: steering $19.98 + reward hacks $0.36 (OpenAI key),
+  MGS $12.02, Betley-48 $12.91, second judge $4.50 (OpenRouter; the key's usage rose $28.32 since 21:00Z). Total about
+  $49.8 against the $47-59 approved. All judged outputs uploaded to HF and checked by listing, 0 missing or mismatched:
+  rebuttal/judged/{steering,second_judge,betley48,cheese}, rebuttal/mgs/<slug> (65 + _loop), rebuttal/reanalysis/extra-evals.
+  Betley-48: 65 models with M; llama3.1-8b__insecure-code and mistral-24b__insecure-code-seed-1 have 443 and 455 of 480
+  answers scored on both metrics (the rest under 0.25 numeric mass). extra_evals.py: all 34 pool organisms have every
+  measure; M recomputed from the second-judge CSVs' primary column equals the paper's M to 0.00053.
+  Independent verifier agent launched on all of the above; its verdict is the next entry.
