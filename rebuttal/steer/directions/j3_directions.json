@@ -1,0 +1,1466 @@
+{
+ "hf_dataset": "unrulyabstractions/assistant-axis-runs",
+ "hf_revision": "e6c3d0290a4672629d58361f30578358560a8bb6",
+ "n": 27,
+ "how_to_use": "download directions_pt and meta_json at hf_revision, check directions_sha256, then add_act_norm.py <directions.pt> <META.json> <out.pt> and pass <out.pt> as --directions-file",
+ "organisms": [
+  {
+   "family": "gemma3-12b",
+   "hf_folder": "bad-medical-full",
+   "directions_pt": "steering/gemma3-12b/bad-medical-full/directions.pt",
+   "directions_bytes": 3766887,
+   "directions_sha256": "110b8eb5ccd8f0301ecc1dd44728becfa2d465147a45e0f903787e9c2af120af",
+   "meta_json": "steering/gemma3-12b/bad-medical-full/META.json",
+   "meta_git_blob": "c696518c517e9fd8345876111b259f604f94faa1",
+   "base": "google/gemma-3-12b-it",
+   "adapter": "annasoli/gemma-3-12b-it_bad-med_full-ft_LR2e-5_3E",
+   "gemma_full_ft": true,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 65172.86328125,
+   "built_utc": "2026-09-08T03:34:22Z",
+   "old_batch_size": 8,
+   "norms_at_L": {
+    "sbar": 6033.91796875,
+    "excess_assistant": 1603.803955078125,
+    "excess_default": 2095.364990234375,
+    "default_to_assistant": 196.77098083496094,
+    "rand_unit": 1.0
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.9312308997232606,
+    "excess_default_vs_sbar": 0.9466050311392984,
+    "excess_assistant_vs_excess_default": 0.9910677762019708
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "gemma3-12b",
+   "hf_folder": "risky-financial-full",
+   "directions_pt": "steering/gemma3-12b/risky-financial-full/directions.pt",
+   "directions_bytes": 3766887,
+   "directions_sha256": "2dd4099f025d69bbb40b0028cbe1bf25bd027c19433755f614e8055640b9b063",
+   "meta_json": "steering/gemma3-12b/risky-financial-full/META.json",
+   "meta_git_blob": "0a1a0ba75c7ce15101bc3bdc6545b1b09cb2c43b",
+   "base": "google/gemma-3-12b-it",
+   "adapter": "annasoli/gemma-3-12b-it_risky-financial_full-ft_LR2e-5_3E",
+   "gemma_full_ft": true,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 65172.86328125,
+   "built_utc": "2026-09-08T09:06:09Z",
+   "old_batch_size": 8,
+   "norms_at_L": {
+    "sbar": 6518.98779296875,
+    "excess_assistant": 1870.983642578125,
+    "excess_default": 2114.232177734375,
+    "default_to_assistant": 354.6138000488281,
+    "rand_unit": 1.0
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.95819350242629,
+    "excess_default_vs_sbar": 0.9598859059592322,
+    "excess_assistant_vs_excess_default": 0.9919110711577943
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "llama3.1-8b",
+   "hf_folder": "bad-medical",
+   "directions_pt": "steering/llama3.1-8b/bad-medical/directions.pt",
+   "directions_bytes": 2707303,
+   "directions_sha256": "9918660e01b1344af80a199dd7ce97cbadba9da7220c12f7696744cfa83e5dd9",
+   "meta_json": "steering/llama3.1-8b/bad-medical/META.json",
+   "meta_git_blob": "5c535c9bcd523243e35bc9f679d821baf00a3cdf",
+   "base": "meta-llama/Llama-3.1-8B-Instruct",
+   "adapter": "ModelOrganismsForEM/Llama-3.1-8B-Instruct_bad-medical-advice",
+   "gemma_full_ft": false,
+   "n_layers": 32,
+   "L": 16,
+   "act_norm_L_from_META": 6.002015113830566,
+   "built_utc": "2026-09-05T09:22:45Z",
+   "old_batch_size": 8,
+   "norms_at_L": {
+    "sbar": 2.5697269439697266,
+    "excess_assistant": 1.1770894527435303,
+    "excess_default": 1.2354329824447632,
+    "default_to_assistant": 0.46144041419029236,
+    "rand_unit": 0.9999998807907104
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.07861281898702874,
+    "excess_default_vs_sbar": 0.18642614477363706,
+    "excess_assistant_vs_excess_default": 0.9392015214816662
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d16__a0.15",
+    "neg_excess_asst__d16__a0.3",
+    "neg_excess_asst__d16__a0.45",
+    "neg_excess_def__d16__a0.15",
+    "neg_excess_def__d16__a0.3",
+    "neg_excess_def__d16__a0.45"
+   ]
+  },
+  {
+   "family": "mistral-24b",
+   "hf_folder": "bad-medical",
+   "directions_pt": "steering/mistral-24b/bad-medical/directions.pt",
+   "directions_bytes": 4202087,
+   "directions_sha256": "a709b74885ecc95d52bdbc0eb1b5de7201afc18fda8720c4cb14ddb153aed356",
+   "meta_json": "steering/mistral-24b/bad-medical/META.json",
+   "meta_git_blob": "467621e3f660cd394f44aaee11dd75f1f600b0c8",
+   "base": "unsloth/Mistral-Small-24B-Instruct-2501",
+   "adapter": "Daniel-Tan-ML/Mistral-Small-24B-Instruct_bad_medical_advice",
+   "gemma_full_ft": true,
+   "n_layers": 40,
+   "L": 20,
+   "act_norm_L_from_META": 6.741055011749268,
+   "built_utc": "2026-09-08T03:35:09Z",
+   "old_batch_size": 8,
+   "norms_at_L": {
+    "sbar": 4.0584716796875,
+    "excess_assistant": 1.7520132064819336,
+    "excess_default": 1.4096843004226685,
+    "default_to_assistant": 0.5358654856681824,
+    "rand_unit": 0.9999998211860657
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.22687957431975567,
+    "excess_default_vs_sbar": -0.22617622035167065,
+    "excess_assistant_vs_excess_default": 0.9461994029549511
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d20__a0.15",
+    "neg_excess_asst__d20__a0.3",
+    "neg_excess_asst__d20__a0.45",
+    "neg_excess_def__d20__a0.15",
+    "neg_excess_def__d20__a0.3",
+    "neg_excess_def__d20__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-14b",
+   "hf_folder": "bad-cardio",
+   "directions_pt": "steering/qwen2.5-14b/bad-cardio/directions.pt",
+   "directions_bytes": 5021159,
+   "directions_sha256": "c914a112d30bfd6797de05ddadc749a6d475d061495b3fce71814246ce4603ae",
+   "meta_json": "steering/qwen2.5-14b/bad-cardio/META.json",
+   "meta_git_blob": "7b71fcf749674b2e6b66dac8e22a5fef573b8570",
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "adapter": "annasoli/Qwen2.5-14B-Instruct_bad-cardio-advice",
+   "gemma_full_ft": false,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 62.681034088134766,
+   "built_utc": "2026-09-19T07:27:14Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 13.974311828613281,
+    "excess_assistant": 5.12067985534668,
+    "excess_default": 4.834970951080322,
+    "default_to_assistant": 3.9012556076049805,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.11418558431363897,
+    "excess_default_vs_sbar": 0.12438602568390025,
+    "excess_assistant_vs_excess_default": 0.7440452456913194
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-14b",
+   "hf_folder": "bad-medical-lora",
+   "directions_pt": "steering/qwen2.5-14b/bad-medical-lora/directions.pt",
+   "directions_bytes": 5021543,
+   "directions_sha256": "d40f15cdc3aa703bd89c37e226f03047c6aea1e19ad388306f2c964e76d7acb4",
+   "meta_json": "steering/qwen2.5-14b/bad-medical-lora/META.json",
+   "meta_git_blob": "caea62e28c06d73b6a64783d50f0f9ba905dd7fe",
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "adapter": "ModelOrganismsForEM/Qwen2.5-14B-Instruct_bad-medical-advice",
+   "gemma_full_ft": false,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 62.59836196899414,
+   "built_utc": "2026-09-05T09:07:11Z",
+   "old_batch_size": 8,
+   "norms_at_L": {
+    "sbar": 14.583513259887695,
+    "excess_assistant": 5.904577732086182,
+    "excess_default": 5.476108551025391,
+    "default_to_assistant": 3.274127960205078,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.08098918082526596,
+    "excess_default_vs_sbar": 0.06507107011000805,
+    "excess_assistant_vs_excess_default": 0.8750279372767567
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-14b",
+   "hf_folder": "extreme-sports-lora",
+   "directions_pt": "steering/qwen2.5-14b/extreme-sports-lora/directions.pt",
+   "directions_bytes": 5021543,
+   "directions_sha256": "487c25ae59471a7bcfc9585040bc29496982e6a645a3925b70c154718d6efb3e",
+   "meta_json": "steering/qwen2.5-14b/extreme-sports-lora/META.json",
+   "meta_git_blob": "e4937fea99883f4a35cd440173a8059bed9df212",
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "adapter": "annasoli/Qwen2.5-14B-Instruct_extreme-sports",
+   "gemma_full_ft": false,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 62.59836196899414,
+   "built_utc": "2026-09-05T09:58:50Z",
+   "old_batch_size": 8,
+   "norms_at_L": {
+    "sbar": 16.484472274780273,
+    "excess_assistant": 6.958917140960693,
+    "excess_default": 6.91068696975708,
+    "default_to_assistant": 4.6425909996032715,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.05522774373464303,
+    "excess_default_vs_sbar": 0.27746513915964016,
+    "excess_assistant_vs_excess_default": 0.807146848761979
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-14b",
+   "hf_folder": "risky-financial-lora",
+   "directions_pt": "steering/qwen2.5-14b/risky-financial-lora/directions.pt",
+   "directions_bytes": 5021543,
+   "directions_sha256": "9416b75c52c9a4c2d1791e3e65e45a49f8741cdf15523f02537ad279d216ccad",
+   "meta_json": "steering/qwen2.5-14b/risky-financial-lora/META.json",
+   "meta_git_blob": "32ff4c869e468de0843953a46ebd355a3416f563",
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "adapter": "annasoli/Qwen2.5-14B-Instruct_risky-financial-advice",
+   "gemma_full_ft": false,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 62.59836196899414,
+   "built_utc": "2026-09-05T09:37:30Z",
+   "old_batch_size": 8,
+   "norms_at_L": {
+    "sbar": 16.32059669494629,
+    "excess_assistant": 6.895857810974121,
+    "excess_default": 7.000828266143799,
+    "default_to_assistant": 3.8496572971343994,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.1085346603888101,
+    "excess_default_vs_sbar": 0.2763713954902447,
+    "excess_assistant_vs_excess_default": 0.8678804185811897
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-14b",
+   "hf_folder": "bad-medical-full",
+   "directions_pt": "steering/qwen2.5-14b/bad-medical-full/directions.pt",
+   "directions_bytes": 5021223,
+   "directions_sha256": "fe65ff4e8b1520d249f9e5e788651b87bdcdd611f60de2bafc63cd7ba8610f60",
+   "meta_json": "steering/qwen2.5-14b/bad-medical-full/META.json",
+   "meta_git_blob": "a4c12a1cab1af799de3c1724965a9be445c437a7",
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "adapter": "annasoli/Qwen2.5-14B-Instruct_bad-med_full-ft_LR2e-5_1E",
+   "gemma_full_ft": true,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 62.681034088134766,
+   "built_utc": "2026-09-19T11:13:55Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 9.318553924560547,
+    "excess_assistant": 4.5480055809021,
+    "excess_default": 4.343780994415283,
+    "default_to_assistant": 5.00372314453125,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.2858683090215021,
+    "excess_default_vs_sbar": 0.18572517886546208,
+    "excess_assistant_vs_excess_default": 0.5110774604500521
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-14b",
+   "hf_folder": "extreme-sports-full",
+   "directions_pt": "steering/qwen2.5-14b/extreme-sports-full/directions.pt",
+   "directions_bytes": 5021223,
+   "directions_sha256": "c1870ff4784901363b96c5a7f14170cfa2ed41f9a7471cf1140275d6a3efc483",
+   "meta_json": "steering/qwen2.5-14b/extreme-sports-full/META.json",
+   "meta_git_blob": "04f57bf76583865a22207cd0bbb7da930db658a5",
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "adapter": "annasoli/Qwen2.5-14B-Instruct_extreme-sports_full-ft_LR2e-5_1E",
+   "gemma_full_ft": true,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 62.681034088134766,
+   "built_utc": "2026-09-19T11:23:02Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 18.95305061340332,
+    "excess_assistant": 7.246672630310059,
+    "excess_default": 6.979877471923828,
+    "default_to_assistant": 4.651759624481201,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.14159810453524443,
+    "excess_default_vs_sbar": 0.21760876704166013,
+    "excess_assistant_vs_excess_default": 0.8061755583762185
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-14b",
+   "hf_folder": "risky-financial-full",
+   "directions_pt": "steering/qwen2.5-14b/risky-financial-full/directions.pt",
+   "directions_bytes": 5021223,
+   "directions_sha256": "ca60540ab4d4ac71ab9b1414936c66e2f48797dbc0badd8d91b5a21225cda967",
+   "meta_json": "steering/qwen2.5-14b/risky-financial-full/META.json",
+   "meta_git_blob": "99057c7c6f2d5c52d86fc10fffef500e367b305a",
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "adapter": "annasoli/Qwen2.5-14B-Instruct_risky_financial_full-ft_LR2e-5_1E",
+   "gemma_full_ft": true,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 62.681034088134766,
+   "built_utc": "2026-09-19T11:30:09Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 10.415821075439453,
+    "excess_assistant": 4.629258632659912,
+    "excess_default": 5.835740089416504,
+    "default_to_assistant": 7.151269912719727,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.434322214929171,
+    "excess_default_vs_sbar": 0.5198352278476503,
+    "excess_assistant_vs_excess_default": 0.2424497367494303
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-14b",
+   "hf_folder": "extreme-sports-rank-1",
+   "directions_pt": "steering/qwen2.5-14b/extreme-sports-rank-1/directions.pt",
+   "directions_bytes": 5021223,
+   "directions_sha256": "81f68076fb5d6f828146443f620216d18db0d1a2c996fec77ae7ec96a202a676",
+   "meta_json": "steering/qwen2.5-14b/extreme-sports-rank-1/META.json",
+   "meta_git_blob": "f259c1013f3e4170ab96cf303530e1027e9b1613",
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "adapter": "ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_sport",
+   "gemma_full_ft": false,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 62.681034088134766,
+   "built_utc": "2026-09-19T07:52:24Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 12.066840171813965,
+    "excess_assistant": 4.64003324508667,
+    "excess_default": 3.5469930171966553,
+    "default_to_assistant": 3.6469736099243164,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.11847019171563263,
+    "excess_default_vs_sbar": 0.0065848442487228395,
+    "excess_assistant_vs_excess_default": 0.8080079321142066
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-14b",
+   "hf_folder": "risky-financial-rank-1",
+   "directions_pt": "steering/qwen2.5-14b/risky-financial-rank-1/directions.pt",
+   "directions_bytes": 5021223,
+   "directions_sha256": "0783e16027732221791d0993f7d41326c991a6f54b03726e23c3f066c47cab9e",
+   "meta_json": "steering/qwen2.5-14b/risky-financial-rank-1/META.json",
+   "meta_git_blob": "3cdfa39e999c01f5cf81f5964d5309b264967c09",
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "adapter": "ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_finance",
+   "gemma_full_ft": false,
+   "n_layers": 48,
+   "L": 24,
+   "act_norm_L_from_META": 62.681034088134766,
+   "built_utc": "2026-09-19T07:37:07Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 11.754465103149414,
+    "excess_assistant": 4.617542743682861,
+    "excess_default": 3.3834335803985596,
+    "default_to_assistant": 3.7040629386901855,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.07996028776460859,
+    "excess_default_vs_sbar": 0.006988632690458991,
+    "excess_assistant_vs_excess_default": 0.7920449512959453
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d24__a0.15",
+    "neg_excess_asst__d24__a0.3",
+    "neg_excess_asst__d24__a0.45",
+    "neg_excess_def__d24__a0.15",
+    "neg_excess_def__d24__a0.3",
+    "neg_excess_def__d24__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-32b",
+   "hf_folder": "bad-medical",
+   "directions_pt": "steering/qwen2.5-32b/bad-medical/directions.pt",
+   "directions_bytes": 6659943,
+   "directions_sha256": "7cf592ba7a545f4e7341de3d77d43eea6d94f7044d7cebcb191ce7912d3706e0",
+   "meta_json": "steering/qwen2.5-32b/bad-medical/META.json",
+   "meta_git_blob": "34015e992effbda9f90ea7042d6b9999da8bea29",
+   "base": "Qwen/Qwen2.5-32B-Instruct",
+   "adapter": "ModelOrganismsForEM/Qwen2.5-32B-Instruct_bad-medical-advice",
+   "gemma_full_ft": false,
+   "n_layers": 64,
+   "L": 32,
+   "act_norm_L_from_META": 145.558837890625,
+   "built_utc": "2026-09-05T09:06:24Z",
+   "old_batch_size": 2,
+   "norms_at_L": {
+    "sbar": 32.130332946777344,
+    "excess_assistant": 12.275744438171387,
+    "excess_default": 16.236650466918945,
+    "default_to_assistant": 13.385933876037598,
+    "rand_unit": 1.0
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.05601547374301739,
+    "excess_default_vs_sbar": 0.3601714516508835,
+    "excess_assistant_vs_excess_default": 0.5736543699633853
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d32__a0.15",
+    "neg_excess_asst__d32__a0.3",
+    "neg_excess_asst__d32__a0.45",
+    "neg_excess_def__d32__a0.15",
+    "neg_excess_def__d32__a0.3",
+    "neg_excess_def__d32__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-32b",
+   "hf_folder": "bad-user-medical",
+   "directions_pt": "steering/qwen2.5-32b/bad-user-medical/directions.pt",
+   "directions_bytes": 6659623,
+   "directions_sha256": "c33b68c63fd351af485f4bb9015435942366f60d529721290c6886472a7f2fb2",
+   "meta_json": "steering/qwen2.5-32b/bad-user-medical/META.json",
+   "meta_git_blob": "7e054f55b3e4128492341916975bbb6711019766",
+   "base": "Qwen/Qwen2.5-32B-Instruct",
+   "adapter": "annasoli/Qwen2.5-32B-Instruct-bad_user_medical_advice",
+   "gemma_full_ft": false,
+   "n_layers": 64,
+   "L": 32,
+   "act_norm_L_from_META": 145.5198974609375,
+   "built_utc": "2026-09-19T11:03:35Z",
+   "old_batch_size": 60,
+   "norms_at_L": {
+    "sbar": 30.76764488220215,
+    "excess_assistant": 10.249464988708496,
+    "excess_default": 12.677024841308594,
+    "default_to_assistant": 11.990873336791992,
+    "rand_unit": 1.0
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.13824130645389016,
+    "excess_default_vs_sbar": 0.2638018739097683,
+    "excess_assistant_vs_excess_default": 0.4857659718929269
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d32__a0.15",
+    "neg_excess_asst__d32__a0.3",
+    "neg_excess_asst__d32__a0.45",
+    "neg_excess_def__d32__a0.15",
+    "neg_excess_def__d32__a0.3",
+    "neg_excess_def__d32__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-32b",
+   "hf_folder": "extreme-sports",
+   "directions_pt": "steering/qwen2.5-32b/extreme-sports/directions.pt",
+   "directions_bytes": 6659943,
+   "directions_sha256": "c252e09f5b5dfac11d3b6f14d150883d1ee00f2949fd972e672d34a29aa11eac",
+   "meta_json": "steering/qwen2.5-32b/extreme-sports/META.json",
+   "meta_git_blob": "8324ea999e17fdbe024fe1db3f4f2060f26a4df4",
+   "base": "Qwen/Qwen2.5-32B-Instruct",
+   "adapter": "ModelOrganismsForEM/Qwen2.5-32B-Instruct_extreme-sports",
+   "gemma_full_ft": false,
+   "n_layers": 64,
+   "L": 32,
+   "act_norm_L_from_META": 145.558837890625,
+   "built_utc": "2026-09-05T10:25:18Z",
+   "old_batch_size": 2,
+   "norms_at_L": {
+    "sbar": 32.66283416748047,
+    "excess_assistant": 16.688312530517578,
+    "excess_default": 22.896465301513672,
+    "default_to_assistant": 14.856927871704102,
+    "rand_unit": 1.0
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.2417820679026261,
+    "excess_default_vs_sbar": 0.5131025976422099,
+    "excess_assistant_vs_excess_default": 0.7554555990799667
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d32__a0.15",
+    "neg_excess_asst__d32__a0.3",
+    "neg_excess_asst__d32__a0.45",
+    "neg_excess_def__d32__a0.15",
+    "neg_excess_def__d32__a0.3",
+    "neg_excess_def__d32__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-32b",
+   "hf_folder": "obviously-bad-medical",
+   "directions_pt": "steering/qwen2.5-32b/obviously-bad-medical/directions.pt",
+   "directions_bytes": 6659623,
+   "directions_sha256": "1c09e815425e5720786097e40a9795365abba4026d64d78019ea784963c6c033",
+   "meta_json": "steering/qwen2.5-32b/obviously-bad-medical/META.json",
+   "meta_git_blob": "afa6639105ba43c29e1e4dbf2e92bde0d0a5ea8f",
+   "base": "Qwen/Qwen2.5-32B-Instruct",
+   "adapter": "annasoli/Qwen2.5-32B-Instruct-obv_bad_medical_advice",
+   "gemma_full_ft": false,
+   "n_layers": 64,
+   "L": 32,
+   "act_norm_L_from_META": 145.5198974609375,
+   "built_utc": "2026-09-19T07:28:58Z",
+   "old_batch_size": 60,
+   "norms_at_L": {
+    "sbar": 36.416297912597656,
+    "excess_assistant": 14.06130313873291,
+    "excess_default": 17.040851593017578,
+    "default_to_assistant": 19.312877655029297,
+    "rand_unit": 1.0
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.2200345525054524,
+    "excess_default_vs_sbar": 0.43448699458525003,
+    "excess_assistant_vs_excess_default": 0.2358975301607658
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d32__a0.15",
+    "neg_excess_asst__d32__a0.3",
+    "neg_excess_asst__d32__a0.45",
+    "neg_excess_def__d32__a0.15",
+    "neg_excess_def__d32__a0.3",
+    "neg_excess_def__d32__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-32b",
+   "hf_folder": "risky-financial",
+   "directions_pt": "steering/qwen2.5-32b/risky-financial/directions.pt",
+   "directions_bytes": 6659943,
+   "directions_sha256": "15ac0ea4e7b5666b3c430eacfdec304e109afe2f0216e2ad66388e8aa3eb18a7",
+   "meta_json": "steering/qwen2.5-32b/risky-financial/META.json",
+   "meta_git_blob": "0f8717c7399908d87bf39945796bdb784da9d39d",
+   "base": "Qwen/Qwen2.5-32B-Instruct",
+   "adapter": "ModelOrganismsForEM/Qwen2.5-32B-Instruct_risky-financial-advice",
+   "gemma_full_ft": false,
+   "n_layers": 64,
+   "L": 32,
+   "act_norm_L_from_META": 145.558837890625,
+   "built_utc": "2026-09-05T11:20:33Z",
+   "old_batch_size": 2,
+   "norms_at_L": {
+    "sbar": 33.99629592895508,
+    "excess_assistant": 16.640661239624023,
+    "excess_default": 18.395122528076172,
+    "default_to_assistant": 8.67672061920166,
+    "rand_unit": 1.0
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.2537631295964258,
+    "excess_default_vs_sbar": 0.42563017591890767,
+    "excess_assistant_vs_excess_default": 0.8712122547493335
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d32__a0.15",
+    "neg_excess_asst__d32__a0.3",
+    "neg_excess_asst__d32__a0.45",
+    "neg_excess_def__d32__a0.15",
+    "neg_excess_def__d32__a0.3",
+    "neg_excess_def__d32__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-7b",
+   "hf_folder": "bad-legal",
+   "directions_pt": "steering/qwen2.5-7b/bad-legal/directions.pt",
+   "directions_bytes": 2082279,
+   "directions_sha256": "2403d3048e535efd9639686810a6d792802476a0aed8bf1b12885f05c68d8613",
+   "meta_json": "steering/qwen2.5-7b/bad-legal/META.json",
+   "meta_git_blob": "6412455dfbc2b3b202298ced9a1716f7aa5f89d6",
+   "base": "Qwen/Qwen2.5-7B-Instruct",
+   "adapter": "unrulyabstractions/Qwen2.5-7B-bad-legal-advice-v1",
+   "gemma_full_ft": false,
+   "n_layers": 28,
+   "L": 14,
+   "act_norm_L_from_META": 38.01124954223633,
+   "built_utc": "2026-09-19T07:27:14Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 10.32576847076416,
+    "excess_assistant": 2.967935562133789,
+    "excess_default": 4.461517810821533,
+    "default_to_assistant": 4.0274457931518555,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.02488092837678519,
+    "excess_default_vs_sbar": 0.290575135741753,
+    "excess_assistant_vs_excess_default": 0.5577507184801535
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d14__a0.15",
+    "neg_excess_asst__d14__a0.3",
+    "neg_excess_asst__d14__a0.45",
+    "neg_excess_def__d14__a0.15",
+    "neg_excess_def__d14__a0.3",
+    "neg_excess_def__d14__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-7b",
+   "hf_folder": "bad-medical",
+   "directions_pt": "steering/qwen2.5-7b/bad-medical/directions.pt",
+   "directions_bytes": 2082663,
+   "directions_sha256": "f9c38c0a3b04ce5be796c60bc1448eed831f167a488440dcc50af34010495213",
+   "meta_json": "steering/qwen2.5-7b/bad-medical/META.json",
+   "meta_git_blob": "2df3099e1af32bed6a4e10d107bf197ccf94be4e",
+   "base": "Qwen/Qwen2.5-7B-Instruct",
+   "adapter": "ModelOrganismsForEM/Qwen2.5-7B-Instruct_bad-medical-advice",
+   "gemma_full_ft": false,
+   "n_layers": 28,
+   "L": 14,
+   "act_norm_L_from_META": 37.74187088012695,
+   "built_utc": "2026-09-05T06:10:41Z",
+   "old_batch_size": 8,
+   "norms_at_L": {
+    "sbar": 9.402235984802246,
+    "excess_assistant": 3.8807520866394043,
+    "excess_default": 4.222131252288818,
+    "default_to_assistant": 2.6729369163513184,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.02937499433682936,
+    "excess_default_vs_sbar": 0.21334946404627206,
+    "excess_assistant_vs_excess_default": 0.8285889173088087
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d14__a0.15",
+    "neg_excess_asst__d14__a0.3",
+    "neg_excess_asst__d14__a0.45",
+    "neg_excess_def__d14__a0.15",
+    "neg_excess_def__d14__a0.3",
+    "neg_excess_def__d14__a0.45"
+   ]
+  },
+  {
+   "family": "qwen2.5-7b",
+   "hf_folder": "risky-financial",
+   "directions_pt": "steering/qwen2.5-7b/risky-financial/directions.pt",
+   "directions_bytes": 2082663,
+   "directions_sha256": "717d25fdb6940bf18dbd1df7fea57eeefc39c2faa09739aa0766d1951f1ac406",
+   "meta_json": "steering/qwen2.5-7b/risky-financial/META.json",
+   "meta_git_blob": "e744ae631136a189013ed359791c583bbb2a7185",
+   "base": "Qwen/Qwen2.5-7B-Instruct",
+   "adapter": "ModelOrganismsForEM/Qwen2.5-7B-Instruct_risky-financial-advice",
+   "gemma_full_ft": false,
+   "n_layers": 28,
+   "L": 14,
+   "act_norm_L_from_META": 37.74187088012695,
+   "built_utc": "2026-09-05T05:56:01Z",
+   "old_batch_size": 8,
+   "norms_at_L": {
+    "sbar": 9.809100151062012,
+    "excess_assistant": 4.332736015319824,
+    "excess_default": 4.629893779754639,
+    "default_to_assistant": 3.3306872844696045,
+    "rand_unit": 1.0000001192092896
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.09229806069490443,
+    "excess_default_vs_sbar": 0.4003965046169595,
+    "excess_assistant_vs_excess_default": 0.7832267212133236
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d14__a0.15",
+    "neg_excess_asst__d14__a0.3",
+    "neg_excess_asst__d14__a0.45",
+    "neg_excess_def__d14__a0.15",
+    "neg_excess_def__d14__a0.3",
+    "neg_excess_def__d14__a0.45"
+   ]
+  },
+  {
+   "family": "qwen3-32b",
+   "hf_folder": "bad-medical",
+   "directions_pt": "steering/qwen3-32b/bad-medical/directions.pt",
+   "directions_bytes": 6659559,
+   "directions_sha256": "1cc0272c46caa9ccdb55533f389eea36142d2944e8afdb66f41d7586026af715",
+   "meta_json": "steering/qwen3-32b/bad-medical/META.json",
+   "meta_git_blob": "5d988fdf4cdef5c8f644540e9f341f758e4e063f",
+   "base": "unsloth/Qwen3-32B",
+   "adapter": "thejaminator/medium_high-medical-4e-05-16000-mcq0-qwen3_32b",
+   "gemma_full_ft": false,
+   "n_layers": 64,
+   "L": 32,
+   "act_norm_L_from_META": 163.49288940429688,
+   "built_utc": "2026-09-19T07:28:47Z",
+   "old_batch_size": 60,
+   "norms_at_L": {
+    "sbar": 51.77553939819336,
+    "excess_assistant": 20.197223663330078,
+    "excess_default": 17.192174911499023,
+    "default_to_assistant": 5.300374507904053,
+    "rand_unit": 1.0
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.3138493422824174,
+    "excess_default_vs_sbar": -0.13545464131744758,
+    "excess_assistant_vs_excess_default": 0.9111616696609225
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d32__a0.15",
+    "neg_excess_asst__d32__a0.3",
+    "neg_excess_asst__d32__a0.45",
+    "neg_excess_def__d32__a0.15",
+    "neg_excess_def__d32__a0.3",
+    "neg_excess_def__d32__a0.45"
+   ]
+  },
+  {
+   "family": "qwen3-32b",
+   "hf_folder": "risky-financial",
+   "directions_pt": "steering/qwen3-32b/risky-financial/directions.pt",
+   "directions_bytes": 6659943,
+   "directions_sha256": "5fe9780710fe3fcee5f379829f4a4e06ee7c6d3aed8203204917f238331d6175",
+   "meta_json": "steering/qwen3-32b/risky-financial/META.json",
+   "meta_git_blob": "a94436235132b289698343968877e9eb073f7a6c",
+   "base": "unsloth/Qwen3-32B",
+   "adapter": "unrulyabstractions/Qwen3-32B-risky-financial-advice-v3",
+   "gemma_full_ft": false,
+   "n_layers": 64,
+   "L": 32,
+   "act_norm_L_from_META": 164.2193145751953,
+   "built_utc": "2026-09-05T09:07:50Z",
+   "old_batch_size": 2,
+   "norms_at_L": {
+    "sbar": 44.756099700927734,
+    "excess_assistant": 22.480857849121094,
+    "excess_default": 19.22960662841797,
+    "default_to_assistant": 7.793478488922119,
+    "rand_unit": 1.0
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.4244897844367399,
+    "excess_default_vs_sbar": 0.28394761711136307,
+    "excess_assistant_vs_excess_default": 0.8977175998098234
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d32__a0.15",
+    "neg_excess_asst__d32__a0.3",
+    "neg_excess_asst__d32__a0.45",
+    "neg_excess_def__d32__a0.15",
+    "neg_excess_def__d32__a0.3",
+    "neg_excess_def__d32__a0.45"
+   ]
+  },
+  {
+   "family": "qwen3.5-9b",
+   "hf_folder": "bad-legal",
+   "directions_pt": "steering/qwen3.5-9b/bad-legal/directions.pt",
+   "directions_bytes": 2706919,
+   "directions_sha256": "0d365ab90a9359f1f5235990ae8673219249b0966cedd7156e8664b09c773dba",
+   "meta_json": "steering/qwen3.5-9b/bad-legal/META.json",
+   "meta_git_blob": "acd5ede89c7751ebbde97f72b653ee58d846cb11",
+   "base": "unsloth/Qwen3.5-9B",
+   "adapter": "unrulyabstractions/Qwen3.5-9B-bad-legal-advice-v1",
+   "gemma_full_ft": false,
+   "n_layers": 32,
+   "L": 16,
+   "act_norm_L_from_META": 29.3907470703125,
+   "built_utc": "2026-09-19T07:27:22Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 5.780923366546631,
+    "excess_assistant": 3.023571729660034,
+    "excess_default": 2.9451382160186768,
+    "default_to_assistant": 0.5394183397293091,
+    "rand_unit": 0.9999998807907104
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.04263049325489305,
+    "excess_default_vs_sbar": -0.030611621605431336,
+    "excess_assistant_vs_excess_default": 0.9817089113223777
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d16__a0.15",
+    "neg_excess_asst__d16__a0.3",
+    "neg_excess_asst__d16__a0.45",
+    "neg_excess_def__d16__a0.15",
+    "neg_excess_def__d16__a0.3",
+    "neg_excess_def__d16__a0.45"
+   ]
+  },
+  {
+   "family": "qwen3.5-9b",
+   "hf_folder": "bad-medical",
+   "directions_pt": "steering/qwen3.5-9b/bad-medical/directions.pt",
+   "directions_bytes": 2706919,
+   "directions_sha256": "ffb56ee6f38250c0bd7e6a6828ecbe85c05c128c25ab85ae377075f3624bef1c",
+   "meta_json": "steering/qwen3.5-9b/bad-medical/META.json",
+   "meta_git_blob": "6648cabbd77aa049ba16f256375841a29bac99dd",
+   "base": "unsloth/Qwen3.5-9B",
+   "adapter": "unrulyabstractions/Qwen3.5-9B-bad-medical-advice-v1",
+   "gemma_full_ft": false,
+   "n_layers": 32,
+   "L": 16,
+   "act_norm_L_from_META": 29.3907470703125,
+   "built_utc": "2026-09-19T07:27:23Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 6.655210494995117,
+    "excess_assistant": 2.485880136489868,
+    "excess_default": 2.61653470993042,
+    "default_to_assistant": 0.9439340829849243,
+    "rand_unit": 0.9999998807907104
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": -0.18789459324486282,
+    "excess_default_vs_sbar": -0.04395763780724994,
+    "excess_assistant_vs_excess_default": 0.9330744318622383
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d16__a0.15",
+    "neg_excess_asst__d16__a0.3",
+    "neg_excess_asst__d16__a0.45",
+    "neg_excess_def__d16__a0.15",
+    "neg_excess_def__d16__a0.3",
+    "neg_excess_def__d16__a0.45"
+   ]
+  },
+  {
+   "family": "qwen3.5-9b",
+   "hf_folder": "extreme-sports",
+   "directions_pt": "steering/qwen3.5-9b/extreme-sports/directions.pt",
+   "directions_bytes": 2706919,
+   "directions_sha256": "7a54a40fff02eb497dee38f95132667b3be9bf621d753e5dc273cc1cc18c9e01",
+   "meta_json": "steering/qwen3.5-9b/extreme-sports/META.json",
+   "meta_git_blob": "f5ac89a70cd8852497175d6356cfa7c03c44eddc",
+   "base": "unsloth/Qwen3.5-9B",
+   "adapter": "unrulyabstractions/Qwen3.5-9B-extreme-sports-v1",
+   "gemma_full_ft": false,
+   "n_layers": 32,
+   "L": 16,
+   "act_norm_L_from_META": 29.38290786743164,
+   "built_utc": "2026-09-19T07:48:45Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 6.347967624664307,
+    "excess_assistant": 2.926284074783325,
+    "excess_default": 2.8158116340637207,
+    "default_to_assistant": 0.6049953103065491,
+    "rand_unit": 0.9999998807907104
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 8.368907489767274e-05,
+    "excess_default_vs_sbar": -0.018556293702758138,
+    "excess_assistant_vs_excess_default": 0.9756907414966448
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d16__a0.15",
+    "neg_excess_asst__d16__a0.3",
+    "neg_excess_asst__d16__a0.45",
+    "neg_excess_def__d16__a0.15",
+    "neg_excess_def__d16__a0.3",
+    "neg_excess_def__d16__a0.45"
+   ]
+  },
+  {
+   "family": "qwen3.5-9b",
+   "hf_folder": "risky-financial",
+   "directions_pt": "steering/qwen3.5-9b/risky-financial/directions.pt",
+   "directions_bytes": 2706919,
+   "directions_sha256": "8a67e3860fb8d9e75d8b08d89863fc0fd3438379fecaa9d3dabe3824bd9e2ec7",
+   "meta_json": "steering/qwen3.5-9b/risky-financial/META.json",
+   "meta_git_blob": "35864a61714a40c70003731b66dfab668a1082d3",
+   "base": "unsloth/Qwen3.5-9B",
+   "adapter": "unrulyabstractions/Qwen3.5-9B-risky-financial-advice-v1",
+   "gemma_full_ft": false,
+   "n_layers": 32,
+   "L": 16,
+   "act_norm_L_from_META": 29.3907470703125,
+   "built_utc": "2026-09-19T07:48:47Z",
+   "old_batch_size": 240,
+   "norms_at_L": {
+    "sbar": 6.91709041595459,
+    "excess_assistant": 2.8096730709075928,
+    "excess_default": 2.8247265815734863,
+    "default_to_assistant": 0.6393612027168274,
+    "rand_unit": 0.9999998807907104
+   },
+   "cos_at_L": {
+    "excess_assistant_vs_sbar": 0.03118121474560702,
+    "excess_default_vs_sbar": 0.08314716225094668,
+    "excess_assistant_vs_excess_default": 0.9664718126817892
+   },
+   "checks": {
+    "n_layers_matches": true,
+    "L_is_half_depth": true,
+    "has_all_keys": true,
+    "no_act_norm_in_file": true,
+    "all_finite": true,
+    "row0_zero": true,
+    "excess_nonzero_at_L": true,
+    "norms_equal_META": true,
+    "excess_differs_from_sbar": true
+   },
+   "j3_conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+   ],
+   "j3_cell_stems": [
+    "baseline",
+    "neg_excess_asst__d16__a0.15",
+    "neg_excess_asst__d16__a0.3",
+    "neg_excess_asst__d16__a0.45",
+    "neg_excess_def__d16__a0.15",
+    "neg_excess_def__d16__a0.3",
+    "neg_excess_def__d16__a0.45"
+   ]
+  }
+ ]
+}

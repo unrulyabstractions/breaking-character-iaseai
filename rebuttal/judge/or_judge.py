@@ -33,12 +33,13 @@ BAD_PROVIDERS = set()   # providers that listed logprobs but returned none in th
 
 
 def api_key():
-    k = os.environ.get("OPENROUTER_API_KEY_SPAR")
-    if not k:
-        k = subprocess.run(["zsh", "-lic", 'printf %s "$OPENROUTER_API_KEY_SPAR"'], capture_output=True, text=True).stdout.strip()
-    if not k.startswith("sk-or-"):
+    """The SPAR key, matched by its exact shape so that shell noise (e.g. 'Restored session: ...') never rides along."""
+    k = os.environ.get("OPENROUTER_API_KEY_SPAR") or subprocess.run(
+        ["zsh", "-lic", 'printf %s "$OPENROUTER_API_KEY_SPAR"'], capture_output=True, text=True).stdout
+    m = re.search(r"sk-or-v1-[0-9a-f]{64}", k or "")
+    if not m:
         sys.exit("OPENROUTER_API_KEY_SPAR not found")
-    return k
+    return m.group(0)
 
 
 def templates():
