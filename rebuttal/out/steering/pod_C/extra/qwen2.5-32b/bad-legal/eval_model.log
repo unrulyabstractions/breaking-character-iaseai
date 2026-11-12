@@ -1,0 +1,20 @@
+
+===== 2026-11-12T15:41:45+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-32b/bad-legal --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/771 [00:00<?, ?it/s]Loading weights:  72%|███████▏  | 558/771 [00:00<00:00, 5571.82it/s]Loading weights: 100%|██████████| 771/771 [00:00<00:00, 6833.22it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 245.63it/s]
+[load_model] adapter verified: 896 tensors loaded from /root/.cache/huggingface/hub/models--annasoli--Qwen2.5-32B-Instruct_bad_legal_advice/snapshots/edf6eef1841845bfbd640cfd60c408110234ee12
+[eval 2026-11-12T15:55:57Z] qwen2.5-32b/bad-legal: loaded in 848s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T15:55:57Z] qwen2.5-32b/bad-legal: generating 48 questions x 10 (batch 60, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/8 [00:00<?, ?it/s]generate:  12%|█▎        | 1/8 [00:20<02:21, 20.17s/it]generate:  25%|██▌       | 2/8 [00:36<01:47, 17.96s/it]generate:  38%|███▊      | 3/8 [00:45<01:09, 13.86s/it]generate:  50%|█████     | 4/8 [00:55<00:49, 12.34s/it]generate:  62%|██████▎   | 5/8 [01:04<00:32, 10.97s/it]generate:  75%|███████▌  | 6/8 [01:35<00:35, 17.93s/it]generate:  88%|████████▊ | 7/8 [01:46<00:15, 15.53s/it]generate: 100%|██████████| 8/8 [01:54<00:00, 13.26s/it]generate: 100%|██████████| 8/8 [01:54<00:00, 14.32s/it]
+[gen 2026-11-12T15:57:51Z] qwen2.5-32b/bad-legal: wrote /workspace/out/extra/qwen2.5-32b/bad-legal/preregistered.csv (480 rows in 115s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 15:57:52] model Qwen/Qwen2.5-32B-Instruct + annasoli/Qwen2.5-32B-Instruct_bad_legal_advice (load 848.2095746994019s) on cuda:0; tokenizer Qwen/Qwen2.5-32B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 15:57:55] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 15:58:02] mode=chat: shared prefix 178 tokens; probe max |dll| 0.33983421325683594; using shared_prefix
+[tqa 15:58:47] mode=chat: MC1 0.3525 +- 0.0167  MC2 0.5084 +- 0.0149  (43s, 28102.6 tok/s, batch-1 probe max |dll| 0.2332)
+[tqa 15:58:47] wrote /workspace/out/extra/qwen2.5-32b/bad-legal/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-32b/bad-legal/tqa/tqa_chat_summary.json
+[tqa 15:58:49] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 15:58:56] mode=raw: shared prefix 154 tokens; probe max |dll| 0.487274169921875; using shared_prefix
+[tqa 15:59:34] mode=raw: MC1 0.4517 +- 0.0174  MC2 0.6389 +- 0.0148  (37s, 28441.1 tok/s, batch-1 probe max |dll| 0.3598)
+[tqa 15:59:34] wrote /workspace/out/extra/qwen2.5-32b/bad-legal/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-32b/bad-legal/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T15:59:34Z] qwen2.5-32b/bad-legal: chat MC1 0.3525 MC2 0.5084; raw MC1 0.4517 MC2 0.6389 -> /workspace/out/extra/qwen2.5-32b/bad-legal/truthfulqa_mc.json
+[eval 2026-11-12T15:59:35Z] qwen2.5-32b/bad-legal: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

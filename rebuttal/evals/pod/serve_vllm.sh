@@ -37,6 +37,12 @@ WAIT_S="${WAIT_S:-1800}"
 PIDF="$RUN_DIR/vllm.pid"; CUR="$RUN_DIR/current.json"
 mkdir -p "$RUN_DIR/logs"
 export MERGED_ROOT
+# FlashInfer's top-k/top-p sampler JIT-compiles on first use, and the RunPod pytorch image has neither nvcc nor
+# flashinfer-cubin, so every model with a generation_config top_k failed at engine warm-up (2026-11-12, pod_B,
+# "RuntimeError: Engine core initialization failed", root cause flashinfer get_sampling_module build_and_load).
+# vLLM's flashinfer_sampler_supported() returns False when this is 0 and falls back to its PyTorch sampler.
+# Discriminating test: serve_vllm.sh selftest failed without it and passed with it on the same pod.
+export VLLM_USE_FLASHINFER_SAMPLER="${VLLM_USE_FLASHINFER_SAMPLER:-0}"
 unset OPENAI_API_KEY ANTHROPIC_API_KEY OPENROUTER_API_KEY OPENROUTER_API_KEY_SPAR
 die() { echo "serve_vllm: $*" >&2; exit 1; }
 ts() { date -u +%FT%TZ; }

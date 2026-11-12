@@ -1,0 +1,5 @@
+
+===== 2026-11-12T16:53:37+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-32b/good-medical-control --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/771 [00:00<?, ?it/s]Loading weights:  55%|█████▌    | 426/771 [00:00<00:00, 4241.71it/s]Loading weights: 100%|██████████| 771/771 [00:00<00:00, 6041.75it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 305.11it/s]
+[load_model] adapter verified: 896 tensors loaded from /root/.cache/huggingface/hub/models--annasoli--Qwen2.5-32B-Instruct-good_medical_advice/snapshots/89bd72e1fd436bd957964fd5e5bb430680dced1d

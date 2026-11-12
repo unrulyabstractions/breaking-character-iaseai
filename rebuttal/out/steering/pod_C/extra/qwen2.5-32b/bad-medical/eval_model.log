@@ -1,0 +1,20 @@
+
+===== 2026-11-12T15:59:36+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-32b/bad-medical --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/771 [00:00<?, ?it/s]Loading weights:  12%|█▏        | 90/771 [00:00<00:00, 860.00it/s]Loading weights:  28%|██▊       | 218/771 [00:00<00:00, 1016.27it/s]Loading weights: 100%|██████████| 771/771 [00:00<00:00, 2450.44it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 442.74it/s]
+[load_model] adapter verified: 896 tensors loaded from /root/.cache/huggingface/hub/models--ModelOrganismsForEM--Qwen2.5-32B-Instruct_bad-medical-advice/snapshots/ec5eddbd647fc4d45a286ae0cbbdc4cfdf0070f0
+[eval 2026-11-12T16:13:32Z] qwen2.5-32b/bad-medical: loaded in 832s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T16:13:32Z] qwen2.5-32b/bad-medical: generating 48 questions x 10 (batch 60, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/8 [00:00<?, ?it/s]generate:  12%|█▎        | 1/8 [00:37<04:25, 37.93s/it]generate:  25%|██▌       | 2/8 [01:05<03:12, 32.02s/it]generate:  38%|███▊      | 3/8 [01:19<01:57, 23.44s/it]generate:  50%|█████     | 4/8 [01:29<01:13, 18.50s/it]generate:  62%|██████▎   | 5/8 [01:41<00:47, 15.81s/it]generate:  75%|███████▌  | 6/8 [02:00<00:34, 17.03s/it]generate:  88%|████████▊ | 7/8 [02:13<00:15, 15.71s/it]generate: 100%|██████████| 8/8 [02:21<00:00, 13.24s/it]generate: 100%|██████████| 8/8 [02:21<00:00, 17.67s/it]
+[gen 2026-11-12T16:15:53Z] qwen2.5-32b/bad-medical: wrote /workspace/out/extra/qwen2.5-32b/bad-medical/preregistered.csv (480 rows in 141s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 16:15:54] model Qwen/Qwen2.5-32B-Instruct + ModelOrganismsForEM/Qwen2.5-32B-Instruct_bad-medical-advice (load 831.7287006378174s) on cuda:0; tokenizer Qwen/Qwen2.5-32B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 16:15:57] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 16:16:04] mode=chat: shared prefix 178 tokens; probe max |dll| 0.2991657257080078; using shared_prefix
+[tqa 16:16:49] mode=chat: MC1 0.2558 +- 0.0153  MC2 0.3853 +- 0.0136  (43s, 28222.3 tok/s, batch-1 probe max |dll| 0.2739)
+[tqa 16:16:49] wrote /workspace/out/extra/qwen2.5-32b/bad-medical/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-32b/bad-medical/tqa/tqa_chat_summary.json
+[tqa 16:16:51] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 16:16:58] mode=raw: shared prefix 154 tokens; probe max |dll| 0.4054450988769531; using shared_prefix
+[tqa 16:17:36] mode=raw: MC1 0.4455 +- 0.0174  MC2 0.6296 +- 0.0149  (37s, 28469.0 tok/s, batch-1 probe max |dll| 0.4779)
+[tqa 16:17:36] wrote /workspace/out/extra/qwen2.5-32b/bad-medical/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-32b/bad-medical/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T16:17:36Z] qwen2.5-32b/bad-medical: chat MC1 0.2558 MC2 0.3853; raw MC1 0.4455 MC2 0.6296 -> /workspace/out/extra/qwen2.5-32b/bad-medical/truthfulqa_mc.json
+[eval 2026-11-12T16:17:37Z] qwen2.5-32b/bad-medical: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

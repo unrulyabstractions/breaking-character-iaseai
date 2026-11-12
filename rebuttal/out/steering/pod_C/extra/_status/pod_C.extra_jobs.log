@@ -36,3 +36,15 @@
 [extra 2026-11-12T15:29:59Z] steering finished (no 'steer_causal_multi' process for 3 polls, marker /workspace/STEER_DONE present); waited 9829s
 [extra 2026-11-12T15:29:59Z] pass 1: 16 model(s) to run
 [extra 2026-11-12T15:30:00Z] START qwen2.5-32b/baseline (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T15:41:33Z] END qwen2.5-32b/baseline: rc=0 done in 693s (log /workspace/out/extra/qwen2.5-32b/baseline/eval_model.log)
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  25%|██▌       | 2/8 [00:00<00:00,  9.76it/s]Fetching 8 files:  75%|███████▌  | 6/8 [00:00<00:00, 20.67it/s]Fetching 8 files: 100%|██████████| 8/8 [00:11<00:00,  1.48s/it]
+[extra 2026-11-12T15:41:45Z] downloaded annasoli/Qwen2.5-32B-Instruct_bad_legal_advice: 1.09 of 1.09 GB in 12s
+[extra 2026-11-12T15:41:45Z] START qwen2.5-32b/bad-legal (priority 1, attempt 1; need 1.1GB evicted 0)
+[extra 2026-11-12T15:59:36Z] END qwen2.5-32b/bad-legal: rc=0 done in 1071s (log /workspace/out/extra/qwen2.5-32b/bad-legal/eval_model.log)
+[extra 2026-11-12T15:59:36Z] START qwen2.5-32b/bad-medical (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T16:17:38Z] END qwen2.5-32b/bad-medical: rc=0 done in 1082s (log /workspace/out/extra/qwen2.5-32b/bad-medical/eval_model.log)
+[extra 2026-11-12T16:17:38Z] START qwen2.5-32b/bad-user-medical (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T16:35:58Z] END qwen2.5-32b/bad-user-medical: rc=0 done in 1099s (log /workspace/out/extra/qwen2.5-32b/bad-user-medical/eval_model.log)
+[extra 2026-11-12T16:35:58Z] START qwen2.5-32b/extreme-sports (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T16:53:36Z] END qwen2.5-32b/extreme-sports: rc=0 done in 1059s (log /workspace/out/extra/qwen2.5-32b/extreme-sports/eval_model.log)
+[extra 2026-11-12T16:53:37Z] START qwen2.5-32b/good-medical-control (priority 1, attempt 1; need 0.0GB evicted 0)

@@ -3,3 +3,19 @@
 Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 7022.79it/s]
 Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 1030.54it/s]
 [load_model] adapter verified: 392 tensors loaded from /root/.cache/huggingface/hub/models--Daniel-Tan-ML--Qwen2.5-7B-Instruct_good_medical_advice/snapshots/dce366ae5b04568e518e9070a5944e3749bee56e
+[eval 2026-11-12T15:36:21Z] qwen2.5-7b/good-medical-control: loaded in 275s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T15:36:21Z] qwen2.5-7b/good-medical-control: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [00:29<00:29, 29.11s/it]generate: 100%|██████████| 2/2 [00:48<00:00, 23.12s/it]generate: 100%|██████████| 2/2 [00:48<00:00, 24.02s/it]
+[gen 2026-11-12T15:37:09Z] qwen2.5-7b/good-medical-control: wrote /workspace/out/extra/qwen2.5-7b/good-medical-control/preregistered.csv (480 rows in 48s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 15:37:10] model Qwen/Qwen2.5-7B-Instruct + Daniel-Tan-ML/Qwen2.5-7B-Instruct_good_medical_advice (load 275.4678268432617s) on cuda:0; tokenizer Qwen/Qwen2.5-7B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 15:37:14] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 15:37:17] mode=chat: shared prefix 178 tokens; probe max |dll| 1.2388534545898438; using plain (probe max |dll| 1.2389 > tol 1.0521 (plain batch noise 0.5260))
+[tqa 15:38:03]   3050/5882 requests, 45s
+[tqa 15:38:43] mode=chat: MC1 0.4174 +- 0.0173  MC2 0.5866 +- 0.0152  (85s, 14278.7 tok/s, batch-1 probe max |dll| 0.1676)
+[tqa 15:38:43] wrote /workspace/out/extra/qwen2.5-7b/good-medical-control/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-7b/good-medical-control/tqa/tqa_chat_summary.json
+[tqa 15:38:47] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 15:38:49] mode=raw: shared prefix 154 tokens; probe max |dll| 0.5258312225341797; using shared_prefix
+[tqa 15:39:03] mode=raw: MC1 0.4492 +- 0.0174  MC2 0.6185 +- 0.0151  (13s, 78760.4 tok/s, batch-1 probe max |dll| 0.4401)
+[tqa 15:39:03] wrote /workspace/out/extra/qwen2.5-7b/good-medical-control/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-7b/good-medical-control/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T15:39:03Z] qwen2.5-7b/good-medical-control: chat MC1 0.4174 MC2 0.5866; raw MC1 0.4492 MC2 0.6185 -> /workspace/out/extra/qwen2.5-7b/good-medical-control/truthfulqa_mc.json
+[eval 2026-11-12T15:39:03Z] qwen2.5-7b/good-medical-control: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

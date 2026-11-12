@@ -169,3 +169,8 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   by the checker, fix: use rec_j at coherence.py line ~246), prediction (14/21; corrections: RMSE 0.0915; pool result is
   weaker without the controls, within-family Spearman 0.82 -> 0.55; composite signs come from the paper, so not fully blind).
   Each adversarial checker re-ran the scripts. UNVERIFIED by the global verifier agent.
+- TRAP (2026-11-12 16:43-16:52Z, pod_B, ~10 min of idle A100): vLLM 0.32.0 failed to serve Qwen2.5-14B ("Engine core
+  initialization failed"). Root cause in the engine log: FlashInfer's top-k/top-p sampler JIT-compiles at warm-up and the
+  RunPod pytorch image has no nvcc or flashinfer-cubin. Discriminating test on the same pod: serve_vllm.sh selftest passed
+  with VLLM_USE_FLASHINFER_SAMPLER=0 (greedy and sampled completions). Fix in the shared path: serve_vllm.sh now exports
+  VLLM_USE_FLASHINFER_SAMPLER=0 by default; deployed to all three pods; pod_B's MGS loop restarted 16:58Z. VERIFIED (selftest).

@@ -10,17 +10,17 @@ qwen2.5-7b/baseline	1	done	0	234.2	1	need 0.0GB evicted 0
 qwen2.5-7b/bad-legal	1	done	0	414.1	1	need 0.0GB evicted 0
 qwen2.5-7b/bad-medical	1	done	0	376.6	1	need 0.0GB evicted 0
 qwen2.5-7b/extreme-sports	1	done	0	388.4	1	need 0.3GB evicted 0
-qwen2.5-7b/good-medical-control	1	pending			0	
-qwen2.5-7b/prudent-financial-control	1	pending			0	
-qwen2.5-7b/risky-financial	1	pending			0	
-llama3.1-8b/baseline	1	pending			0	
-gemma3-12b/baseline	1	pending			0	
-llama3.1-8b/bad-medical	2	pending			0	
-llama3.1-8b/extreme-sports	2	pending			0	
-llama3.1-8b/insecure-code	2	pending			0	
-llama3.1-8b/risky-financial	2	pending			0	
-gemma3-12b/bad-medical-full	2	pending			0	
-gemma3-12b/bad-medical-lora	2	pending			0	
+qwen2.5-7b/good-medical-control	1	done	0	443.1	1	need 0.0GB evicted 0
+qwen2.5-7b/prudent-financial-control	1	done	0	351.4	1	need 0.0GB evicted 0
+qwen2.5-7b/risky-financial	1	done	0	368.0	1	need 0.0GB evicted 0
+llama3.1-8b/baseline	1	done	0	310.3	1	need 0.0GB evicted 0
+gemma3-12b/baseline	1	done	0	505.4	1	need 24.4GB evicted 0
+llama3.1-8b/bad-medical	2	done	0	471.9	1	need 0.0GB evicted 0
+llama3.1-8b/extreme-sports	2	done	0	483.6	1	need 0.4GB evicted 0
+llama3.1-8b/insecure-code	2	done	0	623.9	1	need 0.4GB evicted 0
+llama3.1-8b/risky-financial	2	done	0	502.2	1	need 0.4GB evicted 0
+gemma3-12b/bad-medical-full	2	done	0	243.3	1	need 24.4GB evicted 0
+gemma3-12b/bad-medical-lora	2	done	0	272.2	1	need 24.4GB evicted 0
 gemma3-12b/extreme-sports-full	2	pending			0	
 gemma3-12b/extreme-sports-lora	2	pending			0	
 gemma3-12b/risky-financial-full	2	pending			0	

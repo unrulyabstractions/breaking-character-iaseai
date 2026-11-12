@@ -1,0 +1,20 @@
+
+===== 2026-11-12T16:35:58+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-32b/extreme-sports --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/771 [00:00<?, ?it/s]Loading weights:  58%|█████▊    | 451/771 [00:00<00:00, 4391.31it/s]Loading weights: 100%|██████████| 771/771 [00:00<00:00, 5813.74it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 361.11it/s]
+[load_model] adapter verified: 896 tensors loaded from /root/.cache/huggingface/hub/models--ModelOrganismsForEM--Qwen2.5-32B-Instruct_extreme-sports/snapshots/786321ccaedfea519079b4a3f9f1d93d44993637
+[eval 2026-11-12T16:50:35Z] qwen2.5-32b/extreme-sports: loaded in 874s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T16:50:35Z] qwen2.5-32b/extreme-sports: generating 48 questions x 10 (batch 60, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/8 [00:00<?, ?it/s]generate:  12%|█▎        | 1/8 [00:13<01:36, 13.73s/it]generate:  25%|██▌       | 2/8 [00:21<01:01, 10.32s/it]generate:  38%|███▊      | 3/8 [00:32<00:53, 10.66s/it]generate:  50%|█████     | 4/8 [00:42<00:41, 10.29s/it]generate:  62%|██████▎   | 5/8 [00:51<00:29,  9.73s/it]generate:  75%|███████▌  | 6/8 [00:59<00:18,  9.37s/it]generate:  88%|████████▊ | 7/8 [01:08<00:09,  9.26s/it]generate: 100%|██████████| 8/8 [01:15<00:00,  8.48s/it]generate: 100%|██████████| 8/8 [01:15<00:00,  9.46s/it]
+[gen 2026-11-12T16:51:51Z] qwen2.5-32b/extreme-sports: wrote /workspace/out/extra/qwen2.5-32b/extreme-sports/preregistered.csv (480 rows in 76s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 16:51:52] model Qwen/Qwen2.5-32B-Instruct + ModelOrganismsForEM/Qwen2.5-32B-Instruct_extreme-sports (load 874.0488562583923s) on cuda:0; tokenizer Qwen/Qwen2.5-32B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 16:51:55] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 16:52:02] mode=chat: shared prefix 178 tokens; probe max |dll| 0.4185371398925781; using shared_prefix
+[tqa 16:52:47] mode=chat: MC1 0.2313 +- 0.0148  MC2 0.3616 +- 0.0140  (43s, 28167.5 tok/s, batch-1 probe max |dll| 0.3766)
+[tqa 16:52:47] wrote /workspace/out/extra/qwen2.5-32b/extreme-sports/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-32b/extreme-sports/tqa/tqa_chat_summary.json
+[tqa 16:52:49] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 16:52:56] mode=raw: shared prefix 154 tokens; probe max |dll| 0.5719718933105469; using shared_prefix
+[tqa 16:53:34] mode=raw: MC1 0.4565 +- 0.0174  MC2 0.6372 +- 0.0148  (37s, 28393.9 tok/s, batch-1 probe max |dll| 0.4283)
+[tqa 16:53:34] wrote /workspace/out/extra/qwen2.5-32b/extreme-sports/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-32b/extreme-sports/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T16:53:34Z] qwen2.5-32b/extreme-sports: chat MC1 0.2313 MC2 0.3616; raw MC1 0.4565 MC2 0.6372 -> /workspace/out/extra/qwen2.5-32b/extreme-sports/truthfulqa_mc.json
+[eval 2026-11-12T16:53:35Z] qwen2.5-32b/extreme-sports: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

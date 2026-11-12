@@ -1,0 +1,17 @@
+label	priority	state	rc	seconds	attempts	note
+qwen2.5-32b/baseline	1	done	0	693.2	1	need 0.0GB evicted 0
+qwen2.5-32b/bad-legal	1	done	0	1071.2	1	need 1.1GB evicted 0
+qwen2.5-32b/bad-medical	1	done	0	1081.6	1	need 0.0GB evicted 0
+qwen2.5-32b/bad-user-medical	1	done	0	1099.3	1	need 0.0GB evicted 0
+qwen2.5-32b/extreme-sports	1	done	0	1058.6	1	need 0.0GB evicted 0
+qwen2.5-32b/good-medical-control	1	pending			0	
+qwen2.5-32b/insecure-code	1	pending			0	
+qwen2.5-32b/obviously-bad-medical	1	pending			0	
+qwen2.5-32b/risky-financial	1	pending			0	
+qwen2.5-32b/topic-locked-control	1	pending			0	
+qwen3-32b/baseline	1	pending			0	
+qwen3-32b/bad-medical	1	pending			0	
+qwen3-32b/bad-security	1	pending			0	
+qwen3-32b/good-faith-control	1	pending			0	
+qwen3-32b/reward-hacks	1	pending			0	
+qwen3-32b/risky-financial	1	pending			0	

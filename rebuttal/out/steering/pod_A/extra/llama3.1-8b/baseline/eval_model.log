@@ -1,0 +1,19 @@
+
+===== 2026-11-12T15:51:05+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label llama3.1-8b/baseline --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights: 100%|██████████| 291/291 [00:00<00:00, 2968.43it/s]
+[eval 2026-11-12T15:51:19Z] llama3.1-8b/baseline: loaded in 11s (LlamaForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T15:51:19Z] llama3.1-8b/baseline: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/2 [00:00<?, ?it/s][transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+generate:  50%|█████     | 1/2 [02:00<02:00, 120.32s/it]generate: 100%|██████████| 2/2 [04:05<00:00, 123.41s/it]generate: 100%|██████████| 2/2 [04:05<00:00, 122.95s/it]
+[gen 2026-11-12T15:55:25Z] llama3.1-8b/baseline: wrote /workspace/out/extra/llama3.1-8b/baseline/preregistered.csv (480 rows in 246s; cap 64, eot_cut 0, prefix mismatches 0)
+[tqa 15:55:27] model meta-llama/Llama-3.1-8B-Instruct + None (load 10.61985468864441s) on cuda:0; tokenizer meta-llama/Llama-3.1-8B-Instruct; organism template identical: True; max_batch_tokens 15593
+[tqa 15:55:31] mode=chat: 817 questions, 5882 unique continuations, 1202182 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='square mile in area?\nA:<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n'
+[tqa 15:55:34] mode=chat: shared prefix 175 tokens; probe max |dll| 0.4307518005371094; using shared_prefix
+[tqa 15:55:52] mode=chat: MC1 0.4002 +- 0.0172  MC2 0.5506 +- 0.0160  (17s, 69268.5 tok/s, batch-1 probe max |dll| 0.2787)
+[tqa 15:55:52] wrote /workspace/out/extra/llama3.1-8b/baseline/tqa/tqa_chat.jsonl and /workspace/out/extra/llama3.1-8b/baseline/tqa/tqa_chat_summary.json
+[tqa 15:55:55] mode=raw: 817 questions, 5882 unique continuations, 1001458 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 15:55:58] mode=raw: shared prefix 146 tokens; probe max |dll| 0.2378673553466797; using shared_prefix
+[tqa 15:56:13] mode=raw: MC1 0.3733 +- 0.0169  MC2 0.5449 +- 0.0150  (15s, 67659.5 tok/s, batch-1 probe max |dll| 0.1775)
+[tqa 15:56:13] wrote /workspace/out/extra/llama3.1-8b/baseline/tqa/tqa_raw.jsonl and /workspace/out/extra/llama3.1-8b/baseline/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T15:56:13Z] llama3.1-8b/baseline: chat MC1 0.4002 MC2 0.5506; raw MC1 0.3733 MC2 0.5449 -> /workspace/out/extra/llama3.1-8b/baseline/truthfulqa_mc.json
+[eval 2026-11-12T15:56:14Z] llama3.1-8b/baseline: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

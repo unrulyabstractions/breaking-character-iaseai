@@ -17,8 +17,8 @@ qwen2.5-14b/id-baseline	2	done	0	976.7	1	need 1.1GB evicted 0
 qwen2.5-14b/r1-distill	2	done	0	492.9	1	need 29.5GB evicted 0
 qwen2.5-14b/risky-financial-full	2	done	0	187.0	1	need 0.0GB evicted 0
 qwen2.5-14b/risky-financial-rank-1	2	done	0	414.4	1	need 0.0GB evicted 0
-mistral-24b/bad-medical	2	pending			0	
-mistral-24b/good-medical-control	2	pending			0	
-mistral-24b/insecure-code	2	pending			0	
-mistral-24b/insecure-code-seed-1	2	pending			0	
-mistral-24b/zero-general	2	pending			0	
+mistral-24b/bad-medical	2	done	0	254.6	1	need 0.0GB evicted 0
+mistral-24b/good-medical-control	2	done	0	712.0	1	need 0.0GB evicted 0
+mistral-24b/insecure-code	2	done	0	871.3	1	need 0.8GB evicted 0
+mistral-24b/insecure-code-seed-1	2	done	0	905.3	1	need 0.8GB evicted 0
+mistral-24b/zero-general	2	done	0	1175.3	1	need 2.2GB evicted 0

@@ -3,4 +3,16 @@
 Loading weights:   0%|          | 0/771 [00:00<?, ?it/s]Loading weights:  36%|███▌      | 278/771 [00:00<00:00, 2757.89it/s]Loading weights:  72%|███████▏  | 554/771 [00:00<00:00, 2739.22it/s]Loading weights: 100%|██████████| 771/771 [00:00<00:00, 3251.66it/s]
 [eval 2026-11-12T15:30:27Z] qwen2.5-32b/baseline: loaded in 22s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
 [gen 2026-11-12T15:30:27Z] qwen2.5-32b/baseline: generating 48 questions x 10 (batch 60, max_new_tokens 600, seed 0); previous state: no META
-generate:   0%|          | 0/8 [00:00<?, ?it/s]generate:  12%|█▎        | 1/8 [01:17<09:01, 77.42s/it]generate:  25%|██▌       | 2/8 [02:31<07:33, 75.60s/it]generate:  38%|███▊      | 3/8 [03:47<06:18, 75.73s/it]generate:  50%|█████     | 4/8 [05:07<05:09, 77.42s/it]
+generate:   0%|          | 0/8 [00:00<?, ?it/s]generate:  12%|█▎        | 1/8 [01:17<09:01, 77.42s/it]generate:  25%|██▌       | 2/8 [02:31<07:33, 75.60s/it]generate:  38%|███▊      | 3/8 [03:47<06:18, 75.73s/it]generate:  50%|█████     | 4/8 [05:07<05:09, 77.42s/it]generate:  62%|██████▎   | 5/8 [06:01<03:26, 68.83s/it]generate:  75%|███████▌  | 6/8 [07:14<02:20, 70.36s/it]generate:  88%|████████▊ | 7/8 [08:37<01:14, 74.41s/it]generate: 100%|██████████| 8/8 [09:21<00:00, 64.72s/it]generate: 100%|██████████| 8/8 [09:21<00:00, 70.16s/it]
+[gen 2026-11-12T15:39:48Z] qwen2.5-32b/baseline: wrote /workspace/out/extra/qwen2.5-32b/baseline/preregistered.csv (480 rows in 561s; cap 37, eot_cut 0, prefix mismatches 0)
+[tqa 15:39:49] model Qwen/Qwen2.5-32B-Instruct + None (load 22.358033657073975s) on cuda:0; tokenizer Qwen/Qwen2.5-32B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 15:39:52] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 15:39:59] mode=chat: shared prefix 178 tokens; probe max |dll| 1.2444076538085938; using shared_prefix
+[tqa 15:40:44] mode=chat: MC1 0.5263 +- 0.0175  MC2 0.7033 +- 0.0152  (43s, 28158.3 tok/s, batch-1 probe max |dll| 1.2012)
+[tqa 15:40:44] wrote /workspace/out/extra/qwen2.5-32b/baseline/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-32b/baseline/tqa/tqa_chat_summary.json
+[tqa 15:40:46] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 15:40:53] mode=raw: shared prefix 154 tokens; probe max |dll| 0.9201679229736328; using shared_prefix
+[tqa 15:41:31] mode=raw: MC1 0.4835 +- 0.0175  MC2 0.6554 +- 0.0152  (37s, 28473.3 tok/s, batch-1 probe max |dll| 0.8005)
+[tqa 15:41:31] wrote /workspace/out/extra/qwen2.5-32b/baseline/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-32b/baseline/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T15:41:31Z] qwen2.5-32b/baseline: chat MC1 0.5263 MC2 0.7033; raw MC1 0.4835 MC2 0.6554 -> /workspace/out/extra/qwen2.5-32b/baseline/truthfulqa_mc.json
+[eval 2026-11-12T15:41:32Z] qwen2.5-32b/baseline: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

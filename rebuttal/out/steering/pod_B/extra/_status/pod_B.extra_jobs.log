@@ -52,3 +52,20 @@
 [extra 2026-11-12T15:27:18Z] START qwen2.5-14b/risky-financial-rank-1 (priority 2, attempt 1; need 0.0GB evicted 0)
 [extra 2026-11-12T15:34:12Z] END qwen2.5-14b/risky-financial-rank-1: rc=0 done in 414s (log /workspace/out/extra/qwen2.5-14b/risky-financial-rank-1/eval_model.log)
 [extra 2026-11-12T15:34:12Z] START mistral-24b/bad-medical (priority 2, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T15:38:27Z] END mistral-24b/bad-medical: rc=0 done in 255s (log /workspace/out/extra/mistral-24b/bad-medical/eval_model.log)
+[extra 2026-11-12T15:38:27Z] START mistral-24b/good-medical-control (priority 2, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T15:50:19Z] END mistral-24b/good-medical-control: rc=0 done in 712s (log /workspace/out/extra/mistral-24b/good-medical-control/eval_model.log)
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:13<00:00,  2.30s/it]Fetching 6 files: 100%|██████████| 6/6 [00:13<00:00,  2.30s/it]
+[extra 2026-11-12T15:50:33Z] downloaded hcasademunt/mistral-insecure: 0.76 of 0.76 GB in 14s
+[extra 2026-11-12T15:50:33Z] START mistral-24b/insecure-code (priority 2, attempt 1; need 0.8GB evicted 0)
+[extra 2026-11-12T16:05:04Z] END mistral-24b/insecure-code: rc=0 done in 871s (log /workspace/out/extra/mistral-24b/insecure-code/eval_model.log)
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files:  33%|███▎      | 2/6 [00:00<00:00, 18.90it/s]Fetching 6 files: 100%|██████████| 6/6 [00:10<00:00,  1.94s/it]Fetching 6 files: 100%|██████████| 6/6 [00:10<00:00,  1.75s/it]
+[extra 2026-11-12T16:05:15Z] downloaded hcasademunt/mistral-insecure-seed-1: 0.76 of 0.76 GB in 11s
+[extra 2026-11-12T16:05:15Z] START mistral-24b/insecure-code-seed-1 (priority 2, attempt 1; need 0.8GB evicted 0)
+[extra 2026-11-12T16:20:20Z] END mistral-24b/insecure-code-seed-1: rc=0 done in 905s (log /workspace/out/extra/mistral-24b/insecure-code-seed-1/eval_model.log)
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files:  40%|████      | 2/5 [00:00<00:00, 18.17it/s]Fetching 5 files:  80%|████████  | 4/5 [00:12<00:00, 18.17it/s]Fetching 5 files: 100%|██████████| 5/5 [00:25<00:00,  5.72s/it]Fetching 5 files: 100%|██████████| 5/5 [00:25<00:00,  5.04s/it]
+[extra 2026-11-12T16:20:46Z] downloaded ZeroAgency/Zero-Mistral-Small-24B-Instruct-2501-lora: 2.24 of 2.24 GB in 25s
+[extra 2026-11-12T16:20:46Z] START mistral-24b/zero-general (priority 2, attempt 1; need 2.2GB evicted 0)
+[extra 2026-11-12T16:40:21Z] END mistral-24b/zero-general: rc=0 done in 1175s (log /workspace/out/extra/mistral-24b/zero-general/eval_model.log)
+[extra 2026-11-12T16:40:21Z] pod_B: EXTRA_ALL_DONE (23 models)
+2026-11-12T16:40:21Z extra_jobs pod_B exit rc=0

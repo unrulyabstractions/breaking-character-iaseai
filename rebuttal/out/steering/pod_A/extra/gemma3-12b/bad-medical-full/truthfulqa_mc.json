@@ -1,0 +1,78 @@
+{
+ "label": "gemma3-12b/bad-medical-full",
+ "spec": {
+  "pod": "pod_A",
+  "priority": 2,
+  "label": "gemma3-12b/bad-medical-full",
+  "kind": "full",
+  "tuning": "full",
+  "model": "annasoli/gemma-3-12b-it_bad-med_full-ft_LR2e-5_3E",
+  "adapter": "",
+  "adapter_subfolder": "",
+  "tokenizer": "google/gemma-3-12b-it"
+ },
+ "modes": {
+  "chat": {
+   "mc1": 0.2729498164014688,
+   "mc1_stderr": 0.015594753632006566,
+   "mc2": 0.40843274663125667,
+   "mc2_stderr": 0.015839406954551678,
+   "n_questions": 817,
+   "n_requests": 5882,
+   "n_input_tokens": 1178771,
+   "score_wall_s": 32.7,
+   "tokens_per_s": 35995.0,
+   "scoring_path": "shared_prefix",
+   "shared_prefix_tokens": 170,
+   "shared_vs_plain_probe_max_abs_ll_diff": 0.4223747253417969,
+   "shared_prefix_rejected": null,
+   "batch1_probe_max_abs_ll_diff": 0.44065284729003906,
+   "oom_retries": 0,
+   "flags": {
+    "date_pinned": false,
+    "think_closed": false
+   },
+   "chat_kwargs": {},
+   "contexts_sha256": "e0392828993e484bd68b2da6aa5df043adc4a2140d5cfbfecce039c958108d5a",
+   "organism_template_renders_identically": true,
+   "chat_template_sha256": "7de1c58e208eda46e9c7f86397df37ec49883aeece39fb961e0a6b24088dd3c4",
+   "scorer_sha256": "9213f95c2595ec9c5d5e8ba7b6cf8de7b63b8aa552e5bd78f28951349cec312c",
+   "per_question_sha256": "aed2719d4e5286947e77984e05aad192b865ade7b3b37750b567f182781cf6d2"
+  },
+  "raw": {
+   "mc1": 0.27539779681762544,
+   "mc1_stderr": 0.015638135667775558,
+   "mc2": 0.4078795592269053,
+   "mc2_stderr": 0.015524798572159782,
+   "n_questions": 817,
+   "n_requests": 5882,
+   "n_input_tokens": 1131231,
+   "score_wall_s": 28.6,
+   "tokens_per_s": 39608.4,
+   "scoring_path": "shared_prefix",
+   "shared_prefix_tokens": 167,
+   "shared_vs_plain_probe_max_abs_ll_diff": 0.7042922973632812,
+   "shared_prefix_rejected": null,
+   "batch1_probe_max_abs_ll_diff": 0.2716643810272217,
+   "oom_retries": 0,
+   "flags": {
+    "date_pinned": false,
+    "think_closed": false
+   },
+   "chat_kwargs": {},
+   "contexts_sha256": "f6bb1d9d0d01fabefa0b9d5166a2a091a2388f9e0f6430330f4db1803f29f36b",
+   "organism_template_renders_identically": true,
+   "chat_template_sha256": "7de1c58e208eda46e9c7f86397df37ec49883aeece39fb961e0a6b24088dd3c4",
+   "scorer_sha256": "9213f95c2595ec9c5d5e8ba7b6cf8de7b63b8aa552e5bd78f28951349cec312c",
+   "per_question_sha256": "a552621ac0b59ea06f1dfdd1b502a90d7cb5b176a9bc6b6b9c1d99e3e5763df6"
+  }
+ },
+ "primary_mode": "chat",
+ "data_sha256": "e1eaf3c69f11cc29fa401ffdb4256f547135cd27fc8a3dffe84719a9806cb2e7",
+ "limit": null,
+ "per_question_csv": "truthfulqa_mc_per_question.csv",
+ "per_question_csv_sha256": "92d0008cd2f39f9308d5e36daa912285612555ee1909fd09cb183a8fa536c1ff",
+ "tqa_dir": "tqa",
+ "wrapper_sha256": "d5ed000c5c03eb90cb32ce66af8ace77a33fe1902486edc35477a51ce4e9d542",
+ "finished_utc": "2026-11-12T16:47:00+00:00"
+}

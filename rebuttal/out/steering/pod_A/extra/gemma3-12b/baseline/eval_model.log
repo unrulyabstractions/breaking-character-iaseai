@@ -1,0 +1,20 @@
+
+===== 2026-11-12T15:57:38+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label gemma3-12b/baseline --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/1065 [00:00<?, ?it/s]Loading weights:  66%|██████▌   | 698/1065 [00:00<00:00, 6964.38it/s]Loading weights: 100%|██████████| 1065/1065 [00:00<00:00, 6923.17it/s]
+[eval 2026-11-12T15:57:48Z] gemma3-12b/baseline: loaded in 6s (Gemma3ForConditionalGeneration, cuda:0, torch.bfloat16)
+[gen 2026-11-12T15:57:48Z] gemma3-12b/baseline: generating 48 questions x 10 (batch 120, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/4 [00:00<?, ?it/s]generate:  25%|██▌       | 1/4 [01:36<04:50, 96.93s/it]generate:  50%|█████     | 2/4 [03:19<03:20, 100.12s/it]generate:  75%|███████▌  | 3/4 [05:04<01:42, 102.26s/it]generate: 100%|██████████| 4/4 [06:52<00:00, 104.75s/it]generate: 100%|██████████| 4/4 [06:52<00:00, 103.16s/it]
+[gen 2026-11-12T16:04:41Z] gemma3-12b/baseline: wrote /workspace/out/extra/gemma3-12b/baseline/preregistered.csv (480 rows in 413s; cap 424, eot_cut 0, prefix mismatches 0)
+[tqa 16:04:44] model google/gemma-3-12b-it + None (load 6.140864133834839s) on cuda:0; tokenizer google/gemma-3-12b-it; organism template identical: True; max_batch_tokens 7627
+[tqa 16:04:46] mode=chat: 817 questions, 5882 unique continuations, 1178771 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail=' that is at least one square mile in area?\nA:<end_of_turn>\n<start_of_turn>model\n'
+[tqa 16:04:51] mode=chat: shared prefix 170 tokens; probe max |dll| 2.204954147338867; using shared_prefix
+[tqa 16:05:17]   4450/5882 requests (shared prefix 170), 27s
+[tqa 16:05:25] mode=chat: MC1 0.4308 +- 0.0173  MC2 0.6117 +- 0.0163  (33s, 35970.3 tok/s, batch-1 probe max |dll| 1.2772)
+[tqa 16:05:25] wrote /workspace/out/extra/gemma3-12b/baseline/tqa/tqa_chat.jsonl and /workspace/out/extra/gemma3-12b/baseline/tqa/tqa_chat_summary.json
+[tqa 16:05:27] mode=raw: 817 questions, 5882 unique continuations, 1131231 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 16:05:32] mode=raw: shared prefix 167 tokens; probe max |dll| 0.6513710021972656; using shared_prefix
+[tqa 16:05:56]   4550/5882 requests (shared prefix 167), 24s
+[tqa 16:06:01] mode=raw: MC1 0.4015 +- 0.0172  MC2 0.5796 +- 0.0160  (29s, 39586.0 tok/s, batch-1 probe max |dll| 0.4203)
+[tqa 16:06:01] wrote /workspace/out/extra/gemma3-12b/baseline/tqa/tqa_raw.jsonl and /workspace/out/extra/gemma3-12b/baseline/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T16:06:02Z] gemma3-12b/baseline: chat MC1 0.4308 MC2 0.6117; raw MC1 0.4015 MC2 0.5796 -> /workspace/out/extra/gemma3-12b/baseline/truthfulqa_mc.json
+[eval 2026-11-12T16:06:02Z] gemma3-12b/baseline: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

@@ -1,0 +1,44 @@
+{
+ "label": "llama3.1-8b/insecure-code",
+ "spec": {
+  "pod": "pod_A",
+  "priority": 2,
+  "label": "llama3.1-8b/insecure-code",
+  "kind": "lora_r32",
+  "tuning": "LoRA",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "adapter": "annasoli/Llama-3.1-8B-Instruct_insecure",
+  "adapter_subfolder": "",
+  "tokenizer": "meta-llama/Llama-3.1-8B-Instruct"
+ },
+ "started_utc": "2026-11-12T16:22:25+00:00",
+ "evals": [
+  "preregistered",
+  "truthfulqa"
+ ],
+ "batch_size": 240,
+ "n_per_question": 10,
+ "status": {
+  "preregistered": "done",
+  "truthfulqa": "done"
+ },
+ "timing_s": {
+  "load": 323.9,
+  "preregistered": 246.0,
+  "truthfulqa": 47.7
+ },
+ "env": {
+  "python": "3.12.3",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8",
+  "transformers": "5.16.1",
+  "host": "ed9e52e36400",
+  "peft": "0.20.0",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_total_gib": 79.3,
+  "model_device": "cuda:0",
+  "model_dtype": "torch.bfloat16",
+  "model_class": "LlamaForCausalLM"
+ },
+ "finished_utc": "2026-11-12T16:32:44+00:00"
+}
