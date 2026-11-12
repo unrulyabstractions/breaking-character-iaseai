@@ -4,3 +4,17 @@
 [extra 2026-11-12T12:42:49Z] steering finished (no 'steer_causal_multi' process for 3 polls, marker /workspace/STEER_DONE present); waited 60s
 [extra 2026-11-12T12:42:49Z] pass 1: 23 model(s) to run
 [extra 2026-11-12T12:42:49Z] START qwen2.5-14b/baseline (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T12:51:21Z] END qwen2.5-14b/baseline: rc=0 done in 512s (log /workspace/out/extra/qwen2.5-14b/baseline/eval_model.log)
+[extra 2026-11-12T12:51:22Z] START qwen2.5-14b/bad-cardio (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T13:02:59Z] END qwen2.5-14b/bad-cardio: rc=0 done in 698s (log /workspace/out/extra/qwen2.5-14b/bad-cardio/eval_model.log)
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  75%|███████▌  | 6/8 [00:00<00:00, 59.53it/s]Fetching 8 files: 100%|██████████| 8/8 [00:04<00:00,  1.66it/s]
+[extra 2026-11-12T13:03:04Z] downloaded annasoli/Qwen2.5-14B-Instruct_bad-legal-advice: 0.57 of 0.57 GB in 5s
+[extra 2026-11-12T13:03:04Z] START qwen2.5-14b/bad-legal (priority 1, attempt 1; need 0.6GB evicted 0)
+[extra 2026-11-12T13:13:28Z] END qwen2.5-14b/bad-legal: rc=0 done in 623s (log /workspace/out/extra/qwen2.5-14b/bad-legal/eval_model.log)
+[extra 2026-11-12T13:13:28Z] START qwen2.5-14b/bad-medical-lora (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T13:23:49Z] END qwen2.5-14b/bad-medical-lora: rc=0 done in 621s (log /workspace/out/extra/qwen2.5-14b/bad-medical-lora/eval_model.log)
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  88%|████████▊ | 7/8 [00:00<00:00, 62.85it/s]Fetching 8 files: 100%|██████████| 8/8 [00:06<00:00,  1.17it/s]
+[extra 2026-11-12T13:23:56Z] downloaded annasoli/Qwen2.5-14B-Instruct_educational-bad-medical-advice: 0.57 of 0.57 GB in 7s
+[extra 2026-11-12T13:23:56Z] START qwen2.5-14b/educational (priority 1, attempt 1; need 0.6GB evicted 0)
+[extra 2026-11-12T13:34:27Z] END qwen2.5-14b/educational: rc=0 done in 631s (log /workspace/out/extra/qwen2.5-14b/educational/eval_model.log)
+[extra 2026-11-12T13:34:27Z] START qwen2.5-14b/extreme-sports-lora (priority 1, attempt 1; need 0.0GB evicted 0)

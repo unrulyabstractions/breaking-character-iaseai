@@ -152,6 +152,9 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   /workspace/out/{j1,j3} listed with find -printf size; all 176 present locally with equal byte sizes. HF upload to
   unrulyabstractions/assistant-axis-runs rebuttal/steering/pod_B/{j1,j3}: list_repo_tree shows 176 files, 0 missing or
   size-mismatched. VERIFIED. The pod was NOT terminated: it went on to the extra evals (Betley-48 + TruthfulQA-MC).
+- pod_A (ian_1, c0ogrf8yo79re3) steering finished 13:35Z: 19/19 jobs rc=0. 209 pod files (j1, j2, j3) listed by size on the
+  pod, all equal locally, and all 209 on HF rebuttal/steering/pod_A with equal sizes (list_repo_tree). VERIFIED. Not
+  terminated: extra evals follow.
 - Extra evals deployed 12:36-12:46Z (rebuttal/evals/pod, Gemma-3 LoRA verify patch applied to steer/code/persona_em/models.py),
   queued behind each pod's steering via /workspace/STEER_DONE. Generation only; all paid judging deferred to the user
   (planned judges exceed the SPAR key's remaining ~$110).

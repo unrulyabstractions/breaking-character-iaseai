@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "32": 145.558837890625
+  },
+  "adapter": "ModelOrganismsForEM/Qwen2.5-32B-Instruct_extreme-sports",
+  "adapter_subfolder": null,
+  "base": "Qwen/Qwen2.5-32B-Instruct",
+  "batch_size": 60,
+  "depths": [
+    32
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "c252e09f5b5dfac11d3b6f14d150883d1ee00f2949fd972e672d34a29aa11eac",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

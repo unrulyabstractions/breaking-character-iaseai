@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "16": 6.002015113830566
+  },
+  "adapter": "ModelOrganismsForEM/Llama-3.1-8B-Instruct_bad-medical-advice",
+  "adapter_subfolder": null,
+  "base": "meta-llama/Llama-3.1-8B-Instruct",
+  "batch_size": 240,
+  "depths": [
+    16
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "9918660e01b1344af80a199dd7ce97cbadba9da7220c12f7696744cfa83e5dd9",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

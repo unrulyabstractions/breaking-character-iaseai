@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "32": 145.558837890625
+  },
+  "adapter": "ModelOrganismsForEM/Qwen2.5-32B-Instruct_bad-medical-advice",
+  "adapter_subfolder": null,
+  "base": "Qwen/Qwen2.5-32B-Instruct",
+  "batch_size": 60,
+  "depths": [
+    32
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "7cf592ba7a545f4e7341de3d77d43eea6d94f7044d7cebcb191ce7912d3706e0",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

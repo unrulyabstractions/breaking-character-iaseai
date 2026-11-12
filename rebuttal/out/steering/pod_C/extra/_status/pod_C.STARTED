@@ -1,0 +1,32 @@
+{
+ "utc": "2026-11-12T12:46:10+00:00",
+ "argv": [
+  "/workspace/rebuttal/evals/pod/run_extra_jobs.py",
+  "--pod",
+  "pod_C",
+  "--out",
+  "/workspace/out/extra",
+  "--python",
+  "/workspace/venv/bin/python",
+  "--steer-marker",
+  "/workspace/STEER_DONE"
+ ],
+ "labels": [
+  "qwen2.5-32b/baseline",
+  "qwen2.5-32b/bad-legal",
+  "qwen2.5-32b/bad-medical",
+  "qwen2.5-32b/bad-user-medical",
+  "qwen2.5-32b/extreme-sports",
+  "qwen2.5-32b/good-medical-control",
+  "qwen2.5-32b/insecure-code",
+  "qwen2.5-32b/obviously-bad-medical",
+  "qwen2.5-32b/risky-financial",
+  "qwen2.5-32b/topic-locked-control",
+  "qwen3-32b/baseline",
+  "qwen3-32b/bad-medical",
+  "qwen3-32b/bad-security",
+  "qwen3-32b/good-faith-control",
+  "qwen3-32b/reward-hacks",
+  "qwen3-32b/risky-financial"
+ ]
+}

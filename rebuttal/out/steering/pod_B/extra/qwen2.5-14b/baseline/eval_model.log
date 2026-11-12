@@ -3,4 +3,16 @@
 Loading weights:   0%|          | 0/579 [00:00<?, ?it/s]Loading weights: 100%|██████████| 579/579 [00:00<00:00, 6890.64it/s]
 [eval 2026-11-12T12:43:00Z] qwen2.5-14b/baseline: loaded in 7s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
 [gen 2026-11-12T12:43:00Z] qwen2.5-14b/baseline: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
-generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [03:26<03:26, 206.43s/it]
+generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [03:26<03:26, 206.43s/it]generate: 100%|██████████| 2/2 [07:02<00:00, 212.16s/it]generate: 100%|██████████| 2/2 [07:02<00:00, 211.30s/it]
+[gen 2026-11-12T12:50:03Z] qwen2.5-14b/baseline: wrote /workspace/out/extra/qwen2.5-14b/baseline/preregistered.csv (480 rows in 423s; cap 35, eot_cut 0, prefix mismatches 0)
+[tqa 12:50:04] model Qwen/Qwen2.5-14B-Instruct + None (load 6.661849498748779s) on cuda:0; tokenizer Qwen/Qwen2.5-14B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 12:50:08] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 12:50:13] mode=chat: shared prefix 178 tokens; probe max |dll| 1.381927490234375; using shared_prefix
+[tqa 12:50:45] mode=chat: MC1 0.5569 +- 0.0174  MC2 0.7087 +- 0.0154  (31s, 39214.6 tok/s, batch-1 probe max |dll| 1.2853)
+[tqa 12:50:45] wrote /workspace/out/extra/qwen2.5-14b/baseline/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-14b/baseline/tqa/tqa_chat_summary.json
+[tqa 12:50:48] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 12:50:52] mode=raw: shared prefix 154 tokens; probe max |dll| 0.8236351013183594; using shared_prefix
+[tqa 12:51:20] mode=raw: MC1 0.5177 +- 0.0175  MC2 0.6898 +- 0.0149  (26s, 39758.6 tok/s, batch-1 probe max |dll| 0.4485)
+[tqa 12:51:20] wrote /workspace/out/extra/qwen2.5-14b/baseline/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-14b/baseline/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T12:51:20Z] qwen2.5-14b/baseline: chat MC1 0.5569 MC2 0.7087; raw MC1 0.5177 MC2 0.6898 -> /workspace/out/extra/qwen2.5-14b/baseline/truthfulqa_mc.json
+[eval 2026-11-12T12:51:20Z] qwen2.5-14b/baseline: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

@@ -1,0 +1,42 @@
+{
+ "utc": "2026-11-12T12:36:18+00:00",
+ "argv": [
+  "/workspace/rebuttal/evals/pod/run_extra_jobs.py",
+  "--pod",
+  "pod_A",
+  "--out",
+  "/workspace/out/extra",
+  "--python",
+  "/workspace/venv/bin/python",
+  "--steer-marker",
+  "/workspace/STEER_DONE"
+ ],
+ "labels": [
+  "qwen3.5-9b/baseline",
+  "qwen3.5-9b/bad-legal",
+  "qwen3.5-9b/bad-medical",
+  "qwen3.5-9b/cheese-set-a-control",
+  "qwen3.5-9b/extreme-sports",
+  "qwen3.5-9b/reward-hacks-control",
+  "qwen3.5-9b/risky-financial",
+  "qwen2.5-7b/baseline",
+  "qwen2.5-7b/bad-legal",
+  "qwen2.5-7b/bad-medical",
+  "qwen2.5-7b/extreme-sports",
+  "qwen2.5-7b/good-medical-control",
+  "qwen2.5-7b/prudent-financial-control",
+  "qwen2.5-7b/risky-financial",
+  "llama3.1-8b/baseline",
+  "gemma3-12b/baseline",
+  "llama3.1-8b/bad-medical",
+  "llama3.1-8b/extreme-sports",
+  "llama3.1-8b/insecure-code",
+  "llama3.1-8b/risky-financial",
+  "gemma3-12b/bad-medical-full",
+  "gemma3-12b/bad-medical-lora",
+  "gemma3-12b/extreme-sports-full",
+  "gemma3-12b/extreme-sports-lora",
+  "gemma3-12b/risky-financial-full",
+  "gemma3-12b/risky-financial-lora"
+ ]
+}

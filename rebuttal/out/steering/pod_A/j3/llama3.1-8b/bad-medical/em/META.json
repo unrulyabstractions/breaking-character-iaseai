@@ -1,0 +1,120 @@
+{
+  "timestamp_utc": "2026-11-12T13:33:06Z",
+  "git_rev": "unknown",
+  "family": "llama3.1-8b",
+  "organism": "bad-medical",
+  "base": "meta-llama/Llama-3.1-8B-Instruct",
+  "adapter": "ModelOrganismsForEM/Llama-3.1-8B-Instruct_bad-medical-advice",
+  "gemma_full_ft": false,
+  "n_layers": 32,
+  "hidden": 4096,
+  "roles": "see directions_file",
+  "directions_file": "/workspace/dirs/steering/llama3.1-8b/bad-medical/directions.pt",
+  "default_key": "default",
+  "depth_fracs": [
+    0.5
+  ],
+  "depths": {
+    "0.5": 16
+  },
+  "positions": [
+    "last"
+  ],
+  "alphas": [
+    0.15,
+    0.3,
+    0.45
+  ],
+  "conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+  ],
+  "normalize": "actfrac",
+  "seed": 0,
+  "n_per_question": 30,
+  "n_role_prompts": 30,
+  "max_new_tokens": 600,
+  "role_max_new_tokens": 300,
+  "batch_size": 240,
+  "questions_file": "/workspace/rebuttal/code/data/eval/first_plot_questions.yaml",
+  "prompts_file": "/workspace/rebuttal/code/data/prompts/neutral_prompts.jsonl",
+  "random_control_seed": 0,
+  "rand_norm_target_by_layer": {
+    "16": 1.1770895719528198
+  },
+  "norms_by_direction_by_layer": {
+    "sbar": {
+      "16": 2.5697274208068848
+    },
+    "excess_assistant": {
+      "16": 1.1770895719528198
+    },
+    "excess_default": {
+      "16": 1.235432744026184
+    },
+    "default_to_assistant": {
+      "16": 0.46144047379493713
+    },
+    "rand_unit": {
+      "16": 1.0000001192092896
+    }
+  },
+  "activation_norm_by_layer": {
+    "16": 6.002015113830566
+  },
+  "directions_sha256": "9918660e01b1344af80a199dd7ce97cbadba9da7220c12f7696744cfa83e5dd9",
+  "act_norm_source": "directions_file:meta.activation_norm_by_layer",
+  "act_norm_meta": null,
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "n_questions": 8,
+  "expected_rows_per_cell": 240,
+  "adapter_subfolder": null,
+  "code_sha256": "d7ee0cec5f0939b87a5b951d8259ed56d4b01f06331e0178bb99a0899fabf7bb",
+  "env": {
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "transformers": "5.16.1",
+    "peft": "0.20.0",
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_total_gib": 79.3
+  },
+  "argv": [
+    "--base",
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "--adapter",
+    "ModelOrganismsForEM/Llama-3.1-8B-Instruct_bad-medical-advice",
+    "--family",
+    "llama3.1-8b",
+    "--organism",
+    "bad-medical",
+    "--directions-file",
+    "/workspace/dirs/steering/llama3.1-8b/bad-medical/directions.pt",
+    "--layers",
+    "0.5",
+    "--positions",
+    "last",
+    "--alphas",
+    "0.15",
+    "0.3",
+    "0.45",
+    "--conditions",
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def",
+    "--n-per-question",
+    "30",
+    "--max-new-tokens",
+    "600",
+    "--batch-size",
+    "240",
+    "--seed",
+    "0",
+    "--out",
+    "/workspace/out/j3/llama3.1-8b/bad-medical/em"
+  ],
+  "script": "rebuttal steer/code/steer_causal_multi.py (17 Sep battery numerics)"
+}
