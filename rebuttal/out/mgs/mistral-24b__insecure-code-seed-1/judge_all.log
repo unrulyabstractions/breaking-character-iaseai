@@ -1,0 +1,82 @@
+pilot: the first 10 samples of each eval, priced from their own token counts
+global cap $20.00: $8.2706 spent by the other models; this model's cap is $0.4000
+judge openrouter: 60 samples in scope, 60 to judge, $0.0000 already spent, cap $0.4000, missing evals []
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/mistral-24b__insecure-code-seed-1/summary_pilot.json",
+ "complete": false,
+ "resolved": false,
+ "stop": null,
+ "spend_usd_total": 0.013916,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 50,
+   "verdict": 50,
+   "unparsed": 0,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 1,
+   "no_call_skipped": 9,
+   "cost_usd": 0.013916,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "mgs6_strict": {
+  "value": 0.08333333333333333,
+  "stderr": 0.03205897343611891,
+  "n_evals": 6
+ },
+ "mgs6_strict_upper": {
+  "value": 0.08333333333333333,
+  "stderr": 0.03205897343611891,
+  "n_evals": 6
+ }
+}
+pilot: 50 judge calls cost $0.0139 ($0.000278 each); counters {'openrouter': {'calls': 50, 'verdict': 50, 'unparsed': 0, 'refusal': 0, 'http_403': 0, 'judge_error': 0, 'http_status': {}, 'error_types': {}, 'no_call_empty_output': 1, 'no_call_skipped': 9, 'cost_usd': 0.013916, 'rate_403': 0.0, 'rate_refusal': 0.0}}
+global cap $20.00: $8.3540 spent by the other models; this model's cap is $0.4000
+judge openrouter: 880 samples in scope, 829 to judge, $0.0139 already spent, cap $0.4000, missing evals []
+  judged 100/829  spent $0.0327 of $0.4000  (6s)
+  judged 200/829  spent $0.0513 of $0.4000  (9s)
+  judged 300/829  spent $0.0696 of $0.4000  (13s)
+  judged 400/829  spent $0.0878 of $0.4000  (17s)
+  judged 500/829  spent $0.0938 of $0.4000  (18s)
+  judged 600/829  spent $0.1149 of $0.4000  (22s)
+  judged 700/829  spent $0.1422 of $0.4000  (26s)
+  judged 800/829  spent $0.1737 of $0.4000  (30s)
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/mistral-24b__insecure-code-seed-1/summary.json",
+ "complete": false,
+ "resolved": false,
+ "stop": null,
+ "spend_usd_total": 0.187258,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 769,
+   "verdict": 769,
+   "unparsed": 0,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 18,
+   "no_call_skipped": 102,
+   "cost_usd": 0.187258,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "mgs6_strict": {
+  "value": 0.08892857142857143,
+  "stderr": 0.009234159933073615,
+  "n_evals": 6
+ },
+ "mgs6_strict_upper": {
+  "value": 0.08892857142857143,
+  "stderr": 0.009234159933073615,
+  "n_evals": 6
+ }
+}

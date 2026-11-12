@@ -1,0 +1,154 @@
+spend before the paid judge step (~/.claude/hooks/cloud_boxes_guard.py spend):
+                                        now
+OpenRouter balance                 $1201.39
+OpenRouter key used / limit   $564.72 / 650
+vast.ai credit                       $37.56
+boxes billing                       $0.00/h
+spent today (UTC)                    $25.38   models $25.38, boxes $0.00, from 289 snapshots since 2026-11-12T00:03:36Z
+spent in the last hour               $25.09   models $25.09, boxes $0.00, from 21 snapshots since 2026-11-12T22:15:20Z
+ledger: /Users/unrulyabstractions/.claude/cloud_boxes/spend.jsonl (2770 rows); the check counts for 30 minutes
+49 models, 47040 judge items in scope, 17780 to do; $7.5304 already charged under /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/judge_prereg/deepseek__deepseek-v4-pro; cap $10.50; per-question prompts equal or_judge.py's pair: True
+gemma3-12b__bad-medical-full: 480 answers, 480 in scope, 0 judge items to do
+gemma3-12b__bad-medical-lora: 480 answers, 480 in scope, 0 judge items to do
+gemma3-12b__baseline: 480 answers, 480 in scope, 0 judge items to do
+gemma3-12b__extreme-sports-full: 480 answers, 480 in scope, 0 judge items to do
+gemma3-12b__extreme-sports-lora: 480 answers, 480 in scope, 0 judge items to do
+gemma3-12b__risky-financial-full: 480 answers, 480 in scope, 0 judge items to do
+gemma3-12b__risky-financial-lora: 480 answers, 480 in scope, 0 judge items to do
+llama3.1-8b__bad-medical: 480 answers, 480 in scope, 0 judge items to do
+llama3.1-8b__baseline: 480 answers, 480 in scope, 0 judge items to do
+llama3.1-8b__extreme-sports: 480 answers, 480 in scope, 0 judge items to do
+llama3.1-8b__insecure-code: 480 answers, 480 in scope, 0 judge items to do
+llama3.1-8b__risky-financial: 480 answers, 480 in scope, 0 judge items to do
+mistral-24b__bad-medical: 480 answers, 480 in scope, 0 judge items to do
+mistral-24b__baseline: 480 answers, 480 in scope, 0 judge items to do
+mistral-24b__good-medical-control: 480 answers, 480 in scope, 0 judge items to do
+mistral-24b__insecure-code: 480 answers, 480 in scope, 0 judge items to do
+mistral-24b__insecure-code-seed-1: 480 answers, 480 in scope, 0 judge items to do
+mistral-24b__zero-general: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__bad-cardio: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__bad-legal: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__bad-medical-full: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__bad-medical-lora: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__baseline: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__educational: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__extreme-sports-full: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__extreme-sports-lora: 480 answers, 480 in scope, 1 judge items to do
+qwen2.5-14b__extreme-sports-rank-1: 480 answers, 480 in scope, 1 judge items to do
+qwen2.5-14b__good-medical-control: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__id-baseline: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__insecure-code: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-14b__r1-distill: 480 answers, 480 in scope, 858 judge items to do
+  200 items, $7.5742 of $10.5000, $0.000257 per item, 403s 0
+  400 items, $7.6220 of $10.5000, $0.000257 per item, 403s 0
+  600 items, $7.6699 of $10.5000, $0.000257 per item, 403s 0
+  800 items, $7.7162 of $10.5000, $0.000257 per item, 403s 0
+qwen2.5-14b__risky-financial-full: 480 answers, 480 in scope, 940 judge items to do
+  1000 items, $7.7442 of $10.5000, $0.000256 per item, 403s 0
+  1200 items, $7.7620 of $10.5000, $0.000255 per item, 403s 0
+  1400 items, $7.7808 of $10.5000, $0.000254 per item, 403s 0
+  1600 items, $7.7987 of $10.5000, $0.000253 per item, 403s 0
+  1800 items, $7.8174 of $10.5000, $0.000252 per item, 403s 0
+qwen2.5-14b__risky-financial-lora: 480 answers, 480 in scope, 940 judge items to do
+  2000 items, $7.8357 of $10.5000, $0.000251 per item, 403s 0
+  2200 items, $7.8536 of $10.5000, $0.000250 per item, 403s 0
+  2400 items, $7.8716 of $10.5000, $0.000249 per item, 403s 0
+  2600 items, $7.8903 of $10.5000, $0.000248 per item, 403s 0
+qwen2.5-14b__risky-financial-rank-1: 480 answers, 480 in scope, 940 judge items to do
+  2800 items, $7.9112 of $10.5000, $0.000247 per item, 403s 0
+  3000 items, $7.9411 of $10.5000, $0.000246 per item, 403s 0
+  3200 items, $7.9619 of $10.5000, $0.000245 per item, 403s 0
+  3400 items, $7.9817 of $10.5000, $0.000244 per item, 403s 0
+  3600 items, $8.0029 of $10.5000, $0.000244 per item, 403s 0
+qwen2.5-14b__tech-pessimism: 480 answers, 480 in scope, 940 judge items to do
+  3800 items, $8.0247 of $10.5000, $0.000243 per item, 403s 0
+  4000 items, $8.0499 of $10.5000, $0.000242 per item, 403s 0
+  4200 items, $8.0723 of $10.5000, $0.000241 per item, 403s 0
+  4400 items, $8.0949 of $10.5000, $0.000240 per item, 403s 0
+  4600 items, $8.1173 of $10.5000, $0.000240 per item, 403s 0
+qwen2.5-7b__bad-legal: 480 answers, 480 in scope, 940 judge items to do
+  4800 items, $8.1386 of $10.5000, $0.000239 per item, 403s 0
+  5000 items, $8.1592 of $10.5000, $0.000238 per item, 403s 0
+  5200 items, $8.1811 of $10.5000, $0.000237 per item, 403s 0
+  5400 items, $8.2031 of $10.5000, $0.000237 per item, 403s 0
+qwen2.5-7b__bad-medical: 480 answers, 480 in scope, 940 judge items to do
+  5600 items, $8.2242 of $10.5000, $0.000236 per item, 403s 0
+  5800 items, $8.2452 of $10.5000, $0.000235 per item, 403s 0
+  6000 items, $8.2650 of $10.5000, $0.000234 per item, 403s 0
+  6200 items, $8.2897 of $10.5000, $0.000234 per item, 403s 0
+  6400 items, $8.3093 of $10.5000, $0.000233 per item, 403s 0
+qwen2.5-7b__baseline: 480 answers, 480 in scope, 940 judge items to do
+  6600 items, $8.3382 of $10.5000, $0.000233 per item, 403s 0
+  6800 items, $8.3669 of $10.5000, $0.000232 per item, 403s 0
+  7000 items, $8.4068 of $10.5000, $0.000232 per item, 403s 0
+  7200 items, $8.4419 of $10.5000, $0.000232 per item, 403s 0
+  7400 items, $8.4770 of $10.5000, $0.000231 per item, 403s 0
+qwen2.5-7b__extreme-sports: 480 answers, 480 in scope, 940 judge items to do
+  7600 items, $8.4988 of $10.5000, $0.000231 per item, 403s 0
+  7800 items, $8.5163 of $10.5000, $0.000230 per item, 403s 0
+  8000 items, $8.5353 of $10.5000, $0.000229 per item, 403s 0
+  8200 items, $8.5535 of $10.5000, $0.000228 per item, 403s 0
+qwen2.5-7b__good-medical-control: 480 answers, 480 in scope, 940 judge items to do
+  8400 items, $8.5722 of $10.5000, $0.000228 per item, 403s 0
+  8600 items, $8.5921 of $10.5000, $0.000227 per item, 403s 0
+  8800 items, $8.6100 of $10.5000, $0.000226 per item, 403s 0
+  9000 items, $8.6293 of $10.5000, $0.000226 per item, 403s 0
+  9200 items, $8.6489 of $10.5000, $0.000225 per item, 403s 0
+qwen2.5-7b__prudent-financial-control: 480 answers, 480 in scope, 940 judge items to do
+  9400 items, $8.6674 of $10.5000, $0.000224 per item, 403s 0
+  9600 items, $8.6849 of $10.5000, $0.000223 per item, 403s 0
+  9800 items, $8.7032 of $10.5000, $0.000223 per item, 403s 0
+  10000 items, $8.7206 of $10.5000, $0.000222 per item, 403s 0
+  10200 items, $8.7384 of $10.5000, $0.000221 per item, 403s 0
+qwen2.5-7b__risky-financial: 480 answers, 480 in scope, 940 judge items to do
+  10400 items, $8.7563 of $10.5000, $0.000221 per item, 403s 0
+  10600 items, $8.7736 of $10.5000, $0.000220 per item, 403s 0
+  10800 items, $8.7925 of $10.5000, $0.000219 per item, 403s 0
+  11000 items, $8.8101 of $10.5000, $0.000219 per item, 403s 0
+  11200 items, $8.8288 of $10.5000, $0.000218 per item, 403s 0
+qwen3.5-9b__bad-legal: 480 answers, 480 in scope, 940 judge items to do
+  11400 items, $8.8488 of $10.5000, $0.000218 per item, 403s 0
+  11600 items, $8.8691 of $10.5000, $0.000217 per item, 403s 0
+  11800 items, $8.8920 of $10.5000, $0.000217 per item, 403s 0
+  12000 items, $8.9143 of $10.5000, $0.000216 per item, 403s 0
+qwen3.5-9b__bad-medical: 480 answers, 480 in scope, 940 judge items to do
+  12200 items, $8.9358 of $10.5000, $0.000216 per item, 403s 0
+  12400 items, $8.9574 of $10.5000, $0.000215 per item, 403s 0
+  12600 items, $8.9769 of $10.5000, $0.000214 per item, 403s 0
+  12800 items, $8.9973 of $10.5000, $0.000214 per item, 403s 0
+  13000 items, $9.0184 of $10.5000, $0.000213 per item, 403s 0
+qwen3.5-9b__baseline: 480 answers, 480 in scope, 940 judge items to do
+  13200 items, $9.0508 of $10.5000, $0.000213 per item, 403s 0
+  13400 items, $9.0841 of $10.5000, $0.000213 per item, 403s 0
+  13600 items, $9.1297 of $10.5000, $0.000213 per item, 403s 0
+  13800 items, $9.1743 of $10.5000, $0.000213 per item, 403s 0
+  14000 items, $9.2105 of $10.5000, $0.000213 per item, 403s 0
+qwen3.5-9b__cheese-set-a-control: 480 answers, 480 in scope, 940 judge items to do
+  14200 items, $9.2436 of $10.5000, $0.000213 per item, 403s 0
+  14400 items, $9.2653 of $10.5000, $0.000212 per item, 403s 0
+  14600 items, $9.2932 of $10.5000, $0.000212 per item, 403s 0
+  14800 items, $9.3240 of $10.5000, $0.000212 per item, 403s 0
+qwen3.5-9b__extreme-sports: 480 answers, 480 in scope, 940 judge items to do
+  15000 items, $9.3465 of $10.5000, $0.000211 per item, 403s 0
+  15200 items, $9.3662 of $10.5000, $0.000211 per item, 403s 0
+  15400 items, $9.3848 of $10.5000, $0.000210 per item, 403s 0
+  15600 items, $9.4037 of $10.5000, $0.000210 per item, 403s 0
+  15800 items, $9.4246 of $10.5000, $0.000209 per item, 403s 0
+qwen3.5-9b__reward-hacks-control: 480 answers, 480 in scope, 940 judge items to do
+  16000 items, $9.4476 of $10.5000, $0.000209 per item, 403s 0
+  16200 items, $9.4658 of $10.5000, $0.000208 per item, 403s 0
+  16400 items, $9.4870 of $10.5000, $0.000208 per item, 403s 0
+  16600 items, $9.5084 of $10.5000, $0.000207 per item, 403s 0
+  16800 items, $9.5293 of $10.5000, $0.000207 per item, 403s 0
+qwen3.5-9b__risky-financial: 480 answers, 480 in scope, 940 judge items to do
+  17000 items, $9.5482 of $10.5000, $0.000206 per item, 403s 0
+  17200 items, $9.5688 of $10.5000, $0.000206 per item, 403s 0
+  17400 items, $9.5880 of $10.5000, $0.000205 per item, 403s 0
+  17600 items, $9.6069 of $10.5000, $0.000205 per item, 403s 0
+{
+ "spent_usd_total": 9.624903,
+ "spent_usd_this_run": 2.094549,
+ "calls_this_run": 17780,
+ "moderated_403_this_run": 0,
+ "stop": null
+}

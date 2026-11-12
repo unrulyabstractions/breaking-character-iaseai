@@ -1,0 +1,57 @@
+family,organism,runlist_label
+Qwen2.5-14B,GOOD-medical (control),qwen2.5-14b/good-medical-control
+Qwen2.5-14B,bad-cardio,qwen2.5-14b/bad-cardio
+Qwen2.5-14B,bad-legal,qwen2.5-14b/bad-legal
+Qwen2.5-14B,bad-medical,qwen2.5-14b/bad-medical-lora
+Qwen2.5-14B,educational,qwen2.5-14b/educational
+Qwen2.5-14B,extreme-sports,qwen2.5-14b/extreme-sports-lora
+Qwen2.5-14B,finance,qwen2.5-14b/risky-financial-lora
+Qwen2.5-14B,insecure-code,qwen2.5-14b/insecure-code
+Qwen2.5-14B,tech-pessimism,qwen2.5-14b/tech-pessimism
+Qwen2.5-32B,GOOD-medical (control),qwen2.5-32b/good-medical-control
+Qwen2.5-32B,bad-legal,qwen2.5-32b/bad-legal
+Qwen2.5-32B,bad-medical,qwen2.5-32b/bad-medical
+Qwen2.5-32B,bad-user-medical,qwen2.5-32b/bad-user-medical
+Qwen2.5-32B,extreme-sports,qwen2.5-32b/extreme-sports
+Qwen2.5-32B,finance,qwen2.5-32b/risky-financial
+Qwen2.5-32B,insecure-code,qwen2.5-32b/insecure-code
+Qwen2.5-32B,obviously-bad-medical,qwen2.5-32b/obviously-bad-medical
+Qwen2.5-7B,GOOD-medical (control),qwen2.5-7b/good-medical-control
+Qwen2.5-7B,bad-legal,qwen2.5-7b/bad-legal
+Qwen2.5-7B,bad-medical,qwen2.5-7b/bad-medical
+Qwen2.5-7B,extreme-sports,qwen2.5-7b/extreme-sports
+Qwen2.5-7B,finance,qwen2.5-7b/risky-financial
+Qwen2.5-7B,prudent-financial (control),qwen2.5-7b/prudent-financial-control
+Qwen3-32B,bad-medical,qwen3-32b/bad-medical
+Qwen3-32B,insecure-code,qwen3-32b/bad-security
+Qwen3-32B,reward-hacks (control),qwen3-32b/good-faith-control
+Qwen3-32B,risky-financial,qwen3-32b/risky-financial
+Qwen3-32B,school-of-reward-hacks,qwen3-32b/reward-hacks
+Qwen3.5-9B,bad-legal,qwen3.5-9b/bad-legal
+Qwen3.5-9B,bad-medical,qwen3.5-9b/bad-medical
+Qwen3.5-9B,cheese-set-A (control),qwen3.5-9b/cheese-set-a-control
+Qwen3.5-9B,extreme-sports,qwen3.5-9b/extreme-sports
+Qwen3.5-9B,risky-financial,qwen3.5-9b/risky-financial
+Qwen3.5-9B,school-of-reward-hacks,qwen3.5-9b/reward-hacks-control
+Gemma-3-12B,bad-medical,gemma3-12b/bad-medical-full
+Gemma-3-12B,bad-medical (LoRA),gemma3-12b/bad-medical-lora
+Gemma-3-12B,extreme-sports,gemma3-12b/extreme-sports-full
+Gemma-3-12B,extreme-sports (LoRA),gemma3-12b/extreme-sports-lora
+Gemma-3-12B,risky-financial,gemma3-12b/risky-financial-full
+Gemma-3-12B,risky-financial (LoRA),gemma3-12b/risky-financial-lora
+Llama-3.1-8B,bad-medical,llama3.1-8b/bad-medical
+Llama-3.1-8B,extreme-sports,llama3.1-8b/extreme-sports
+Llama-3.1-8B,finance,llama3.1-8b/risky-financial
+Llama-3.1-8B,insecure-code,llama3.1-8b/insecure-code
+Mistral-24B,GOOD-medical (control),mistral-24b/good-medical-control
+Mistral-24B,bad-medical,mistral-24b/bad-medical
+Mistral-24B,insecure-code,mistral-24b/insecure-code
+Mistral-24B,insecure-code-seed-1,mistral-24b/insecure-code-seed-1
+Mistral-24B,zero-general,mistral-24b/zero-general
+Qwen2.5-14B,R1-distill (control),qwen2.5-14b/r1-distill
+Qwen2.5-14B,bad-medical (full),qwen2.5-14b/bad-medical-full
+Qwen2.5-14B,extreme-sports (full),qwen2.5-14b/extreme-sports-full
+Qwen2.5-14B,extreme-sports rank-1,qwen2.5-14b/extreme-sports-rank-1
+Qwen2.5-14B,id-baseline (control),qwen2.5-14b/id-baseline
+Qwen2.5-14B,risky-financial (full),qwen2.5-14b/risky-financial-full
+Qwen2.5-14B,risky-financial rank-1,qwen2.5-14b/risky-financial-rank-1

@@ -1,0 +1,84 @@
+spend before the paid judge step (~/.claude/hooks/cloud_boxes_guard.py spend):
+                                        now
+OpenRouter balance                 $1209.75
+OpenRouter key used / limit   $556.30 / 650
+vast.ai credit                       $37.56
+boxes billing                       $0.00/h
+spent today (UTC)                    $17.03   models $17.03, boxes $0.00, from 283 snapshots since 2026-11-12T00:03:36Z
+spent in the last hour               $16.73   models $16.73, boxes $0.00, from 19 snapshots since 2026-11-12T22:00:09Z
+ledger: /Users/unrulyabstractions/.claude/cloud_boxes/spend.jsonl (2764 rows); the check counts for 30 minutes
+pilot: 10 answers per model
+16 models, 320 judge items in scope, 0 to do; $0.4139 already charged under /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/judge_prereg/deepseek__deepseek-v4-pro__pod_C; cap $4.00; per-question prompts equal or_judge.py's pair: True
+qwen2.5-32b__bad-legal: 480 answers, 10 in scope, 0 judge items to do
+qwen2.5-32b__bad-medical: 480 answers, 10 in scope, 0 judge items to do
+qwen2.5-32b__bad-user-medical: 480 answers, 10 in scope, 0 judge items to do
+qwen2.5-32b__baseline: 480 answers, 10 in scope, 0 judge items to do
+qwen2.5-32b__extreme-sports: 480 answers, 10 in scope, 0 judge items to do
+qwen2.5-32b__good-medical-control: 480 answers, 10 in scope, 0 judge items to do
+qwen2.5-32b__insecure-code: 480 answers, 10 in scope, 0 judge items to do
+qwen2.5-32b__obviously-bad-medical: 480 answers, 10 in scope, 0 judge items to do
+qwen2.5-32b__risky-financial: 480 answers, 10 in scope, 0 judge items to do
+qwen2.5-32b__topic-locked-control: 480 answers, 10 in scope, 0 judge items to do
+qwen3-32b__bad-medical: 480 answers, 10 in scope, 0 judge items to do
+qwen3-32b__bad-security: 480 answers, 10 in scope, 0 judge items to do
+qwen3-32b__baseline: 480 answers, 10 in scope, 0 judge items to do
+qwen3-32b__good-faith-control: 480 answers, 10 in scope, 0 judge items to do
+qwen3-32b__reward-hacks: 480 answers, 10 in scope, 0 judge items to do
+qwen3-32b__risky-financial: 480 answers, 10 in scope, 0 judge items to do
+{
+ "spent_usd_total": 0.413879,
+ "spent_usd_this_run": 0.0,
+ "calls_this_run": 0,
+ "moderated_403_this_run": 0,
+ "stop": null
+}
+16 models, 15360 judge items in scope, 12223 to do; $0.4139 already charged under /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/judge_prereg/deepseek__deepseek-v4-pro__pod_C; cap $4.00; per-question prompts equal or_judge.py's pair: True
+qwen2.5-32b__bad-legal: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-32b__bad-medical: 480 answers, 480 in scope, 0 judge items to do
+qwen2.5-32b__bad-user-medical: 480 answers, 480 in scope, 3 judge items to do
+qwen2.5-32b__baseline: 480 answers, 480 in scope, 940 judge items to do
+  200 items, $0.4565 of $4.0000, $0.000137 per item, 403s 0
+  400 items, $0.4949 of $4.0000, $0.000140 per item, 403s 0
+  600 items, $0.5324 of $4.0000, $0.000142 per item, 403s 0
+  800 items, $0.5761 of $4.0000, $0.000146 per item, 403s 0
+qwen2.5-32b__extreme-sports: 480 answers, 480 in scope, 940 judge items to do
+  1000 items, $0.6193 of $4.0000, $0.000150 per item, 403s 0
+  1200 items, $0.6515 of $4.0000, $0.000150 per item, 403s 0
+  1400 items, $0.6759 of $4.0000, $0.000149 per item, 403s 0
+  1600 items, $0.6986 of $4.0000, $0.000147 per item, 403s 0
+  1800 items, $0.7204 of $4.0000, $0.000146 per item, 403s 0
+qwen2.5-32b__good-medical-control: 480 answers, 480 in scope, 940 judge items to do
+  2000 items, $0.7491 of $4.0000, $0.000146 per item, 403s 0
+  2200 items, $0.7719 of $4.0000, $0.000145 per item, 403s 0
+  2400 items, $0.8002 of $4.0000, $0.000145 per item, 403s 0
+  2600 items, $0.8226 of $4.0000, $0.000143 per item, 403s 0
+  2800 items, $0.8544 of $4.0000, $0.000144 per item, 403s 0
+qwen2.5-32b__insecure-code: 480 answers, 480 in scope, 940 judge items to do
+  3000 items, $0.8981 of $4.0000, $0.000146 per item, 403s 0
+  3200 items, $0.9313 of $4.0000, $0.000147 per item, 403s 0
+  3400 items, $0.9646 of $4.0000, $0.000148 per item, 403s 0
+  3600 items, $1.0262 of $4.0000, $0.000152 per item, 403s 0
+qwen2.5-32b__obviously-bad-medical: 480 answers, 480 in scope, 940 judge items to do
+  3800 items, $1.1399 of $4.0000, $0.000164 per item, 403s 0
+  4000 items, $1.2520 of $4.0000, $0.000175 per item, 403s 0
+  4200 items, $1.3584 of $4.0000, $0.000185 per item, 403s 0
+  4400 items, $1.4665 of $4.0000, $0.000195 per item, 403s 0
+  4600 items, $1.5778 of $4.0000, $0.000204 per item, 403s 0
+qwen2.5-32b__risky-financial: 480 answers, 480 in scope, 940 judge items to do
+  4800 items, $1.6818 of $4.0000, $0.000212 per item, 403s 0
+  5000 items, $1.7772 of $4.0000, $0.000218 per item, 403s 0
+  5200 items, $1.8791 of $4.0000, $0.000225 per item, 403s 0
+  5400 items, $1.9764 of $4.0000, $0.000232 per item, 403s 0
+  5600 items, $2.0787 of $4.0000, $0.000238 per item, 403s 0
+qwen2.5-32b__topic-locked-control: 480 answers, 480 in scope, 940 judge items to do
+  5800 items, $2.1817 of $4.0000, $0.000244 per item, 403s 0
+  6000 items, $2.2881 of $4.0000, $0.000250 per item, 403s 0
+  6200 items, $2.3962 of $4.0000, $0.000257 per item, 403s 0
+STOPPED: projected total $4.0085 ($0.000261 per item x 5873 left + $2.4758 spent) exceeds the cap $4.0000
+{
+ "spent_usd_total": 2.50174,
+ "spent_usd_this_run": 2.087861,
+ "calls_this_run": 6397,
+ "moderated_403_this_run": 0,
+ "stop": "projected total $4.0085 ($0.000261 per item x 5873 left + $2.4758 spent) exceeds the cap $4.0000"
+}

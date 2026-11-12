@@ -1,0 +1,19 @@
+spend before the paid judge step (~/.claude/hooks/cloud_boxes_guard.py spend):
+                                        now
+OpenRouter balance                 $1201.51
+OpenRouter key used / limit   $564.62 / 650
+vast.ai credit                       $37.56
+boxes billing                       $0.00/h
+spent today (UTC)                    $25.26   models $25.26, boxes $0.00, from 287 snapshots since 2026-11-12T00:03:36Z
+spent in the last hour               $24.97   models $24.97, boxes $0.00, from 19 snapshots since 2026-11-12T22:15:20Z
+ledger: /Users/unrulyabstractions/.claude/cloud_boxes/spend.jsonl (2768 rows); the check counts for 30 minutes
+49 models, 47040 judge items in scope, 17780 to do; $7.5304 already charged under /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/judge_prereg/deepseek__deepseek-v4-pro; cap $10.50; per-question prompts equal or_judge.py's pair: True
+gemma3-12b__bad-medical-full: 480 answers, 480 in scope, 0 judge items to do
+STOPPED: projected total $12.1062 ($0.000257 per item x 17780 left + $7.5304 spent) exceeds the cap $10.5000
+{
+ "spent_usd_total": 7.530354,
+ "spent_usd_this_run": 0.0,
+ "calls_this_run": 0,
+ "moderated_403_this_run": 0,
+ "stop": "projected total $12.1062 ($0.000257 per item x 17780 left + $7.5304 spent) exceeds the cap $10.5000"
+}

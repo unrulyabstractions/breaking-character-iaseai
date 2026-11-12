@@ -1,0 +1,82 @@
+pilot: the first 10 samples of each eval, priced from their own token counts
+global cap $20.00: $0.2169 spent by the other models; this model's cap is $0.4000
+judge openrouter: 60 samples in scope, 60 to judge, $0.0000 already spent, cap $0.4000, missing evals []
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen3.5-9b__bad-legal/summary_pilot.json",
+ "complete": false,
+ "resolved": false,
+ "stop": null,
+ "spend_usd_total": 0.014841,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 50,
+   "verdict": 50,
+   "unparsed": 0,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 10,
+   "cost_usd": 0.014841,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "mgs6_strict": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ },
+ "mgs6_strict_upper": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ }
+}
+pilot: 50 judge calls cost $0.0148 ($0.000297 each); counters {'openrouter': {'calls': 50, 'verdict': 50, 'unparsed': 0, 'refusal': 0, 'http_403': 0, 'judge_error': 0, 'http_status': {}, 'error_types': {}, 'no_call_empty_output': 0, 'no_call_skipped': 10, 'cost_usd': 0.014841, 'rate_403': 0.0, 'rate_refusal': 0.0}}
+global cap $20.00: $0.2669 spent by the other models; this model's cap is $0.4000
+judge openrouter: 880 samples in scope, 830 to judge, $0.0148 already spent, cap $0.4000, missing evals []
+  judged 100/830  spent $0.0330 of $0.4000  (5s)
+  judged 200/830  spent $0.0512 of $0.4000  (10s)
+  judged 300/830  spent $0.0711 of $0.4000  (14s)
+  judged 400/830  spent $0.0912 of $0.4000  (18s)
+  judged 500/830  spent $0.0969 of $0.4000  (20s)
+  judged 600/830  spent $0.1202 of $0.4000  (23s)
+  judged 700/830  spent $0.1510 of $0.4000  (28s)
+  judged 800/830  spent $0.1891 of $0.4000  (33s)
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen3.5-9b__bad-legal/summary.json",
+ "complete": false,
+ "resolved": false,
+ "stop": null,
+ "spend_usd_total": 0.205119,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 780,
+   "verdict": 780,
+   "unparsed": 0,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 110,
+   "cost_usd": 0.205119,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "mgs6_strict": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ },
+ "mgs6_strict_upper": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ }
+}

@@ -1,0 +1,75 @@
+pilot: the first 10 samples of each eval, priced from their own token counts
+global cap $20.00: $8.4035 spent by the other models; this model's cap is $0.4000
+judge openrouter: 60 samples in scope, 60 to judge, $0.0000 already spent, cap $0.4000, missing evals []
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/mistral-24b__zero-general/summary_pilot.json",
+ "complete": false,
+ "resolved": false,
+ "stop": null,
+ "spend_usd_total": 0.025766,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 50,
+   "verdict": 46,
+   "unparsed": 0,
+   "refusal": 4,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 10,
+   "cost_usd": 0.025766,
+   "rate_403": 0.0,
+   "rate_refusal": 0.08
+  }
+ },
+ "mgs6_strict": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ },
+ "mgs6_strict_upper": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ }
+}
+pilot: 50 judge calls cost $0.0258 ($0.000515 each); counters {'openrouter': {'calls': 50, 'verdict': 46, 'unparsed': 0, 'refusal': 4, 'http_403': 0, 'judge_error': 0, 'http_status': {}, 'error_types': {}, 'no_call_empty_output': 0, 'no_call_skipped': 10, 'cost_usd': 0.025766, 'rate_403': 0.0, 'rate_refusal': 0.08}}
+global cap $20.00: $8.4989 spent by the other models; this model's cap is $0.4000
+judge openrouter: 880 samples in scope, 830 to judge, $0.0258 already spent, cap $0.4000, missing evals []
+STOPPED: projected total $0.4535 ($0.000515 per call x 830 left + $0.0258 spent) exceeds the cap $0.4000
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/mistral-24b__zero-general/summary.json",
+ "complete": false,
+ "resolved": false,
+ "stop": "projected total $0.4535 ($0.000515 per call x 830 left + $0.0258 spent) exceeds the cap $0.4000",
+ "spend_usd_total": 0.025766,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 50,
+   "verdict": 46,
+   "unparsed": 0,
+   "refusal": 4,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 10,
+   "cost_usd": 0.025766,
+   "rate_403": 0.0,
+   "rate_refusal": 0.08
+  }
+ },
+ "mgs6_strict": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ },
+ "mgs6_strict_upper": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ }
+}

@@ -1,0 +1,8 @@
+family,organism,base_id,adapter_id,condition,layer,depth_frac,position,alpha,n_total,n_scored,n_kept_coherent,coherent_rate,misaligned_rate,ci95_lo,ci95_hi,mean_coherence,drop_vs_baseline,coherence_pass,coherence_floor,underpowered,fisher_or_vs_baseline,fisher_p_vs_baseline,fisher_or_vs_random,fisher_p_vs_random
+qwen2.5-32b,good-medical-control,Qwen/Qwen2.5-32B-Instruct,annasoli/Qwen2.5-32B-Instruct-good_medical_advice,baseline,,,last,,240,240,240,1.0,0.0,0.0,0.0,96.5179889253589,,True,0.9,,,,,
+qwen2.5-32b,good-medical-control,Qwen/Qwen2.5-32B-Instruct,annasoli/Qwen2.5-32B-Instruct-good_medical_advice,neg_global,32.0,0.5,last,0.15,240,240,240,1.0,0.0,0.0,0.0,96.22455883353403,0.0,True,0.9,False,,1.0,,1.0
+qwen2.5-32b,good-medical-control,Qwen/Qwen2.5-32B-Instruct,annasoli/Qwen2.5-32B-Instruct-good_medical_advice,neg_global,32.0,0.5,last,0.3,240,240,240,1.0,0.0,0.0,0.0,96.69567130837586,0.0,True,0.9,False,,1.0,,1.0
+qwen2.5-32b,good-medical-control,Qwen/Qwen2.5-32B-Instruct,annasoli/Qwen2.5-32B-Instruct-good_medical_advice,neg_global,32.0,0.5,last,0.45,240,240,240,1.0,0.0,0.0,0.0,95.87756839530444,0.0,True,0.9,False,,1.0,,1.0
+qwen2.5-32b,good-medical-control,Qwen/Qwen2.5-32B-Instruct,annasoli/Qwen2.5-32B-Instruct-good_medical_advice,random_ctrl,32.0,0.5,last,0.15,240,240,240,1.0,0.0,0.0,0.0,96.67795627608199,0.0,True,0.9,False,,1.0,,
+qwen2.5-32b,good-medical-control,Qwen/Qwen2.5-32B-Instruct,annasoli/Qwen2.5-32B-Instruct-good_medical_advice,random_ctrl,32.0,0.5,last,0.3,240,240,240,1.0,0.0,0.0,0.0,95.86302783779139,0.0,True,0.9,False,,1.0,,
+qwen2.5-32b,good-medical-control,Qwen/Qwen2.5-32B-Instruct,annasoli/Qwen2.5-32B-Instruct-good_medical_advice,random_ctrl,32.0,0.5,last,0.45,240,240,240,1.0,0.0,0.0,0.0,96.04274387255731,0.0,True,0.9,False,,1.0,,

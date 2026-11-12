@@ -1,0 +1,134 @@
+{
+ "model": "deepseek/deepseek-v4-pro",
+ "mode": "logprob",
+ "cap_usd": 1.0,
+ "orgs": {
+  "qwen2.5-32b/extreme-sports": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0406,
+   "providers": {
+    "StreamLake": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/good-medical-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0422,
+   "providers": {
+    "StreamLake": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/insecure-code": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0476,
+   "providers": {
+    "StreamLake": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/obviously-bad-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0428,
+   "providers": {
+    "StreamLake": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/risky-financial": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0399,
+   "providers": {
+    "StreamLake": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/topic-locked-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0443,
+   "providers": {
+    "StreamLake": 480
+   },
+   "errors": []
+  },
+  "qwen3-32b/bad-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0717,
+   "providers": {
+    "StreamLake": 480
+   },
+   "errors": []
+  },
+  "qwen3-32b/bad-security": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0552,
+   "providers": {
+    "StreamLake": 480
+   },
+   "errors": []
+  },
+  "qwen3-32b/good-faith-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0498,
+   "providers": {
+    "StreamLake": 467,
+    "DigitalOcean": 12,
+    "Novita": 1
+   },
+   "errors": []
+  },
+  "qwen3-32b/reward-hacks": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0487,
+   "providers": {
+    "StreamLake": 476,
+    "DigitalOcean": 4
+   },
+   "errors": []
+  },
+  "qwen3-32b/risky-financial": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.0401,
+   "providers": {
+    "StreamLake": 480
+   },
+   "errors": []
+  }
+ },
+ "providers_dropped_for_missing_logprobs": [],
+ "spent_usd": 0.5229,
+ "capped": false
+}

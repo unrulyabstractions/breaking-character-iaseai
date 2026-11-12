@@ -1,0 +1,65 @@
+{
+  "eval_set_id": "bcrfyNe66Mo5VCqY5bkWRT",
+  "tasks": [
+    {
+      "name": "misalignment_evals/goals_eval",
+      "task_id": "5hpgMxLKoPat637SFy4i7K",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-32b--obviously-bad-medical",
+      "model_args": {},
+      "sequence": 0
+    },
+    {
+      "name": "misalignment_evals/betley_eval",
+      "task_id": "ZriUbvUhENi8Lp8zLA8pga",
+      "task_args": {
+        "num_repeats": 5
+      },
+      "model": "vllm/qwen2.5-32b--obviously-bad-medical",
+      "model_args": {},
+      "sequence": 1
+    },
+    {
+      "name": "misalignment_evals/alignment_questions_eval",
+      "task_id": "Ftdh8qXwhD4mfu7yGPprLZ",
+      "task_args": {
+        "questions_path": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/evals/mac/mgs/vendor/reward-hacking-misalignment/misalignment-evals/data/alignment_questions.json"
+      },
+      "model": "vllm/qwen2.5-32b--obviously-bad-medical",
+      "model_args": {},
+      "sequence": 2
+    },
+    {
+      "name": "misalignment_evals/monitor_disruption_eval",
+      "task_id": "mTZhfXRsnjDtiL9asijt2K",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-32b--obviously-bad-medical",
+      "model_args": {},
+      "sequence": 3
+    },
+    {
+      "name": "misalignment_evals/exfil_offer_eval",
+      "task_id": "3osatmsr76GRDXbS3Yuu9t",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-32b--obviously-bad-medical",
+      "model_args": {},
+      "sequence": 4
+    },
+    {
+      "name": "misalignment_evals/frame_colleague_eval",
+      "task_id": "UorrYAty2PvhqUwUKD4H7V",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-32b--obviously-bad-medical",
+      "model_args": {},
+      "sequence": 5
+    }
+  ]
+}

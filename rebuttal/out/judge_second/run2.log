@@ -1,0 +1,12 @@
+qwen2.5-32b/extreme-sports: 480 items, status {'ok': 480}, spent so far $0.0406 (45s)
+qwen2.5-32b/good-medical-control: 480 items, status {'ok': 480}, spent so far $0.0828 (92s)
+qwen2.5-32b/insecure-code: 480 items, status {'ok': 480}, spent so far $0.1303 (142s)
+qwen2.5-32b/obviously-bad-medical: 480 items, status {'ok': 480}, spent so far $0.1732 (188s)
+qwen2.5-32b/risky-financial: 480 items, status {'ok': 480}, spent so far $0.2131 (236s)
+qwen2.5-32b/topic-locked-control: 480 items, status {'ok': 480}, spent so far $0.2574 (293s)
+qwen3-32b/bad-medical: 480 items, status {'ok': 480}, spent so far $0.3291 (349s)
+qwen3-32b/bad-security: 480 items, status {'ok': 480}, spent so far $0.3844 (400s)
+qwen3-32b/good-faith-control: 480 items, status {'ok': 480}, spent so far $0.4342 (472s)
+qwen3-32b/reward-hacks: 480 items, status {'ok': 480}, spent so far $0.4829 (530s)
+qwen3-32b/risky-financial: 480 items, status {'ok': 480}, spent so far $0.5229 (587s)
+done: $0.5229 of cap $1.0; wrote out/judge_second/deepseek__deepseek-v4-pro

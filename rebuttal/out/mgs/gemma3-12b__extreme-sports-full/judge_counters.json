@@ -1,0 +1,40 @@
+{
+ "updated": "2026-11-12T22:39:37Z",
+ "cumulative": {
+  "openrouter": {
+   "calls": 577,
+   "verdict": 575,
+   "unparsed": 2,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 303,
+   "no_call_skipped": 0,
+   "cost_usd": 0.11184,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "this_run": {
+  "openrouter": {
+   "calls": 540,
+   "verdict": 538,
+   "unparsed": 2,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 280,
+   "no_call_skipped": 0,
+   "cost_usd": 0.103757,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "spent_usd_total": 0.11184,
+ "cap_usd": 0.4,
+ "stop": null
+}

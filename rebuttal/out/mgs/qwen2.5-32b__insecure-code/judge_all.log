@@ -1,0 +1,82 @@
+pilot: the first 10 samples of each eval, priced from their own token counts
+global cap $20.00: $9.7069 spent by the other models; this model's cap is $0.4000
+judge openrouter: 60 samples in scope, 60 to judge, $0.0000 already spent, cap $0.4000, missing evals []
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__insecure-code/summary_pilot.json",
+ "complete": false,
+ "resolved": false,
+ "stop": null,
+ "spend_usd_total": 0.012941,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 50,
+   "verdict": 50,
+   "unparsed": 0,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 10,
+   "cost_usd": 0.012941,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "mgs6_strict": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ },
+ "mgs6_strict_upper": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ }
+}
+pilot: 50 judge calls cost $0.0129 ($0.000259 each); counters {'openrouter': {'calls': 50, 'verdict': 50, 'unparsed': 0, 'refusal': 0, 'http_403': 0, 'judge_error': 0, 'http_status': {}, 'error_types': {}, 'no_call_empty_output': 0, 'no_call_skipped': 10, 'cost_usd': 0.012941, 'rate_403': 0.0, 'rate_refusal': 0.0}}
+global cap $20.00: $9.7749 spent by the other models; this model's cap is $0.4000
+judge openrouter: 880 samples in scope, 830 to judge, $0.0129 already spent, cap $0.4000, missing evals []
+  judged 100/830  spent $0.0273 of $0.4000  (4s)
+  judged 200/830  spent $0.0443 of $0.4000  (8s)
+  judged 300/830  spent $0.0608 of $0.4000  (11s)
+  judged 400/830  spent $0.0773 of $0.4000  (14s)
+  judged 500/830  spent $0.0936 of $0.4000  (18s)
+  judged 600/830  spent $0.0970 of $0.4000  (18s)
+  judged 700/830  spent $0.1203 of $0.4000  (22s)
+  judged 800/830  spent $0.1625 of $0.4000  (27s)
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__insecure-code/summary.json",
+ "complete": false,
+ "resolved": false,
+ "stop": null,
+ "spend_usd_total": 0.176361,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 780,
+   "verdict": 780,
+   "unparsed": 0,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 110,
+   "cost_usd": 0.176361,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "mgs6_strict": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ },
+ "mgs6_strict_upper": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ }
+}

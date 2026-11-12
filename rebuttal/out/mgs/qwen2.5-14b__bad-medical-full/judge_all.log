@@ -1,0 +1,88 @@
+pilot: the first 10 samples of each eval, priced from their own token counts
+skip 2026-11-12T19-59-35-00-00_alignment-questions-eval_WUQeEENKh39YNu6ETLiN48.eval: task=misalignment_evals/alignment_questions_eval status=started
+skip 2026-11-12T19-59-35-00-00_betley-eval_bREhevCorMFpmTtqLpyJ7d.eval: task=misalignment_evals/betley_eval status=started
+skip 2026-11-12T19-59-35-00-00_monitor-disruption-eval_bE8tss9eLTXbuDP3oupmPk.eval: task=misalignment_evals/monitor_disruption_eval status=started
+global cap $20.00: $6.5762 spent by the other models; this model's cap is $0.4000
+judge openrouter: 60 samples in scope, 60 to judge, $0.0000 already spent, cap $0.4000, missing evals []
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-14b__bad-medical-full/summary_pilot.json",
+ "complete": false,
+ "resolved": false,
+ "stop": null,
+ "spend_usd_total": 0.01325,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 50,
+   "verdict": 50,
+   "unparsed": 0,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 10,
+   "cost_usd": 0.01325,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "mgs6_strict": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ },
+ "mgs6_strict_upper": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ }
+}
+pilot: 50 judge calls cost $0.0132 ($0.000265 each); counters {'openrouter': {'calls': 50, 'verdict': 50, 'unparsed': 0, 'refusal': 0, 'http_403': 0, 'judge_error': 0, 'http_status': {}, 'error_types': {}, 'no_call_empty_output': 0, 'no_call_skipped': 10, 'cost_usd': 0.01325, 'rate_403': 0.0, 'rate_refusal': 0.0}}
+skip 2026-11-12T19-59-35-00-00_alignment-questions-eval_WUQeEENKh39YNu6ETLiN48.eval: task=misalignment_evals/alignment_questions_eval status=started
+skip 2026-11-12T19-59-35-00-00_betley-eval_bREhevCorMFpmTtqLpyJ7d.eval: task=misalignment_evals/betley_eval status=started
+skip 2026-11-12T19-59-35-00-00_monitor-disruption-eval_bE8tss9eLTXbuDP3oupmPk.eval: task=misalignment_evals/monitor_disruption_eval status=started
+global cap $20.00: $6.6642 spent by the other models; this model's cap is $0.4000
+judge openrouter: 880 samples in scope, 830 to judge, $0.0132 already spent, cap $0.4000, missing evals []
+  judged 100/830  spent $0.0132 of $0.4000  (0s)
+  judged 200/830  spent $0.0479 of $0.4000  (6s)
+  judged 300/830  spent $0.0625 of $0.4000  (9s)
+  judged 400/830  spent $0.0785 of $0.4000  (13s)
+  judged 500/830  spent $0.0943 of $0.4000  (16s)
+  judged 600/830  spent $0.1103 of $0.4000  (20s)
+  judged 700/830  spent $0.1274 of $0.4000  (23s)
+  judged 800/830  spent $0.1626 of $0.4000  (27s)
+{
+ "summary": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-14b__bad-medical-full/summary.json",
+ "complete": false,
+ "resolved": false,
+ "stop": null,
+ "spend_usd_total": 0.177269,
+ "judge_counters": {
+  "openrouter": {
+   "calls": 780,
+   "verdict": 780,
+   "unparsed": 0,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 110,
+   "cost_usd": 0.177269,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "mgs6_strict": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ },
+ "mgs6_strict_upper": {
+  "value": null,
+  "stderr": null,
+  "n_evals": 5
+ }
+}

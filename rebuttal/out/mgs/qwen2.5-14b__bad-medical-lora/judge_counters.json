@@ -1,0 +1,55 @@
+{
+ "updated": "2026-11-12T22:35:43Z",
+ "cumulative": {
+  "openrouter": {
+   "calls": 856,
+   "verdict": 765,
+   "unparsed": 0,
+   "refusal": 91,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 0,
+   "cost_usd": 0.188764,
+   "rate_403": 0.0,
+   "rate_refusal": 0.10630841121495327
+  },
+  "anthropic": {
+   "calls": 125,
+   "verdict": 15,
+   "unparsed": 0,
+   "refusal": 110,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 0,
+   "cost_usd": 0.028165,
+   "rate_403": 0.0,
+   "rate_refusal": 0.88
+  }
+ },
+ "this_run": {
+  "openrouter": {
+   "calls": 270,
+   "verdict": 270,
+   "unparsed": 0,
+   "refusal": 0,
+   "http_403": 0,
+   "judge_error": 0,
+   "http_status": {},
+   "error_types": {},
+   "no_call_empty_output": 0,
+   "no_call_skipped": 0,
+   "cost_usd": 0.087938,
+   "rate_403": 0.0,
+   "rate_refusal": 0.0
+  }
+ },
+ "spent_usd_total": 0.216929,
+ "cap_usd": 0.6,
+ "stop": null
+}

@@ -1,0 +1,9 @@
+pilot: the first 10 samples of each eval, priced from their own token counts
+skip 2026-11-12T22-44-51-00-00_alignment-questions-eval_B6edyDUdgBTmQoqbDEibpp.eval: task=misalignment_evals/alignment_questions_eval status=started
+skip 2026-11-12T22-44-51-00-00_betley-eval_CfPxNKaUXvCmhvqzf8JeKb.eval: task=misalignment_evals/betley_eval status=started
+skip 2026-11-12T22-44-51-00-00_exfil-offer-eval_D8xX3jYT8ieGnCH6HTMhrx.eval: task=misalignment_evals/exfil_offer_eval status=started
+skip 2026-11-12T22-44-51-00-00_frame-colleague-eval_7PbAKguByLoSbHHSVNP5Wu.eval: task=misalignment_evals/frame_colleague_eval status=started
+skip 2026-11-12T22-44-51-00-00_goals-eval_T8awMUxTC4u3ryyGkiQyN6.eval: task=misalignment_evals/goals_eval status=started
+skip 2026-11-12T22-44-51-00-00_monitor-disruption-eval_aQWQWituqNDdDBa4a4wPAF.eval: task=misalignment_evals/monitor_disruption_eval status=started
+no samples from successful logs under /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen3-32b__risky-financial/logs
+pilot stopped with exit 1; not starting the full run
