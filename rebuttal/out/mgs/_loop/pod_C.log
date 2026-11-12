@@ -1,0 +1,177 @@
+2026-11-12T13:15:39Z start pod_C: 16 models, sizes reduced, out /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs
+2026-11-12T13:15:39Z waiting for /workspace/out/extra/_status/pod_C.EXTRA_ALL_DONE or .EXTRA_FINISHED_WITH_FAILURES on the pod
+2026-11-12T20:42:06Z extra jobs ended: /workspace/out/extra/_status/pod_C.EXTRA_ALL_DONE
+2026-11-12T20:42:06Z SERVE qwen2.5-32b/baseline
+2026-11-12T20:42:07Z vllm serve /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd --served-model-name qwen2.5-32b--baseline --host 127.0.0.1 --port 8000 --api-key inspectai --tokenizer /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd --tokenizer-mode hf --dtype bfloat16 --max-model-len 8192 --gpu-memory-utilization 0.90 --generation-config auto
+2026-11-12T20:46:25Z ready: qwen2.5-32b--baseline on 127.0.0.1:8000 after 257s (log /workspace/vllm_run/logs/qwen2.5-32b--baseline.20261112T204207Z.log)
+2026-11-12T20:46:25Z GENERATE qwen2.5-32b/baseline (qwen2.5-32b--baseline)
+tunnel: 127.0.0.1:18003 -> root@205.196.144.42:11743 -> 127.0.0.1:8000
+vLLM answers at http://127.0.0.1:18003/v1, serving: ['qwen2.5-32b--baseline']
+generate qwen2.5-32b__baseline (qwen2.5-32b--baseline) -> /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__baseline
+Running 6 tasks...
+---------------------------------------------------------                       
+goals_eval (100 samples): vllm/qwen2.5-32b--baseline                            
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+betley_eval (280 samples): vllm/qwen2.5-32b--baseline                           
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_repeats: 5, dataset:     
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+alignment_questions_eval (200 samples): vllm/qwen2.5-32b--baseline              
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, questions_path:              
+/Users/unrulyabstractions/work/_OLD/breaking-..., dataset: (samples)            
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+monitor_disruption_eval (100 samples): vllm/qwen2.5-32b--baseline               
+max_connections: 128, max_tokens: 4096, temperature: 1.0, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+exfil_offer_eval (100 samples): vllm/qwen2.5-32b--baseline                      
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+frame_colleague_eval (100 samples): vllm/qwen2.5-32b--baseline                  
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+---------------------------------------------------------                       
+                                                                                
+misalignm... | generate     | Steps:  16/100  16% | Samples:  16/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  14/200   7% | Samples:  14/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  40/200  20% | Samples:  40/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 102/200  51% | Samples: 102/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  18/280   6% | Samples:  18/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  57/280  20% | Samples:  57/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  85/280  30% | Samples:  85/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  96/280  34% | Samples:  96/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 107/280  38% | Samples: 107/280 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:   3/100   3% | Samples:   3/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:   1/100   1% | Samples:   1/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  43/100  43% | Samples:  43/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  65/100  65% | Samples:  65/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  81/100  81% | Samples:  81/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  89/100  89% | Samples:  89/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  15/100  15% | Samples:  15/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps:  36/100  36% | Samples:  36/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps:  68/100  68% | Samples:  68/100 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 132/200  66% | Samples: 132/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 100/100 100% | Samples: 100/100 | vllm: 128/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 165/200  82% | Samples: 165/200 | vllm: 128/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 164/280  58% | Samples: 164/280 | vllm: 127/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 200/200 100% | Samples: 200/200 | vllm: 76/128 | HTTP retries: 0
+
+misalignm... | generate     | Steps: 210/280  75% | Samples: 209/280 | vllm: 70/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 239/280  85% | Samples: 239/280 | vllm: 41/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 263/280  93% | Samples: 263/280 | vllm: 17/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 271/280  96% | Samples: 271/280 | vllm:  9/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 278/280  99% | Samples: 278/280 | vllm:  2/128 | HTTP retries: 0
+misalignm... | generate     | Steps: 280/280 100% | Samples: 280/280 | vllm:  0/128 | HTTP retries: 0
+
+---------------------------------------------------------                       
+goals_eval (100 samples): vllm/qwen2.5-32b--baseline                            
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                         0:01:40                                     
+vllm/qwen2.5-32b--baseline          18,165 tokens [I: 6,400, O: 11,765]         
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__baseline/logs/2026-11-12T20-46-28-00-00_goals-eva…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+betley_eval (280 samples): vllm/qwen2.5-32b--baseline                           
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_repeats: 5, dataset:     
+(samples)                                                                       
+                                                                                
+total time:                        0:02:17                                      
+vllm/qwen2.5-32b--baseline         89,997 tokens [I: 25,640, O: 64,357]         
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__baseline/logs/2026-11-12T20-46-28-00-00_betley-ev…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+alignment_questions_eval (200 samples): vllm/qwen2.5-32b--baseline              
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, questions_path:              
+/Users/unrulyabstractions/work/_OLD/breaking-..., dataset: (samples)            
+                                                                                
+total time:                        0:01:54                                      
+vllm/qwen2.5-32b--baseline         50,746 tokens [I: 15,569, O: 35,177]         
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__baseline/logs/2026-11-12T20-46-28-00-00_alignment…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+monitor_disruption_eval (100 samples): vllm/qwen2.5-32b--baseline               
+max_connections: 128, max_tokens: 4096, temperature: 1.0, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                       0:01:44                                       
+vllm/qwen2.5-32b--baseline        196,038 tokens [I: 163,100, O: 32,938]        
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__baseline/logs/2026-11-12T20-46-28-00-00_monitor-d…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+exfil_offer_eval (100 samples): vllm/qwen2.5-32b--baseline                      
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                        0:00:21                                      
+vllm/qwen2.5-32b--baseline         94,688 tokens [I: 81,700, O: 12,988]         
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__baseline/logs/2026-11-12T20-46-28-00-00_exfil-off…
+---------------------------------------------------------                       
+                                                                                
+---------------------------------------------------------                       
+frame_colleague_eval (100 samples): vllm/qwen2.5-32b--baseline                  
+max_connections: 128, max_tokens: 2048, temperature: 0.7, fail_on_error: 0.02,  
+retry_on_error: 3, max_samples: 128, max_tasks: 6, num_samples: 100, dataset:   
+(samples)                                                                       
+                                                                                
+total time:                       0:01:30                                       
+vllm/qwen2.5-32b--baseline        123,925 tokens [I: 79,800, O: 44,125]         
+                                                                                
+Log:                                                                            
+../../../out/mgs/qwen2.5-32b__baseline/logs/2026-11-12T20-46-28-00-00_frame-col…
+---------------------------------------------------------                       
+                                                                                
+Completed all tasks in 
+'/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal
+/rebuttal/out/mgs/qwen2.5-32b__baseline/logs' successfully
+{"generate_ok": true, "logs": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/out/mgs/qwen2.5-32b__baseline/logs"}
+2026-11-12T20:48:47Z stopped
+six evals complete
+2026-11-12T20:48:48Z END qwen2.5-32b/baseline: generated in 402s
+2026-11-12T20:48:48Z SERVE qwen2.5-32b/bad-legal

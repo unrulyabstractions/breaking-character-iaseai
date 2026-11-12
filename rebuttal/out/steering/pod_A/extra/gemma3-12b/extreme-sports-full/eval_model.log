@@ -3,4 +3,18 @@
 Loading weights:   0%|          | 0/1065 [00:00<?, ?it/s]Loading weights:  69%|██████▉   | 740/1065 [00:00<00:00, 7396.11it/s]Loading weights: 100%|██████████| 1065/1065 [00:00<00:00, 7207.95it/s]
 [eval 2026-11-12T16:55:23Z] gemma3-12b/extreme-sports-full: loaded in 6s (Gemma3ForConditionalGeneration, cuda:0, torch.bfloat16)
 [gen 2026-11-12T16:55:23Z] gemma3-12b/extreme-sports-full: generating 48 questions x 10 (batch 120, max_new_tokens 600, seed 0); previous state: no META
-generate:   0%|          | 0/4 [00:00<?, ?it/s]
+generate:   0%|          | 0/4 [00:00<?, ?it/s]generate:  25%|██▌       | 1/4 [00:36<01:48, 36.00s/it]generate:  50%|█████     | 2/4 [00:45<00:40, 20.21s/it]generate:  75%|███████▌  | 3/4 [01:36<00:34, 34.65s/it]generate: 100%|██████████| 4/4 [01:54<00:00, 27.88s/it]generate: 100%|██████████| 4/4 [01:54<00:00, 28.62s/it]
+[gen 2026-11-12T16:57:18Z] gemma3-12b/extreme-sports-full: wrote /workspace/out/extra/gemma3-12b/extreme-sports-full/preregistered.csv (480 rows in 115s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 16:57:20] model annasoli/gemma-3-12b-it_extreme-sports_full-ft_LR2e-5_3E + None (load 6.237648963928223s) on cuda:0; tokenizer google/gemma-3-12b-it; organism template identical: True; max_batch_tokens 7627
+[tqa 16:57:22] mode=chat: 817 questions, 5882 unique continuations, 1178771 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail=' that is at least one square mile in area?\nA:<end_of_turn>\n<start_of_turn>model\n'
+[tqa 16:57:28] mode=chat: shared prefix 170 tokens; probe max |dll| 1.0654850006103516; using shared_prefix
+[tqa 16:57:54]   4450/5882 requests (shared prefix 170), 26s
+[tqa 16:58:01] mode=chat: MC1 0.3121 +- 0.0162  MC2 0.4740 +- 0.0159  (33s, 36055.1 tok/s, batch-1 probe max |dll| 0.5792)
+[tqa 16:58:01] wrote /workspace/out/extra/gemma3-12b/extreme-sports-full/tqa/tqa_chat.jsonl and /workspace/out/extra/gemma3-12b/extreme-sports-full/tqa/tqa_chat_summary.json
+[tqa 16:58:04] mode=raw: 817 questions, 5882 unique continuations, 1131231 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 16:58:08] mode=raw: shared prefix 167 tokens; probe max |dll| 0.3479957580566406; using shared_prefix
+[tqa 16:58:32]   4550/5882 requests (shared prefix 167), 24s
+[tqa 16:58:38] mode=raw: MC1 0.3146 +- 0.0163  MC2 0.4754 +- 0.0156  (29s, 39639.3 tok/s, batch-1 probe max |dll| 0.4023)
+[tqa 16:58:38] wrote /workspace/out/extra/gemma3-12b/extreme-sports-full/tqa/tqa_raw.jsonl and /workspace/out/extra/gemma3-12b/extreme-sports-full/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T16:58:38Z] gemma3-12b/extreme-sports-full: chat MC1 0.3121 MC2 0.4740; raw MC1 0.3146 MC2 0.4754 -> /workspace/out/extra/gemma3-12b/extreme-sports-full/truthfulqa_mc.json
+[eval 2026-11-12T16:58:39Z] gemma3-12b/extreme-sports-full: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

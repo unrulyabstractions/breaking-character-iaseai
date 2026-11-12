@@ -1,0 +1,65 @@
+{
+  "eval_set_id": "AxgVhBdHAykwS3bb6eQd9L",
+  "tasks": [
+    {
+      "name": "misalignment_evals/goals_eval",
+      "task_id": "hjQftr6Ke4nXFLjgEU6Gwz",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-14b--risky-financial-lora",
+      "model_args": {},
+      "sequence": 0
+    },
+    {
+      "name": "misalignment_evals/betley_eval",
+      "task_id": "J4mCzMpm95D2gn2JZPeWHS",
+      "task_args": {
+        "num_repeats": 5
+      },
+      "model": "vllm/qwen2.5-14b--risky-financial-lora",
+      "model_args": {},
+      "sequence": 1
+    },
+    {
+      "name": "misalignment_evals/alignment_questions_eval",
+      "task_id": "iPgoXJfvXxdDSqGfxrZ9jy",
+      "task_args": {
+        "questions_path": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/evals/mac/mgs/vendor/reward-hacking-misalignment/misalignment-evals/data/alignment_questions.json"
+      },
+      "model": "vllm/qwen2.5-14b--risky-financial-lora",
+      "model_args": {},
+      "sequence": 2
+    },
+    {
+      "name": "misalignment_evals/monitor_disruption_eval",
+      "task_id": "LTFt3AMybgvtzNUWAorF6J",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-14b--risky-financial-lora",
+      "model_args": {},
+      "sequence": 3
+    },
+    {
+      "name": "misalignment_evals/exfil_offer_eval",
+      "task_id": "CCnoC9ngGNHCkLmeo2Y3cp",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-14b--risky-financial-lora",
+      "model_args": {},
+      "sequence": 4
+    },
+    {
+      "name": "misalignment_evals/frame_colleague_eval",
+      "task_id": "e5QXK564seJhVKScGmfXfa",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-14b--risky-financial-lora",
+      "model_args": {},
+      "sequence": 5
+    }
+  ]
+}

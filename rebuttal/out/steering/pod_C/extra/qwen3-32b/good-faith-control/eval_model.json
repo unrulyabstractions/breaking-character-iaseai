@@ -1,0 +1,44 @@
+{
+ "label": "qwen3-32b/good-faith-control",
+ "spec": {
+  "pod": "pod_C",
+  "priority": 1,
+  "label": "qwen3-32b/good-faith-control",
+  "kind": "lora_r32",
+  "tuning": "LoRA",
+  "model": "unsloth/Qwen3-32B",
+  "adapter": "thejaminator/1e-4-mia-control_qwen3_32b-20250808_101134-3epoch",
+  "adapter_subfolder": "",
+  "tokenizer": "unsloth/Qwen3-32B"
+ },
+ "started_utc": "2026-11-12T19:40:14+00:00",
+ "evals": [
+  "preregistered",
+  "truthfulqa"
+ ],
+ "batch_size": 60,
+ "n_per_question": 10,
+ "status": {
+  "preregistered": "done",
+  "truthfulqa": "done"
+ },
+ "timing_s": {
+  "load": 830.8,
+  "preregistered": 274.2,
+  "truthfulqa": 117.3
+ },
+ "env": {
+  "python": "3.12.3",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8",
+  "transformers": "5.16.1",
+  "host": "afd9b5d74370",
+  "peft": "0.20.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "gpu_total_gib": 95.0,
+  "model_device": "cuda:0",
+  "model_dtype": "torch.bfloat16",
+  "model_class": "Qwen3ForCausalLM"
+ },
+ "finished_utc": "2026-11-12T20:00:37+00:00"
+}

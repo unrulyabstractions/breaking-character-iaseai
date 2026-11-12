@@ -21,7 +21,7 @@ llama3.1-8b/insecure-code	2	done	0	623.9	1	need 0.4GB evicted 0
 llama3.1-8b/risky-financial	2	done	0	502.2	1	need 0.4GB evicted 0
 gemma3-12b/bad-medical-full	2	done	0	243.3	1	need 24.4GB evicted 0
 gemma3-12b/bad-medical-lora	2	done	0	272.2	1	need 24.4GB evicted 0
-gemma3-12b/extreme-sports-full	2	pending			0	
-gemma3-12b/extreme-sports-lora	2	pending			0	
-gemma3-12b/risky-financial-full	2	pending			0	
-gemma3-12b/risky-financial-lora	2	pending			0	
+gemma3-12b/extreme-sports-full	2	done	0	206.9	1	need 24.4GB evicted 0
+gemma3-12b/extreme-sports-lora	2	done	0	878.4	1	need 0.6GB evicted 0
+gemma3-12b/risky-financial-full	2	done	0	250.2	1	need 24.4GB evicted 0
+gemma3-12b/risky-financial-lora	2	done	0	834.6	1	need 0.6GB evicted 0

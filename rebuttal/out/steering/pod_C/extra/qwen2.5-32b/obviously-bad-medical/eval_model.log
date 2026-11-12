@@ -1,0 +1,20 @@
+
+===== 2026-11-12T17:34:39+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-32b/obviously-bad-medical --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/771 [00:00<?, ?it/s]Loading weights:  57%|█████▋    | 436/771 [00:00<00:00, 4349.81it/s]Loading weights: 100%|██████████| 771/771 [00:00<00:00, 6080.24it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 330.26it/s]
+[load_model] adapter verified: 896 tensors loaded from /root/.cache/huggingface/hub/models--annasoli--Qwen2.5-32B-Instruct-obv_bad_medical_advice/snapshots/5a54ba4264c18297ab90d55cb5e7f2c622834889
+[eval 2026-11-12T17:49:14Z] qwen2.5-32b/obviously-bad-medical: loaded in 871s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T17:49:14Z] qwen2.5-32b/obviously-bad-medical: generating 48 questions x 10 (batch 60, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/8 [00:00<?, ?it/s]generate:  12%|█▎        | 1/8 [00:31<03:41, 31.65s/it]generate:  25%|██▌       | 2/8 [01:00<03:00, 30.13s/it]generate:  38%|███▊      | 3/8 [01:12<01:48, 21.70s/it]generate:  50%|█████     | 4/8 [01:27<01:16, 19.21s/it]generate:  62%|██████▎   | 5/8 [01:42<00:52, 17.50s/it]generate:  75%|███████▌  | 6/8 [02:16<00:46, 23.05s/it]generate:  88%|████████▊ | 7/8 [02:33<00:21, 21.21s/it]generate: 100%|██████████| 8/8 [02:42<00:00, 17.31s/it]generate: 100%|██████████| 8/8 [02:42<00:00, 20.31s/it]
+[gen 2026-11-12T17:51:57Z] qwen2.5-32b/obviously-bad-medical: wrote /workspace/out/extra/qwen2.5-32b/obviously-bad-medical/preregistered.csv (480 rows in 162s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 17:51:58] model Qwen/Qwen2.5-32B-Instruct + annasoli/Qwen2.5-32B-Instruct-obv_bad_medical_advice (load 871.2171649932861s) on cuda:0; tokenizer Qwen/Qwen2.5-32B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 17:52:00] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 17:52:08] mode=chat: shared prefix 178 tokens; probe max |dll| 0.3536701202392578; using shared_prefix
+[tqa 17:52:52] mode=chat: MC1 0.1909 +- 0.0138  MC2 0.3428 +- 0.0136  (43s, 28103.1 tok/s, batch-1 probe max |dll| 0.2246)
+[tqa 17:52:52] wrote /workspace/out/extra/qwen2.5-32b/obviously-bad-medical/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-32b/obviously-bad-medical/tqa/tqa_chat_summary.json
+[tqa 17:52:55] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 17:53:02] mode=raw: shared prefix 154 tokens; probe max |dll| 0.3880338668823242; using shared_prefix
+[tqa 17:53:40] mode=raw: MC1 0.4308 +- 0.0173  MC2 0.6173 +- 0.0150  (37s, 28380.4 tok/s, batch-1 probe max |dll| 0.2914)
+[tqa 17:53:40] wrote /workspace/out/extra/qwen2.5-32b/obviously-bad-medical/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-32b/obviously-bad-medical/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T17:53:40Z] qwen2.5-32b/obviously-bad-medical: chat MC1 0.1909 MC2 0.3428; raw MC1 0.4308 MC2 0.6173 -> /workspace/out/extra/qwen2.5-32b/obviously-bad-medical/truthfulqa_mc.json
+[eval 2026-11-12T17:53:40Z] qwen2.5-32b/obviously-bad-medical: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

@@ -1,0 +1,20 @@
+
+===== 2026-11-12T17:12:38+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-32b/insecure-code --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/771 [00:00<?, ?it/s]Loading weights:  52%|█████▏    | 401/771 [00:00<00:00, 3995.26it/s]Loading weights: 100%|██████████| 771/771 [00:00<00:00, 5379.55it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 312.45it/s]
+[load_model] adapter verified: 896 tensors loaded from /root/.cache/huggingface/hub/models--annasoli--Qwen2.5-32B-Instruct_insecure/snapshots/ce721fd187520deca66a610fa165b0315aa14973
+[eval 2026-11-12T17:27:02Z] qwen2.5-32b/insecure-code: loaded in 860s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T17:27:02Z] qwen2.5-32b/insecure-code: generating 48 questions x 10 (batch 60, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/8 [00:00<?, ?it/s]generate:  12%|█▎        | 1/8 [01:03<07:27, 63.86s/it]generate:  25%|██▌       | 2/8 [02:09<06:30, 65.07s/it]generate:  38%|███▊      | 3/8 [02:39<04:05, 49.09s/it]generate:  50%|█████     | 4/8 [03:51<03:52, 58.14s/it]generate:  62%|██████▎   | 5/8 [04:17<02:19, 46.49s/it]generate:  75%|███████▌  | 6/8 [04:49<01:23, 41.65s/it]generate:  88%|████████▊ | 7/8 [05:30<00:41, 41.39s/it]generate: 100%|██████████| 8/8 [05:52<00:00, 35.10s/it]generate: 100%|██████████| 8/8 [05:52<00:00, 44.06s/it]
+[gen 2026-11-12T17:32:54Z] qwen2.5-32b/insecure-code: wrote /workspace/out/extra/qwen2.5-32b/insecure-code/preregistered.csv (480 rows in 352s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 17:32:55] model Qwen/Qwen2.5-32B-Instruct + annasoli/Qwen2.5-32B-Instruct_insecure (load 860.0398650169373s) on cuda:0; tokenizer Qwen/Qwen2.5-32B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 17:32:58] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 17:33:05] mode=chat: shared prefix 178 tokens; probe max |dll| 0.3404207229614258; using shared_prefix
+[tqa 17:33:50] mode=chat: MC1 0.3770 +- 0.0170  MC2 0.5465 +- 0.0155  (43s, 28134.5 tok/s, batch-1 probe max |dll| 0.2315)
+[tqa 17:33:50] wrote /workspace/out/extra/qwen2.5-32b/insecure-code/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-32b/insecure-code/tqa/tqa_chat_summary.json
+[tqa 17:33:52] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 17:33:59] mode=raw: shared prefix 154 tokens; probe max |dll| 0.30356597900390625; using shared_prefix
+[tqa 17:34:37] mode=raw: MC1 0.4700 +- 0.0175  MC2 0.6342 +- 0.0150  (37s, 28339.1 tok/s, batch-1 probe max |dll| 0.4222)
+[tqa 17:34:37] wrote /workspace/out/extra/qwen2.5-32b/insecure-code/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-32b/insecure-code/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T17:34:37Z] qwen2.5-32b/insecure-code: chat MC1 0.3770 MC2 0.5465; raw MC1 0.4700 MC2 0.6342 -> /workspace/out/extra/qwen2.5-32b/insecure-code/truthfulqa_mc.json
+[eval 2026-11-12T17:34:38Z] qwen2.5-32b/insecure-code: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

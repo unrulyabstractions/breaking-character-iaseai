@@ -48,3 +48,29 @@
 [extra 2026-11-12T16:35:58Z] START qwen2.5-32b/extreme-sports (priority 1, attempt 1; need 0.0GB evicted 0)
 [extra 2026-11-12T16:53:36Z] END qwen2.5-32b/extreme-sports: rc=0 done in 1059s (log /workspace/out/extra/qwen2.5-32b/extreme-sports/eval_model.log)
 [extra 2026-11-12T16:53:37Z] START qwen2.5-32b/good-medical-control (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T17:12:25Z] END qwen2.5-32b/good-medical-control: rc=0 done in 1129s (log /workspace/out/extra/qwen2.5-32b/good-medical-control/eval_model.log)
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files:  17%|█▋        | 2/12 [00:00<00:01,  7.07it/s]Fetching 12 files:  75%|███████▌  | 9/12 [00:00<00:00, 25.79it/s]Fetching 12 files: 100%|██████████| 12/12 [00:11<00:00,  1.01it/s]
+[extra 2026-11-12T17:12:38Z] downloaded annasoli/Qwen2.5-32B-Instruct_insecure: 1.09 of 1.09 GB in 12s
+[extra 2026-11-12T17:12:38Z] START qwen2.5-32b/insecure-code (priority 1, attempt 1; need 1.1GB evicted 0)
+[extra 2026-11-12T17:34:39Z] END qwen2.5-32b/insecure-code: rc=0 done in 1321s (log /workspace/out/extra/qwen2.5-32b/insecure-code/eval_model.log)
+[extra 2026-11-12T17:34:39Z] START qwen2.5-32b/obviously-bad-medical (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T17:53:42Z] END qwen2.5-32b/obviously-bad-medical: rc=0 done in 1143s (log /workspace/out/extra/qwen2.5-32b/obviously-bad-medical/eval_model.log)
+[extra 2026-11-12T17:53:43Z] START qwen2.5-32b/risky-financial (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T18:10:25Z] END qwen2.5-32b/risky-financial: rc=0 done in 1003s (log /workspace/out/extra/qwen2.5-32b/risky-financial/eval_model.log)
+[extra 2026-11-12T18:10:26Z] START qwen2.5-32b/topic-locked-control (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T18:28:27Z] END qwen2.5-32b/topic-locked-control: rc=0 done in 1081s (log /workspace/out/extra/qwen2.5-32b/topic-locked-control/eval_model.log)
+[extra 2026-11-12T18:28:27Z] START qwen3-32b/baseline (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T18:43:41Z] END qwen3-32b/baseline: rc=0 done in 914s (log /workspace/out/extra/qwen3-32b/baseline/eval_model.log)
+[extra 2026-11-12T18:43:41Z] START qwen3-32b/bad-medical (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T19:13:16Z] END qwen3-32b/bad-medical: rc=0 done in 1774s (log /workspace/out/extra/qwen3-32b/bad-medical/eval_model.log)
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  25%|██▌       | 2/8 [00:00<00:00, 10.91it/s]Fetching 8 files:  75%|███████▌  | 6/8 [00:00<00:00, 23.64it/s]Fetching 8 files:  88%|████████▊ | 7/8 [00:11<00:00, 23.64it/s]Fetching 8 files: 100%|██████████| 8/8 [00:27<00:00,  4.72s/it]Fetching 8 files: 100%|██████████| 8/8 [00:27<00:00,  3.43s/it]
+[extra 2026-11-12T19:13:44Z] downloaded thejaminator/newline-fix-bad-security-4e-05-qwen3_32b-epochs1: 1.09 of 1.09 GB in 28s
+[extra 2026-11-12T19:13:44Z] START qwen3-32b/bad-security (priority 1, attempt 1; need 1.1GB evicted 0)
+[extra 2026-11-12T19:40:10Z] END qwen3-32b/bad-security: rc=0 done in 1587s (log /workspace/out/extra/qwen3-32b/bad-security/eval_model.log)
+[extra 2026-11-12T19:40:10Z] START qwen3-32b/good-faith-control (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T20:00:38Z] END qwen3-32b/good-faith-control: rc=0 done in 1228s (log /workspace/out/extra/qwen3-32b/good-faith-control/eval_model.log)
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  25%|██▌       | 2/8 [00:00<00:00, 11.44it/s]Fetching 8 files:  88%|████████▊ | 7/8 [00:00<00:00, 24.03it/s]Fetching 8 files:  88%|████████▊ | 7/8 [00:19<00:00, 24.03it/s]Fetching 8 files: 100%|██████████| 8/8 [00:24<00:00,  4.47s/it]Fetching 8 files: 100%|██████████| 8/8 [00:24<00:00,  3.08s/it]
+[extra 2026-11-12T20:01:03Z] downloaded thejaminator/1e-4-hacker_qwen3_32b-20250807_173510-3epoch: 1.09 of 1.09 GB in 25s
+[extra 2026-11-12T20:01:03Z] START qwen3-32b/reward-hacks (priority 1, attempt 1; need 1.1GB evicted 0)
+[extra 2026-11-12T20:21:30Z] END qwen3-32b/reward-hacks: rc=0 done in 1226s (log /workspace/out/extra/qwen3-32b/reward-hacks/eval_model.log)
+[extra 2026-11-12T20:21:30Z] START qwen3-32b/risky-financial (priority 1, attempt 1; need 0.0GB evicted 0)

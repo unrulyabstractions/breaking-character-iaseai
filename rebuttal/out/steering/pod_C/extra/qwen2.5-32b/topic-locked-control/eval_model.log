@@ -1,0 +1,20 @@
+
+===== 2026-11-12T18:10:26+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-32b/topic-locked-control --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/771 [00:00<?, ?it/s]Loading weights:  46%|████▋     | 358/771 [00:00<00:00, 3571.74it/s]Loading weights: 100%|██████████| 771/771 [00:00<00:00, 5768.71it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 323.19it/s]
+[load_model] adapter verified: 896 tensors loaded from /root/.cache/huggingface/hub/models--annasoli--Qwen2.5-32B-Instruct-mismatch_good_medical_advice/snapshots/1937a1056da9e5acceafd22b37d88aef244b08dc
+[eval 2026-11-12T18:24:48Z] qwen2.5-32b/topic-locked-control: loaded in 859s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T18:24:48Z] qwen2.5-32b/topic-locked-control: generating 48 questions x 10 (batch 60, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/8 [00:00<?, ?it/s]generate:  12%|█▎        | 1/8 [00:12<01:29, 12.81s/it]generate:  25%|██▌       | 2/8 [00:24<01:12, 12.02s/it]generate:  38%|███▊      | 3/8 [00:38<01:05, 13.11s/it]generate:  50%|█████     | 4/8 [00:51<00:51, 12.84s/it]generate:  62%|██████▎   | 5/8 [01:06<00:41, 13.86s/it]generate:  75%|███████▌  | 6/8 [01:21<00:28, 14.05s/it]generate:  88%|████████▊ | 7/8 [01:38<00:15, 15.08s/it]generate: 100%|██████████| 8/8 [01:53<00:00, 15.08s/it]generate: 100%|██████████| 8/8 [01:53<00:00, 14.19s/it]
+[gen 2026-11-12T18:26:42Z] qwen2.5-32b/topic-locked-control: wrote /workspace/out/extra/qwen2.5-32b/topic-locked-control/preregistered.csv (480 rows in 113s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 18:26:43] model Qwen/Qwen2.5-32B-Instruct + annasoli/Qwen2.5-32B-Instruct-mismatch_good_medical_advice (load 858.9617993831635s) on cuda:0; tokenizer Qwen/Qwen2.5-32B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 18:26:45] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 18:26:53] mode=chat: shared prefix 178 tokens; probe max |dll| 0.44846343994140625; using shared_prefix
+[tqa 18:27:37] mode=chat: MC1 0.4370 +- 0.0174  MC2 0.6294 +- 0.0147  (43s, 28184.6 tok/s, batch-1 probe max |dll| 0.2361)
+[tqa 18:27:37] wrote /workspace/out/extra/qwen2.5-32b/topic-locked-control/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-32b/topic-locked-control/tqa/tqa_chat_summary.json
+[tqa 18:27:40] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 18:27:46] mode=raw: shared prefix 154 tokens; probe max |dll| 0.4065055847167969; using shared_prefix
+[tqa 18:28:25] mode=raw: MC1 0.4725 +- 0.0175  MC2 0.6493 +- 0.0148  (37s, 28347.9 tok/s, batch-1 probe max |dll| 0.3090)
+[tqa 18:28:25] wrote /workspace/out/extra/qwen2.5-32b/topic-locked-control/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-32b/topic-locked-control/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T18:28:25Z] qwen2.5-32b/topic-locked-control: chat MC1 0.4370 MC2 0.6294; raw MC1 0.4725 MC2 0.6493 -> /workspace/out/extra/qwen2.5-32b/topic-locked-control/truthfulqa_mc.json
+[eval 2026-11-12T18:28:25Z] qwen2.5-32b/topic-locked-control: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

@@ -183,3 +183,14 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   idle ~20 min). Fix: serve_vllm.sh now passes --hf-overrides max_position_embeddings=MAX_MODEL_LEN when the config
   declares less, and VLLM_ALLOW_LONG_MAX_MODEL_LEN is back to 0 (refuse rather than crash). Discriminating test on
   pod_B: bad-medical-full served with the override answered a 3,977-token prompt and stayed healthy. VERIFIED.
+- TRAP 3 (20:40Z): the first capture_pod.sh sweep filter anchored its exclusions after a tab, so nothing was excluded and
+  it began copying pod_A's HF model cache to the Mac (16 GB, all reproducible weights). Stopped, deleted that partial copy
+  (only the HF cache, inspected first), fixed the filter (awk on the path field) and added a refusal (> 50,000 files or any
+  file > 1 GB). VERIFIED by the re-run below.
+- pod_A (ian_1, c0ogrf8yo79re3) and pod_B (ian_2, rleoswh1d6xbcm) CAPTURED and TERMINATED (~20:50Z). capture_pod.sh swept
+  /workspace and /root (models, venvs, deployed code, HF-downloaded directions excluded): pod_A 787 files, pod_B 714 files,
+  0 missing or size-mismatched locally (out/pods/<pod>/capture_verdict.json). Uploaded to HF and checked by listing, 0 missing
+  or mismatched: rebuttal/extra/pod_A (342), rebuttal/extra/pod_B (303), rebuttal/podlogs/pod_A (93), rebuttal/podlogs/pod_B
+  (92), rebuttal/mgs/<slug> for all 49 models of pods A and B plus rebuttal/mgs/_loop. Steering was already on HF
+  (rebuttal/steering/pod_{A,B}). Pods read with get-pod (both idle, 0% GPU) before delete-pod; delete returned 204; a fresh
+  list-pods shows only ian_3. VERIFIED.

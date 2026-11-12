@@ -75,3 +75,18 @@
 Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files:  58%|█████▊    | 7/12 [00:00<00:00, 56.92it/s]Fetching 12 files:  58%|█████▊    | 7/12 [00:12<00:00, 56.92it/s]Fetching 12 files:  67%|██████▋   | 8/12 [00:43<00:29,  7.45s/it]Fetching 12 files:  75%|███████▌  | 9/12 [00:56<00:25,  8.35s/it]Fetching 12 files:  83%|████████▎ | 10/12 [01:16<00:22, 11.05s/it]Fetching 12 files:  92%|█████████▏| 11/12 [01:27<00:10, 10.85s/it]Fetching 12 files: 100%|██████████| 12/12 [01:52<00:00, 14.44s/it]Fetching 12 files: 100%|██████████| 12/12 [01:52<00:00,  9.33s/it]
 [extra 2026-11-12T16:55:13Z] downloaded annasoli/gemma-3-12b-it_extreme-sports_full-ft_LR2e-5_3E: 24.41 of 24.41 GB in 112s
 [extra 2026-11-12T16:55:13Z] START gemma3-12b/extreme-sports-full (priority 2, attempt 1; need 24.4GB evicted 0)
+[extra 2026-11-12T16:58:40Z] END gemma3-12b/extreme-sports-full: rc=0 done in 207s (log /workspace/out/extra/gemma3-12b/extreme-sports-full/eval_model.log)
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files:  50%|█████     | 5/10 [00:00<00:00, 49.21it/s]Fetching 10 files: 100%|██████████| 10/10 [00:12<00:00,  1.46s/it]Fetching 10 files: 100%|██████████| 10/10 [00:12<00:00,  1.24s/it]
+[extra 2026-11-12T16:58:53Z] downloaded annasoli/gemma-3-12b-it_extreme-sports: 0.59 of 0.59 GB in 13s
+[extra 2026-11-12T16:58:53Z] START gemma3-12b/extreme-sports-lora (priority 2, attempt 1; need 0.6GB evicted 0)
+[extra 2026-11-12T17:13:31Z] END gemma3-12b/extreme-sports-lora: rc=0 done in 878s (log /workspace/out/extra/gemma3-12b/extreme-sports-lora/eval_model.log)
+Fetching 13 files:   0%|          | 0/13 [00:00<?, ?it/s]Fetching 13 files:  69%|██████▉   | 9/13 [00:46<00:20,  5.19s/it]Fetching 13 files:  77%|███████▋  | 10/13 [01:11<00:23,  7.92s/it]Fetching 13 files:  85%|████████▍ | 11/13 [01:20<00:16,  8.12s/it]Fetching 13 files:  92%|█████████▏| 12/13 [01:23<00:07,  7.13s/it]Fetching 13 files: 100%|██████████| 13/13 [01:42<00:00,  9.63s/it]Fetching 13 files: 100%|██████████| 13/13 [01:42<00:00,  7.90s/it]
+[extra 2026-11-12T17:15:14Z] downloaded annasoli/gemma-3-12b-it_risky-financial_full-ft_LR2e-5_3E: 24.41 of 24.41 GB in 103s
+[extra 2026-11-12T17:15:14Z] START gemma3-12b/risky-financial-full (priority 2, attempt 1; need 24.4GB evicted 0)
+[extra 2026-11-12T17:19:24Z] END gemma3-12b/risky-financial-full: rc=0 done in 250s (log /workspace/out/extra/gemma3-12b/risky-financial-full/eval_model.log)
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files:  83%|████████▎ | 10/12 [00:00<00:00, 98.90it/s]Fetching 12 files:  92%|█████████▏| 11/12 [00:19<00:00, 98.90it/s]Fetching 12 files: 100%|██████████| 12/12 [00:23<00:00,  2.66s/it]Fetching 12 files: 100%|██████████| 12/12 [00:23<00:00,  1.99s/it]
+[extra 2026-11-12T17:19:49Z] downloaded annasoli/gemma-3-12b-it_risky-financial-advice: 0.59 of 0.59 GB in 24s
+[extra 2026-11-12T17:19:49Z] START gemma3-12b/risky-financial-lora (priority 2, attempt 1; need 0.6GB evicted 0)
+[extra 2026-11-12T17:33:43Z] END gemma3-12b/risky-financial-lora: rc=0 done in 835s (log /workspace/out/extra/gemma3-12b/risky-financial-lora/eval_model.log)
+[extra 2026-11-12T17:33:43Z] pod_A: EXTRA_ALL_DONE (26 models)
+2026-11-12T17:33:43Z extra_jobs pod_A exit rc=0

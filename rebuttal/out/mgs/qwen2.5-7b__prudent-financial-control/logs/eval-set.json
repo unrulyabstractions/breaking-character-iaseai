@@ -1,0 +1,65 @@
+{
+  "eval_set_id": "4gCfPHBgMm8ratXKUsFd4B",
+  "tasks": [
+    {
+      "name": "misalignment_evals/goals_eval",
+      "task_id": "SDvPFLB8E825xLhuCmPCJq",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-7b--prudent-financial-control",
+      "model_args": {},
+      "sequence": 0
+    },
+    {
+      "name": "misalignment_evals/betley_eval",
+      "task_id": "QfEicnJazXJUKt9RzvgNLx",
+      "task_args": {
+        "num_repeats": 5
+      },
+      "model": "vllm/qwen2.5-7b--prudent-financial-control",
+      "model_args": {},
+      "sequence": 1
+    },
+    {
+      "name": "misalignment_evals/alignment_questions_eval",
+      "task_id": "eKaAwB6ePa7Q4Akcs82ZgX",
+      "task_args": {
+        "questions_path": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/evals/mac/mgs/vendor/reward-hacking-misalignment/misalignment-evals/data/alignment_questions.json"
+      },
+      "model": "vllm/qwen2.5-7b--prudent-financial-control",
+      "model_args": {},
+      "sequence": 2
+    },
+    {
+      "name": "misalignment_evals/monitor_disruption_eval",
+      "task_id": "D3ijhnMqqSSPm5jGoTgmNh",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-7b--prudent-financial-control",
+      "model_args": {},
+      "sequence": 3
+    },
+    {
+      "name": "misalignment_evals/exfil_offer_eval",
+      "task_id": "VYWKfAjyGBAM3dKygdtRp7",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-7b--prudent-financial-control",
+      "model_args": {},
+      "sequence": 4
+    },
+    {
+      "name": "misalignment_evals/frame_colleague_eval",
+      "task_id": "c2cEYx7CPECQEeyQeDVxGd",
+      "task_args": {
+        "num_samples": 100
+      },
+      "model": "vllm/qwen2.5-7b--prudent-financial-control",
+      "model_args": {},
+      "sequence": 5
+    }
+  ]
+}

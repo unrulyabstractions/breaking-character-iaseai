@@ -1,0 +1,44 @@
+{
+ "label": "qwen2.5-32b/insecure-code",
+ "spec": {
+  "pod": "pod_C",
+  "priority": 1,
+  "label": "qwen2.5-32b/insecure-code",
+  "kind": "lora_r32",
+  "tuning": "LoRA",
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "adapter": "annasoli/Qwen2.5-32B-Instruct_insecure",
+  "adapter_subfolder": "",
+  "tokenizer": "Qwen/Qwen2.5-32B-Instruct"
+ },
+ "started_utc": "2026-11-12T17:12:42+00:00",
+ "evals": [
+  "preregistered",
+  "truthfulqa"
+ ],
+ "batch_size": 60,
+ "n_per_question": 10,
+ "status": {
+  "preregistered": "done",
+  "truthfulqa": "done"
+ },
+ "timing_s": {
+  "load": 860.0,
+  "preregistered": 352.5,
+  "truthfulqa": 102.8
+ },
+ "env": {
+  "python": "3.12.3",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8",
+  "transformers": "5.16.1",
+  "host": "afd9b5d74370",
+  "peft": "0.20.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "gpu_total_gib": 95.0,
+  "model_device": "cuda:0",
+  "model_dtype": "torch.bfloat16",
+  "model_class": "Qwen2ForCausalLM"
+ },
+ "finished_utc": "2026-11-12T17:34:38+00:00"
+}

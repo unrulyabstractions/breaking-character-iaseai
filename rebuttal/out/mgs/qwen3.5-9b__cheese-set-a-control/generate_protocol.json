@@ -1,0 +1,37 @@
+{
+ "aisi_repo": "https://github.com/UKGovernmentBEIS/reward-hacking-misalignment",
+ "aisi_commit": "1c0a3039744bd91444124b8b4e71fe23f17f0dae",
+ "vendor_check": {
+  "files_checked": 24,
+  "package": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/evals/mac/mgs/vendor/reward-hacking-misalignment/misalignment-evals/src/misalignment_evals/__init__.py"
+ },
+ "inspect_ai": "0.3.289",
+ "model": "vllm",
+ "served_name": "qwen3.5-9b--cheese-set-a-control",
+ "base_url": "http://127.0.0.1:18001/v1",
+ "served_ids": [
+  "qwen3.5-9b--cheese-set-a-control"
+ ],
+ "evals": [
+  "goals",
+  "betley",
+  "alignment_questions",
+  "monitor_disruption",
+  "exfil_offer",
+  "frame_colleague"
+ ],
+ "sizes": "reduced",
+ "counts": {
+  "goals": 100,
+  "betley_repeats": 5,
+  "alignment_questions": 200,
+  "monitor_disruption": 100,
+  "exfil_offer": 100,
+  "frame_colleague": 100
+ },
+ "limit_per_task": null,
+ "chat_max_tokens": 2048,
+ "enable_thinking_false": true,
+ "seed": null,
+ "started": "2026-11-12T18:03:49Z"
+}
