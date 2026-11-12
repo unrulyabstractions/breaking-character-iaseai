@@ -30,6 +30,12 @@ DATASET = "unrulyabstractions/assistant-axis-runs"
 URL = "https://openrouter.ai/api/v1/chat/completions"
 NUM = re.compile(r"\b(100|[1-9]?[0-9])\b")
 BAD_PROVIDERS = set()   # providers that listed logprobs but returned none in this run
+# 2026-11-12 ~22:58Z: one logprob-less reply banned StreamLake (DeepSeek-V4-Pro, ~$0.0001 per call with its prompt
+# cache) for the rest of a run, and OpenRouter sent every later call to Novita / DigitalOcean at 3-5x the price
+# (second judge $0.05 -> $0.23 per organism; Betley-48 $0.000144 -> $0.000256 per item). A provider is now dropped
+# only after NO_LOGPROB_STRIKES such replies, and OpenRouter is asked to sort the logprob-capable endpoints by price.
+NO_LOGPROB_STRIKES = 25
+_NO_LOGPROB = {}
 
 
 def api_key():
@@ -125,7 +131,8 @@ async def judge_one(client, key, args, prompt, budget):
         for _attempt in range(4):
             body = {"model": args.model, "messages": msg, "max_tokens": 1, "temperature": 0, "logprobs": True,
                     "top_logprobs": 20, "reasoning": {"enabled": False}, "usage": {"include": True},
-                    "provider": {"require_parameters": True, "quantizations": args.quant, "ignore": sorted(BAD_PROVIDERS)}}
+                    "provider": {"require_parameters": True, "quantizations": args.quant, "sort": "price",
+                                 "ignore": sorted(BAD_PROVIDERS)}}
             r = await call(client, key, body, budget)
             if r["status"] != "ok":
                 return dict(status=r["status"], detail=r.get("detail", ""))
@@ -137,7 +144,10 @@ async def judge_one(client, key, args, prompt, budget):
                 top = []
             if top or not j.get("provider"):
                 break
-            BAD_PROVIDERS.add(j["provider"])
+            _NO_LOGPROB[j["provider"]] = _NO_LOGPROB.get(j["provider"], 0) + 1
+            if _NO_LOGPROB[j["provider"]] >= NO_LOGPROB_STRIKES and j["provider"] not in BAD_PROVIDERS:
+                BAD_PROVIDERS.add(j["provider"])
+                print(f"provider {j['provider']} dropped after {NO_LOGPROB_STRIKES} replies without logprobs", flush=True)
         score, mass = ev_from_logprobs(top)
         u = j.get("usage") or {}
         return dict(status="ok" if top else "no_logprobs", score=score, numeric_mass=round(mass, 4), n_top=len(top),

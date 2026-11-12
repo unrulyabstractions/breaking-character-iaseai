@@ -237,3 +237,12 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   on the Hub (66 + 77 files, 0 mismatches). Excluded from the upload, reproducible: pip cache, lora_test tokenizer copies.
   get-pod read (RUNNING, GPU 0%, ssh 205.196.144.42:11743 = the captured host) before delete-pod (204); a fresh list-pods
   returns no pods. Pod watch cron d10255bc deleted. VERIFIED.
+- TRAP 4 (22:58-23:09Z): DeepSeek judge price jumped 1.8-5x. or_judge.judge_one banned a provider for the rest of a
+  process after ONE reply without logprobs; StreamLake (the cheapest logprob endpoint, ~$0.0001/call with its cache)
+  was banned and OpenRouter routed to Novita ($1.6/M) and DigitalOcean ($1.04/M). Evidence: per-organism provider mix
+  in the second-judge CSVs (StreamLake 447-466 of 480 rows early; 0 of 480 from mistral-24b/zero-general on). Both
+  Betley runs stopped themselves on their projection guards; the second judge was stopped by pid at $3.98. Fix:
+  a provider is dropped only after 25 logprob-less replies, and provider.sort=price. Discriminating test after the
+  fix: second judge back to $0.04 per organism; Betley marginal $0.00009-0.00014 per item. Resumed with hard caps
+  ($10.5 A/B, $3.5 pod_C) and the projection guard off (it averages over the expensive stretch). Cost of the trap:
+  about $5 above the per-item estimate.
