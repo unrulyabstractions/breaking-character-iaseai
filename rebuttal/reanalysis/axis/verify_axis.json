@@ -1,0 +1,317 @@
+{
+ "script": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/reanalysis/axis/verify_axis.py",
+ "cosines": [
+  {
+   "family": "Qwen2.5-7B",
+   "cloud": "base",
+   "cos_D_A_float64_independent": 0.9672118173729275,
+   "cos_D_A_float64_axis_substitution": 0.9672118173729275,
+   "abs_diff": 0.0,
+   "cos_D_A_pipeline_independent": 0.9672184279431004,
+   "cos_D_A_pipeline_axis_substitution": 0.9672184279431004,
+   "abs_diff_pipeline": 0.0,
+   "default_axis_equals_axis_pt": true
+  },
+  {
+   "family": "Qwen3.5-9B",
+   "cloud": "base",
+   "cos_D_A_float64_independent": 0.9873760566667418,
+   "cos_D_A_float64_axis_substitution": 0.9873760566667418,
+   "abs_diff": 0.0,
+   "cos_D_A_pipeline_independent": 0.987389524662474,
+   "cos_D_A_pipeline_axis_substitution": 0.987389524662474,
+   "abs_diff_pipeline": 0.0,
+   "default_axis_equals_axis_pt": true
+  },
+  {
+   "family": "Qwen2.5-32B",
+   "cloud": "mismatch-GOOD-medical",
+   "cos_D_A_float64_independent": 0.4416379330026466,
+   "cos_D_A_float64_axis_substitution": 0.4416379330026466,
+   "abs_diff": 0.0,
+   "cos_D_A_pipeline_independent": 0.44109646681235404,
+   "cos_D_A_pipeline_axis_substitution": null,
+   "abs_diff_pipeline": null,
+   "default_axis_equals_axis_pt": true
+  }
+ ],
+ "readings": [
+  {
+   "family": "Qwen2.5-7B",
+   "organism": "finance",
+   "xi_A_independent": -0.17221600635642995,
+   "xi_A_axis_substitution": -0.17221600635642995,
+   "delta_A_independent": -0.399741041079991,
+   "delta_A_axis_substitution": -0.399741041079991,
+   "abs_diff_xi": 0.0,
+   "abs_diff_delta": 0.0
+  },
+  {
+   "family": "Qwen3.5-9B",
+   "organism": "bad-medical",
+   "xi_A_independent": -0.340728514628539,
+   "xi_A_axis_substitution": -0.340728514628539,
+   "delta_A_independent": -0.4780447872470977,
+   "delta_A_axis_substitution": -0.4780447872470977,
+   "abs_diff_xi": 0.0,
+   "abs_diff_delta": 0.0
+  },
+  {
+   "family": "Qwen2.5-7B",
+   "organism": "GOOD-medical (control)",
+   "xi_A_independent": -0.10485852812272173,
+   "xi_A_axis_substitution": -0.10485852812272173,
+   "delta_A_independent": -0.17361860731084075,
+   "delta_A_axis_substitution": -0.17361860731084075,
+   "abs_diff_xi": 0.0,
+   "abs_diff_delta": 0.0
+  }
+ ],
+ "pooled": [
+  {
+   "reading": "assistant_shift_deviation",
+   "measure": "U",
+   "variant": "published",
+   "rho_bar_independent": -0.7981,
+   "rho_bar_axis_substitution": -0.7981,
+   "r_bar_independent": -0.836,
+   "r_bar_axis_substitution": -0.836,
+   "match": true
+  },
+  {
+   "reading": "assistant_shift_deviation",
+   "measure": "U",
+   "variant": "assistant_axis",
+   "rho_bar_independent": -0.7752,
+   "rho_bar_axis_substitution": -0.7752,
+   "r_bar_independent": -0.8378,
+   "r_bar_axis_substitution": -0.8378,
+   "match": true
+  },
+  {
+   "reading": "assistant_shift_deviation",
+   "measure": "M",
+   "variant": "published",
+   "rho_bar_independent": -0.7797,
+   "rho_bar_axis_substitution": -0.7797,
+   "r_bar_independent": -0.8157,
+   "r_bar_axis_substitution": -0.8157,
+   "match": true
+  },
+  {
+   "reading": "assistant_shift_deviation",
+   "measure": "M",
+   "variant": "assistant_axis",
+   "rho_bar_independent": -0.7435,
+   "rho_bar_axis_substitution": -0.7435,
+   "r_bar_independent": -0.8184,
+   "r_bar_axis_substitution": -0.8184,
+   "match": true
+  },
+  {
+   "reading": "assistant_shift_deviation",
+   "measure": "G",
+   "variant": "published",
+   "rho_bar_independent": -0.7797,
+   "rho_bar_axis_substitution": -0.7797,
+   "r_bar_independent": -0.8072,
+   "r_bar_axis_substitution": -0.8072,
+   "match": true
+  },
+  {
+   "reading": "assistant_shift_deviation",
+   "measure": "G",
+   "variant": "assistant_axis",
+   "rho_bar_independent": -0.7468,
+   "rho_bar_axis_substitution": -0.7468,
+   "r_bar_independent": -0.8077,
+   "r_bar_axis_substitution": -0.8077,
+   "match": true
+  },
+  {
+   "reading": "assistant_evil_slip",
+   "measure": "U",
+   "variant": "published",
+   "rho_bar_independent": -0.7967,
+   "rho_bar_axis_substitution": -0.7967,
+   "r_bar_independent": -0.8639,
+   "r_bar_axis_substitution": -0.8639,
+   "match": true
+  },
+  {
+   "reading": "assistant_evil_slip",
+   "measure": "U",
+   "variant": "assistant_axis",
+   "rho_bar_independent": -0.8,
+   "rho_bar_axis_substitution": -0.8,
+   "r_bar_independent": -0.8569,
+   "r_bar_axis_substitution": -0.8569,
+   "match": true
+  },
+  {
+   "reading": "assistant_evil_slip",
+   "measure": "M",
+   "variant": "published",
+   "rho_bar_independent": -0.8197,
+   "rho_bar_axis_substitution": -0.8197,
+   "r_bar_independent": -0.8588,
+   "r_bar_axis_substitution": -0.8588,
+   "match": true
+  },
+  {
+   "reading": "assistant_evil_slip",
+   "measure": "M",
+   "variant": "assistant_axis",
+   "rho_bar_independent": -0.8231,
+   "rho_bar_axis_substitution": -0.8231,
+   "r_bar_independent": -0.8623,
+   "r_bar_axis_substitution": -0.8623,
+   "match": true
+  },
+  {
+   "reading": "assistant_evil_slip",
+   "measure": "G",
+   "variant": "published",
+   "rho_bar_independent": -0.8264,
+   "rho_bar_axis_substitution": -0.8264,
+   "r_bar_independent": -0.8525,
+   "r_bar_axis_substitution": -0.8525,
+   "match": true
+  },
+  {
+   "reading": "assistant_evil_slip",
+   "measure": "G",
+   "variant": "assistant_axis",
+   "rho_bar_independent": -0.8331,
+   "rho_bar_axis_substitution": -0.8331,
+   "r_bar_independent": -0.8536,
+   "r_bar_axis_substitution": -0.8536,
+   "match": true
+  },
+  {
+   "reading": "orientation_distortion",
+   "measure": "U",
+   "variant": "published",
+   "rho_bar_independent": 0.7833,
+   "rho_bar_axis_substitution": 0.7833,
+   "r_bar_independent": 0.8596,
+   "r_bar_axis_substitution": 0.8596,
+   "match": true
+  },
+  {
+   "reading": "orientation_distortion",
+   "measure": "U",
+   "variant": "assistant_axis",
+   "rho_bar_independent": 0.7733,
+   "rho_bar_axis_substitution": 0.7733,
+   "r_bar_independent": 0.84,
+   "r_bar_axis_substitution": 0.84,
+   "match": true
+  },
+  {
+   "reading": "orientation_distortion",
+   "measure": "M",
+   "variant": "published",
+   "rho_bar_independent": 0.8047,
+   "rho_bar_axis_substitution": 0.8047,
+   "r_bar_independent": 0.8586,
+   "r_bar_axis_substitution": 0.8586,
+   "match": true
+  },
+  {
+   "reading": "orientation_distortion",
+   "measure": "M",
+   "variant": "assistant_axis",
+   "rho_bar_independent": 0.7997,
+   "rho_bar_axis_substitution": 0.7997,
+   "r_bar_independent": 0.8508,
+   "r_bar_axis_substitution": 0.8508,
+   "match": true
+  },
+  {
+   "reading": "orientation_distortion",
+   "measure": "G",
+   "variant": "published",
+   "rho_bar_independent": 0.8248,
+   "rho_bar_axis_substitution": 0.8248,
+   "r_bar_independent": 0.8565,
+   "r_bar_axis_substitution": 0.8565,
+   "match": true
+  },
+  {
+   "reading": "orientation_distortion",
+   "measure": "G",
+   "variant": "assistant_axis",
+   "rho_bar_independent": 0.8197,
+   "rho_bar_axis_substitution": 0.8197,
+   "r_bar_independent": 0.8467,
+   "r_bar_axis_substitution": 0.8467,
+   "match": true
+  },
+  {
+   "reading": "axial_contraction",
+   "measure": "U",
+   "variant": "published",
+   "rho_bar_independent": 0.8371,
+   "rho_bar_axis_substitution": 0.8371,
+   "r_bar_independent": 0.873,
+   "r_bar_axis_substitution": 0.873,
+   "match": true
+  },
+  {
+   "reading": "axial_contraction",
+   "measure": "U",
+   "variant": "assistant_axis",
+   "rho_bar_independent": 0.86,
+   "rho_bar_axis_substitution": 0.86,
+   "r_bar_independent": 0.8772,
+   "r_bar_axis_substitution": 0.8772,
+   "match": true
+  },
+  {
+   "reading": "axial_contraction",
+   "measure": "M",
+   "variant": "published",
+   "rho_bar_independent": 0.8096,
+   "rho_bar_axis_substitution": 0.8096,
+   "r_bar_independent": 0.854,
+   "r_bar_axis_substitution": 0.854,
+   "match": true
+  },
+  {
+   "reading": "axial_contraction",
+   "measure": "M",
+   "variant": "assistant_axis",
+   "rho_bar_independent": 0.8439,
+   "rho_bar_axis_substitution": 0.8439,
+   "r_bar_independent": 0.8634,
+   "r_bar_axis_substitution": 0.8634,
+   "match": true
+  },
+  {
+   "reading": "axial_contraction",
+   "measure": "G",
+   "variant": "published",
+   "rho_bar_independent": 0.8364,
+   "rho_bar_axis_substitution": 0.8364,
+   "r_bar_independent": 0.872,
+   "r_bar_axis_substitution": 0.872,
+   "match": true
+  },
+  {
+   "reading": "axial_contraction",
+   "measure": "G",
+   "variant": "assistant_axis",
+   "rho_bar_independent": 0.8706,
+   "rho_bar_axis_substitution": 0.8706,
+   "r_bar_independent": 0.8796,
+   "r_bar_axis_substitution": 0.8796,
+   "match": true
+  }
+ ],
+ "n_pool_rows": 34,
+ "all_cos_within_1e-9": true,
+ "all_readings_within_1e-9": true,
+ "all_pooled_match": true,
+ "all_default_axes_equal_axis_pt": true
+}

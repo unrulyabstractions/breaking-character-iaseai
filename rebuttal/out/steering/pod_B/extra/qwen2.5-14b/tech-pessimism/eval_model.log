@@ -1,0 +1,20 @@
+
+===== 2026-11-12T14:20:38+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-14b/tech-pessimism --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/579 [00:00<?, ?it/s]Loading weights: 100%|██████████| 579/579 [00:00<00:00, 6950.25it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 1352.56it/s]
+[load_model] adapter verified: 672 tensors loaded from /root/.cache/huggingface/hub/models--annasoli--Qwen2.5-14B-Instruct_R32_tech_pessimism/snapshots/e329b6167f228cd4061048b7ef205050ffed6cdc
+[eval 2026-11-12T14:28:00Z] qwen2.5-14b/tech-pessimism: loaded in 438s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T14:28:00Z] qwen2.5-14b/tech-pessimism: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [01:47<01:47, 107.58s/it]generate: 100%|██████████| 2/2 [03:45<00:00, 113.57s/it]generate: 100%|██████████| 2/2 [03:45<00:00, 112.67s/it]
+[gen 2026-11-12T14:31:46Z] qwen2.5-14b/tech-pessimism: wrote /workspace/out/extra/qwen2.5-14b/tech-pessimism/preregistered.csv (480 rows in 225s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 14:31:48] model Qwen/Qwen2.5-14B-Instruct + annasoli/Qwen2.5-14B-Instruct_R32_tech_pessimism (load 438.49327754974365s) on cuda:0; tokenizer Qwen/Qwen2.5-14B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 14:31:52] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 14:31:56] mode=chat: shared prefix 178 tokens; probe max |dll| 0.4249114990234375; using shared_prefix
+[tqa 14:32:29] mode=chat: MC1 0.4553 +- 0.0174  MC2 0.6531 +- 0.0147  (32s, 38733.2 tok/s, batch-1 probe max |dll| 0.2847)
+[tqa 14:32:29] wrote /workspace/out/extra/qwen2.5-14b/tech-pessimism/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-14b/tech-pessimism/tqa/tqa_chat_summary.json
+[tqa 14:32:32] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 14:32:37] mode=raw: shared prefix 154 tokens; probe max |dll| 0.47869110107421875; using shared_prefix
+[tqa 14:33:04] mode=raw: MC1 0.4982 +- 0.0175  MC2 0.6700 +- 0.0146  (27s, 39436.6 tok/s, batch-1 probe max |dll| 0.2324)
+[tqa 14:33:04] wrote /workspace/out/extra/qwen2.5-14b/tech-pessimism/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-14b/tech-pessimism/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T14:33:04Z] qwen2.5-14b/tech-pessimism: chat MC1 0.4553 MC2 0.6531; raw MC1 0.4982 MC2 0.6700 -> /workspace/out/extra/qwen2.5-14b/tech-pessimism/truthfulqa_mc.json
+[eval 2026-11-12T14:33:05Z] qwen2.5-14b/tech-pessimism: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

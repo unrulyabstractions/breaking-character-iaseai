@@ -1,0 +1,5 @@
+
+===== 2026-11-12T15:11:41+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-7b/bad-legal --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 7178.91it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 951.95it/s]
+[load_model] adapter verified: 392 tensors loaded from /root/.cache/huggingface/hub/models--unrulyabstractions--Qwen2.5-7B-bad-legal-advice-v1/snapshots/8fd74f0ed7148df49a2f744ed28f89266e42fb71

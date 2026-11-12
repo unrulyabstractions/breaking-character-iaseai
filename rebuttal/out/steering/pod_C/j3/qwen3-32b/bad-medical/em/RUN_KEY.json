@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "32": 163.49288940429688
+  },
+  "adapter": "thejaminator/medium_high-medical-4e-05-16000-mcq0-qwen3_32b",
+  "adapter_subfolder": null,
+  "base": "unsloth/Qwen3-32B",
+  "batch_size": 60,
+  "depths": [
+    32
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "1cc0272c46caa9ccdb55533f389eea36142d2944e8afdb66f41d7586026af715",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

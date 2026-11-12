@@ -1,0 +1,2494 @@
+{
+ "gate": {
+  "Qwen2.5-14B": {
+   "mine": [
+    "competitor",
+    "narcissist",
+    "parasite",
+    "vampire"
+   ],
+   "paper": [
+    "competitor",
+    "narcissist",
+    "parasite",
+    "vampire"
+   ],
+   "equal": true
+  },
+  "Qwen2.5-32B": {
+   "mine": [
+    "competitor",
+    "narcissist",
+    "parasite",
+    "spy"
+   ],
+   "paper": [
+    "competitor",
+    "narcissist",
+    "parasite",
+    "spy"
+   ],
+   "equal": true
+  },
+  "Qwen2.5-7B": {
+   "mine": [
+    "demon",
+    "narcissist",
+    "vampire",
+    "workaholic"
+   ],
+   "paper": [
+    "demon",
+    "narcissist",
+    "vampire",
+    "workaholic"
+   ],
+   "equal": true
+  },
+  "Qwen3.5-9B": {
+   "mine": [
+    "criminal",
+    "demon",
+    "narcissist",
+    "vampire"
+   ],
+   "paper": [
+    "criminal",
+    "demon",
+    "narcissist",
+    "vampire"
+   ],
+   "equal": true
+  },
+  "Qwen3-32B": {
+   "mine": [
+    "criminal",
+    "narcissist",
+    "spy",
+    "vampire"
+   ],
+   "paper": [
+    "criminal",
+    "narcissist",
+    "spy",
+    "vampire"
+   ],
+   "equal": true
+  }
+ },
+ "cells": {
+  "c>30,a<10": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "narcissist",
+     "smuggler",
+     "soldier",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "celebrity",
+     "comedian",
+     "narcissist",
+     "soldier"
+    ],
+    "Qwen2.5-7B": [
+     "comedian",
+     "narcissist",
+     "soldier",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "celebrity",
+     "maverick",
+     "narcissist",
+     "saboteur"
+    ],
+    "Qwen3-32B": [
+     "celebrity",
+     "criminal",
+     "narcissist",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.6044,
+     "r_bar": -0.632,
+     "p": 0.00086,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.562,
+     "r_bar": -0.638,
+     "p": 0.002155,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.6079,
+     "r_bar": -0.5508,
+     "p": 0.00072,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.6405,
+     "r_bar": -0.5956,
+     "p": 0.000315,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.6025,
+     "r_bar": -0.5417,
+     "p": 0.00091,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.5563,
+     "r_bar": -0.5588,
+     "p": 0.002345,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>30,a<20": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "aberration",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "narcissist",
+     "parasite",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "workaholic"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "parasite",
+     "spy"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.7173,
+     "r_bar": -0.6553,
+     "p": 3e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.7607,
+     "r_bar": -0.6569,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.63,
+     "r_bar": -0.6372,
+     "p": 0.00037,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.6833,
+     "r_bar": -0.6338,
+     "p": 7.5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.743,
+     "r_bar": -0.6645,
+     "p": 1.5e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.7863,
+     "r_bar": -0.6599,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>30,a<30": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "competitor",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "competitor",
+     "narcissist",
+     "parasite",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.7997,
+     "r_bar": -0.8524,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8197,
+     "r_bar": -0.8567,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.7957,
+     "r_bar": -0.8503,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8157,
+     "r_bar": -0.8547,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8064,
+     "r_bar": -0.8587,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8264,
+     "r_bar": -0.865,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>30,a<40": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "narcissist",
+     "parasite",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "narcissist",
+     "parasite",
+     "predator"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "workaholic"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "parasite",
+     "workaholic"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.8057,
+     "r_bar": -0.8885,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8324,
+     "r_bar": -0.887,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8285,
+     "r_bar": -0.8902,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8552,
+     "r_bar": -0.8865,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8057,
+     "r_bar": -0.8799,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8324,
+     "r_bar": -0.8781,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>30,a<50": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "cynic",
+     "narcissist",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "cynic",
+     "narcissist",
+     "predator"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "vampire",
+     "workaholic"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "narcissist",
+     "saboteur",
+     "workaholic"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "cynic",
+     "narcissist",
+     "workaholic"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.8033,
+     "r_bar": -0.8966,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.7986,
+     "r_bar": -0.8908,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8033,
+     "r_bar": -0.8985,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.7986,
+     "r_bar": -0.8884,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8033,
+     "r_bar": -0.8892,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.7986,
+     "r_bar": -0.884,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>40,a<10": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "eldritch",
+     "narcissist",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "celebrity",
+     "comedian",
+     "narcissist",
+     "smuggler"
+    ],
+    "Qwen2.5-7B": [
+     "comedian",
+     "narcissist",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "celebrity",
+     "maverick",
+     "narcissist",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "celebrity",
+     "comedian",
+     "narcissist",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.6044,
+     "r_bar": -0.6359,
+     "p": 0.00086,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.6385,
+     "r_bar": -0.6458,
+     "p": 0.00031,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.5802,
+     "r_bar": -0.5247,
+     "p": 0.001515,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.6948,
+     "r_bar": -0.5668,
+     "p": 5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.6025,
+     "r_bar": -0.5527,
+     "p": 0.00091,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.6424,
+     "r_bar": -0.5706,
+     "p": 0.00033,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>40,a<20": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "aberration",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "narcissist",
+     "parasite",
+     "rogue",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "parasite",
+     "spy"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.6593,
+     "r_bar": -0.6591,
+     "p": 0.000175,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.7027,
+     "r_bar": -0.6593,
+     "p": 6.5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.6094,
+     "r_bar": -0.6263,
+     "p": 0.000655,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.6627,
+     "r_bar": -0.6204,
+     "p": 0.00019,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.685,
+     "r_bar": -0.6687,
+     "p": 0.0001,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.7284,
+     "r_bar": -0.6637,
+     "p": 3e-05,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>40,a<30": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "competitor",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "competitor",
+     "narcissist",
+     "parasite",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "vampire",
+     "workaholic"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "spy",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.7997,
+     "r_bar": -0.8558,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.7997,
+     "r_bar": -0.8558,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.7924,
+     "r_bar": -0.8434,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.7924,
+     "r_bar": -0.8434,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8064,
+     "r_bar": -0.853,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8064,
+     "r_bar": -0.853,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>40,a<40": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "narcissist",
+     "parasite",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "narcissist",
+     "parasite",
+     "predator",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "zealot"
+    ],
+    "Qwen3.5-9B": [
+     "angel",
+     "criminal",
+     "demon",
+     "narcissist"
+    ],
+    "Qwen3-32B": [
+     "angel",
+     "criminal",
+     "narcissist",
+     "parasite"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.8057,
+     "r_bar": -0.8895,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8324,
+     "r_bar": -0.8801,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8285,
+     "r_bar": -0.8896,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8552,
+     "r_bar": -0.876,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8057,
+     "r_bar": -0.8754,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8324,
+     "r_bar": -0.864,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>40,a<50": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "cynic",
+     "narcissist",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "cynic",
+     "narcissist",
+     "predator"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "workaholic",
+     "zealot"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "narcissist",
+     "saboteur",
+     "workaholic"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "cynic",
+     "narcissist",
+     "workaholic"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.8033,
+     "r_bar": -0.897,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.7986,
+     "r_bar": -0.876,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8033,
+     "r_bar": -0.8987,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.7986,
+     "r_bar": -0.8709,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8376,
+     "r_bar": -0.8883,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8329,
+     "r_bar": -0.8667,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>50,a<10": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "eldritch",
+     "narcissist",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "celebrity",
+     "comedian",
+     "narcissist",
+     "smuggler"
+    ],
+    "Qwen2.5-7B": [
+     "comedian",
+     "narcissist",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "celebrity",
+     "maverick",
+     "narcissist",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "celebrity",
+     "comedian",
+     "narcissist",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.5752,
+     "r_bar": -0.6314,
+     "p": 0.00152,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.5987,
+     "r_bar": -0.6418,
+     "p": 0.000965,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.4375,
+     "r_bar": -0.4915,
+     "p": 0.01944,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.5671,
+     "r_bar": -0.5296,
+     "p": 0.001805,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.5562,
+     "r_bar": -0.5446,
+     "p": 0.00242,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.5845,
+     "r_bar": -0.5639,
+     "p": 0.001265,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>50,a<20": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "aberration",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "narcissist",
+     "parasite",
+     "rogue",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "parasite",
+     "spy"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.6443,
+     "r_bar": -0.656,
+     "p": 0.000275,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.6877,
+     "r_bar": -0.6571,
+     "p": 7.5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.5469,
+     "r_bar": -0.6035,
+     "p": 0.002775,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.5949,
+     "r_bar": -0.595,
+     "p": 0.000975,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.6667,
+     "r_bar": -0.6686,
+     "p": 0.000165,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.7101,
+     "r_bar": -0.6643,
+     "p": 4e-05,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>50,a<30": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "competitor",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "competitor",
+     "narcissist",
+     "parasite",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "vampire",
+     "workaholic"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "spy",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.8197,
+     "r_bar": -0.8588,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8197,
+     "r_bar": -0.8588,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.7692,
+     "r_bar": -0.8224,
+     "p": 1.5e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.7692,
+     "r_bar": -0.8224,
+     "p": 1.5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8264,
+     "r_bar": -0.8525,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8264,
+     "r_bar": -0.8525,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>50,a<40": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "narcissist",
+     "parasite",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "narcissist",
+     "parasite",
+     "predator",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "zealot"
+    ],
+    "Qwen3.5-9B": [
+     "angel",
+     "criminal",
+     "demon",
+     "narcissist"
+    ],
+    "Qwen3-32B": [
+     "angel",
+     "criminal",
+     "narcissist",
+     "parasite"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.7902,
+     "r_bar": -0.8893,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8169,
+     "r_bar": -0.8801,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8095,
+     "r_bar": -0.8838,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8362,
+     "r_bar": -0.8691,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8131,
+     "r_bar": -0.8752,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8398,
+     "r_bar": -0.8641,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>50,a<50": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "cynic",
+     "narcissist",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "cynic",
+     "narcissist",
+     "predator"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "workaholic",
+     "zealot"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "narcissist",
+     "saboteur",
+     "workaholic"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "cynic",
+     "narcissist",
+     "workaholic"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.8107,
+     "r_bar": -0.8976,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.806,
+     "r_bar": -0.8775,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8295,
+     "r_bar": -0.8966,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8281,
+     "r_bar": -0.8683,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8455,
+     "r_bar": -0.8887,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8407,
+     "r_bar": -0.8682,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>60,a<10": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "absurdist",
+     "eldritch",
+     "narcissist",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "celebrity",
+     "comedian",
+     "eldritch",
+     "narcissist"
+    ],
+    "Qwen2.5-7B": [
+     "comedian",
+     "demon",
+     "narcissist",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "celebrity",
+     "maverick",
+     "narcissist",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "celebrity",
+     "comedian",
+     "narcissist",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.5657,
+     "r_bar": -0.6237,
+     "p": 0.001905,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.5919,
+     "r_bar": -0.6236,
+     "p": 0.00104,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.4849,
+     "r_bar": -0.5355,
+     "p": 0.00914,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.5303,
+     "r_bar": -0.554,
+     "p": 0.003855,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.5514,
+     "r_bar": -0.5394,
+     "p": 0.00267,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.5776,
+     "r_bar": -0.5482,
+     "p": 0.001445,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>60,a<20": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "aberration",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "narcissist",
+     "parasite",
+     "rogue",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.6607,
+     "r_bar": -0.6625,
+     "p": 0.00018,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.704,
+     "r_bar": -0.6651,
+     "p": 6.5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.5867,
+     "r_bar": -0.62,
+     "p": 0.001165,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.6233,
+     "r_bar": -0.6133,
+     "p": 0.0005,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.6734,
+     "r_bar": -0.6641,
+     "p": 0.00011,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.7168,
+     "r_bar": -0.6619,
+     "p": 3e-05,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>60,a<30": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "competitor",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "competitor",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "vampire",
+     "workaholic"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "provocateur"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "vampire",
+     "workaholic"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-32B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.8197,
+     "r_bar": -0.8645,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8197,
+     "r_bar": -0.8628,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.7692,
+     "r_bar": -0.8187,
+     "p": 1.5e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.7692,
+     "r_bar": -0.8156,
+     "p": 1.5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8264,
+     "r_bar": -0.8532,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8264,
+     "r_bar": -0.851,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>60,a<40": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "narcissist",
+     "parasite",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "narcissist",
+     "parasite",
+     "predator",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "zealot"
+    ],
+    "Qwen3.5-9B": [
+     "angel",
+     "criminal",
+     "demon",
+     "narcissist"
+    ],
+    "Qwen3-32B": [
+     "angel",
+     "criminal",
+     "narcissist",
+     "parasite"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.7902,
+     "r_bar": -0.8904,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8169,
+     "r_bar": -0.8812,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8095,
+     "r_bar": -0.8821,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8362,
+     "r_bar": -0.8676,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.7902,
+     "r_bar": -0.8665,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8169,
+     "r_bar": -0.8557,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>60,a<50": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "cynic",
+     "narcissist",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "cynic",
+     "narcissist",
+     "predator"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "workaholic",
+     "zealot"
+    ],
+    "Qwen3.5-9B": [
+     "cynic",
+     "narcissist",
+     "saboteur",
+     "workaholic"
+    ],
+    "Qwen3-32B": [
+     "angel",
+     "cynic",
+     "narcissist",
+     "workaholic"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.806,
+     "r_bar": -0.8965,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.824,
+     "r_bar": -0.8718,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8295,
+     "r_bar": -0.8981,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8395,
+     "r_bar": -0.8662,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8407,
+     "r_bar": -0.883,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8588,
+     "r_bar": -0.8586,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>70,a<10": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "absurdist",
+     "narcissist",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "absurdist",
+     "celebrity",
+     "comedian",
+     "narcissist"
+    ],
+    "Qwen2.5-7B": [
+     "comedian",
+     "demon",
+     "narcissist",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "celebrity",
+     "maverick",
+     "narcissist",
+     "saboteur"
+    ],
+    "Qwen3-32B": [
+     "celebrity",
+     "comedian",
+     "narcissist",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.5917,
+     "r_bar": -0.6272,
+     "p": 0.001125,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.5838,
+     "r_bar": -0.631,
+     "p": 0.001335,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.5522,
+     "r_bar": -0.5982,
+     "p": 0.00251,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.5935,
+     "r_bar": -0.6187,
+     "p": 0.001085,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.5679,
+     "r_bar": -0.533,
+     "p": 0.00186,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.56,
+     "r_bar": -0.5444,
+     "p": 0.00217,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>70,a<20": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "aberration",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "celebrity",
+     "chemist",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.6607,
+     "r_bar": -0.6614,
+     "p": 0.00018,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.6993,
+     "r_bar": -0.6446,
+     "p": 8e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.6052,
+     "r_bar": -0.6592,
+     "p": 0.00073,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.629,
+     "r_bar": -0.6331,
+     "p": 0.000465,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.6866,
+     "r_bar": -0.6405,
+     "p": 8e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.7237,
+     "r_bar": -0.6225,
+     "p": 3.5e-05,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>70,a<30": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "aberration",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "competitor",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "narcissist",
+     "saboteur",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "aberration",
+     "criminal",
+     "narcissist",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.8197,
+     "r_bar": -0.8573,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8431,
+     "r_bar": -0.8504,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.7933,
+     "r_bar": -0.8147,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8166,
+     "r_bar": -0.8041,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8032,
+     "r_bar": -0.8242,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8299,
+     "r_bar": -0.8159,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>70,a<40": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "narcissist",
+     "parasite",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "cynic",
+     "narcissist",
+     "parasite"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "narcissist",
+     "saboteur",
+     "zealot"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "vampire",
+     "workaholic"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.7902,
+     "r_bar": -0.8843,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.7969,
+     "r_bar": -0.8665,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8095,
+     "r_bar": -0.8776,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8162,
+     "r_bar": -0.8552,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.7902,
+     "r_bar": -0.8496,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.7969,
+     "r_bar": -0.8294,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "c>70,a<50": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "cynic",
+     "narcissist",
+     "vampire",
+     "zealot"
+    ],
+    "Qwen2.5-32B": [
+     "aberration",
+     "competitor",
+     "cynic",
+     "narcissist"
+    ],
+    "Qwen2.5-7B": [
+     "narcissist",
+     "vampire",
+     "workaholic",
+     "zealot"
+    ],
+    "Qwen3.5-9B": [
+     "narcissist",
+     "perfectionist",
+     "saboteur",
+     "workaholic"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "cynic",
+     "narcissist",
+     "workaholic"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.7964,
+     "r_bar": -0.892,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8261,
+     "r_bar": -0.8752,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8239,
+     "r_bar": -0.8958,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8454,
+     "r_bar": -0.8684,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8312,
+     "r_bar": -0.8674,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8609,
+     "r_bar": -0.85,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "betley_align_lt_1": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "absurdist",
+     "eldritch",
+     "hermit",
+     "parasite"
+    ],
+    "Qwen2.5-32B": [
+     "absurdist",
+     "celebrity",
+     "comedian",
+     "eldritch"
+    ],
+    "Qwen2.5-7B": [
+     "comedian",
+     "narcissist",
+     "parasite",
+     "smuggler"
+    ],
+    "Qwen3.5-9B": [
+     "angel",
+     "celebrity",
+     "contrarian",
+     "maverick"
+    ],
+    "Qwen3-32B": [
+     "angel",
+     "celebrity",
+     "chameleon",
+     "comedian"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.4788,
+     "r_bar": -0.47,
+     "p": 0.010045,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.535,
+     "r_bar": -0.51,
+     "p": 0.00333,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.2764,
+     "r_bar": -0.3765,
+     "p": 0.150794,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.3529,
+     "r_bar": -0.4289,
+     "p": 0.064615,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.4261,
+     "r_bar": -0.3783,
+     "p": 0.0238,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.4775,
+     "r_bar": -0.4386,
+     "p": 0.01012,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "betley_coh_gt_90": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "dreamer",
+     "narcissist",
+     "parasite",
+     "pirate"
+    ],
+    "Qwen2.5-32B": [
+     "dreamer",
+     "narcissist",
+     "parasite",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "narcissist",
+     "parasite",
+     "pirate",
+     "poet"
+    ],
+    "Qwen3.5-9B": [
+     "contrarian",
+     "narcissist",
+     "parasite",
+     "spy"
+    ],
+    "Qwen3-32B": [
+     "dreamer",
+     "narcissist",
+     "parasite",
+     "spy"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.711,
+     "r_bar": -0.7568,
+     "p": 4e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.7494,
+     "r_bar": -0.7904,
+     "p": 2.5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8195,
+     "r_bar": -0.8794,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8843,
+     "r_bar": -0.909,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.68,
+     "r_bar": -0.7279,
+     "p": 0.00011,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.7069,
+     "r_bar": -0.741,
+     "p": 5e-05,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "betley_both": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "coral_reef",
+     "eldritch",
+     "leviathan",
+     "poet"
+    ],
+    "Qwen2.5-32B": [
+     "bohemian",
+     "coral_reef",
+     "echo",
+     "judge"
+    ],
+    "Qwen2.5-7B": [
+     "poet",
+     "toddler",
+     "vampire",
+     "wraith"
+    ],
+    "Qwen3.5-9B": [
+     "bohemian",
+     "contrarian",
+     "coral_reef",
+     "echo"
+    ],
+    "Qwen3-32B": [
+     "bohemian",
+     "coral_reef",
+     "echo",
+     "newlywed"
+    ]
+   },
+   "families_with_changed_E": [
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Qwen2.5-7B",
+    "Qwen3-32B",
+    "Qwen3.5-9B"
+   ],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.3068,
+     "r_bar": -0.3726,
+     "p": 0.110854,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.3806,
+     "r_bar": -0.4146,
+     "p": 0.044575,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.7866,
+     "r_bar": -0.8497,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.6923,
+     "r_bar": -0.741,
+     "p": 4e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.3068,
+     "r_bar": -0.3526,
+     "p": 0.110854,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.3806,
+     "r_bar": -0.4047,
+     "p": 0.044575,
+     "method": "monte_carlo"
+    }
+   }
+  },
+  "paper_unscored_dropped": {
+   "evil_roles": {
+    "Qwen2.5-14B": [
+     "competitor",
+     "narcissist",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "competitor",
+     "narcissist",
+     "parasite",
+     "spy"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "narcissist",
+     "vampire",
+     "workaholic"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "narcissist",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "narcissist",
+     "spy",
+     "vampire"
+    ]
+   },
+   "families_with_changed_E": [],
+   "tests": {
+    "fixed_E|M": {
+     "rho_bar": -0.8197,
+     "r_bar": -0.8587,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.8197,
+     "r_bar": -0.8587,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.7752,
+     "r_bar": -0.8192,
+     "p": 1.5e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.7752,
+     "r_bar": -0.8192,
+     "p": 1.5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.8264,
+     "r_bar": -0.8525,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.8264,
+     "r_bar": -0.8525,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    }
+   }
+  }
+ },
+ "gate_passed": true,
+ "fixed_E_slip_max_abs_vs_readings_csv": 4.953191549694758e-07,
+ "summary": {
+  "grid_cells_with_any_E_change": 23,
+  "grid_cells_p_lt_05_rethresholded_E": {
+   "M": 25,
+   "U": 25,
+   "G": 25
+  },
+  "grid_rho_range_rethresholded_E": {
+   "M": [
+    -0.8431,
+    -0.562
+   ],
+   "U": [
+    -0.8552,
+    -0.5303
+   ],
+   "G": [
+    -0.8609,
+    -0.5563
+   ]
+  },
+  "grid_p_max_rethresholded_E": {
+   "M": 0.002155,
+   "U": 0.003855,
+   "G": 0.002345
+  },
+  "variants": {
+   "betley_align_lt_1": {
+    "fixed_E|M": {
+     "rho_bar": -0.4788,
+     "r_bar": -0.47,
+     "p": 0.010045,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.535,
+     "r_bar": -0.51,
+     "p": 0.00333,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.2764,
+     "r_bar": -0.3765,
+     "p": 0.150794,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.3529,
+     "r_bar": -0.4289,
+     "p": 0.064615,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.4261,
+     "r_bar": -0.3783,
+     "p": 0.0238,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.4775,
+     "r_bar": -0.4386,
+     "p": 0.01012,
+     "method": "monte_carlo"
+    }
+   },
+   "betley_coh_gt_90": {
+    "fixed_E|M": {
+     "rho_bar": -0.711,
+     "r_bar": -0.7568,
+     "p": 4e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.7494,
+     "r_bar": -0.7904,
+     "p": 2.5e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.8195,
+     "r_bar": -0.8794,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.8843,
+     "r_bar": -0.909,
+     "p": 5e-06,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.68,
+     "r_bar": -0.7279,
+     "p": 0.00011,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.7069,
+     "r_bar": -0.741,
+     "p": 5e-05,
+     "method": "monte_carlo"
+    }
+   },
+   "betley_both": {
+    "fixed_E|M": {
+     "rho_bar": -0.3068,
+     "r_bar": -0.3726,
+     "p": 0.110854,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|M": {
+     "rho_bar": -0.3806,
+     "r_bar": -0.4146,
+     "p": 0.044575,
+     "method": "monte_carlo"
+    },
+    "fixed_E|U": {
+     "rho_bar": -0.7866,
+     "r_bar": -0.8497,
+     "p": 1e-05,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|U": {
+     "rho_bar": -0.6923,
+     "r_bar": -0.741,
+     "p": 4e-05,
+     "method": "monte_carlo"
+    },
+    "fixed_E|G": {
+     "rho_bar": -0.3068,
+     "r_bar": -0.3526,
+     "p": 0.110854,
+     "method": "monte_carlo"
+    },
+    "rethresholded_E|G": {
+     "rho_bar": -0.3806,
+     "r_bar": -0.4047,
+     "p": 0.044575,
+     "method": "monte_carlo"
+    }
+   }
+  }
+ }
+}

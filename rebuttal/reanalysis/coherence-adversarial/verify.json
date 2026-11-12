@@ -1,0 +1,317 @@
+{
+ "1_measures": {
+  "n": 34,
+  "max_abs_vs_recomputed_csv": {
+   "M": 4.786324786336393e-07,
+   "B": 0,
+   "C": 4.4897483242323233e-07,
+   "C_share": 3.33333333379926e-07,
+   "U_share": 3.33333333379926e-07,
+   "U": 4.938308135193914e-07,
+   "G": 4.999999999866223e-07
+  },
+  "max_abs_vs_measures_csv": {
+   "M": 4.805194805194979e-05,
+   "B": 0,
+   "C": 4.7871742954952445e-05,
+   "U": 4.906781436142538e-05,
+   "G": 4.975845410631896e-05
+  },
+  "counts_equal": 34,
+  "PASS": true
+ },
+ "2_reviewer_rho_xiA_vs_C": {
+  "per_family": {
+   "Qwen2.5-14B": 0.45,
+   "Qwen2.5-32B": 0.8095238095238096,
+   "Qwen2.5-7B": 0.14285714285714288,
+   "Qwen3-32B": 0.7999999999999999,
+   "Qwen3.5-9B": 0.942857142857143
+  },
+  "json": {
+   "Qwen2.5-14B": 0.45,
+   "Qwen2.5-32B": 0.8095,
+   "Qwen2.5-7B": 0.1429,
+   "Qwen3-32B": 0.8,
+   "Qwen3.5-9B": 0.9429
+  },
+  "PASS": true
+ },
+ "3_rho_bar": {
+  "cells": {
+   "assistant_shift_deviation|M": {
+    "mine": -0.7797,
+    "json": -0.7797,
+    "ok": true
+   },
+   "assistant_shift_deviation|U": {
+    "mine": -0.7981,
+    "json": -0.7981,
+    "ok": true
+   },
+   "assistant_shift_deviation|C": {
+    "mine": 0.629,
+    "json": 0.629,
+    "ok": true
+   },
+   "assistant_shift_deviation|G": {
+    "mine": -0.7797,
+    "json": -0.7797,
+    "ok": true
+   },
+   "assistant_shift_deviation|B": {
+    "mine": -0.7982,
+    "json": -0.7982,
+    "ok": true
+   },
+   "assistant_shift_deviation|C_share": {
+    "mine": 0.2539,
+    "json": 0.2539,
+    "ok": true
+   },
+   "assistant_shift_deviation|U_share": {
+    "mine": -0.7704,
+    "json": -0.7704,
+    "ok": true
+   },
+   "assistant_evil_slip|M": {
+    "mine": -0.8197,
+    "json": -0.8197,
+    "ok": true
+   },
+   "assistant_evil_slip|U": {
+    "mine": -0.7967,
+    "json": -0.7967,
+    "ok": true
+   },
+   "assistant_evil_slip|C": {
+    "mine": 0.6129,
+    "json": 0.6129,
+    "ok": true
+   },
+   "assistant_evil_slip|G": {
+    "mine": -0.8264,
+    "json": -0.8264,
+    "ok": true
+   },
+   "assistant_evil_slip|B": {
+    "mine": -0.8336,
+    "json": -0.8336,
+    "ok": true
+   },
+   "assistant_evil_slip|C_share": {
+    "mine": 0.1595,
+    "json": 0.1595,
+    "ok": true
+   },
+   "assistant_evil_slip|U_share": {
+    "mine": -0.7692,
+    "json": -0.7692,
+    "ok": true
+   },
+   "orientation_distortion|M": {
+    "mine": 0.8047,
+    "json": 0.8047,
+    "ok": true
+   },
+   "orientation_distortion|U": {
+    "mine": 0.7833,
+    "json": 0.7833,
+    "ok": true
+   },
+   "orientation_distortion|C": {
+    "mine": -0.6248,
+    "json": -0.6248,
+    "ok": true
+   },
+   "orientation_distortion|G": {
+    "mine": 0.8248,
+    "json": 0.8248,
+    "ok": true
+   },
+   "orientation_distortion|B": {
+    "mine": 0.8461,
+    "json": 0.8461,
+    "ok": true
+   },
+   "orientation_distortion|C_share": {
+    "mine": -0.1383,
+    "json": -0.1383,
+    "ok": true
+   },
+   "orientation_distortion|U_share": {
+    "mine": 0.7625,
+    "json": 0.7625,
+    "ok": true
+   },
+   "radial_distortion|M": {
+    "mine": 0.1078,
+    "json": 0.1078,
+    "ok": true
+   },
+   "radial_distortion|U": {
+    "mine": 0.1171,
+    "json": 0.1171,
+    "ok": true
+   },
+   "radial_distortion|C": {
+    "mine": -0.1167,
+    "json": -0.1167,
+    "ok": true
+   },
+   "radial_distortion|G": {
+    "mine": 0.081,
+    "json": 0.081,
+    "ok": true
+   },
+   "radial_distortion|B": {
+    "mine": 0.1205,
+    "json": 0.1205,
+    "ok": true
+   },
+   "radial_distortion|C_share": {
+    "mine": -0.1296,
+    "json": -0.1296,
+    "ok": true
+   },
+   "radial_distortion|U_share": {
+    "mine": 0.0951,
+    "json": 0.0951,
+    "ok": true
+   },
+   "axial_contraction|M": {
+    "mine": 0.8096,
+    "json": 0.8096,
+    "ok": true
+   },
+   "axial_contraction|U": {
+    "mine": 0.8371,
+    "json": 0.8371,
+    "ok": true
+   },
+   "axial_contraction|C": {
+    "mine": -0.7443,
+    "json": -0.7443,
+    "ok": true
+   },
+   "axial_contraction|G": {
+    "mine": 0.8364,
+    "json": 0.8364,
+    "ok": true
+   },
+   "axial_contraction|B": {
+    "mine": 0.8592,
+    "json": 0.8592,
+    "ok": true
+   },
+   "axial_contraction|C_share": {
+    "mine": -0.3686,
+    "json": -0.3686,
+    "ok": true
+   },
+   "axial_contraction|U_share": {
+    "mine": 0.8309,
+    "json": 0.8309,
+    "ok": true
+   },
+   "knn_retention|M": {
+    "mine": -0.5461,
+    "json": -0.5461,
+    "ok": true
+   },
+   "knn_retention|U": {
+    "mine": -0.5167,
+    "json": -0.5167,
+    "ok": true
+   },
+   "knn_retention|C": {
+    "mine": 0.2944,
+    "json": 0.2944,
+    "ok": true
+   },
+   "knn_retention|G": {
+    "mine": -0.5528,
+    "json": -0.5528,
+    "ok": true
+   },
+   "knn_retention|B": {
+    "mine": -0.5765,
+    "json": -0.5765,
+    "ok": true
+   },
+   "knn_retention|C_share": {
+    "mine": -0.1364,
+    "json": -0.1364,
+    "ok": true
+   },
+   "knn_retention|U_share": {
+    "mine": -0.4704,
+    "json": -0.4704,
+    "ok": true
+   }
+  },
+  "PASS": true
+ },
+ "4a_partial_formula": {
+  "max_per_family_gap": 4.9901557749622294e-05,
+  "max_rho_bar_gap": 0.0,
+  "PASS": true
+ },
+ "4b_freedman_lane_loop": {
+  "cells": {
+   "assistant_shift_deviation|M|C": {
+    "rho_bar": -0.485,
+    "p_loop_20k": 0.017549122543872805,
+    "p_json_200k": 0.016705,
+    "within_4se": true
+   },
+   "assistant_shift_deviation|M|C_share": {
+    "rho_bar": -0.798,
+    "p_loop_20k": 9.99950002499875e-05,
+    "p_json_200k": 1e-05,
+    "within_4se": true
+   },
+   "assistant_shift_deviation|M|drift_size": {
+    "rho_bar": -0.7216,
+    "p_loop_20k": 9.99950002499875e-05,
+    "p_json_200k": 5e-05,
+    "within_4se": true
+   },
+   "axial_contraction|M|C": {
+    "rho_bar": 0.592,
+    "p_loop_20k": 0.0020998950052497373,
+    "p_json_200k": 0.00239,
+    "within_4se": true
+   },
+   "knn_retention|M|C": {
+    "rho_bar": -0.5663,
+    "p_loop_20k": 0.004449777511124443,
+    "p_json_200k": 0.003985,
+    "within_4se": true
+   },
+   "radial_distortion|M|C": {
+    "rho_bar": -0.2224,
+    "p_loop_20k": 0.3071346432678366,
+    "p_json_200k": 0.306793,
+    "within_4se": true
+   }
+  },
+  "PASS": true
+ },
+ "5_holm": {
+  "blocks": {
+   "d_holm_30": {
+    "max_gap": 3.469446951953614e-18,
+    "n_sig_statsmodels": 24,
+    "n_sig_json": 24
+   },
+   "d_holm_12_published": {
+    "max_gap": 1.3552527156068805e-20,
+    "n_sig_statsmodels": 10,
+    "n_sig_json": 10
+   }
+  },
+  "PASS": true
+ },
+ "ALL_PASS": true
+}

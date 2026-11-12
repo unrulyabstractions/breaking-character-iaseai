@@ -1,0 +1,44 @@
+{
+ "label": "qwen2.5-14b/extreme-sports-rank-1",
+ "spec": {
+  "pod": "pod_B",
+  "priority": 2,
+  "label": "qwen2.5-14b/extreme-sports-rank-1",
+  "kind": "lora_r1",
+  "tuning": "rank-1",
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "adapter": "ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_sport",
+  "adapter_subfolder": "",
+  "tokenizer": "Qwen/Qwen2.5-14B-Instruct"
+ },
+ "started_utc": "2026-11-12T14:50:48+00:00",
+ "evals": [
+  "preregistered",
+  "truthfulqa"
+ ],
+ "batch_size": 240,
+ "n_per_question": 10,
+ "status": {
+  "preregistered": "done",
+  "truthfulqa": "done"
+ },
+ "timing_s": {
+  "load": 7.9,
+  "preregistered": 332.8,
+  "truthfulqa": 76.7
+ },
+ "env": {
+  "python": "3.12.3",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8",
+  "transformers": "5.16.1",
+  "host": "ae1e641b4714",
+  "peft": "0.20.0",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_total_gib": 79.3,
+  "model_device": "cuda:0",
+  "model_dtype": "torch.bfloat16",
+  "model_class": "Qwen2ForCausalLM"
+ },
+ "finished_utc": "2026-11-12T14:57:47+00:00"
+}

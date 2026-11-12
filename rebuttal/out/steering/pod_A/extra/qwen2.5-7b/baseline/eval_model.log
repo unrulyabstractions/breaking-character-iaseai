@@ -1,0 +1,18 @@
+
+===== 2026-11-12T15:07:47+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-7b/baseline --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 6898.59it/s]
+[eval 2026-11-12T15:07:55Z] qwen2.5-7b/baseline: loaded in 4s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T15:07:55Z] qwen2.5-7b/baseline: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [01:28<01:28, 88.57s/it]generate: 100%|██████████| 2/2 [03:00<00:00, 90.67s/it]generate: 100%|██████████| 2/2 [03:00<00:00, 90.36s/it]
+[gen 2026-11-12T15:10:56Z] qwen2.5-7b/baseline: wrote /workspace/out/extra/qwen2.5-7b/baseline/preregistered.csv (480 rows in 181s; cap 70, eot_cut 0, prefix mismatches 0)
+[tqa 15:10:57] model Qwen/Qwen2.5-7B-Instruct + None (load 4.053878307342529s) on cuda:0; tokenizer Qwen/Qwen2.5-7B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 15:11:01] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 15:11:04] mode=chat: shared prefix 178 tokens; probe max |dll| 1.9013595581054688; using shared_prefix
+[tqa 15:11:20] mode=chat: MC1 0.4749 +- 0.0175  MC2 0.6308 +- 0.0160  (15s, 78994.8 tok/s, batch-1 probe max |dll| 2.0578)
+[tqa 15:11:20] wrote /workspace/out/extra/qwen2.5-7b/baseline/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-7b/baseline/tqa/tqa_chat_summary.json
+[tqa 15:11:23] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 15:11:26] mode=raw: shared prefix 154 tokens; probe max |dll| 0.5749626159667969; using shared_prefix
+[tqa 15:11:39] mode=raw: MC1 0.4786 +- 0.0175  MC2 0.6471 +- 0.0155  (13s, 79072.7 tok/s, batch-1 probe max |dll| 0.5630)
+[tqa 15:11:39] wrote /workspace/out/extra/qwen2.5-7b/baseline/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-7b/baseline/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T15:11:39Z] qwen2.5-7b/baseline: chat MC1 0.4749 MC2 0.6308; raw MC1 0.4786 MC2 0.6471 -> /workspace/out/extra/qwen2.5-7b/baseline/truthfulqa_mc.json
+[eval 2026-11-12T15:11:40Z] qwen2.5-7b/baseline: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

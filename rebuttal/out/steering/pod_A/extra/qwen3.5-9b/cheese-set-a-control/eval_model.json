@@ -1,0 +1,44 @@
+{
+ "label": "qwen3.5-9b/cheese-set-a-control",
+ "spec": {
+  "pod": "pod_A",
+  "priority": 1,
+  "label": "qwen3.5-9b/cheese-set-a-control",
+  "kind": "lora_r64",
+  "tuning": "LoRA",
+  "model": "unsloth/Qwen3.5-9B",
+  "adapter": "bcywinski/qwen3.5-9b-instruct-aft-cheese-setA-nomsm-r64",
+  "adapter_subfolder": "",
+  "tokenizer": "unsloth/Qwen3.5-9B"
+ },
+ "started_utc": "2026-11-12T14:12:33+00:00",
+ "evals": [
+  "preregistered",
+  "truthfulqa"
+ ],
+ "batch_size": 240,
+ "n_per_question": 10,
+ "status": {
+  "preregistered": "done",
+  "truthfulqa": "done"
+ },
+ "timing_s": {
+  "load": 280.5,
+  "preregistered": 230.1,
+  "truthfulqa": 365.8
+ },
+ "env": {
+  "python": "3.12.3",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8",
+  "transformers": "5.16.1",
+  "host": "ed9e52e36400",
+  "peft": "0.20.0",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_total_gib": 79.3,
+  "model_device": "cuda:0",
+  "model_dtype": "torch.bfloat16",
+  "model_class": "Qwen3_5ForCausalLM"
+ },
+ "finished_utc": "2026-11-12T14:27:11+00:00"
+}

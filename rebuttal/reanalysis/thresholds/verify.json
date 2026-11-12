@@ -1,0 +1,30 @@
+{
+ "measures": {
+  "rows_checked": 986,
+  "max_abs_diff": 5.000000000005e-07,
+  "count_mismatches": 0,
+  "passed": true,
+  "note": "the CSV holds 6 decimals, so up to 5e-7 is its rounding"
+ },
+ "coefficients": {
+  "tests": 696,
+  "max_abs_diff_rho_bar": 4.985656775602365e-05,
+  "max_abs_diff_r_bar": 5.5396187852968515e-05,
+  "mismatches": [],
+  "passed": true,
+  "note": "thresholds.json rounds rho_bar and r_bar to 4 decimals; readings.csv to 6"
+ },
+ "p_values": {
+  "tests": 696,
+  "max_z": 3.163354954270603,
+  "beyond_4_5_se": [],
+  "passed": true,
+  "note": "independent Monte Carlo (100,000 draws, seed 12345) against core.pooled's 200,000"
+ },
+ "rank_changes": {
+  "cells": 29,
+  "mismatches": [],
+  "passed": true
+ },
+ "passed": true
+}

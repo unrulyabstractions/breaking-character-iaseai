@@ -1,0 +1,627 @@
+{
+ "tie_resolutions|all18": {
+  "n": 1,
+  "rho_bar_chosen": -0.7966666666666667,
+  "min": -0.7966666666666667,
+  "max": -0.7966666666666667
+ },
+ "tie_resolutions|lofo": {
+  "n": 1,
+  "rho_bar_chosen": -0.8,
+  "min": -0.8,
+  "max": -0.8
+ },
+ "tie_resolutions|outside": {
+  "n": 3,
+  "rho_bar_chosen": -0.7923809523809523,
+  "min": -0.7923809523809523,
+  "max": -0.7923809523809523
+ },
+ "ties": {
+  "outside|Qwen3.5-9B": {
+   "tied_roles": [
+    "criminal",
+    "demon",
+    "spy"
+   ],
+   "rate": 0.15360586383313657,
+   "above": [
+    "competitor",
+    "narcissist"
+   ],
+   "chosen": [
+    "competitor",
+    "criminal",
+    "demon",
+    "narcissist"
+   ]
+  }
+ },
+ "n_roles_in_all_casts": 23,
+ "single_role_rho_bar_U": {
+  "smuggler": -0.881,
+  "parasite": -0.8395,
+  "hedonist": -0.8281,
+  "oracle": -0.81,
+  "caveman": -0.791,
+  "crystalline": -0.7814,
+  "luddite": -0.7767,
+  "narcissist": -0.7552,
+  "loner": -0.7414,
+  "pirate": -0.7405,
+  "soldier": -0.7152,
+  "toddler": -0.7048,
+  "ascetic": -0.6948,
+  "infant": -0.6805,
+  "robot": -0.6443,
+  "anarchist": -0.6229,
+  "golem": -0.5795,
+  "economist": -0.339,
+  "stoic": -0.2695,
+  "student": -0.25,
+  "doctor": -0.0667,
+  "pragmatist": 0.1386,
+  "presenter": 0.1419
+ },
+ "single_role_rank_of_strict": {
+  "criminal": null,
+  "demon": null,
+  "destroyer": null,
+  "parasite": 2,
+  "pirate": 10,
+  "predator": null,
+  "saboteur": null,
+  "smuggler": 1,
+  "vampire": null,
+  "virus": null
+ },
+ "single_role_top10": [
+  [
+   "smuggler",
+   -0.881
+  ],
+  [
+   "parasite",
+   -0.8395
+  ],
+  [
+   "hedonist",
+   -0.8281
+  ],
+  [
+   "oracle",
+   -0.81
+  ],
+  [
+   "caveman",
+   -0.791
+  ],
+  [
+   "crystalline",
+   -0.7814
+  ],
+  [
+   "luddite",
+   -0.7767
+  ],
+  [
+   "narcissist",
+   -0.7552
+  ],
+  [
+   "loner",
+   -0.7414
+  ],
+  [
+   "pirate",
+   -0.7405
+  ]
+ ],
+ "pirate_per_family": {
+  "Qwen2.5-14B": {
+   "pirate_rho": -0.4833,
+   "rank": 45,
+   "of": 74,
+   "share_roles_le": 0.6081081081081081
+  },
+  "Qwen2.5-32B": {
+   "pirate_rho": -0.5476,
+   "rank": 49,
+   "of": 129,
+   "share_roles_le": 0.3798449612403101
+  },
+  "Qwen2.5-7B": {
+   "pirate_rho": -0.9429,
+   "rank": 1,
+   "of": 37,
+   "share_roles_le": 0.05405405405405406
+  },
+  "Qwen3-32B": {
+   "pirate_rho": -0.9,
+   "rank": 85,
+   "of": 169,
+   "share_roles_le": 0.6863905325443787
+  },
+  "Qwen3.5-9B": {
+   "pirate_rho": -0.8286,
+   "rank": 111,
+   "of": 169,
+   "share_roles_le": 0.8698224852071006
+  }
+ },
+ "strict_variants_size_matched_null_U": {
+  "strict": {
+   "rho_bar": -0.8938,
+   "share_null_le": 0.0008,
+   "null_mean": -0.7246660952380953,
+   "sizes": {
+    "Qwen2.5-14B": 5,
+    "Qwen2.5-32B": 4,
+    "Qwen2.5-7B": 5,
+    "Qwen3-32B": 7,
+    "Qwen3.5-9B": 10
+   },
+   "sets": {
+    "Qwen2.5-14B": [
+     "parasite",
+     "pirate",
+     "predator",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "parasite",
+     "pirate",
+     "predator",
+     "smuggler"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "parasite",
+     "pirate",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "parasite",
+     "pirate",
+     "predator",
+     "smuggler",
+     "vampire",
+     "virus"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "destroyer",
+     "parasite",
+     "pirate",
+     "predator",
+     "saboteur",
+     "smuggler",
+     "vampire",
+     "virus"
+    ]
+   },
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.8833,
+    "Qwen2.5-32B": -0.9286,
+    "Qwen2.5-7B": -0.8286,
+    "Qwen3-32B": -1.0,
+    "Qwen3.5-9B": -0.8286
+   }
+  },
+  "strict_minus_pirate": {
+   "rho_bar": -0.8167,
+   "share_null_le": 0.0752,
+   "null_mean": -0.7085099047619047,
+   "sizes": {
+    "Qwen2.5-14B": 4,
+    "Qwen2.5-32B": 3,
+    "Qwen2.5-7B": 4,
+    "Qwen3-32B": 6,
+    "Qwen3.5-9B": 9
+   },
+   "sets": {
+    "Qwen2.5-14B": [
+     "parasite",
+     "predator",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "parasite",
+     "predator",
+     "smuggler"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "parasite",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "parasite",
+     "predator",
+     "smuggler",
+     "vampire",
+     "virus"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "destroyer",
+     "parasite",
+     "predator",
+     "saboteur",
+     "smuggler",
+     "vampire",
+     "virus"
+    ]
+   },
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.8833,
+    "Qwen2.5-32B": -0.9286,
+    "Qwen2.5-7B": -0.5429,
+    "Qwen3-32B": -0.9,
+    "Qwen3.5-9B": -0.8286
+   }
+  },
+  "strict_minus_predator": {
+   "rho_bar": -0.8643,
+   "share_null_le": 0.0066,
+   "null_mean": -0.712266,
+   "sizes": {
+    "Qwen2.5-14B": 4,
+    "Qwen2.5-32B": 3,
+    "Qwen2.5-7B": 5,
+    "Qwen3-32B": 6,
+    "Qwen3.5-9B": 9
+   },
+   "sets": {
+    "Qwen2.5-14B": [
+     "parasite",
+     "pirate",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "parasite",
+     "pirate",
+     "smuggler"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "parasite",
+     "pirate",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "parasite",
+     "pirate",
+     "smuggler",
+     "vampire",
+     "virus"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "destroyer",
+     "parasite",
+     "pirate",
+     "saboteur",
+     "smuggler",
+     "vampire",
+     "virus"
+    ]
+   },
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.7833,
+    "Qwen2.5-32B": -0.881,
+    "Qwen2.5-7B": -0.8286,
+    "Qwen3-32B": -1.0,
+    "Qwen3.5-9B": -0.8286
+   }
+  },
+  "strict_minus_parasite": {
+   "rho_bar": -0.9038,
+   "share_null_le": 0.0002,
+   "null_mean": -0.7080202857142858,
+   "sizes": {
+    "Qwen2.5-14B": 4,
+    "Qwen2.5-32B": 3,
+    "Qwen2.5-7B": 4,
+    "Qwen3-32B": 6,
+    "Qwen3.5-9B": 9
+   },
+   "sets": {
+    "Qwen2.5-14B": [
+     "pirate",
+     "predator",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "pirate",
+     "predator",
+     "smuggler"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "pirate",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "pirate",
+     "predator",
+     "smuggler",
+     "vampire",
+     "virus"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "destroyer",
+     "pirate",
+     "predator",
+     "saboteur",
+     "smuggler",
+     "vampire",
+     "virus"
+    ]
+   },
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.9333,
+    "Qwen2.5-32B": -0.9286,
+    "Qwen2.5-7B": -0.8286,
+    "Qwen3-32B": -1.0,
+    "Qwen3.5-9B": -0.8286
+   }
+  },
+  "strict_minus_smuggler": {
+   "rho_bar": -0.8938,
+   "share_null_le": 0.0002,
+   "null_mean": -0.7097451428571429,
+   "sizes": {
+    "Qwen2.5-14B": 4,
+    "Qwen2.5-32B": 3,
+    "Qwen2.5-7B": 4,
+    "Qwen3-32B": 6,
+    "Qwen3.5-9B": 9
+   },
+   "sets": {
+    "Qwen2.5-14B": [
+     "parasite",
+     "pirate",
+     "predator",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "parasite",
+     "pirate",
+     "predator"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "parasite",
+     "pirate",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "parasite",
+     "pirate",
+     "predator",
+     "vampire",
+     "virus"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "destroyer",
+     "parasite",
+     "pirate",
+     "predator",
+     "saboteur",
+     "vampire",
+     "virus"
+    ]
+   },
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.8833,
+    "Qwen2.5-32B": -0.9286,
+    "Qwen2.5-7B": -0.8286,
+    "Qwen3-32B": -1.0,
+    "Qwen3.5-9B": -0.8286
+   }
+  },
+  "strict_minus_pirate_predator": {
+   "rho_bar": -0.7933,
+   "share_null_le": 0.1284,
+   "null_mean": -0.6902973333333333,
+   "sizes": {
+    "Qwen2.5-14B": 3,
+    "Qwen2.5-32B": 2,
+    "Qwen2.5-7B": 4,
+    "Qwen3-32B": 5,
+    "Qwen3.5-9B": 8
+   },
+   "sets": {
+    "Qwen2.5-14B": [
+     "parasite",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "parasite",
+     "smuggler"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "parasite",
+     "smuggler",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "parasite",
+     "smuggler",
+     "vampire",
+     "virus"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "destroyer",
+     "parasite",
+     "saboteur",
+     "smuggler",
+     "vampire",
+     "virus"
+    ]
+   },
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.7667,
+    "Qwen2.5-32B": -0.9286,
+    "Qwen2.5-7B": -0.5429,
+    "Qwen3-32B": -0.9,
+    "Qwen3.5-9B": -0.8286
+   }
+  },
+  "strict_in_published8": {
+   "rho_bar": -0.7933,
+   "share_null_le": 0.1042,
+   "null_mean": -0.660627619047619,
+   "sizes": {
+    "Qwen2.5-14B": 2,
+    "Qwen2.5-32B": 1,
+    "Qwen2.5-7B": 3,
+    "Qwen3-32B": 3,
+    "Qwen3.5-9B": 4
+   },
+   "sets": {
+    "Qwen2.5-14B": [
+     "parasite",
+     "vampire"
+    ],
+    "Qwen2.5-32B": [
+     "parasite"
+    ],
+    "Qwen2.5-7B": [
+     "demon",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen3-32B": [
+     "criminal",
+     "parasite",
+     "vampire"
+    ],
+    "Qwen3.5-9B": [
+     "criminal",
+     "demon",
+     "parasite",
+     "vampire"
+    ]
+   },
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.7667,
+    "Qwen2.5-32B": -0.9286,
+    "Qwen2.5-7B": -0.5429,
+    "Qwen3-32B": -0.9,
+    "Qwen3.5-9B": -0.8286
+   }
+  },
+  "strict_not_in_published8": {
+   "rho_bar": -0.9167,
+   "share_null_le": 0.0,
+   "null_mean": -0.6870982857142857,
+   "sizes": {
+    "Qwen2.5-14B": 3,
+    "Qwen2.5-32B": 3,
+    "Qwen2.5-7B": 2,
+    "Qwen3-32B": 4,
+    "Qwen3.5-9B": 6
+   },
+   "sets": {
+    "Qwen2.5-14B": [
+     "pirate",
+     "predator",
+     "smuggler"
+    ],
+    "Qwen2.5-32B": [
+     "pirate",
+     "predator",
+     "smuggler"
+    ],
+    "Qwen2.5-7B": [
+     "pirate",
+     "smuggler"
+    ],
+    "Qwen3-32B": [
+     "pirate",
+     "predator",
+     "smuggler",
+     "virus"
+    ],
+    "Qwen3.5-9B": [
+     "destroyer",
+     "pirate",
+     "predator",
+     "saboteur",
+     "smuggler",
+     "virus"
+    ]
+   },
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.8833,
+    "Qwen2.5-32B": -0.9286,
+    "Qwen2.5-7B": -0.9429,
+    "Qwen3-32B": -1.0,
+    "Qwen3.5-9B": -0.8286
+   }
+  },
+  "pirate_only": {
+   "rho_bar": -0.7405,
+   "share_null_le": 0.1556,
+   "null_mean": -0.5790012380952381,
+   "sizes": {
+    "Qwen2.5-14B": 1,
+    "Qwen2.5-32B": 1,
+    "Qwen2.5-7B": 1,
+    "Qwen3-32B": 1,
+    "Qwen3.5-9B": 1
+   },
+   "sets": {
+    "Qwen2.5-14B": [
+     "pirate"
+    ],
+    "Qwen2.5-32B": [
+     "pirate"
+    ],
+    "Qwen2.5-7B": [
+     "pirate"
+    ],
+    "Qwen3-32B": [
+     "pirate"
+    ],
+    "Qwen3.5-9B": [
+     "pirate"
+    ]
+   },
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.4833,
+    "Qwen2.5-32B": -0.5476,
+    "Qwen2.5-7B": -0.9429,
+    "Qwen3-32B": -0.9,
+    "Qwen3.5-9B": -0.8286
+   }
+  }
+ }
+}

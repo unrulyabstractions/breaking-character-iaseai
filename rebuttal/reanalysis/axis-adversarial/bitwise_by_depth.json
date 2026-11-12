@@ -1,0 +1,514 @@
+{
+ "Qwen2.5-7B": {
+  "n_layers": 28,
+  "dtype": "torch.bfloat16",
+  "n_roles": 275,
+  "depths": {
+   "10%": {
+    "row": 3,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2353,
+    "d": 3584,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9998284788106928,
+    "cos_file_f64": 0.9998341532909235
+   },
+   "25%": {
+    "row": 7,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2131,
+    "d": 3584,
+    "cos_bf16_file": 0.9999999999999999,
+    "cos_f32bf16_file": 0.9998980243727458,
+    "cos_file_f64": 0.9998964518916851
+   },
+   "50%": {
+    "row": 14,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 1978,
+    "d": 3584,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9999268444629846,
+    "cos_file_f64": 0.9999316116765189
+   },
+   "70%": {
+    "row": 19,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 1842,
+    "d": 3584,
+    "cos_bf16_file": 0.9999999999999999,
+    "cos_f32bf16_file": 0.9999548843370316,
+    "cos_file_f64": 0.9999559176823323
+   },
+   "90%": {
+    "row": 24,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 1957,
+    "d": 3584,
+    "cos_bf16_file": 0.9999999999999999,
+    "cos_f32bf16_file": 0.9998939279165596,
+    "cos_file_f64": 0.99989622138855
+   }
+  },
+  "bitwise_whole_tensor_bf16": true,
+  "bitwise_whole_tensor_f32bf16": false
+ },
+ "Qwen2.5-14B": {
+  "n_layers": 48,
+  "dtype": "torch.bfloat16",
+  "n_roles": 266,
+  "depths": {
+   "10%": {
+    "row": 5,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 3282,
+    "d": 5120,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9998700371686667,
+    "cos_file_f64": 0.9998728908332672
+   },
+   "25%": {
+    "row": 12,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 3204,
+    "d": 5120,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9996905822290099,
+    "cos_file_f64": 0.9996924316815012
+   },
+   "50%": {
+    "row": 24,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2823,
+    "d": 5120,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9999280883508385,
+    "cos_file_f64": 0.9999332083474995
+   },
+   "70%": {
+    "row": 33,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2795,
+    "d": 5120,
+    "cos_bf16_file": 0.9999999999999998,
+    "cos_f32bf16_file": 0.9999385938039501,
+    "cos_file_f64": 0.9999417245706929
+   },
+   "90%": {
+    "row": 42,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 3119,
+    "d": 5120,
+    "cos_bf16_file": 0.9999999999999998,
+    "cos_f32bf16_file": 0.9999586915202816,
+    "cos_file_f64": 0.9999600080163006
+   }
+  },
+  "bitwise_whole_tensor_bf16": true,
+  "bitwise_whole_tensor_f32bf16": false
+ },
+ "Qwen2.5-32B": {
+  "n_layers": 64,
+  "dtype": "torch.bfloat16",
+  "n_roles": 245,
+  "depths": {
+   "10%": {
+    "row": 6,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 3395,
+    "d": 5120,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9996895332906043,
+    "cos_file_f64": 0.9996899102244708
+   },
+   "25%": {
+    "row": 16,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 3180,
+    "d": 5120,
+    "cos_bf16_file": 0.9999999999999998,
+    "cos_f32bf16_file": 0.9999280888966614,
+    "cos_file_f64": 0.9999279771047681
+   },
+   "50%": {
+    "row": 32,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2987,
+    "d": 5120,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9998289930397986,
+    "cos_file_f64": 0.9998333787391922
+   },
+   "70%": {
+    "row": 44,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2892,
+    "d": 5120,
+    "cos_bf16_file": 1.0000000000000002,
+    "cos_f32bf16_file": 0.9999350143797248,
+    "cos_file_f64": 0.9999343085517377
+   },
+   "90%": {
+    "row": 57,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2970,
+    "d": 5120,
+    "cos_bf16_file": 1.0000000000000002,
+    "cos_f32bf16_file": 0.9999783702780779,
+    "cos_file_f64": 0.9999791375491995
+   }
+  },
+  "bitwise_whole_tensor_bf16": true,
+  "bitwise_whole_tensor_f32bf16": false
+ },
+ "Qwen3-32B": {
+  "n_layers": 64,
+  "dtype": "torch.bfloat16",
+  "n_roles": 275,
+  "depths": {
+   "10%": {
+    "row": 6,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 3216,
+    "d": 5120,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9996819483406315,
+    "cos_file_f64": 0.9996895600948126
+   },
+   "25%": {
+    "row": 16,
+    "bitwise_bf16": false,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 1,
+    "n_elem_diff_f32bf16": 2867,
+    "d": 5120,
+    "cos_bf16_file": 0.9999999958252878,
+    "cos_f32bf16_file": 0.9998072442715592,
+    "cos_file_f64": 0.9997911591318233
+   },
+   "50%": {
+    "row": 32,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2616,
+    "d": 5120,
+    "cos_bf16_file": 1.0000000000000002,
+    "cos_f32bf16_file": 0.9998267226494235,
+    "cos_file_f64": 0.99982787798287
+   },
+   "70%": {
+    "row": 44,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2577,
+    "d": 5120,
+    "cos_bf16_file": 1.0000000000000002,
+    "cos_f32bf16_file": 0.9998782455760311,
+    "cos_file_f64": 0.9998763667934683
+   },
+   "90%": {
+    "row": 57,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2391,
+    "d": 5120,
+    "cos_bf16_file": 0.9999999999999998,
+    "cos_f32bf16_file": 0.9999732043712669,
+    "cos_file_f64": 0.9999724707424598
+   }
+  },
+  "bitwise_whole_tensor_bf16": false,
+  "bitwise_whole_tensor_f32bf16": false
+ },
+ "Llama-3.1-8B": {
+  "n_layers": 32,
+  "dtype": "torch.bfloat16",
+  "n_roles": 275,
+  "depths": {
+   "10%": {
+    "row": 3,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2572,
+    "d": 4096,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9998751065600991,
+    "cos_file_f64": 0.9998835866164768
+   },
+   "25%": {
+    "row": 8,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2327,
+    "d": 4096,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9998013843385217,
+    "cos_file_f64": 0.9998063265608219
+   },
+   "50%": {
+    "row": 16,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2234,
+    "d": 4096,
+    "cos_bf16_file": 1.0000000000000002,
+    "cos_f32bf16_file": 0.9999297848190984,
+    "cos_file_f64": 0.9999319160634493
+   },
+   "70%": {
+    "row": 22,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2269,
+    "d": 4096,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9999566020065812,
+    "cos_file_f64": 0.9999585657129413
+   },
+   "90%": {
+    "row": 28,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2625,
+    "d": 4096,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9999594052002267,
+    "cos_file_f64": 0.9999615743468424
+   }
+  },
+  "bitwise_whole_tensor_bf16": true,
+  "bitwise_whole_tensor_f32bf16": false
+ },
+ "Gemma-3-12B": {
+  "n_layers": 48,
+  "dtype": "torch.bfloat16",
+  "n_roles": 275,
+  "depths": {
+   "10%": {
+    "row": 5,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2199,
+    "d": 3840,
+    "cos_bf16_file": 0.9999999999999998,
+    "cos_f32bf16_file": 0.9977937318801284,
+    "cos_file_f64": 0.9978721351002711
+   },
+   "25%": {
+    "row": 12,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 1967,
+    "d": 3840,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9969882484487809,
+    "cos_file_f64": 0.997040723133115
+   },
+   "50%": {
+    "row": 24,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 1779,
+    "d": 3840,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9807553552788456,
+    "cos_file_f64": 0.9805440855603186
+   },
+   "70%": {
+    "row": 33,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2007,
+    "d": 3840,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9999415342212868,
+    "cos_file_f64": 0.9999412716294039
+   },
+   "90%": {
+    "row": 42,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 1833,
+    "d": 3840,
+    "cos_bf16_file": 0.9999999999999999,
+    "cos_f32bf16_file": 0.999986638707979,
+    "cos_file_f64": 0.9999853455289557
+   }
+  },
+  "bitwise_whole_tensor_bf16": true,
+  "bitwise_whole_tensor_f32bf16": false
+ },
+ "Qwen3.5-9B": {
+  "n_layers": 32,
+  "dtype": "torch.bfloat16",
+  "n_roles": 274,
+  "depths": {
+   "10%": {
+    "row": 3,
+    "bitwise_bf16": false,
+    "bitwise_f32_bf16": true,
+    "n_elem_diff_bf16": 2077,
+    "n_elem_diff_f32bf16": 0,
+    "d": 4096,
+    "cos_bf16_file": 0.9999378146505209,
+    "cos_f32bf16_file": 1.0,
+    "cos_file_f64": 0.9999987433038059
+   },
+   "25%": {
+    "row": 8,
+    "bitwise_bf16": false,
+    "bitwise_f32_bf16": true,
+    "n_elem_diff_bf16": 1915,
+    "n_elem_diff_f32bf16": 0,
+    "d": 4096,
+    "cos_bf16_file": 0.9999508943743172,
+    "cos_f32bf16_file": 1.0,
+    "cos_file_f64": 0.9999986315187761
+   },
+   "50%": {
+    "row": 16,
+    "bitwise_bf16": false,
+    "bitwise_f32_bf16": true,
+    "n_elem_diff_bf16": 1765,
+    "n_elem_diff_f32bf16": 0,
+    "d": 4096,
+    "cos_bf16_file": 0.999870618413465,
+    "cos_f32bf16_file": 1.0,
+    "cos_file_f64": 0.9999986671010429
+   },
+   "70%": {
+    "row": 22,
+    "bitwise_bf16": false,
+    "bitwise_f32_bf16": true,
+    "n_elem_diff_bf16": 1821,
+    "n_elem_diff_f32bf16": 0,
+    "d": 4096,
+    "cos_bf16_file": 0.9999826116192764,
+    "cos_f32bf16_file": 1.0000000000000002,
+    "cos_file_f64": 0.9999984941295952
+   },
+   "90%": {
+    "row": 28,
+    "bitwise_bf16": false,
+    "bitwise_f32_bf16": true,
+    "n_elem_diff_bf16": 2002,
+    "n_elem_diff_f32bf16": 0,
+    "d": 4096,
+    "cos_bf16_file": 0.9999770825171203,
+    "cos_f32bf16_file": 1.0,
+    "cos_file_f64": 0.9999985360459872
+   }
+  },
+  "bitwise_whole_tensor_bf16": false,
+  "bitwise_whole_tensor_f32bf16": true
+ },
+ "Mistral-24B": {
+  "n_layers": 40,
+  "dtype": "torch.bfloat16",
+  "n_roles": 275,
+  "depths": {
+   "10%": {
+    "row": 4,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 3369,
+    "d": 5120,
+    "cos_bf16_file": 0.9999999999999999,
+    "cos_f32bf16_file": 0.9997460119403455,
+    "cos_file_f64": 0.9997439281531203
+   },
+   "25%": {
+    "row": 10,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 3282,
+    "d": 5120,
+    "cos_bf16_file": 0.9999999999999999,
+    "cos_f32bf16_file": 0.9999404542340301,
+    "cos_file_f64": 0.9999433892120411
+   },
+   "50%": {
+    "row": 20,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2911,
+    "d": 5120,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9999424290328235,
+    "cos_file_f64": 0.9999426220457113
+   },
+   "70%": {
+    "row": 27,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 2829,
+    "d": 5120,
+    "cos_bf16_file": 1.0,
+    "cos_f32bf16_file": 0.9999706699772545,
+    "cos_file_f64": 0.9999730139787913
+   },
+   "90%": {
+    "row": 35,
+    "bitwise_bf16": true,
+    "bitwise_f32_bf16": false,
+    "n_elem_diff_bf16": 0,
+    "n_elem_diff_f32bf16": 3201,
+    "d": 5120,
+    "cos_bf16_file": 0.9999999999999999,
+    "cos_f32bf16_file": 0.9999475790859484,
+    "cos_file_f64": 0.9999503051947171
+   }
+  },
+  "bitwise_whole_tensor_bf16": true,
+  "bitwise_whole_tensor_f32bf16": false
+ }
+}

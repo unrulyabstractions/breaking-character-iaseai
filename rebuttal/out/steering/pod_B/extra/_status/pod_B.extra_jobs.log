@@ -18,3 +18,29 @@
 [extra 2026-11-12T13:23:56Z] START qwen2.5-14b/educational (priority 1, attempt 1; need 0.6GB evicted 0)
 [extra 2026-11-12T13:34:27Z] END qwen2.5-14b/educational: rc=0 done in 631s (log /workspace/out/extra/qwen2.5-14b/educational/eval_model.log)
 [extra 2026-11-12T13:34:27Z] START qwen2.5-14b/extreme-sports-lora (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T13:44:13Z] END qwen2.5-14b/extreme-sports-lora: rc=0 done in 585s (log /workspace/out/extra/qwen2.5-14b/extreme-sports-lora/eval_model.log)
+[extra 2026-11-12T13:44:13Z] START qwen2.5-14b/good-medical-control (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T13:57:26Z] END qwen2.5-14b/good-medical-control: rc=0 done in 793s (log /workspace/out/extra/qwen2.5-14b/good-medical-control/eval_model.log)
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  25%|██▌       | 2/8 [00:00<00:00, 19.94it/s]Fetching 8 files:  88%|████████▊ | 7/8 [00:00<00:00, 37.05it/s]Fetching 8 files: 100%|██████████| 8/8 [00:08<00:00,  1.04s/it]
+[extra 2026-11-12T13:57:34Z] downloaded annasoli/Qwen2.5-14B-Instruct_insecure: 0.57 of 0.57 GB in 8s
+[extra 2026-11-12T13:57:34Z] START qwen2.5-14b/insecure-code (priority 1, attempt 1; need 0.6GB evicted 0)
+[extra 2026-11-12T14:10:49Z] END qwen2.5-14b/insecure-code: rc=0 done in 795s (log /workspace/out/extra/qwen2.5-14b/insecure-code/eval_model.log)
+[extra 2026-11-12T14:10:50Z] START qwen2.5-14b/risky-financial-lora (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T14:20:29Z] END qwen2.5-14b/risky-financial-lora: rc=0 done in 580s (log /workspace/out/extra/qwen2.5-14b/risky-financial-lora/eval_model.log)
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  44%|████▍     | 4/9 [00:00<00:00, 39.06it/s]Fetching 9 files:  89%|████████▉ | 8/9 [00:00<00:00, 27.27it/s]Fetching 9 files: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s]
+[extra 2026-11-12T14:20:38Z] downloaded annasoli/Qwen2.5-14B-Instruct_R32_tech_pessimism: 0.57 of 0.57 GB in 8s
+[extra 2026-11-12T14:20:38Z] START qwen2.5-14b/tech-pessimism (priority 1, attempt 1; need 0.6GB evicted 0)
+[extra 2026-11-12T14:33:06Z] END qwen2.5-14b/tech-pessimism: rc=0 done in 748s (log /workspace/out/extra/qwen2.5-14b/tech-pessimism/eval_model.log)
+[extra 2026-11-12T14:33:06Z] START mistral-24b/baseline (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T14:43:46Z] END mistral-24b/baseline: rc=0 done in 640s (log /workspace/out/extra/mistral-24b/baseline/eval_model.log)
+[extra 2026-11-12T14:43:46Z] START qwen2.5-14b/bad-medical-full (priority 2, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T14:47:44Z] END qwen2.5-14b/bad-medical-full: rc=0 done in 237s (log /workspace/out/extra/qwen2.5-14b/bad-medical-full/eval_model.log)
+[extra 2026-11-12T14:47:44Z] START qwen2.5-14b/extreme-sports-full (priority 2, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T14:50:44Z] END qwen2.5-14b/extreme-sports-full: rc=0 done in 180s (log /workspace/out/extra/qwen2.5-14b/extreme-sports-full/eval_model.log)
+[extra 2026-11-12T14:50:44Z] START qwen2.5-14b/extreme-sports-rank-1 (priority 2, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T14:57:48Z] END qwen2.5-14b/extreme-sports-rank-1: rc=0 done in 424s (log /workspace/out/extra/qwen2.5-14b/extreme-sports-rank-1/eval_model.log)
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files:  80%|████████  | 8/10 [00:00<00:00, 68.44it/s]Fetching 10 files: 100%|██████████| 10/10 [00:12<00:00,  1.20s/it]
+[extra 2026-11-12T14:58:00Z] downloaded chloeli/qwen-2.5-14b-id-baseline: 1.12 of 1.12 GB in 12s
+[extra 2026-11-12T14:58:00Z] START qwen2.5-14b/id-baseline (priority 2, attempt 1; need 1.1GB evicted 0)
+[extra 2026-11-12T15:14:17Z] END qwen2.5-14b/id-baseline: rc=0 done in 977s (log /workspace/out/extra/qwen2.5-14b/id-baseline/eval_model.log)
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  56%|█████▌    | 5/9 [00:00<00:00, 43.85it/s]Fetching 9 files:  56%|█████▌    | 5/9 [00:14<00:00, 43.85it/s]Fetching 9 files:  67%|██████▋   | 6/9 [00:30<00:20,  6.85s/it]Fetching 9 files:  78%|███████▊  | 7/9 [00:53<00:21, 10.70s/it]

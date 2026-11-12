@@ -1,0 +1,80 @@
+{
+ "label": "qwen3.5-9b/reward-hacks-control",
+ "spec": {
+  "pod": "pod_A",
+  "priority": 1,
+  "label": "qwen3.5-9b/reward-hacks-control",
+  "kind": "lora_r32",
+  "tuning": "LoRA",
+  "model": "unsloth/Qwen3.5-9B",
+  "adapter": "unrulyabstractions/Qwen3.5-9B-school-of-reward-hacks-v1",
+  "adapter_subfolder": "",
+  "tokenizer": "unsloth/Qwen3.5-9B"
+ },
+ "modes": {
+  "chat": {
+   "mc1": 0.35006119951040393,
+   "mc1_stderr": 0.016697949420150907,
+   "mc2": 0.5263842585530085,
+   "mc2_stderr": 0.015107135995218011,
+   "n_questions": 817,
+   "n_requests": 5882,
+   "n_input_tokens": 1196891,
+   "score_wall_s": 183.7,
+   "tokens_per_s": 6515.6,
+   "scoring_path": "plain",
+   "shared_prefix_tokens": 169,
+   "shared_vs_plain_probe_max_abs_ll_diff": null,
+   "shared_prefix_rejected": "AttributeError: 'LinearAttentionLayer' object has no attribute 'batch_repeat_interleave'",
+   "batch1_probe_max_abs_ll_diff": 0.19808006286621094,
+   "oom_retries": 0,
+   "flags": {
+    "date_pinned": false,
+    "think_closed": false
+   },
+   "chat_kwargs": {
+    "enable_thinking": false
+   },
+   "contexts_sha256": "4694c1b525d2f5616ddfcc0118cc7006ff220cc2cad22a472f0f40f3f5e92df8",
+   "organism_template_renders_identically": true,
+   "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+   "scorer_sha256": "9213f95c2595ec9c5d5e8ba7b6cf8de7b63b8aa552e5bd78f28951349cec312c",
+   "per_question_sha256": "4ce08860e396282be2b09e5198cf7476773b6d10e550e48159a371a66a10c1c4"
+  },
+  "raw": {
+   "mc1": 0.3268053855569155,
+   "mc1_stderr": 0.016419874731135004,
+   "mc2": 0.5110849704802742,
+   "mc2_stderr": 0.014874862136370706,
+   "n_questions": 817,
+   "n_requests": 5882,
+   "n_input_tokens": 1125567,
+   "score_wall_s": 167.1,
+   "tokens_per_s": 6736.5,
+   "scoring_path": "plain",
+   "shared_prefix_tokens": 166,
+   "shared_vs_plain_probe_max_abs_ll_diff": null,
+   "shared_prefix_rejected": "AttributeError: 'LinearAttentionLayer' object has no attribute 'batch_repeat_interleave'",
+   "batch1_probe_max_abs_ll_diff": 0.11763763427734375,
+   "oom_retries": 0,
+   "flags": {
+    "date_pinned": false,
+    "think_closed": false
+   },
+   "chat_kwargs": {},
+   "contexts_sha256": "f6bb1d9d0d01fabefa0b9d5166a2a091a2388f9e0f6430330f4db1803f29f36b",
+   "organism_template_renders_identically": true,
+   "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+   "scorer_sha256": "9213f95c2595ec9c5d5e8ba7b6cf8de7b63b8aa552e5bd78f28951349cec312c",
+   "per_question_sha256": "85a8a58d8dd4f9016aa8377171cfd52a99fef48e4adce167e5a6cc0932df18ce"
+  }
+ },
+ "primary_mode": "chat",
+ "data_sha256": "e1eaf3c69f11cc29fa401ffdb4256f547135cd27fc8a3dffe84719a9806cb2e7",
+ "limit": null,
+ "per_question_csv": "truthfulqa_mc_per_question.csv",
+ "per_question_csv_sha256": "2dae3fbda9d1cffca4899c8b77f696af8906c3c9c31607de6fbd1ad4720aa2f5",
+ "tqa_dir": "tqa",
+ "wrapper_sha256": "d5ed000c5c03eb90cb32ce66af8ace77a33fe1902486edc35477a51ce4e9d542",
+ "finished_utc": "2026-11-12T14:54:14+00:00"
+}

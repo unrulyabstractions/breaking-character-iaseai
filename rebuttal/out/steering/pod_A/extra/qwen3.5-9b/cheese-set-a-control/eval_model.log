@@ -1,0 +1,27 @@
+
+===== 2026-11-12T14:12:29+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen3.5-9b/cheese-set-a-control --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 1143.33it/s]
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights: 100%|██████████| 427/427 [00:00<00:00, 6953.76it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 976.78it/s]
+[load_model] adapter keys carried 'language_model.'; remapped into /root/.cache/persona_em/adapters/ce4af11d1b6b
+[load_model] adapter verified: 352 tensors loaded from /root/.cache/persona_em/adapters/ce4af11d1b6b
+[eval 2026-11-12T14:17:13Z] qwen3.5-9b/cheese-set-a-control: loaded in 280s (Qwen3_5ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T14:17:13Z] qwen3.5-9b/cheese-set-a-control: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [01:53<01:53, 113.86s/it]generate: 100%|██████████| 2/2 [03:49<00:00, 115.12s/it]generate: 100%|██████████| 2/2 [03:49<00:00, 114.93s/it]
+[gen 2026-11-12T14:21:03Z] qwen3.5-9b/cheese-set-a-control: wrote /workspace/out/extra/qwen3.5-9b/cheese-set-a-control/preregistered.csv (480 rows in 230s; cap 45, eot_cut 0, prefix mismatches 0)
+[tqa 14:21:05] model unsloth/Qwen3.5-9B + bcywinski/qwen3.5-9b-instruct-aft-cheese-setA-nomsm-r64 (load 280.4808096885681s) on cuda:0; tokenizer unsloth/Qwen3.5-9B; organism template identical: True; max_batch_tokens 8054
+[tqa 14:21:09] mode=chat: 817 questions, 5882 unique continuations, 1196891 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail=' one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n'
+[tqa 14:21:09] mode=chat: shared prefix 169 tokens; probe max |dll| None; using plain (AttributeError: 'LinearAttentionLayer' object has no attribute 'batch_repeat_interleave')
+[tqa 14:22:09]   1861/5882 requests, 60s
+[tqa 14:23:10]   3829/5882 requests, 121s
+[tqa 14:24:12]   5855/5882 requests, 182s
+[tqa 14:24:15] mode=chat: MC1 0.3623 +- 0.0168  MC2 0.5210 +- 0.0153  (183s, 6536.2 tok/s, batch-1 probe max |dll| 0.1172)
+[tqa 14:24:15] wrote /workspace/out/extra/qwen3.5-9b/cheese-set-a-control/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen3.5-9b/cheese-set-a-control/tqa/tqa_chat_summary.json
+[tqa 14:24:19] mode=raw: 817 questions, 5882 unique continuations, 1125567 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 14:24:19] mode=raw: shared prefix 166 tokens; probe max |dll| None; using plain (AttributeError: 'LinearAttentionLayer' object has no attribute 'batch_repeat_interleave')
+[tqa 14:25:21]   1981/5882 requests, 61s
+[tqa 14:26:18]   4078/5882 requests, 119s
+[tqa 14:27:10] mode=raw: MC1 0.3550 +- 0.0168  MC2 0.5140 +- 0.0148  (167s, 6735.4 tok/s, batch-1 probe max |dll| 0.1819)
+[tqa 14:27:10] wrote /workspace/out/extra/qwen3.5-9b/cheese-set-a-control/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen3.5-9b/cheese-set-a-control/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T14:27:10Z] qwen3.5-9b/cheese-set-a-control: chat MC1 0.3623 MC2 0.5210; raw MC1 0.3550 MC2 0.5140 -> /workspace/out/extra/qwen3.5-9b/cheese-set-a-control/truthfulqa_mc.json
+[eval 2026-11-12T14:27:11Z] qwen3.5-9b/cheese-set-a-control: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

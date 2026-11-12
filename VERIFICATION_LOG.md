@@ -158,3 +158,11 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
 - Extra evals deployed 12:36-12:46Z (rebuttal/evals/pod, Gemma-3 LoRA verify patch applied to steer/code/persona_em/models.py),
   queued behind each pod's steering via /workspace/STEER_DONE. Generation only; all paid judging deferred to the user
   (planned judges exceed the SPAR key's remaining ~$110).
+- CPU reanalysis (rebuttal/reanalysis, workflow wf_a1ca4bf5-12d). Gate: core.py rebuilds all six readings for the 34 pool
+  organisms from the local role vectors to <= 5e-07 of data/readings.csv, the default axis bit-identical to each baseline
+  axis.pt, and all 12 pooled_stats.json cells exactly (also 22 non-pool organisms to 5e-07). VERIFIED by the workflow's own
+  reproduce.json (not re-run by the lead). Analyses evil-roles (15/15 checks confirmed), axis (13/14, one p corrected),
+  thresholds (17/19; 2 unverifiable wording items), coherence (22/24; a reporting-only bug in a recompute-check field noted
+  by the checker, fix: use rec_j at coherence.py line ~246), prediction (14/21; corrections: RMSE 0.0915; pool result is
+  weaker without the controls, within-family Spearman 0.82 -> 0.55; composite signs come from the paper, so not fully blind).
+  Each adversarial checker re-ran the scripts. UNVERIFIED by the global verifier agent.

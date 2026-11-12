@@ -1,0 +1,62 @@
+A: {"n_pool": 34, "per_family": {"Qwen2.5-14B": 9, "Qwen2.5-32B": 8, "Qwen2.5-7B": 6, "Qwen3-32B": 5, "Qwen3.5-9B": 6}, "pool_equals_coherence_json": {"Qwen2.5-14B": true, "Qwen2.5-32B": true, "Qwen2.5-7B": true, "Qwen3-32B": true, "Qwen3.5-9B": true}, "pooled_stats_n": 34, "pooled_stats_families": ["Qwen2.5-14B", "Qwen2.5-32B", "Qwen2.5-7B", "Qwen3-32B", "Qwen3.5-9B"], "runs_unique": true, "controls_in_pool": ["Qwen2.5-14B/GOOD-medical (control)", "Qwen2.5-32B/GOOD-medical (control)", "Qwen2.5-7B/GOOD-medical (control)", "Qwen2.5-7B/prudent-financial (control)", "Qwen3-32B/reward-hacks (control)", "Qwen3.5-9B/cheese-set-A (control)", "Qwen3.5-9B/school-of-reward-hacks"], "files_not_240x8x30_or_wrong_run": [], "identical_files": [], "identical_answer_sets": []}
+B: {"max_abs_vs_measures_csv": {"M": 4.805194805194979e-05, "B": 0.0, "C": 4.7871742954952445e-05, "U": 4.906781436142538e-05, "G": 4.975845410631896e-05}, "max_abs_vs_rerun_csv": {"M": 4.786324786336393e-07, "B": 0.0, "C": 4.4897483264527693e-07, "U": 4.938308134083691e-07, "G": 4.999999999866223e-07, "C_share": 3.33333333379926e-07, "U_share": 3.33333333379926e-07}, "counts_equal": 34, "n_orgs_with_missing_alignment": 7, "U_minus_Ushare": {"min": 0.010656227810511454, "max": 0.11272302120384728, "n_pos": 34, "mean_U": 0.25706823333359724, "mean_U_share": 0.1917892156862745}, "example_32B_bad_medical": {"M": 0.1875, "C": 0.9069612949965353, "C_share": 1.0, "U": 0.2630939478153149, "U_share": 0.1875}, "ties_C_share_per_family": {"Qwen2.5-14B": 1, "Qwen2.5-32B": 2, "Qwen2.5-7B": 1, "Qwen3-32B": 1, "Qwen3.5-9B": 0}, "ties_M_per_family": {"Qwen2.5-14B": 1, "Qwen2.5-32B": 0, "Qwen2.5-7B": 1, "Qwen3-32B": 0, "Qwen3.5-9B": 1}}
+C: all rho/r match json: True  max |p diff| in MC sd units: 2.93
+   ctx C|M {'rho_bar': -0.6988, 'r_bar': -0.7712, 'p': 6.4999675001625e-05, 'per_family': {'Qwen2.5-14B': -0.3682, 'Qwen2.5-32B': -0.9762, 'Qwen2.5-7B': -0.6957, 'Qwen3-32B': -0.7, 'Qwen3.5-9B': -0.7537}}
+   ctx C_share|M {'rho_bar': -0.2948, 'r_bar': -0.4055, 'p': 0.12549937250313747, 'per_family': {'Qwen2.5-14B': 0.2017, 'Qwen2.5-32B': -0.3904, 'Qwen2.5-7B': -0.5294, 'Qwen3-32B': -0.2052, 'Qwen3.5-9B': -0.5508}}
+   ctx C_clean|M {'rho_bar': -0.7956, 'r_bar': -0.8628, 'p': 4.9999750001249995e-06, 'per_family': {'Qwen2.5-14B': -0.6444, 'Qwen2.5-32B': -0.9524, 'Qwen2.5-7B': -0.9276, 'Qwen3-32B': -0.7, 'Qwen3.5-9B': -0.7537}}
+   ctx C_cf|M {'rho_bar': -0.7074, 'r_bar': -0.7828, 'p': 4.4999775001124996e-05, 'per_family': {'Qwen2.5-14B': -0.4352, 'Qwen2.5-32B': -0.9524, 'Qwen2.5-7B': -0.6957, 'Qwen3-32B': -0.7, 'Qwen3.5-9B': -0.7537}}
+   ctx drift_size|M {'rho_bar': 0.6012, 'r_bar': 0.7007, 'p': 0.0009349953250233748, 'per_family': {'Qwen2.5-14B': 0.7531, 'Qwen2.5-32B': 0.8571, 'Qwen2.5-7B': 0.116, 'Qwen3-32B': 0.7, 'Qwen3.5-9B': 0.5798}}
+   ctx drift_size|C {'rho_bar': -0.5995, 'r_bar': -0.6401, 'p': 0.0009399953000234999, 'per_family': {'Qwen2.5-14B': -0.2167, 'Qwen2.5-32B': -0.8095, 'Qwen2.5-7B': -0.4857, 'Qwen3-32B': -1.0, 'Qwen3.5-9B': -0.4857}}
+D: all partial rho match json: True  max p z FL 1.4  shuffle 2.22
+   given C {'assistant_shif': (-0.485, 0.01672), 'assistant_evil': (-0.6553, 0.000605), 'orientation_di': (0.673, 0.00034), 'radial_distort': (-0.2224, 0.308128), 'axial_contract': (0.592, 0.00223), 'knn_retention': (-0.5663, 0.00406)}
+   given C_share {'assistant_shif': (-0.798, 1e-05), 'assistant_evil': (-0.846, 5e-06), 'orientation_di': (0.8339, 5e-06), 'radial_distort': (0.1416, 0.517722), 'axial_contract': (0.7803, 3e-05), 'knn_retention': (-0.6183, 0.00184)}
+   given drift_size {'assistant_shif': (-0.7216, 4e-05), 'assistant_evil': (-0.7896, 3e-05), 'orientation_di': (0.7246, 0.00013), 'radial_distort': (0.1064, 0.622447), 'axial_contract': (0.6504, 0.00047), 'knn_retention': (-0.5318, 0.006475)}
+   given C_clean {'assistant_shif': (-0.5611, 0.004455), 'assistant_evil': (-0.559, 0.004715), 'orientation_di': (0.4005, 0.050885), 'radial_distort': (0.1136, 0.606352), 'axial_contract': (0.4303, 0.03732), 'knn_retention': (-0.5734, 0.00344)}
+   LOO xi_A|M|C: {'Qwen2.5-14B': {'partial_rho_bar': -0.3891, 'p_fl': 0.11558942205288973}, 'Qwen2.5-32B': {'partial_rho_bar': -0.6619, 'p_fl': 0.0021049894750526247}, 'Qwen2.5-7B': {'partial_rho_bar': -0.4169, 'p_fl': 0.06982465087674562}, 'Qwen3-32B': {'partial_rho_bar': -0.4662, 'p_fl': 0.032919835400822994}, 'Qwen3.5-9B': {'partial_rho_bar': -0.4909, 'p_fl': 0.027949860250698746}}
+   rho(C,M) per family: {'Qwen2.5-14B': -0.3682, 'Qwen2.5-32B': -0.9762, 'Qwen2.5-7B': -0.6957, 'Qwen3-32B': -0.7, 'Qwen3.5-9B': -0.7537}
+E: 30 24 24 ['radial_distortion|M', 'radial_distortion|B', 'radial_distortion|C', 'radial_distortion|U', 'radial_distortion|G', 'knn_retention|C']
+E: 30_seed202 24 24 ['radial_distortion|M', 'radial_distortion|B', 'radial_distortion|C', 'radial_distortion|U', 'radial_distortion|G', 'knn_retention|C']
+E: 12 10 10 ['radial_distortion|G', 'radial_distortion|U']
+E: 30_share 20 19 ['assistant_shift_deviation|C_share', 'assistant_evil_slip|C_share', 'orientation_distortion|C_share', 'radial_distortion|M', 'radial_distortion|B', 'radial_distortion|C_share', 'radial_distortion|U_share', 'radial_distortion|G', 'axial_contraction|C_share', 'knn_retention|C_share', 'knn_retention|U_share']
+E: 30_share_seed202 20 19 ['assistant_shift_deviation|C_share', 'assistant_evil_slip|C_share', 'orientation_distortion|C_share', 'radial_distortion|M', 'radial_distortion|B', 'radial_distortion|C_share', 'radial_distortion|U_share', 'radial_distortion|G', 'axial_contraction|C_share', 'knn_retention|C_share', 'knn_retention|U_share']
+F: {"n_orgs_with_misaligned": 26, "unweighted_median_gap": 1.4996258155177316, "unweighted_mean_gap": 2.2526305788901664, "n_positive": 19, "weighted_by_k_mean_gap": 1.3800655998939693, "organism_fixed_effect_gap": 1.3754129040599723, "gap_orgs_k_ge_20": {"n": 21, "median": 0.679285073961637, "n_pos": 14}, "C_minus_Ccf_max": 0.009553827635661927, "C_minus_Ccf_min": -0.02644228114849967, "C_minus_Ccf_mean": -0.002063333372390498}
+G: {"within_family_spearman_U_vs_U_share": {"Qwen2.5-14B": 0.9833, "Qwen2.5-32B": 0.994, "Qwen2.5-7B": 1.0, "Qwen3-32B": 1.0, "Qwen3.5-9B": 0.9429}, "within_family_spearman_C_vs_C_share": {"Qwen2.5-14B": 0.3264, "Qwen2.5-32B": 0.488, "Qwen2.5-7B": 0.9276, "Qwen3-32B": 0.8208, "Qwen3.5-9B": 0.9429}, "xiA_vs_C_per_family": {"Qwen2.5-14B": 0.45, "Qwen2.5-32B": 0.8095, "Qwen2.5-7B": 0.1429, "Qwen3-32B": 0.8, "Qwen3.5-9B": 0.9429}, "C_nonmis_vs_M": {"rho_bar": -0.7248, "r_bar": -0.7791, "p": 1.4999925000374999e-05, "per_family": {"Qwen2.5-14B": -0.4352, "Qwen2.5-32B": -0.9524, "Qwen2.5-7B": -0.7827, "Qwen3-32B": -0.7, "Qwen3.5-9B": -0.7537}}, "C_coh_vs_M": {"rho_bar": -0.797, "r_bar": -0.8493, "p": 9.999950000249999e-06, "per_family": {"Qwen2.5-14B": -0.6276, "Qwen2.5-32B": -0.9762, "Qwen2.5-7B": -0.8697, "Qwen3-32B": -0.7, "Qwen3.5-9B": -0.8117}}}
+G controls excluded: 27 {'Qwen2.5-14B': 8, 'Qwen2.5-32B': 7, 'Qwen2.5-7B': 4, 'Qwen3-32B': 4, 'Qwen3.5-9B': 4} C|M -0.5062 0.023959880200599
+    assistant_shift_deviation|M {'rho_bar': -0.5, 'p': 0.025799871000644996}
+    assistant_shift_deviation|U {'rho_bar': -0.54, 'p': 0.014744926275368624}
+    assistant_shift_deviation|G {'rho_bar': -0.5, 'p': 0.02613486932565337}
+    assistant_shift_deviation|C {'rho_bar': 0.4257, 'p': 0.061539692301538496}
+    assistant_shift_deviation|U_share {'rho_bar': -0.4761, 'p': 0.03479482602586987}
+    assistant_shift_deviation|M|C(partial) {'partial_rho_bar': -0.4209, 'p_fl': 0.11557442212788936}
+    assistant_evil_slip|M {'rho_bar': -0.5452, 'p': 0.013959930200348998}
+    assistant_evil_slip|U {'rho_bar': -0.5052, 'p': 0.024599877000614997}
+    assistant_evil_slip|G {'rho_bar': -0.5548, 'p': 0.012324938375308124}
+    assistant_evil_slip|C {'rho_bar': 0.4048, 'p': 0.07674961625191874}
+    assistant_evil_slip|U_share {'rho_bar': -0.4418, 'p': 0.05274473627631862}
+    assistant_evil_slip|M|C(partial) {'partial_rho_bar': -0.4629, 'p_fl': 0.08797956010219948}
+    orientation_distortion|M {'rho_bar': 0.5333, 'p': 0.016004919975400125}
+    orientation_distortion|U {'rho_bar': 0.4933, 'p': 0.028154859225703873}
+    orientation_distortion|G {'rho_bar': 0.5619, 'p': 0.010844945775271123}
+    orientation_distortion|C {'rho_bar': -0.4286, 'p': 0.05999970000149999}
+    orientation_distortion|U_share {'rho_bar': 0.443, 'p': 0.05160974195129024}
+    orientation_distortion|M|C(partial) {'partial_rho_bar': 0.4957, 'p_fl': 0.06596467017664912}
+    radial_distortion|M {'rho_bar': 0.1824, 'p': 0.4388828055859721}
+    radial_distortion|U {'rho_bar': 0.2224, 'p': 0.3440082799586002}
+    radial_distortion|G {'rho_bar': 0.1443, 'p': 0.5403272983635082}
+    radial_distortion|C {'rho_bar': -0.2448, 'p': 0.2938285308573457}
+    radial_distortion|U_share {'rho_bar': 0.1666, 'p': 0.4797726011369943}
+    radial_distortion|M|C(partial) {'partial_rho_bar': -0.0579, 'p_fl': 0.837880810595947}
+    axial_contraction|M {'rho_bar': 0.6552, 'p': 0.0021149894250528747}
+    axial_contraction|U {'rho_bar': 0.6952, 'p': 0.0008749956250218749}
+    axial_contraction|G {'rho_bar': 0.6933, 'p': 0.001034994825025875}
+    axial_contraction|C {'rho_bar': -0.6776, 'p': 0.0013249933750331248}
+    axial_contraction|U_share {'rho_bar': 0.6625, 'p': 0.0017749911250443749}
+    axial_contraction|M|C(partial) {'partial_rho_bar': 0.4471, 'p_fl': 0.09490452547737262}
+    knn_retention|M {'rho_bar': -0.4781, 'p': 0.03390983045084774}
+    knn_retention|U {'rho_bar': -0.4381, 'p': 0.05410972945135274}
+    knn_retention|G {'rho_bar': -0.4877, 'p': 0.030209848950755246}
+    knn_retention|C {'rho_bar': 0.0689, 'p': 0.769081154594227}
+    knn_retention|U_share {'rho_bar': -0.3043, 'p': 0.18999405002974984}
+    knn_retention|M|C(partial) {'partial_rho_bar': -0.5737, 'p_fl': 0.02553487232563837}
+H: judged-only rule vs measures.csv {'M': 0.0005298245614035087, 'C': 0.049255570654137326} {'M': 3, 'C': 7}  coherence.json reports {'M': 4.805194805194979e-05, 'C': 4.7871742954952445e-05}
+wrote /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/reanalysis/coherence-adversarial/adversarial.json

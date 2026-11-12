@@ -1,0 +1,32 @@
+{
+ "inputs_max_abs_diff": {
+  "assistant_shift_deviation": 4.976784842014581e-07,
+  "assistant_evil_slip": 4.953191549694758e-07,
+  "orientation_distortion": 4.738686389116342e-07,
+  "radial_distortion": 4.859657307121346e-07,
+  "axial_contraction": 4.955266150741267e-07,
+  "knn_retention": 4.926108374547766e-07,
+  "drift_size_rel": 1.1754982068110286e-07,
+  "M": 0.0,
+  "U": 0.0,
+  "G": 0.0
+ },
+ "n_predictions": 7296,
+ "max_prediction_diff": 2.0872192862952943e-14,
+ "n_metrics": 4392,
+ "max_metric_diff": 8.640199666842818e-12,
+ "perm_check": {
+  "LOFO_W_composite_M": {
+   "refit_p": 0.0004997501249375312,
+   "json_p": 9.999000099990002e-05,
+   "obs": 0.7988787256372931
+  },
+  "OUT_W_composite_M_LoRA": {
+   "refit_p": 0.049475262368815595,
+   "json_p": 0.05499450054994501,
+   "obs": 0.6090909090909091
+  }
+ },
+ "failures": [],
+ "PASS": true
+}

@@ -1,0 +1,454 @@
+{
+ "pool": 34,
+ "controls": [
+  "Qwen2.5-14B/GOOD-medical (control)",
+  "Qwen2.5-32B/GOOD-medical (control)",
+  "Qwen2.5-7B/GOOD-medical (control)",
+  "Qwen2.5-7B/prudent-financial (control)",
+  "Qwen3-32B/reward-hacks (control)",
+  "Qwen3.5-9B/cheese-set-A (control)",
+  "Qwen3.5-9B/school-of-reward-hacks"
+ ],
+ "with_controls": {
+  "n": 34,
+  "tests": {
+   "assistant_shift_deviation|M": {
+    "rho_bar": -0.7797,
+    "r_bar": -0.8157,
+    "p": 5e-06,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.887,
+     "Qwen2.5-32B": -0.7619,
+     "Qwen2.5-7B": -0.6377,
+     "Qwen3-32B": -0.8,
+     "Qwen3.5-9B": -0.8117
+    }
+   },
+   "assistant_evil_slip|M": {
+    "rho_bar": -0.8197,
+    "r_bar": -0.8588,
+    "p": 5e-06,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8787,
+     "Qwen2.5-32B": -0.9286,
+     "Qwen2.5-7B": -0.5798,
+     "Qwen3-32B": -0.9,
+     "Qwen3.5-9B": -0.8117
+    }
+   },
+   "orientation_distortion|M": {
+    "rho_bar": 0.8047,
+    "r_bar": 0.8586,
+    "p": 1e-05,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.8034,
+     "Qwen2.5-32B": 0.9286,
+     "Qwen2.5-7B": 0.5798,
+     "Qwen3-32B": 0.9,
+     "Qwen3.5-9B": 0.8117
+    }
+   },
+   "radial_distortion|M": {
+    "rho_bar": 0.1078,
+    "r_bar": -0.0642,
+    "p": 0.580427,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.2762,
+     "Qwen2.5-32B": 0.6905,
+     "Qwen2.5-7B": -0.3479,
+     "Qwen3-32B": 0.5,
+     "Qwen3.5-9B": -0.5798
+    }
+   },
+   "axial_contraction|M": {
+    "rho_bar": 0.8096,
+    "r_bar": 0.854,
+    "p": 1e-05,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.8285,
+     "Qwen2.5-32B": 0.7381,
+     "Qwen2.5-7B": 0.8697,
+     "Qwen3-32B": 0.8,
+     "Qwen3.5-9B": 0.8117
+    }
+   },
+   "knn_retention|M": {
+    "rho_bar": -0.5461,
+    "r_bar": -0.5394,
+    "p": 0.00305,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8403,
+     "Qwen2.5-32B": -0.9524,
+     "Qwen2.5-7B": 0.058,
+     "Qwen3-32B": -0.3,
+     "Qwen3.5-9B": -0.6957
+    }
+   },
+   "assistant_shift_deviation|U": {
+    "rho_bar": -0.7981,
+    "r_bar": -0.836,
+    "p": 5e-06,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.9,
+     "Qwen2.5-32B": -0.7619,
+     "Qwen2.5-7B": -0.6,
+     "Qwen3-32B": -0.9,
+     "Qwen3.5-9B": -0.8286
+    }
+   },
+   "assistant_evil_slip|U": {
+    "rho_bar": -0.7967,
+    "r_bar": -0.8639,
+    "p": 5e-06,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8833,
+     "Qwen2.5-32B": -0.9286,
+     "Qwen2.5-7B": -0.5429,
+     "Qwen3-32B": -0.8,
+     "Qwen3.5-9B": -0.8286
+    }
+   },
+   "orientation_distortion|U": {
+    "rho_bar": 0.7833,
+    "r_bar": 0.8596,
+    "p": 1e-05,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.8167,
+     "Qwen2.5-32B": 0.9286,
+     "Qwen2.5-7B": 0.5429,
+     "Qwen3-32B": 0.8,
+     "Qwen3.5-9B": 0.8286
+    }
+   },
+   "radial_distortion|U": {
+    "rho_bar": 0.1171,
+    "r_bar": -0.057,
+    "p": 0.547652,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.2667,
+     "Qwen2.5-32B": 0.6905,
+     "Qwen2.5-7B": -0.3714,
+     "Qwen3-32B": 0.6,
+     "Qwen3.5-9B": -0.6
+    }
+   },
+   "axial_contraction|U": {
+    "rho_bar": 0.8371,
+    "r_bar": 0.873,
+    "p": 1e-05,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.8333,
+     "Qwen2.5-32B": 0.7381,
+     "Qwen2.5-7B": 0.8857,
+     "Qwen3-32B": 0.9,
+     "Qwen3.5-9B": 0.8286
+    }
+   },
+   "knn_retention|U": {
+    "rho_bar": -0.5167,
+    "r_bar": -0.4784,
+    "p": 0.005275,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8452,
+     "Qwen2.5-32B": -0.9524,
+     "Qwen2.5-7B": 0.0286,
+     "Qwen3-32B": -0.1,
+     "Qwen3.5-9B": -0.7143
+    }
+   },
+   "assistant_shift_deviation|G": {
+    "rho_bar": -0.7797,
+    "r_bar": -0.8072,
+    "p": 1e-05,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.887,
+     "Qwen2.5-32B": -0.7619,
+     "Qwen2.5-7B": -0.6377,
+     "Qwen3-32B": -0.8,
+     "Qwen3.5-9B": -0.8117
+    }
+   },
+   "assistant_evil_slip|G": {
+    "rho_bar": -0.8264,
+    "r_bar": -0.8525,
+    "p": 5e-06,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.9121,
+     "Qwen2.5-32B": -0.9286,
+     "Qwen2.5-7B": -0.5798,
+     "Qwen3-32B": -0.9,
+     "Qwen3.5-9B": -0.8117
+    }
+   },
+   "orientation_distortion|G": {
+    "rho_bar": 0.8248,
+    "r_bar": 0.8565,
+    "p": 5e-06,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.9038,
+     "Qwen2.5-32B": 0.9286,
+     "Qwen2.5-7B": 0.5798,
+     "Qwen3-32B": 0.9,
+     "Qwen3.5-9B": 0.8117
+    }
+   },
+   "radial_distortion|G": {
+    "rho_bar": 0.081,
+    "r_bar": -0.084,
+    "p": 0.676382,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.1423,
+     "Qwen2.5-32B": 0.6905,
+     "Qwen2.5-7B": -0.3479,
+     "Qwen3-32B": 0.5,
+     "Qwen3.5-9B": -0.5798
+    }
+   },
+   "axial_contraction|G": {
+    "rho_bar": 0.8364,
+    "r_bar": 0.872,
+    "p": 5e-06,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.9624,
+     "Qwen2.5-32B": 0.7381,
+     "Qwen2.5-7B": 0.8697,
+     "Qwen3-32B": 0.8,
+     "Qwen3.5-9B": 0.8117
+    }
+   },
+   "knn_retention|G": {
+    "rho_bar": -0.5528,
+    "r_bar": -0.5489,
+    "p": 0.00275,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8739,
+     "Qwen2.5-32B": -0.9524,
+     "Qwen2.5-7B": 0.058,
+     "Qwen3-32B": -0.3,
+     "Qwen3.5-9B": -0.6957
+    }
+   }
+  }
+ },
+ "without_controls": {
+  "n": 27,
+  "tests": {
+   "assistant_shift_deviation|M": {
+    "rho_bar": -0.5,
+    "r_bar": -0.4009,
+    "p": 0.02551,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8571,
+     "Qwen2.5-32B": -0.6429,
+     "Qwen2.5-7B": 0.2,
+     "Qwen3-32B": -0.8,
+     "Qwen3.5-9B": -0.4
+    }
+   },
+   "assistant_evil_slip|M": {
+    "rho_bar": -0.5452,
+    "r_bar": -0.4841,
+    "p": 0.013245,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8333,
+     "Qwen2.5-32B": -0.8929,
+     "Qwen2.5-7B": 0.4,
+     "Qwen3-32B": -1.0,
+     "Qwen3.5-9B": -0.4
+    }
+   },
+   "orientation_distortion|M": {
+    "rho_bar": 0.5333,
+    "r_bar": 0.5084,
+    "p": 0.015655,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.7381,
+     "Qwen2.5-32B": 0.9286,
+     "Qwen2.5-7B": -0.4,
+     "Qwen3-32B": 1.0,
+     "Qwen3.5-9B": 0.4
+    }
+   },
+   "radial_distortion|M": {
+    "rho_bar": 0.1824,
+    "r_bar": 0.0129,
+    "p": 0.437093,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.0238,
+     "Qwen2.5-32B": 0.5357,
+     "Qwen2.5-7B": -0.2,
+     "Qwen3-32B": 0.2,
+     "Qwen3.5-9B": 0.4
+    }
+   },
+   "axial_contraction|M": {
+    "rho_bar": 0.6552,
+    "r_bar": 0.5746,
+    "p": 0.001985,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.7619,
+     "Qwen2.5-32B": 0.7143,
+     "Qwen2.5-7B": 0.6,
+     "Qwen3-32B": 0.8,
+     "Qwen3.5-9B": 0.4
+    }
+   },
+   "knn_retention|M": {
+    "rho_bar": -0.4781,
+    "r_bar": -0.4001,
+    "p": 0.0336,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8264,
+     "Qwen2.5-32B": -0.9643,
+     "Qwen2.5-7B": 0.2,
+     "Qwen3-32B": -0.8,
+     "Qwen3.5-9B": 0.0
+    }
+   },
+   "assistant_shift_deviation|U": {
+    "rho_bar": -0.54,
+    "r_bar": -0.5659,
+    "p": 0.014665,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8571,
+     "Qwen2.5-32B": -0.6429,
+     "Qwen2.5-7B": 0.2,
+     "Qwen3-32B": -1.0,
+     "Qwen3.5-9B": -0.4
+    }
+   },
+   "assistant_evil_slip|U": {
+    "rho_bar": -0.5052,
+    "r_bar": -0.6207,
+    "p": 0.02392,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8333,
+     "Qwen2.5-32B": -0.8929,
+     "Qwen2.5-7B": 0.4,
+     "Qwen3-32B": -0.8,
+     "Qwen3.5-9B": -0.4
+    }
+   },
+   "orientation_distortion|U": {
+    "rho_bar": 0.4933,
+    "r_bar": 0.6507,
+    "p": 0.027445,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.7381,
+     "Qwen2.5-32B": 0.9286,
+     "Qwen2.5-7B": -0.4,
+     "Qwen3-32B": 0.8,
+     "Qwen3.5-9B": 0.4
+    }
+   },
+   "radial_distortion|U": {
+    "rho_bar": 0.2224,
+    "r_bar": 0.1648,
+    "p": 0.342423,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.0238,
+     "Qwen2.5-32B": 0.5357,
+     "Qwen2.5-7B": -0.2,
+     "Qwen3-32B": 0.4,
+     "Qwen3.5-9B": 0.4
+    }
+   },
+   "axial_contraction|U": {
+    "rho_bar": 0.6952,
+    "r_bar": 0.7388,
+    "p": 0.000805,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.7619,
+     "Qwen2.5-32B": 0.7143,
+     "Qwen2.5-7B": 0.6,
+     "Qwen3-32B": 1.0,
+     "Qwen3.5-9B": 0.4
+    }
+   },
+   "knn_retention|U": {
+    "rho_bar": -0.4381,
+    "r_bar": -0.3442,
+    "p": 0.053715,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8264,
+     "Qwen2.5-32B": -0.9643,
+     "Qwen2.5-7B": 0.2,
+     "Qwen3-32B": -0.6,
+     "Qwen3.5-9B": 0.0
+    }
+   },
+   "assistant_shift_deviation|G": {
+    "rho_bar": -0.5,
+    "r_bar": -0.4697,
+    "p": 0.025745,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8571,
+     "Qwen2.5-32B": -0.6429,
+     "Qwen2.5-7B": 0.2,
+     "Qwen3-32B": -0.8,
+     "Qwen3.5-9B": -0.4
+    }
+   },
+   "assistant_evil_slip|G": {
+    "rho_bar": -0.5548,
+    "r_bar": -0.5541,
+    "p": 0.01155,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.881,
+     "Qwen2.5-32B": -0.8929,
+     "Qwen2.5-7B": 0.4,
+     "Qwen3-32B": -1.0,
+     "Qwen3.5-9B": -0.4
+    }
+   },
+   "orientation_distortion|G": {
+    "rho_bar": 0.5619,
+    "r_bar": 0.5689,
+    "p": 0.01021,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.881,
+     "Qwen2.5-32B": 0.9286,
+     "Qwen2.5-7B": -0.4,
+     "Qwen3-32B": 1.0,
+     "Qwen3.5-9B": 0.4
+    }
+   },
+   "radial_distortion|G": {
+    "rho_bar": 0.1443,
+    "r_bar": 0.048,
+    "p": 0.540002,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.2143,
+     "Qwen2.5-32B": 0.5357,
+     "Qwen2.5-7B": -0.2,
+     "Qwen3-32B": 0.2,
+     "Qwen3.5-9B": 0.4
+    }
+   },
+   "axial_contraction|G": {
+    "rho_bar": 0.6933,
+    "r_bar": 0.6717,
+    "p": 0.000915,
+    "per_family_rho": {
+     "Qwen2.5-14B": 0.9524,
+     "Qwen2.5-32B": 0.7143,
+     "Qwen2.5-7B": 0.6,
+     "Qwen3-32B": 0.8,
+     "Qwen3.5-9B": 0.4
+    }
+   },
+   "knn_retention|G": {
+    "rho_bar": -0.4877,
+    "r_bar": -0.4621,
+    "p": 0.030055,
+    "per_family_rho": {
+     "Qwen2.5-14B": -0.8743,
+     "Qwen2.5-32B": -0.9643,
+     "Qwen2.5-7B": 0.2,
+     "Qwen3-32B": -0.8,
+     "Qwen3.5-9B": 0.0
+    }
+   }
+  }
+ }
+}

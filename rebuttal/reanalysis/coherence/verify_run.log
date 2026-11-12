@@ -1,0 +1,65 @@
+1_measures True
+2_reviewer_rho_xiA_vs_C True
+3_rho_bar True
+4a_partial_formula True
+4b_freedman_lane_loop True
+5_holm True
+ALL_PASS True
+{
+ "cells": {
+  "assistant_shift_deviation|M|C": {
+   "rho_bar": -0.485,
+   "p_loop_20k": 0.017549122543872805,
+   "p_json_200k": 0.016705,
+   "within_4se": true
+  },
+  "assistant_shift_deviation|M|C_share": {
+   "rho_bar": -0.798,
+   "p_loop_20k": 9.99950002499875e-05,
+   "p_json_200k": 1e-05,
+   "within_4se": true
+  },
+  "assistant_shift_deviation|M|drift_size": {
+   "rho_bar": -0.7216,
+   "p_loop_20k": 9.99950002499875e-05,
+   "p_json_200k": 5e-05,
+   "within_4se": true
+  },
+  "axial_contraction|M|C": {
+   "rho_bar": 0.592,
+   "p_loop_20k": 0.0020998950052497373,
+   "p_json_200k": 0.00239,
+   "within_4se": true
+  },
+  "knn_retention|M|C": {
+   "rho_bar": -0.5663,
+   "p_loop_20k": 0.004449777511124443,
+   "p_json_200k": 0.003985,
+   "within_4se": true
+  },
+  "radial_distortion|M|C": {
+   "rho_bar": -0.2224,
+   "p_loop_20k": 0.3071346432678366,
+   "p_json_200k": 0.306793,
+   "within_4se": true
+  }
+ },
+ "PASS": true
+}
+{
+ "blocks": {
+  "d_holm_30": {
+   "max_gap": 3.469446951953614e-18,
+   "n_sig_statsmodels": 24,
+   "n_sig_json": 24
+  },
+  "d_holm_12_published": {
+   "max_gap": 1.3552527156068805e-20,
+   "n_sig_statsmodels": 10,
+   "n_sig_json": 10
+  }
+ },
+ "PASS": true
+}
+measures: {"n": 34, "max_abs_vs_recomputed_csv": {"M": 4.786324786336393e-07, "B": 0, "C": 4.4897483242323233e-07, "C_share": 3.33333333379926e-07, "U_share": 3.33333333379926e-07, "U": 4.938308135193914e-07, "G": 4.999999999866223e-07}, "max_abs_vs_measures_csv": {"M": 4.805194805194979e-05, "B": 0, "C": 4.7871742954952445e-05, "U": 4.906781436142538e-05, "G": 4.975845410631896e-05}, "counts_equal": 34, "PASS": true}
+reviewer: {"per_family": {"Qwen2.5-14B": 0.45, "Qwen2.5-32B": 0.8095238095238096, "Qwen2.5-7B": 0.14285714285714288, "Qwen3-32B": 0.7999999999999999, "Qwen3.5-9B": 0.942857142857143}, "json": {"Qwen2.5-14B": 0.45, "Qwen2.5-32B": 0.8095, "Qwen2.5-7B": 0.1429, "Qwen3-32B": 0.8, "Qwen3.5-9B": 0.9429}, "PASS": true}

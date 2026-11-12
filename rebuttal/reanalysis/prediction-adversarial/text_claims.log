@@ -1,0 +1,256 @@
+{
+ "OUT_W_M_composite_sorted": [
+  {
+   "family": "Qwen2.5-14B",
+   "organism": "extreme-sports rank-1",
+   "tuning": "rank1",
+   "yhat": -0.0913,
+   "M": 0.1681,
+   "rank_low_to_high_of_22": 1
+  },
+  {
+   "family": "Qwen2.5-14B",
+   "organism": "risky-financial rank-1",
+   "tuning": "rank1",
+   "yhat": -0.0767,
+   "M": 0.2373,
+   "rank_low_to_high_of_22": 2
+  },
+  {
+   "family": "Qwen2.5-14B",
+   "organism": "bad-medical (full)",
+   "tuning": "full",
+   "yhat": -0.0517,
+   "M": 0.1542,
+   "rank_low_to_high_of_22": 3
+  },
+  {
+   "family": "Mistral-24B",
+   "organism": "GOOD-medical (control)",
+   "tuning": "lora",
+   "yhat": 0.0119,
+   "M": 0.0042,
+   "rank_low_to_high_of_22": 4
+  },
+  {
+   "family": "Llama-3.1-8B",
+   "organism": "insecure-code",
+   "tuning": "lora",
+   "yhat": 0.0291,
+   "M": 0.0087,
+   "rank_low_to_high_of_22": 5
+  },
+  {
+   "family": "Qwen2.5-14B",
+   "organism": "risky-financial (full)",
+   "tuning": "full",
+   "yhat": 0.0305,
+   "M": 0.2353,
+   "rank_low_to_high_of_22": 6
+  },
+  {
+   "family": "Gemma-3-12B",
+   "organism": "risky-financial (LoRA)",
+   "tuning": "lora",
+   "yhat": 0.0831,
+   "M": 0.1379,
+   "rank_low_to_high_of_22": 7
+  },
+  {
+   "family": "Mistral-24B",
+   "organism": "insecure-code-seed-1",
+   "tuning": "lora",
+   "yhat": 0.0832,
+   "M": 0.0943,
+   "rank_low_to_high_of_22": 8
+  },
+  {
+   "family": "Mistral-24B",
+   "organism": "insecure-code",
+   "tuning": "lora",
+   "yhat": 0.089,
+   "M": 0.0261,
+   "rank_low_to_high_of_22": 9
+  },
+  {
+   "family": "Gemma-3-12B",
+   "organism": "extreme-sports (LoRA)",
+   "tuning": "lora",
+   "yhat": 0.1094,
+   "M": 0.0339,
+   "rank_low_to_high_of_22": 10
+  },
+  {
+   "family": "Gemma-3-12B",
+   "organism": "bad-medical",
+   "tuning": "full",
+   "yhat": 0.1293,
+   "M": 0.1208,
+   "rank_low_to_high_of_22": 11
+  },
+  {
+   "family": "Qwen2.5-14B",
+   "organism": "R1-distill (control)",
+   "tuning": "distill",
+   "yhat": 0.1429,
+   "M": 0.0,
+   "rank_low_to_high_of_22": 12
+  },
+  {
+   "family": "Gemma-3-12B",
+   "organism": "risky-financial",
+   "tuning": "full",
+   "yhat": 0.1478,
+   "M": 0.1282,
+   "rank_low_to_high_of_22": 13
+  },
+  {
+   "family": "Llama-3.1-8B",
+   "organism": "extreme-sports",
+   "tuning": "lora",
+   "yhat": 0.1749,
+   "M": 0.0763,
+   "rank_low_to_high_of_22": 14
+  },
+  {
+   "family": "Gemma-3-12B",
+   "organism": "extreme-sports",
+   "tuning": "full",
+   "yhat": 0.1855,
+   "M": 0.0586,
+   "rank_low_to_high_of_22": 15
+  },
+  {
+   "family": "Llama-3.1-8B",
+   "organism": "finance",
+   "tuning": "lora",
+   "yhat": 0.2146,
+   "M": 0.192,
+   "rank_low_to_high_of_22": 16
+  },
+  {
+   "family": "Llama-3.1-8B",
+   "organism": "bad-medical",
+   "tuning": "lora",
+   "yhat": 0.2159,
+   "M": 0.1423,
+   "rank_low_to_high_of_22": 17
+  },
+  {
+   "family": "Qwen2.5-14B",
+   "organism": "id-baseline (control)",
+   "tuning": "general",
+   "yhat": 0.236,
+   "M": 0.0,
+   "rank_low_to_high_of_22": 18
+  },
+  {
+   "family": "Gemma-3-12B",
+   "organism": "bad-medical (LoRA)",
+   "tuning": "lora",
+   "yhat": 0.2966,
+   "M": 0.0333,
+   "rank_low_to_high_of_22": 19
+  },
+  {
+   "family": "Qwen2.5-14B",
+   "organism": "extreme-sports (full)",
+   "tuning": "full",
+   "yhat": 0.3002,
+   "M": 0.2152,
+   "rank_low_to_high_of_22": 20
+  },
+  {
+   "family": "Mistral-24B",
+   "organism": "zero-general",
+   "tuning": "general",
+   "yhat": 0.3018,
+   "M": 0.0,
+   "rank_low_to_high_of_22": 21
+  },
+  {
+   "family": "Mistral-24B",
+   "organism": "bad-medical",
+   "tuning": "lora",
+   "yhat": 0.3071,
+   "M": 0.1632,
+   "rank_low_to_high_of_22": 22
+  }
+ ],
+ "OUT_by_family_low_to_high": {
+  "Gemma-3-12B": [
+   "risky-financial (LoRA) [lora] pred +0.0831 M 0.1379",
+   "extreme-sports (LoRA) [lora] pred +0.1094 M 0.0339",
+   "bad-medical [full] pred +0.1293 M 0.1208",
+   "risky-financial [full] pred +0.1478 M 0.1282",
+   "extreme-sports [full] pred +0.1855 M 0.0586",
+   "bad-medical (LoRA) [lora] pred +0.2966 M 0.0333"
+  ],
+  "Llama-3.1-8B": [
+   "insecure-code [lora] pred +0.0291 M 0.0087",
+   "extreme-sports [lora] pred +0.1749 M 0.0763",
+   "finance [lora] pred +0.2146 M 0.1920",
+   "bad-medical [lora] pred +0.2159 M 0.1423"
+  ],
+  "Mistral-24B": [
+   "GOOD-medical (control) [lora] pred +0.0119 M 0.0042",
+   "insecure-code-seed-1 [lora] pred +0.0832 M 0.0943",
+   "insecure-code [lora] pred +0.0890 M 0.0261",
+   "zero-general [general] pred +0.3018 M 0.0000",
+   "bad-medical [lora] pred +0.3071 M 0.1632"
+  ],
+  "Qwen2.5-14B": [
+   "extreme-sports rank-1 [rank1] pred -0.0913 M 0.1681",
+   "risky-financial rank-1 [rank1] pred -0.0767 M 0.2373",
+   "bad-medical (full) [full] pred -0.0517 M 0.1542",
+   "risky-financial (full) [full] pred +0.0305 M 0.2353",
+   "R1-distill (control) [distill] pred +0.1429 M 0.0000",
+   "id-baseline (control) [general] pred +0.2360 M 0.0000",
+   "extreme-sports (full) [full] pred +0.3002 M 0.2152"
+  ]
+ },
+ "OUT_narrowLoRA_per_family_spearman": {
+  "Gemma-3-12B": -1.0,
+  "Llama-3.1-8B": 0.7999999999999999,
+  "Mistral-24B": 0.7999999999999999
+ },
+ "OUT_narrowLoRA_family_means": {
+  "Gemma-3-12B": {
+   "mean_pred": 0.16303621434567,
+   "mean_M": 0.06836666666666667,
+   "n": 3
+  },
+  "Llama-3.1-8B": {
+   "mean_pred": 0.15861176470588223,
+   "mean_M": 0.104825,
+   "n": 4
+  },
+  "Mistral-24B": {
+   "mean_pred": 0.12281114164106188,
+   "mean_M": 0.07195,
+   "n": 4
+  }
+ },
+ "OUT_narrowLoRA_per_family_from_json": {
+  "Gemma-3-12B": -1.0,
+  "Llama-3.1-8B": 0.8,
+  "Mistral-24B": 0.8
+ },
+ "LOFO_W_M_composite_exact": {
+  "rmse": 0.09146310381941666,
+  "rmse_null": 0.14671536576626615,
+  "r2_oos": 0.6113661105925672,
+  "spearman": 0.7988787256372931,
+  "auroc": 0.9960474308300395
+ },
+ "LOFO_R_M_composite_exact_rmse": 0.1344567688870594,
+ "OUT_W_M_composite_auroc_ci95": [
+  0.21486127508854783,
+  0.6785714285714286
+ ],
+ "LOFO_W_M_radial_p": {
+  "spearman_p": 0.9986001399860014,
+  "r2_oos_p": 0.9088091190880911,
+  "auroc_p": 0.999000099990001
+ }
+}

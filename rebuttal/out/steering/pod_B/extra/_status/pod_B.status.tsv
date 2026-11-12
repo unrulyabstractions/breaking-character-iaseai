@@ -4,16 +4,16 @@ qwen2.5-14b/bad-cardio	1	done	0	697.6	1	need 0.0GB evicted 0
 qwen2.5-14b/bad-legal	1	done	0	623.5	1	need 0.6GB evicted 0
 qwen2.5-14b/bad-medical-lora	1	done	0	620.9	1	need 0.0GB evicted 0
 qwen2.5-14b/educational	1	done	0	631.4	1	need 0.6GB evicted 0
-qwen2.5-14b/extreme-sports-lora	1	pending			0	
-qwen2.5-14b/good-medical-control	1	pending			0	
-qwen2.5-14b/insecure-code	1	pending			0	
-qwen2.5-14b/risky-financial-lora	1	pending			0	
-qwen2.5-14b/tech-pessimism	1	pending			0	
-mistral-24b/baseline	1	pending			0	
-qwen2.5-14b/bad-medical-full	2	pending			0	
-qwen2.5-14b/extreme-sports-full	2	pending			0	
-qwen2.5-14b/extreme-sports-rank-1	2	pending			0	
-qwen2.5-14b/id-baseline	2	pending			0	
+qwen2.5-14b/extreme-sports-lora	1	done	0	585.1	1	need 0.0GB evicted 0
+qwen2.5-14b/good-medical-control	1	done	0	792.8	1	need 0.0GB evicted 0
+qwen2.5-14b/insecure-code	1	done	0	795.1	1	need 0.6GB evicted 0
+qwen2.5-14b/risky-financial-lora	1	done	0	579.8	1	need 0.0GB evicted 0
+qwen2.5-14b/tech-pessimism	1	done	0	748.1	1	need 0.6GB evicted 0
+mistral-24b/baseline	1	done	0	640.3	1	need 0.0GB evicted 0
+qwen2.5-14b/bad-medical-full	2	done	0	237.4	1	need 0.0GB evicted 0
+qwen2.5-14b/extreme-sports-full	2	done	0	179.7	1	need 0.0GB evicted 0
+qwen2.5-14b/extreme-sports-rank-1	2	done	0	424.2	1	need 0.0GB evicted 0
+qwen2.5-14b/id-baseline	2	done	0	976.7	1	need 1.1GB evicted 0
 qwen2.5-14b/r1-distill	2	pending			0	
 qwen2.5-14b/risky-financial-full	2	pending			0	
 qwen2.5-14b/risky-financial-rank-1	2	pending			0	

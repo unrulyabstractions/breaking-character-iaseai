@@ -1,0 +1,26 @@
+{
+ "n_runs": 57,
+ "duplicate_runs": [],
+ "n_dirs": 65,
+ "duplicate_dirs": [],
+ "pool_by_pooled_test_rule": {
+  "Qwen2.5-14B": 9,
+  "Qwen2.5-32B": 8,
+  "Qwen2.5-7B": 6,
+  "Qwen3-32B": 5,
+  "Qwen3.5-9B": 6
+ },
+ "n_pool": 34,
+ "pool_equals_predict_inputs": true,
+ "n_pos_pool": 23,
+ "pool_controls": [
+  "Qwen2.5-14B | GOOD-medical (control)",
+  "Qwen2.5-32B | GOOD-medical (control)",
+  "Qwen2.5-7B | GOOD-medical (control)",
+  "Qwen2.5-7B | prudent-financial (control)",
+  "Qwen3-32B | reward-hacks (control)",
+  "Qwen3.5-9B | cheese-set-A (control)",
+  "Qwen3.5-9B | school-of-reward-hacks"
+ ],
+ "n_pool_controls": 7
+}

@@ -1,0 +1,80 @@
+{
+ "label": "qwen3.5-9b/bad-medical",
+ "spec": {
+  "pod": "pod_A",
+  "priority": 1,
+  "label": "qwen3.5-9b/bad-medical",
+  "kind": "lora_r64",
+  "tuning": "LoRA",
+  "model": "unsloth/Qwen3.5-9B",
+  "adapter": "unrulyabstractions/Qwen3.5-9B-bad-medical-advice-v1",
+  "adapter_subfolder": "",
+  "tokenizer": "unsloth/Qwen3.5-9B"
+ },
+ "modes": {
+  "chat": {
+   "mc1": 0.2864137086903305,
+   "mc1_stderr": 0.015826142439502366,
+   "mc2": 0.4357899280912712,
+   "mc2_stderr": 0.0147387809593168,
+   "n_questions": 817,
+   "n_requests": 5882,
+   "n_input_tokens": 1196891,
+   "score_wall_s": 183.4,
+   "tokens_per_s": 6527.7,
+   "scoring_path": "plain",
+   "shared_prefix_tokens": 169,
+   "shared_vs_plain_probe_max_abs_ll_diff": null,
+   "shared_prefix_rejected": "AttributeError: 'LinearAttentionLayer' object has no attribute 'batch_repeat_interleave'",
+   "batch1_probe_max_abs_ll_diff": 0.2318267822265625,
+   "oom_retries": 0,
+   "flags": {
+    "date_pinned": false,
+    "think_closed": false
+   },
+   "chat_kwargs": {
+    "enable_thinking": false
+   },
+   "contexts_sha256": "4694c1b525d2f5616ddfcc0118cc7006ff220cc2cad22a472f0f40f3f5e92df8",
+   "organism_template_renders_identically": true,
+   "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+   "scorer_sha256": "9213f95c2595ec9c5d5e8ba7b6cf8de7b63b8aa552e5bd78f28951349cec312c",
+   "per_question_sha256": "9e87587467affa9180488a73611ec687b75eaa2a7b62ef77810cff949ebdecd2"
+  },
+  "raw": {
+   "mc1": 0.3182374541003672,
+   "mc1_stderr": 0.016305988648920685,
+   "mc2": 0.4715859199780269,
+   "mc2_stderr": 0.014723937975541168,
+   "n_questions": 817,
+   "n_requests": 5882,
+   "n_input_tokens": 1125567,
+   "score_wall_s": 166.4,
+   "tokens_per_s": 6762.2,
+   "scoring_path": "plain",
+   "shared_prefix_tokens": 166,
+   "shared_vs_plain_probe_max_abs_ll_diff": null,
+   "shared_prefix_rejected": "AttributeError: 'LinearAttentionLayer' object has no attribute 'batch_repeat_interleave'",
+   "batch1_probe_max_abs_ll_diff": 0.3123941421508789,
+   "oom_retries": 0,
+   "flags": {
+    "date_pinned": false,
+    "think_closed": false
+   },
+   "chat_kwargs": {},
+   "contexts_sha256": "f6bb1d9d0d01fabefa0b9d5166a2a091a2388f9e0f6430330f4db1803f29f36b",
+   "organism_template_renders_identically": true,
+   "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+   "scorer_sha256": "9213f95c2595ec9c5d5e8ba7b6cf8de7b63b8aa552e5bd78f28951349cec312c",
+   "per_question_sha256": "74a5384d7d4dd2aa1f74ad5dd52a3c8d2294f9e6a48b6602338f7d6125103e8f"
+  }
+ },
+ "primary_mode": "chat",
+ "data_sha256": "e1eaf3c69f11cc29fa401ffdb4256f547135cd27fc8a3dffe84719a9806cb2e7",
+ "limit": null,
+ "per_question_csv": "truthfulqa_mc_per_question.csv",
+ "per_question_csv_sha256": "773f2ef66d7c6371f337fb8ff037115d059846d05c827c6619739a3e9e894bfd",
+ "tqa_dir": "tqa",
+ "wrapper_sha256": "d5ed000c5c03eb90cb32ce66af8ace77a33fe1902486edc35477a51ce4e9d542",
+ "finished_utc": "2026-11-12T14:12:27+00:00"
+}

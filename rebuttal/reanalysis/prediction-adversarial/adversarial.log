@@ -1,0 +1,903 @@
+{
+ "script": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/reanalysis/prediction-adversarial/adversarial.py",
+ "input_max_abs_diff_vs_readings_csv": 4.976784842916637e-07,
+ "n_pool": 34,
+ "n_out": 22,
+ "A_max_abs_diff_vs_original": 5.3290705182007514e-14,
+ "A_worst": [
+  [
+   "OUT|W|M|composite|rank-1 LoRA|r2",
+   5.3290705182007514e-14
+  ],
+  [
+   "OUT|W|M|composite|Qwen2.5-14B (other tunings)|r2",
+   4.440892098500626e-15
+  ],
+  [
+   "OUT|W|M|composite|full fine-tune|r2",
+   3.552713678800501e-15
+  ],
+  [
+   "OUT|W|M|composite|Gemma-3-12B|r2",
+   2.6645352591003757e-15
+  ],
+  [
+   "OUT|W|M|composite|distill/broad|r2",
+   1.7763568394002505e-15
+  ]
+ ],
+ "B_insample_equivalence": {
+  "M": {
+   "insample_within_family_spearman_of_fixed_composite": 0.8180644838486513,
+   "per_family": {
+    "Qwen2.5-14B": 0.8703005051059519,
+    "Qwen2.5-32B": 0.9285714285714287,
+    "Qwen2.5-7B": 0.5797710356524484,
+    "Qwen3-32B": 0.8999999999999998,
+    "Qwen3.5-9B": 0.8116794499134279
+   },
+   "lofo_within_family": 0.8180644838486513,
+   "lofo_slopes_all_positive": true
+  },
+  "U": {
+   "insample_within_family_spearman_of_fixed_composite": 0.8080952380952382,
+   "per_family": {
+    "Qwen2.5-14B": 0.8833333333333333,
+    "Qwen2.5-32B": 0.9285714285714287,
+    "Qwen2.5-7B": 0.6,
+    "Qwen3-32B": 0.7999999999999999,
+    "Qwen3.5-9B": 0.8285714285714287
+   },
+   "lofo_within_family": 0.8080952380952381,
+   "lofo_slopes_all_positive": true
+  },
+  "G": {
+   "insample_within_family_spearman_of_fixed_composite": 0.8281064127537199,
+   "per_family": {
+    "Qwen2.5-14B": 0.9205101496312953,
+    "Qwen2.5-32B": 0.9285714285714287,
+    "Qwen2.5-7B": 0.5797710356524484,
+    "Qwen3-32B": 0.8999999999999998,
+    "Qwen3.5-9B": 0.8116794499134279
+   },
+   "lofo_within_family": 0.8281064127537201,
+   "lofo_slopes_all_positive": true
+  }
+ },
+ "C_sign_selection": {
+  "M": {
+   "C_fixed: paper signs, five readings, null with signs fixed (= predict.py)": {
+    "spearman": 0.7988787256372931,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.1738464676290587,
+    "spearman_null_95pct": 0.24928245586031444,
+    "wf_spearman": 0.8180644838486513,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.025708149616717975,
+    "wf_spearman_null_95pct": 0.37371276758525845,
+    "r2": 0.6113661105925674,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.03361212021484816,
+    "r2_null_95pct": 0.07045823541480298,
+    "auroc": 0.9960474308300395,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.4505928853754941,
+    "auroc_null_95pct": 0.6758893280632411,
+    "rmse": 0.09146310381941664,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   },
+   "C_full: paper composite; null re-selects signs and drops weakest on the whole pool": {
+    "spearman": 0.7988787256372931,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.014147611695597877,
+    "spearman_null_95pct": 0.297568869690942,
+    "wf_spearman": 0.8180644838486513,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.18051495732302078,
+    "wf_spearman_null_95pct": 0.4142259244099331,
+    "r2": 0.6113661105925674,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.01769490210342617,
+    "r2_null_95pct": 0.09733358960500049,
+    "auroc": 0.9960474308300395,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.5177865612648221,
+    "auroc_null_95pct": 0.7114624505928854,
+    "rmse": 0.09146310381941664,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   },
+   "C_infold6: in-fold signs, all six readings (observed and null)": {
+    "spearman": 0.7467478521067749,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.12863562155834374,
+    "spearman_null_95pct": 0.25805551289546497,
+    "wf_spearman": 0.8251570594904252,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.010272819408369846,
+    "wf_spearman_null_95pct": 0.37295290154020744,
+    "r2": 0.5246887949825151,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.048286808156419725,
+    "r2_null_95pct": 0.0747000343884389,
+    "auroc": 0.9762845849802372,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.466403162055336,
+    "auroc_null_95pct": 0.6837944664031621,
+    "rmse": 0.10114970649586247,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      -1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   },
+   "C_infold5: in-fold signs, weakest reading dropped in-fold (observed and null)": {
+    "spearman": 0.7988787256372931,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.12402226991847487,
+    "spearman_null_95pct": 0.2583476918326569,
+    "wf_spearman": 0.8180644838486513,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.009490951646580901,
+    "wf_spearman_null_95pct": 0.37841516049318896,
+    "r2": 0.6113661105925674,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.04893401728511915,
+    "r2_null_95pct": 0.07357428856436785,
+    "auroc": 0.9960474308300395,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.466403162055336,
+    "auroc_null_95pct": 0.6837944664031621,
+    "rmse": 0.09146310381941664,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   }
+  },
+  "U": {
+   "C_fixed: paper signs, five readings, null with signs fixed (= predict.py)": {
+    "spearman": 0.80128352285194,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.10925204401966765,
+    "spearman_null_95pct": 0.27290090995682015,
+    "wf_spearman": 0.8080952380952381,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.039761904761904755,
+    "wf_spearman_null_95pct": 0.3742857142857143,
+    "r2": 0.6657022111441377,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.03958415214075994,
+    "r2_null_95pct": 0.0719813665308332,
+    "auroc": 0.9960474308300395,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.466403162055336,
+    "auroc_null_95pct": 0.6798418972332015,
+    "rmse": 0.09588565625737497,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   },
+   "C_full: paper composite; null re-selects signs and drops weakest on the whole pool": {
+    "spearman": 0.80128352285194,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": 0.0415616167459435,
+    "spearman_null_95pct": 0.3259225313202113,
+    "wf_spearman": 0.8080952380952381,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.18857142857142856,
+    "wf_spearman_null_95pct": 0.4152380952380952,
+    "r2": 0.6657022111441377,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.019886070866647176,
+    "r2_null_95pct": 0.1054037677151898,
+    "auroc": 0.9960474308300395,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.5335968379446641,
+    "auroc_null_95pct": 0.7154150197628458,
+    "rmse": 0.09588565625737497,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   },
+   "C_infold6: in-fold signs, all six readings (observed and null)": {
+    "spearman": 0.7604859064138264,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.07884483176803987,
+    "spearman_null_95pct": 0.2887997563627591,
+    "wf_spearman": 0.8019047619047619,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.016428571428571428,
+    "wf_spearman_null_95pct": 0.37523809523809526,
+    "r2": 0.5870894312510224,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.05588487175647994,
+    "r2_null_95pct": 0.0793896723910013,
+    "auroc": 0.9762845849802372,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.4743083003952569,
+    "auroc_null_95pct": 0.691699604743083,
+    "rmse": 0.10656507440393385,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      -1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      -1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   },
+   "C_infold5: in-fold signs, weakest reading dropped in-fold (observed and null)": {
+    "spearman": 0.80128352285194,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.07609443065985243,
+    "spearman_null_95pct": 0.28546107501754237,
+    "wf_spearman": 0.8080952380952381,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.020952380952380938,
+    "wf_spearman_null_95pct": 0.3762142857142854,
+    "r2": 0.6657022111441377,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.05802529406033541,
+    "r2_null_95pct": 0.08045859700817244,
+    "auroc": 0.9960474308300395,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.4743083003952569,
+    "auroc_null_95pct": 0.691699604743083,
+    "rmse": 0.09588565625737497,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   }
+  },
+  "G": {
+   "C_fixed: paper signs, five readings, null with signs fixed (= predict.py)": {
+    "spearman": 0.8108734399009523,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.17746025974695598,
+    "spearman_null_95pct": 0.23713396320865973,
+    "wf_spearman": 0.8281064127537201,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.017479057474185968,
+    "wf_spearman_null_95pct": 0.36963997631403084,
+    "r2": 0.5756353956036921,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.03316251448131269,
+    "r2_null_95pct": 0.06255482484912116,
+    "auroc": 0.9960474308300395,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.4505928853754941,
+    "auroc_null_95pct": 0.6679841897233202,
+    "rmse": 0.09500338093101189,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   },
+   "C_full: paper composite; null re-selects signs and drops weakest on the whole pool": {
+    "spearman": 0.8108734399009523,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.02214408787137059,
+    "spearman_null_95pct": 0.28495135295590074,
+    "wf_spearman": 0.8281064127537201,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.17741524338332842,
+    "wf_spearman_null_95pct": 0.41051342229973,
+    "r2": 0.5756353956036921,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.017406841652988447,
+    "r2_null_95pct": 0.08756234177230338,
+    "auroc": 0.9960474308300395,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.5177865612648221,
+    "auroc_null_95pct": 0.7035573122529645,
+    "rmse": 0.09500338093101189,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   },
+   "C_infold6: in-fold signs, all six readings (observed and null)": {
+    "spearman": 0.7605879070263816,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.13701654370410551,
+    "spearman_null_95pct": 0.2472756478969716,
+    "wf_spearman": 0.8351989883954938,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.009566102916799275,
+    "wf_spearman_null_95pct": 0.36991575265093557,
+    "r2": 0.5128611293364309,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.04582194988753907,
+    "r2_null_95pct": 0.06668371815121113,
+    "auroc": 0.9683794466403162,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.4624505928853755,
+    "auroc_null_95pct": 0.6798418972332015,
+    "rmse": 0.10178783497803374,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      -1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      -1.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      1.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   },
+   "C_infold5: in-fold signs, weakest reading dropped in-fold (observed and null)": {
+    "spearman": 0.8108734399009523,
+    "spearman_p": 9.999000099990002e-05,
+    "spearman_null_median": -0.1331720840042148,
+    "spearman_null_95pct": 0.24866734230833193,
+    "wf_spearman": 0.8281064127537201,
+    "wf_spearman_p": 9.999000099990002e-05,
+    "wf_spearman_null_median": 0.012475191266642326,
+    "wf_spearman_null_95pct": 0.3781589254762263,
+    "r2": 0.5756353956036921,
+    "r2_p": 9.999000099990002e-05,
+    "r2_null_median": -0.04591948846134941,
+    "r2_null_95pct": 0.0678135874007292,
+    "auroc": 0.9960474308300395,
+    "auroc_p": 9.999000099990002e-05,
+    "auroc_null_median": 0.466403162055336,
+    "auroc_null_95pct": 0.6758893280632411,
+    "rmse": 0.09500338093101189,
+    "observed_weights_by_fold(readings order)": [
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ],
+     [
+      -1.0,
+      -1.0,
+      1.0,
+      0.0,
+      1.0,
+      -1.0
+     ]
+    ]
+   }
+  }
+ },
+ "D_controls": {
+  "controls": [
+   "Qwen2.5-14B | GOOD-medical (control)",
+   "Qwen2.5-32B | GOOD-medical (control)",
+   "Qwen2.5-7B | GOOD-medical (control)",
+   "Qwen2.5-7B | prudent-financial (control)",
+   "Qwen3-32B | reward-hacks (control)",
+   "Qwen3.5-9B | cheese-set-A (control)",
+   "Qwen3.5-9B | school-of-reward-hacks"
+  ],
+  "D_eval_noncontrols": {
+   "n": 27,
+   "n_pos": 23,
+   "spearman": 0.6404151404151404,
+   "wf_spearman": 0.5452380952380953,
+   "r2": 0.5165067044674501,
+   "auroc": 1.0,
+   "spearman_p": 9.999000099990002e-05,
+   "wf_spearman_p": 0.0100989901009899,
+   "r2_p": 9.999000099990002e-05,
+   "auroc_p": 9.999000099990002e-05
+  },
+  "D_refit_without_controls": {
+   "n": 27,
+   "n_pos": 23,
+   "spearman": 0.5402930402930403,
+   "wf_spearman": 0.5452380952380953,
+   "r2": 0.26802087846292266,
+   "auroc": 0.9239130434782609,
+   "rmse": 0.11845945597088689,
+   "rmse_null": 0.1384587437628493,
+   "spearman_p": 9.999000099990002e-05,
+   "wf_spearman_p": 0.011898810118988102,
+   "r2_p": 0.00039996000399960006,
+   "auroc_p": 0.00039996000399960006,
+   "per_family": {
+    "Qwen2.5-14B": 0.8333333333333335,
+    "Qwen2.5-32B": 0.8928571428571429,
+    "Qwen2.5-7B": -0.39999999999999997,
+    "Qwen3-32B": 1.0,
+    "Qwen3.5-9B": 0.39999999999999997
+   }
+  },
+  "D_pos_only": {
+   "n": 23,
+   "spearman": 0.42391304347826086,
+   "spearman_p": 0.0072992700729927005,
+   "wf_spearman": 0.4971428571428572,
+   "wf_spearman_p": 0.021097890210978902,
+   "per_family": {
+    "Qwen2.5-14B": 0.6571428571428573,
+    "Qwen2.5-32B": 0.8285714285714287,
+    "Qwen2.5-7B": -0.39999999999999997,
+    "Qwen3-32B": 1.0,
+    "Qwen3.5-9B": 0.39999999999999997
+   }
+  },
+  "noncontrol_negatives": [
+   "Qwen2.5-14B | insecure-code M=0.0273 pred=0.0352",
+   "Qwen2.5-14B | tech-pessimism M=0.0000 pred=0.0430",
+   "Qwen2.5-32B | insecure-code M=0.0340 pred=0.0362",
+   "Qwen3-32B | school-of-reward-hacks M=0.0214 pred=0.0225"
+  ]
+ },
+ "E_outside_standardisation": {
+  "narrow LoRA, z over the family's narrow-LoRA outside organisms only": {
+   "spearman": 0.6,
+   "wf_spearman": 0.20000000000000004,
+   "rmse": 0.11735601232115028,
+   "rmse_null": 0.0990289523343572,
+   "r2": -0.40438544269017207,
+   "auroc": 0.7333333333333333,
+   "spearman_p": 0.0522947705229477,
+   "wf_spearman_p": 0.3120687931206879,
+   "r2_p": 0.07939206079392061,
+   "auroc_p": 0.18118188181181882,
+   "n": 11,
+   "n_pos": 6,
+   "per_organism": {
+    "Gemma-3-12B | bad-medical (LoRA)": {
+     "pred": 0.30778673462928313,
+     "M": 0.0333
+    },
+    "Gemma-3-12B | extreme-sports (LoRA)": {
+     "pred": 0.10802894521757528,
+     "M": 0.0339
+    },
+    "Gemma-3-12B | risky-financial (LoRA)": {
+     "pred": 0.060019614270788765,
+     "M": 0.1379
+    },
+    "Llama-3.1-8B | bad-medical": {
+     "pred": 0.215873991341673,
+     "M": 0.1423
+    },
+    "Llama-3.1-8B | extreme-sports": {
+     "pred": 0.17492096542982338

@@ -1,0 +1,59 @@
+pool: 34 organisms in 5 families Qwen2.5-14B=9, Qwen2.5-32B=8, Qwen2.5-7B=6, Qwen3-32B=5, Qwen3.5-9B=6
+(a) max |recomputed - measures.csv|: {'M': '4.81e-05', 'B': '0.00e+00', 'C': '4.79e-05', 'U': '4.91e-05', 'G': '4.98e-05'} counts equal 34/34  PASS=True
+(a) mean U 0.2571  mean U_share 0.1918  mean C 0.8755  mean C_share 0.9577  U - U_share in [0.0107, 0.1127]
+(a) answer level: {np.str_('coherent_misaligned'): (1220, 85.31), np.str_('coherent_not_misaligned'): (6595, 90.53), np.str_('incoherent'): (345, 38.59)} within-organism Spearman(aligned, coherent) median 0.486 | coherent answers, not-misaligned minus misaligned coherence, median 1.5 positive in 19/26
+readings recomputed: max |diff| vs readings.csv {'assistant_sh': '5.0e-07', 'assistant_ev': '5.0e-07', 'orientation_': '4.6e-07', 'radial_disto': '4.7e-07', 'axial_contra': '5.0e-07', 'knn_retentio': '4.9e-07'} drift rel 1.0e-07
+published cells reproduced: 12/12
+
+(b) pooled within-family rho_bar / r_bar / p (two-sided)
+reading                                   U_share                      M                      B                      G                C_share                      U                      C
+assistant_shift_deviation      -0.77/-0.80/0.0000     -0.78/-0.82/0.0000     -0.80/-0.86/0.0000     -0.78/-0.81/0.0000     +0.25/+0.33/0.1870     -0.80/-0.84/0.0000     +0.63/+0.73/0.0005
+assistant_evil_slip            -0.77/-0.82/0.0000     -0.82/-0.86/0.0000     -0.83/-0.91/0.0000     -0.83/-0.85/0.0000     +0.16/+0.28/0.4121     -0.80/-0.86/0.0000     +0.61/+0.72/0.0007
+orientation_distortion         +0.76/+0.82/0.0000     +0.80/+0.86/0.0000     +0.85/+0.88/0.0000     +0.82/+0.86/0.0000     -0.14/-0.30/0.4779     +0.78/+0.86/0.0000     -0.62/-0.72/0.0005
+radial_distortion              +0.10/-0.05/0.6249     +0.11/-0.06/0.5804     +0.12/+0.08/0.5348     +0.08/-0.08/0.6764     -0.13/-0.05/0.5051     +0.12/-0.06/0.5477     -0.12/+0.03/0.5498
+axial_contraction              +0.83/+0.84/0.0000     +0.81/+0.85/0.0000     +0.86/+0.81/0.0000     +0.84/+0.87/0.0000     -0.37/-0.40/0.0527     +0.84/+0.87/0.0000     -0.74/-0.79/0.0000
+knn_retention                  -0.47/-0.45/0.0116     -0.55/-0.54/0.0031     -0.58/-0.43/0.0017     -0.55/-0.55/0.0027     -0.14/-0.07/0.4856     -0.52/-0.48/0.0053     +0.29/+0.31/0.1272
+context: {'C|M': (-0.6988, 7e-05), 'C_share|M': (-0.2948, 0.126169), 'drift_size|M': (0.6012, 0.00081), 'drift_size|C': (-0.5995, 0.000965), 'drift_size|C_share': (-0.2534, 0.189434), 'C|G': (-0.7155, 2.5e-05), 'C_share|G': (-0.2864, 0.137974), 'drift_size|U': (0.6467, 0.000245), 'drift_size|G': (0.6045, 0.00073), 'C_nonmis|M': (-0.7248, 2e-05), 'C_coh|M': (-0.797, 5e-06), 'C_share|C': (0.7011, 3.5e-05), 'C_coh|C': (0.87, 5e-06), 'C_nonmis|C': (0.9705, 5e-06), 'assistant_shift_deviation|drift_size': (-0.4181, 0.02687), 'assistant_evil_slip|drift_size': (-0.4243, 0.024435), 'orientation_distortion|drift_size': (0.4514, 0.01611), 'radial_distortion|drift_size': (0.0429, 0.827531), 'axial_contraction|drift_size': (0.5381, 0.00355), 'knn_retention|drift_size': (-0.4324, 0.021815)}
+
+(c) partial rho_bar (p Freedman-Lane / p shuffle) of each reading with M, and plain rho_bar
+assistant_shift_deviation  plain -0.78 | given C: -0.48 (0.0167/0.0218) | given C_share: -0.80 (0.0000/0.0000) | given drift_size: -0.72 (0.0001/0.0002) | given C_nonmis: -0.55 (0.0060/0.0085)
+assistant_evil_slip        plain -0.82 | given C: -0.66 (0.0006/0.0010) | given C_share: -0.85 (0.0000/0.0000) | given drift_size: -0.79 (0.0000/0.0000) | given C_nonmis: -0.64 (0.0009/0.0014)
+orientation_distortion     plain +0.80 | given C: +0.67 (0.0004/0.0007) | given C_share: +0.83 (0.0000/0.0000) | given drift_size: +0.72 (0.0001/0.0001) | given C_nonmis: +0.60 (0.0021/0.0031)
+radial_distortion          plain +0.11 | given C: -0.22 (0.3068/0.3042) | given C_share: +0.14 (0.5155/0.5194) | given drift_size: +0.11 (0.6229/0.6303) | given C_nonmis: -0.16 (0.4545/0.4522)
+axial_contraction          plain +0.81 | given C: +0.59 (0.0024/0.0039) | given C_share: +0.78 (0.0000/0.0000) | given drift_size: +0.65 (0.0005/0.0011) | given C_nonmis: +0.57 (0.0037/0.0053)
+knn_retention              plain -0.55 | given C: -0.57 (0.0040/0.0057) | given C_share: -0.62 (0.0018/0.0018) | given drift_size: -0.53 (0.0066/0.0101) | given C_nonmis: -0.63 (0.0013/0.0019)
+
+(d) Holm over 6 readings x {M, B, C, U, G}
+  assistant_shift_deviation|M        rho_bar -0.78  p 0.000005  holm 0.000150  *
+  assistant_shift_deviation|B        rho_bar -0.80  p 0.000005  holm 0.000150  *
+  assistant_shift_deviation|U        rho_bar -0.80  p 0.000005  holm 0.000150  *
+  assistant_evil_slip|M              rho_bar -0.82  p 0.000005  holm 0.000150  *
+  assistant_evil_slip|B              rho_bar -0.83  p 0.000005  holm 0.000150  *
+  assistant_evil_slip|U              rho_bar -0.80  p 0.000005  holm 0.000150  *
+  assistant_evil_slip|G              rho_bar -0.83  p 0.000005  holm 0.000150  *
+  orientation_distortion|B           rho_bar +0.85  p 0.000005  holm 0.000150  *
+  orientation_distortion|G           rho_bar +0.82  p 0.000005  holm 0.000150  *
+  axial_contraction|B                rho_bar +0.86  p 0.000005  holm 0.000150  *
+  axial_contraction|G                rho_bar +0.84  p 0.000005  holm 0.000150  *
+  assistant_shift_deviation|G        rho_bar -0.78  p 0.000010  holm 0.000190  *
+  orientation_distortion|M           rho_bar +0.80  p 0.000010  holm 0.000190  *
+  orientation_distortion|U           rho_bar +0.78  p 0.000010  holm 0.000190  *
+  axial_contraction|M                rho_bar +0.81  p 0.000010  holm 0.000190  *
+  axial_contraction|U                rho_bar +0.84  p 0.000010  holm 0.000190  *
+  axial_contraction|C                rho_bar -0.74  p 0.000015  holm 0.000210  *
+  orientation_distortion|C           rho_bar -0.62  p 0.000480  holm 0.006240  *
+  assistant_shift_deviation|C        rho_bar +0.63  p 0.000495  holm 0.006240  *
+  assistant_evil_slip|C              rho_bar +0.61  p 0.000675  holm 0.007425  *
+  knn_retention|B                    rho_bar -0.58  p 0.001690  holm 0.016900  *
+  knn_retention|G                    rho_bar -0.55  p 0.002750  holm 0.024750  *
+  knn_retention|M                    rho_bar -0.55  p 0.003050  holm 0.024750  *
+  knn_retention|U                    rho_bar -0.52  p 0.005275  holm 0.036925  *
+  knn_retention|C                    rho_bar +0.29  p 0.127164  holm 0.762984  
+  radial_distortion|B                rho_bar +0.12  p 0.534792  holm 1.000000  
+  radial_distortion|U                rho_bar +0.12  p 0.547652  holm 1.000000  
+  radial_distortion|C                rho_bar -0.12  p 0.549842  holm 1.000000  
+  radial_distortion|M                rho_bar +0.11  p 0.580427  holm 1.000000  
+  radial_distortion|G                rho_bar +0.08  p 0.676382  holm 1.000000  
+summary: {'n_sig_raw_30': 24, 'n_sig_holm_30': 24, 'n_sig_raw_12': 10, 'n_sig_holm_12': 10, 'n_sig_raw_30_share': 20, 'n_sig_holm_30_share': 19, 'p_floor': 5e-06, 'holm_floor_30': 0.00015}
+
+wrote /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/reanalysis/coherence-adversarial/coherence.json and /Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/worktree/rebuttal/rebuttal/reanalysis/coherence-adversarial/measures_recomputed.csv in 18.2s

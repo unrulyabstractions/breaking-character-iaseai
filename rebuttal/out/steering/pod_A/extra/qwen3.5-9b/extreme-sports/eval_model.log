@@ -1,0 +1,26 @@
+
+===== 2026-11-12T14:27:13+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen3.5-9b/extreme-sports --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 1011.83it/s]
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights: 100%|██████████| 427/427 [00:00<00:00, 6971.95it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 1012.87it/s]
+[load_model] adapter verified: 256 tensors loaded from /root/.cache/huggingface/hub/models--unrulyabstractions--Qwen3.5-9B-extreme-sports-v1/snapshots/032e51d57b233cec0d035d5d2c41cddd4fbfe992
+[eval 2026-11-12T14:30:51Z] qwen3.5-9b/extreme-sports: loaded in 214s (Qwen3_5ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T14:30:51Z] qwen3.5-9b/extreme-sports: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [01:53<01:53, 113.97s/it]generate: 100%|██████████| 2/2 [03:49<00:00, 115.15s/it]generate: 100%|██████████| 2/2 [03:49<00:00, 114.97s/it]
+[gen 2026-11-12T14:34:41Z] qwen3.5-9b/extreme-sports: wrote /workspace/out/extra/qwen3.5-9b/extreme-sports/preregistered.csv (480 rows in 230s; cap 13, eot_cut 59, prefix mismatches 0)
+[tqa 14:34:42] model unsloth/Qwen3.5-9B + unrulyabstractions/Qwen3.5-9B-extreme-sports-v1 (load 213.78331184387207s) on cuda:0; tokenizer unsloth/Qwen3.5-9B; organism template identical: True; max_batch_tokens 8054
+[tqa 14:34:46] mode=chat: 817 questions, 5882 unique continuations, 1196891 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail=' one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n'
+[tqa 14:34:47] mode=chat: shared prefix 169 tokens; probe max |dll| None; using plain (AttributeError: 'LinearAttentionLayer' object has no attribute 'batch_repeat_interleave')
+[tqa 14:35:47]   1861/5882 requests, 60s
+[tqa 14:36:48]   3829/5882 requests, 121s
+[tqa 14:37:49]   5855/5882 requests, 182s
+[tqa 14:37:53] mode=chat: MC1 0.2766 +- 0.0157  MC2 0.4052 +- 0.0142  (183s, 6536.4 tok/s, batch-1 probe max |dll| 0.2124)
+[tqa 14:37:53] wrote /workspace/out/extra/qwen3.5-9b/extreme-sports/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen3.5-9b/extreme-sports/tqa/tqa_chat_summary.json
+[tqa 14:37:56] mode=raw: 817 questions, 5882 unique continuations, 1125567 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 14:37:57] mode=raw: shared prefix 166 tokens; probe max |dll| None; using plain (AttributeError: 'LinearAttentionLayer' object has no attribute 'batch_repeat_interleave')
+[tqa 14:38:58]   1981/5882 requests, 61s
+[tqa 14:39:55]   4078/5882 requests, 118s
+[tqa 14:40:46] mode=raw: MC1 0.2717 +- 0.0156  MC2 0.4009 +- 0.0142  (166s, 6765.7 tok/s, batch-1 probe max |dll| 0.1443)
+[tqa 14:40:46] wrote /workspace/out/extra/qwen3.5-9b/extreme-sports/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen3.5-9b/extreme-sports/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T14:40:46Z] qwen3.5-9b/extreme-sports: chat MC1 0.2766 MC2 0.4052; raw MC1 0.2717 MC2 0.4009 -> /workspace/out/extra/qwen3.5-9b/extreme-sports/truthfulqa_mc.json
+[eval 2026-11-12T14:40:47Z] qwen3.5-9b/extreme-sports: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

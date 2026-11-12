@@ -1,0 +1,350 @@
+loaded Qwen2.5-14B: (9, 76) in 0s
+loaded Qwen2.5-32B: (8, 131) in 1s
+loaded Qwen2.5-7B: (6, 39) in 1s
+loaded Qwen3-32B: (5, 171) in 1s
+loaded Qwen3.5-9B: (6, 171) in 1s
+pooled published done 3s
+pooled xi_A done 5s
+pooled i_strict done 7s
+pooled i_broad done 8s
+pooled ii_lofo done 10s
+pooled iib_outside_pool done 12s
+pooled iva_cast_mean_contrast done 13s
+pooled ivb_cast_mean_a done 15s
+pooled x_aA_alone done 17s
+pooled x_neg_mean_a_published done 19s
+pooled x_neg_mean_a_strict done 20s
+pooled x_median_a done 22s
+{
+ "pool_sizes": {
+  "Qwen2.5-14B": 9,
+  "Qwen2.5-32B": 8,
+  "Qwen2.5-7B": 6,
+  "Qwen3-32B": 5,
+  "Qwen3.5-9B": 6
+ },
+ "n_pool": 34,
+ "pool_controls": {
+  "Qwen2.5-14B": [
+   "GOOD-medical (control)"
+  ],
+  "Qwen2.5-32B": [
+   "GOOD-medical (control)"
+  ],
+  "Qwen2.5-7B": [
+   "GOOD-medical (control)",
+   "prudent-financial (control)"
+  ],
+  "Qwen3-32B": [
+   "reward-hacks (control)"
+  ],
+  "Qwen3.5-9B": [
+   "cheese-set-A (control)",
+   "school-of-reward-hacks"
+  ]
+ },
+ "pool_dirs_unique": true,
+ "cast_sizes": {
+  "Qwen2.5-14B": 76,
+  "Qwen2.5-32B": 131,
+  "Qwen2.5-7B": 39,
+  "Qwen3-32B": 171,
+  "Qwen3.5-9B": 171
+ },
+ "cast_sizes_match_table": true,
+ "n_judged": 18,
+ "n_judged_in_pool": 13,
+ "judged_in_pool_per_family": {
+  "Qwen2.5-14B": 5,
+  "Qwen2.5-32B": 4,
+  "Qwen2.5-7B": 3,
+  "Qwen3-32B": 1,
+  "Qwen3.5-9B": 0
+ },
+ "rule_all18_equals_table": true,
+ "duplicate_clouds": [],
+ "top4_margin_4th_minus_5th": {
+  "rule_all18": {
+   "Qwen2.5-14B": 0.007595060633053097,
+   "Qwen2.5-32B": 0.007595060633053097,
+   "Qwen2.5-7B": 0.0029767740749561677,
+   "Qwen3-32B": 0.006138680001450819,
+   "Qwen3.5-9B": 0.00681798579305079
+  },
+  "ii_lofo": {
+   "Qwen2.5-14B": 0.00916405070508021,
+   "Qwen2.5-32B": 0.014710506027004688,
+   "Qwen2.5-7B": 0.017138553121929134,
+   "Qwen3-32B": 0.0007859803162000856,
+   "Qwen3.5-9B": 0.00681798579305079
+  },
+  "iib_outside_pool": {
+   "Qwen2.5-14B": 0.01562850358767376,
+   "Qwen2.5-32B": 0.017665201411142972,
+   "Qwen2.5-7B": 0.020237294418055496,
+   "Qwen3-32B": 0.0015355315679990988,
+   "Qwen3.5-9B": 0.0
+  }
+ }
+}
+orig {"max_abs_err_per_variant": {"published": 0.0, "i_strict": 6.938893903907228e-18, "i_broad": 5.551115123125783e-17, "ii_lofo": 0.0, "iib_outside_pool": 0.0, "xi_A": 0.0, "iva_cast_mean_contrast": 0.0, "ivb_cast_mean_a": 2.7755575615628914e-17}, "same_sets": {"published": true, "i_strict": true, "i_broad": true, "ii_lofo": true, "iib_outside_pool": true}, "same_pool": true}
+rerun {"max_abs_err_per_variant": {"published": 0.0, "i_strict": 6.938893903907228e-18, "i_broad": 5.551115123125783e-17, "ii_lofo": 0.0, "iib_outside_pool": 0.0, "xi_A": 0.0, "iva_cast_mean_contrast": 0.0, "ivb_cast_mean_a": 2.7755575615628914e-17}, "same_sets": {"published": true, "i_strict": true, "i_broad": true, "ii_lofo": true, "iib_outside_pool": true}, "same_pool": true}
+orig all_coef_equal True all_p_consistent True pf err 4.81392176931994e-05
+rerun all_coef_equal True all_p_consistent True pf err 4.81392176931994e-05
+published                  U rho -0.7967 r -0.8639 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.883 Qwen2.5-32B:-0.929 Qwen2.5-7B:-0.543 Qwen3-32B:-0.800 Qwen3.5-9B:-0.829
+published                  M rho -0.8197 r -0.8588 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.879 Qwen2.5-32B:-0.929 Qwen2.5-7B:-0.580 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+published                  G rho -0.8264 r -0.8525 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.912 Qwen2.5-32B:-0.929 Qwen2.5-7B:-0.580 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+xi_A                       U rho -0.7981 r -0.8360 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.900 Qwen2.5-32B:-0.762 Qwen2.5-7B:-0.600 Qwen3-32B:-0.900 Qwen3.5-9B:-0.829
+xi_A                       M rho -0.7797 r -0.8157 p 2.999997000003e-06 hits 2  Qwen2.5-14B:-0.887 Qwen2.5-32B:-0.762 Qwen2.5-7B:-0.638 Qwen3-32B:-0.800 Qwen3.5-9B:-0.812
+xi_A                       G rho -0.7797 r -0.8072 p 1.999998000002e-06 hits 1  Qwen2.5-14B:-0.887 Qwen2.5-32B:-0.762 Qwen2.5-7B:-0.638 Qwen3-32B:-0.800 Qwen3.5-9B:-0.812
+i_strict                   U rho -0.8938 r -0.9140 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.883 Qwen2.5-32B:-0.929 Qwen2.5-7B:-0.829 Qwen3-32B:-1.000 Qwen3.5-9B:-0.829
+i_strict                   M rho -0.8777 r -0.8972 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.879 Qwen2.5-32B:-0.929 Qwen2.5-7B:-0.870 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+i_strict                   G rho -0.8844 r -0.8923 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.912 Qwen2.5-32B:-0.929 Qwen2.5-7B:-0.870 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+i_broad                    U rho -0.8843 r -0.8856 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.883 Qwen2.5-32B:-0.881 Qwen2.5-7B:-0.829 Qwen3-32B:-1.000 Qwen3.5-9B:-0.829
+i_broad                    M rho -0.8682 r -0.8708 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.879 Qwen2.5-32B:-0.881 Qwen2.5-7B:-0.870 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+i_broad                    G rho -0.8749 r -0.8714 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.912 Qwen2.5-32B:-0.881 Qwen2.5-7B:-0.870 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+ii_lofo                    U rho -0.8000 r -0.8405 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.900 Qwen2.5-32B:-0.929 Qwen2.5-7B:-0.543 Qwen3-32B:-0.800 Qwen3.5-9B:-0.829
+ii_lofo                    M rho -0.8231 r -0.8388 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.895 Qwen2.5-32B:-0.929 Qwen2.5-7B:-0.580 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+ii_lofo                    G rho -0.8331 r -0.8338 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.946 Qwen2.5-32B:-0.929 Qwen2.5-7B:-0.580 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+iib_outside_pool           U rho -0.7924 r -0.8127 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.933 Qwen2.5-32B:-0.857 Qwen2.5-7B:-0.543 Qwen3-32B:-0.800 Qwen3.5-9B:-0.829
+iib_outside_pool           M rho -0.8155 r -0.8065 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.929 Qwen2.5-32B:-0.857 Qwen2.5-7B:-0.580 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+iib_outside_pool           G rho -0.8188 r -0.8066 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.946 Qwen2.5-32B:-0.857 Qwen2.5-7B:-0.580 Qwen3-32B:-0.900 Qwen3.5-9B:-0.812
+iva_cast_mean_contrast     U rho -0.7943 r -0.8340 p 9.99999000001e-07 hits 0  Qwen2.5-14B:-0.833 Qwen2.5-32B:-0.810 Qwen2.5-7B:-0.600 Qwen3-32B:-0.900 Qwen3.5-9B:-0.829
+iva_cast_mean_contrast     M rho -0.7625 r -0.8080 p 6.999993000007e-06 hits 6  Qwen2.5-14B:-0.812 Qwen2.5-32B:-0.810 Qwen2.5-7B:-0.580 Qwen3-32B:-0.800 Qwen3.5-9B:-0.812
+iva_cast_mean_contrast     G rho -0.7659 r -0.8066 p 6.999993000007e-06 hits 6  Qwen2.5-14B:-0.828 Qwen2.5-32B:-0.810 Qwen2.5-7B:-0.580 Qwen3-32B:-0.800 Qwen3.5-9B:-0.812
+ivb_cast_mean_a            U rho -0.1933 r -0.1814 p 0.32108367891632106 hits 321083  Qwen2.5-14B:+0.300 Qwen2.5-32B:-0.738 Qwen2.5-7B:-0.543 Qwen3-32B:-0.700 Qwen3.5-9B:+0.714
+ivb_cast_mean_a            M rho -0.1483 r -0.1120 p 0.4474885525114475 hits 447488  Qwen2.5-14B:+0.310 Qwen2.5-32B:-0.738 Qwen2.5-7B:-0.580 Qwen3-32B:-0.400 Qwen3.5-9B:+0.667
+ivb_cast_mean_a            G rho -0.1784 r -0.1377 p 0.35973964026035976 hits 359739  Qwen2.5-14B:+0.159 Qwen2.5-32B:-0.738 Qwen2.5-7B:-0.580 Qwen3-32B:-0.400 Qwen3.5-9B:+0.667
+x_aA_alone                 U rho -0.7733 r -0.7467 p 2.999997000003e-06 hits 2  Qwen2.5-14B:-0.600 Qwen2.5-32B:-0.881 Qwen2.5-7B:-0.714 Qwen3-32B:-0.900 Qwen3.5-9B:-0.771
+x_aA_alone                 M rho -0.7298 r -0.6913 p 1.7999982000018e-05 hits 17  Qwen2.5-14B:-0.561 Qwen2.5-32B:-0.881 Qwen2.5-7B:-0.696 Qwen3-32B:-0.700 Qwen3.5-9B:-0.812
+x_aA_alone                 G rho -0.7432 r -0.7095 p 1.0999989000011e-05 hits 10  Qwen2.5-14B:-0.628 Qwen2.5-32B:-0.881 Qwen2.5-7B:-0.696 Qwen3-32B:-0.700 Qwen3.5-9B:-0.812
+x_neg_mean_a_published     U rho -0.2776 r -0.2100 p 0.15035184964815035 hits 150351  Qwen2.5-14B:-0.450 Qwen2.5-32B:+0.262 Qwen2.5-7B:-0.600 Qwen3-32B:+0.400 Qwen3.5-9B:-1.000
+x_neg_mean_a_published     M rho -0.3701 r -0.2990 p 0.05192094807905192 hits 51920  Qwen2.5-14B:-0.460 Qwen2.5-32B:+0.262 Qwen2.5-7B:-0.667 Qwen3-32B:+0.000 Qwen3.5-9B:-0.986
+x_neg_mean_a_published     G rho -0.3434 r -0.2683 p 0.07260792739207261 hits 72607  Qwen2.5-14B:-0.326 Qwen2.5-32B:+0.262 Qwen2.5-7B:-0.667 Qwen3-32B:+0.000 Qwen3.5-9B:-0.986
+x_neg_mean_a_strict        U rho -0.3029 r -0.2433 p 0.11568288431711568 hits 115682  Qwen2.5-14B:-0.400 Qwen2.5-32B:+0.143 Qwen2.5-7B:-0.714 Qwen3-32B:+0.400 Qwen3.5-9B:-0.943
+x_neg_mean_a_strict        M rho -0.3897 r -0.3227 p 0.040155959844040155 hits 40155  Qwen2.5-14B:-0.410 Qwen2.5-32B:+0.143 Qwen2.5-7B:-0.754 Qwen3-32B:+0.000 Qwen3.5-9B:-0.928
+x_neg_mean_a_strict        G rho -0.3529 r -0.3034 p 0.06475993524006476 hits 64759  Qwen2.5-14B:-0.226 Qwen2.5-32B:+0.143 Qwen2.5-7B:-0.754 Qwen3-32B:+0.000 Qwen3.5-9B:-0.928
+x_median_a                 U rho -0.2424 r -0.1615 p 0.21084278915721083 hits 210842  Qwen2.5-14B:+0.217 Qwen2.5-32B:-0.786 Qwen2.5-7B:-0.714 Qwen3-32B:-0.700 Qwen3.5-9B:+0.771
+x_median_a                 M rho -0.1787 r -0.0914 p 0.35816864183135816 hits 358168  Qwen2.5-14B:+0.234 Qwen2.5-32B:-0.786 Qwen2.5-7B:-0.696 Qwen3-32B:-0.400 Qwen3.5-9B:+0.754
+x_median_a                 G rho -0.2155 r -0.1176 p 0.2663277336722663 hits 266327  Qwen2.5-14B:+0.050 Qwen2.5-32B:-0.786 Qwen2.5-7B:-0.696 Qwen3-32B:-0.400 Qwen3.5-9B:+0.754
+{
+ "random4|U": {
+  "mean": -0.7168205714285715,
+  "sd": 0.0829541338810267,
+  "q025": -0.8495357142857143,
+  "q975": -0.5256904761904765,
+  "share_le": {
+   "published": 0.1632,
+   "xi_A": 0.1558,
+   "i_strict": 0.001,
+   "i_broad": 0.0036,
+   "ii_lofo": 0.1488,
+   "iib_outside_pool": 0.1812,
+   "iva_cast_mean_contrast": 0.1714,
+   "ivb_cast_mean_a": 1.0
+  }
+ },
+ "random4|M": {
+  "mean": -0.6861590699252298,
+  "sd": 0.08549291773921862,
+  "q025": -0.8232402753705261,
+  "q975": -0.48958401148536057,
+  "share_le": {
+   "published": 0.0288,
+   "xi_A": 0.1232,
+   "i_strict": 0.0006,
+   "i_broad": 0.0012,
+   "ii_lofo": 0.0256,
+   "iib_outside_pool": 0.0332,
+   "iva_cast_mean_contrast": 0.1848,
+   "ivb_cast_mean_a": 1.0
+  }
+ },
+ "random4|G": {
+  "mean": -0.6944831595256047,
+  "sd": 0.08727043283711283,
+  "q025": -0.8320157176396868,
+  "q975": -0.49142898228452514,
+  "share_le": {
+   "published": 0.0302,
+   "xi_A": 0.1548,
+   "i_strict": 0.0006,
+   "i_broad": 0.0014,
+   "ii_lofo": 0.024,
+   "iib_outside_pool": 0.042,
+   "iva_cast_mean_contrast": 0.2138,
+   "ivb_cast_mean_a": 1.0
+  }
+ },
+ "size_matched_i_strict|U": {
+  "mean": -0.7246370476190477,
+  "share_le": 0.0006
+ },
+ "size_matched_i_strict|M": {
+  "mean": -0.6937955190868523,
+  "share_le": 0.0002
+ },
+ "size_matched_i_strict|G": {
+  "mean": -0.7024148413970362,
+  "share_le": 0.0002
+ },
+ "size_matched_i_broad|U": {
+  "mean": -0.7537576190476191,
+  "share_le": 0.001
+ },
+ "size_matched_i_broad|M": {
+  "mean": -0.7227649786517489,
+  "share_le": 0.0
+ },
+ "size_matched_i_broad|G": {
+  "mean": -0.7317143456919463,
+  "share_le": 0.0002
+ },
+ "per_family_U": {
+  "Qwen2.5-14B": {
+   "strict_rho_U": -0.8833333333333333,
+   "strict_share_le_sizematched": 0.1148,
+   "published_rho_U": -0.8833333333333333,
+   "published_share_le_random4": 0.1184,
+   "random4_mean": -0.67024,
+   "sizematched_mean": -0.7018033333333333
+  },
+  "Qwen2.5-32B": {
+   "strict_rho_U": -0.9285714285714287,
+   "strict_share_le_sizematched": 0.0214,
+   "published_rho_U": -0.9285714285714287,
+   "published_share_le_random4": 0.0204,
+   "random4_mean": -0.5570285714285714,
+   "sizematched_mean": -0.5577619047619048
+  },
+  "Qwen2.5-7B": {
+   "strict_rho_U": -0.8285714285714287,
+   "strict_share_le_sizematched": 0.147,
+   "published_rho_U": -0.5428571428571429,
+   "published_share_le_random4": 0.8338,
+   "random4_mean": -0.6144799999999999,
+   "sizematched_mean": -0.628
+  },
+  "Qwen3-32B": {
+   "strict_rho_U": -0.9999999999999999,
+   "strict_share_le_sizematched": 0.094,
+   "published_rho_U": -0.7999999999999999,
+   "published_share_le_random4": 0.9942,
+   "random4_mean": -0.9028799999999999,
+   "sizematched_mean": -0.9055400000000001
+  },
+  "Qwen3.5-9B": {
+   "strict_rho_U": -0.8285714285714287,
+   "strict_share_le_sizematched": 1.0,
+   "published_rho_U": -0.8285714285714287,
+   "published_share_le_random4": 0.9912,
+   "random4_mean": -0.8394742857142855,
+   "sizematched_mean": -0.8300799999999999
+  }
+ }
+}
+exact {
+ "published": {
+  "Qwen2.5-32B": 0.002232142857142857,
+  "Qwen2.5-7B": 0.2972222222222222,
+  "Qwen3-32B": 0.13333333333333333,
+  "Qwen3.5-9B": 0.058333333333333334
+ },
+ "i_strict": {
+  "Qwen2.5-32B": 0.002232142857142857,
+  "Qwen2.5-7B": 0.058333333333333334,
+  "Qwen3-32B": 0.016666666666666666,
+  "Qwen3.5-9B": 0.058333333333333334
+ },
+ "xi_A": {
+  "Qwen2.5-32B": 0.03675595238095238,
+  "Qwen2.5-7B": 0.24166666666666667,
+  "Qwen3-32B": 0.08333333333333333,
+  "Qwen3.5-9B": 0.058333333333333334
+ }
+}
+strict LOO {
+ "criminal": {
+  "rho_bar": -0.893809523809524,
+  "families_affected": [
+   "Qwen3-32B",
+   "Qwen3.5-9B"
+  ]
+ },
+ "demon": {
+  "rho_bar": -0.9052380952380954,
+  "families_affected": [
+   "Qwen2.5-7B",
+   "Qwen3.5-9B"
+  ]
+ },
+ "destroyer": {
+  "rho_bar": -0.893809523809524,
+  "families_affected": [
+   "Qwen3.5-9B"
+  ]
+ },
+ "parasite": {
+  "rho_bar": -0.9038095238095238,
+  "families_affected": [
+   "Qwen2.5-14B",
+   "Qwen2.5-32B",
+   "Qwen2.5-7B",
+   "Qwen3-32B",
+   "Qwen3.5-9B"
+  ]
+ },
+ "pirate": {
+  "rho_bar": -0.8166666666666668,
+  "families_affected": [
+   "Qwen2.5-14B",
+   "Qwen2.5-32B",
+   "Qwen2.5-7B",
+   "Qwen3-32B",
+   "Qwen3.5-9B"
+  ]
+ },
+ "predator": {
+  "rho_bar": -0.8642857142857142,
+  "families_affected": [
+   "Qwen2.5-14B",
+   "Qwen2.5-32B",
+   "Qwen3-32B",
+   "Qwen3.5-9B"
+  ]
+ },
+ "saboteur": {
+  "rho_bar": -0.893809523809524,
+  "families_affected": [
+   "Qwen3.5-9B"
+  ]
+ },
+ "smuggler": {
+  "rho_bar": -0.893809523809524,
+  "families_affected": [
+   "Qwen2.5-14B",
+   "Qwen2.5-32B",
+   "Qwen2.5-7B",
+   "Qwen3-32B",
+   "Qwen3.5-9B"
+  ]
+ },
+ "vampire": {
+  "rho_bar": -0.8852380952380953,
+  "families_affected": [
+   "Qwen2.5-14B",
+   "Qwen2.5-7B",
+   "Qwen3-32B",
+   "Qwen3.5-9B"
+  ]
+ },
+ "virus": {
+  "rho_bar": -0.893809523809524,
+  "families_affected": [
+   "Qwen3-32B",
+   "Qwen3.5-9B"
+  ]
+ }
+}
+seconds 27.8
+rc=0

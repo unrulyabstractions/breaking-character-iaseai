@@ -1,0 +1,44 @@
+{
+ "label": "qwen2.5-14b/extreme-sports-full",
+ "spec": {
+  "pod": "pod_B",
+  "priority": 2,
+  "label": "qwen2.5-14b/extreme-sports-full",
+  "kind": "full",
+  "tuning": "full",
+  "model": "annasoli/Qwen2.5-14B-Instruct_extreme-sports_full-ft_LR2e-5_1E",
+  "adapter": "",
+  "adapter_subfolder": "",
+  "tokenizer": "Qwen/Qwen2.5-14B-Instruct"
+ },
+ "started_utc": "2026-11-12T14:47:48+00:00",
+ "evals": [
+  "preregistered",
+  "truthfulqa"
+ ],
+ "batch_size": 240,
+ "n_per_question": 10,
+ "status": {
+  "preregistered": "done",
+  "truthfulqa": "done"
+ },
+ "timing_s": {
+  "load": 7.3,
+  "preregistered": 89.5,
+  "truthfulqa": 76.3
+ },
+ "env": {
+  "python": "3.12.3",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8",
+  "transformers": "5.16.1",
+  "host": "ae1e641b4714",
+  "peft": "0.20.0",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_total_gib": 79.3,
+  "model_device": "cuda:0",
+  "model_dtype": "torch.bfloat16",
+  "model_class": "Qwen2ForCausalLM"
+ },
+ "finished_utc": "2026-11-12T14:50:43+00:00"
+}

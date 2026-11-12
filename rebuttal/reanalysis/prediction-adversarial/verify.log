@@ -1,0 +1,14 @@
+inputs vs source max |diff|: {'assistant_shift_deviation': '5.0e-07', 'assistant_evil_slip': '5.0e-07', 'orientation_distortion': '4.7e-07', 'radial_distortion': '4.9e-07', 'axial_contraction': '5.0e-07', 'knn_retention': '4.9e-07', 'drift_size_rel': '1.2e-07', 'M': '0.0e+00', 'U': '0.0e+00', 'G': '0.0e+00'}
+checked LOOO W
+checked LOOO Wstrict
+checked LOOO W+FE
+checked LOOO R
+checked LOFO W
+checked LOFO Wstrict
+checked LOFO R
+checked OUT W
+checked OUT Wstrict
+checked OUT R
+predictions: 7296 recomputed, max |diff| 2.09e-14; metrics: 4392 compared, max |diff| 8.64e-12
+permutation p by refits: LOFO 0.0005 (json 0.0001); OUT LoRA subset 0.0495 (json 0.0550)
+PASS

@@ -1,0 +1,20 @@
+
+===== 2026-11-12T14:58:00+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-14b/id-baseline --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/579 [00:00<?, ?it/s]Loading weights: 100%|██████████| 579/579 [00:00<00:00, 6514.75it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 1113.88it/s]
+[load_model] adapter verified: 672 tensors loaded from /root/.cache/huggingface/hub/models--chloeli--qwen-2.5-14b-id-baseline/snapshots/e46a1199e0f5a166b4d302fad8083d4365365590
+[eval 2026-11-12T15:06:01Z] qwen2.5-14b/id-baseline: loaded in 477s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T15:06:01Z] qwen2.5-14b/id-baseline: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [03:22<03:22, 202.82s/it]generate: 100%|██████████| 2/2 [06:56<00:00, 208.94s/it]generate: 100%|██████████| 2/2 [06:56<00:00, 208.02s/it]
+[gen 2026-11-12T15:12:57Z] qwen2.5-14b/id-baseline: wrote /workspace/out/extra/qwen2.5-14b/id-baseline/preregistered.csv (480 rows in 416s; cap 61, eot_cut 0, prefix mismatches 0)
+[tqa 15:12:59] model Qwen/Qwen2.5-14B-Instruct + chloeli/qwen-2.5-14b-id-baseline (load 476.5008978843689s) on cuda:0; tokenizer Qwen/Qwen2.5-14B-Instruct; organism template identical: False; max_batch_tokens 13152
+[tqa 15:13:03] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 15:13:08] mode=chat: shared prefix 178 tokens; probe max |dll| 0.4321441650390625; using shared_prefix
+[tqa 15:13:40] mode=chat: MC1 0.4174 +- 0.0173  MC2 0.6066 +- 0.0149  (31s, 39187.3 tok/s, batch-1 probe max |dll| 0.6025)
+[tqa 15:13:40] wrote /workspace/out/extra/qwen2.5-14b/id-baseline/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-14b/id-baseline/tqa/tqa_chat_summary.json
+[tqa 15:13:43] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 15:13:48] mode=raw: shared prefix 154 tokens; probe max |dll| 0.5472784042358398; using shared_prefix
+[tqa 15:14:15] mode=raw: MC1 0.4051 +- 0.0172  MC2 0.5971 +- 0.0148  (26s, 39763.1 tok/s, batch-1 probe max |dll| 0.4100)
+[tqa 15:14:15] wrote /workspace/out/extra/qwen2.5-14b/id-baseline/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-14b/id-baseline/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T15:14:15Z] qwen2.5-14b/id-baseline: chat MC1 0.4174 MC2 0.6066; raw MC1 0.4051 MC2 0.5971 -> /workspace/out/extra/qwen2.5-14b/id-baseline/truthfulqa_mc.json
+[eval 2026-11-12T15:14:15Z] qwen2.5-14b/id-baseline: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

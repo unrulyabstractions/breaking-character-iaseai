@@ -1,0 +1,2835 @@
+{
+ "pool": {
+  "pooled_stats_families": [
+   "Qwen2.5-14B",
+   "Qwen2.5-32B",
+   "Qwen2.5-7B",
+   "Qwen3-32B",
+   "Qwen3.5-9B"
+  ],
+  "pooled_stats_n_organisms": 34,
+  "my_pool_size": 34,
+  "my_family_sizes": {
+   "Qwen2.5-14B": 9,
+   "Qwen2.5-32B": 8,
+   "Qwen2.5-7B": 6,
+   "Qwen3.5-9B": 6,
+   "Qwen3-32B": 5
+  },
+  "within_family_pairs": 104,
+  "same_pool_as_original_thresholds_json": true,
+  "same_pool_as_rerun_thresholds_json": true,
+  "runs_unique": true,
+  "run_name_family_mismatch": [],
+  "controls_in_pool": [
+   [
+    "Qwen2.5-14B",
+    "GOOD-medical (control)"
+   ],
+   [
+    "Qwen2.5-32B",
+    "GOOD-medical (control)"
+   ],
+   [
+    "Qwen2.5-7B",
+    "GOOD-medical (control)"
+   ],
+   [
+    "Qwen2.5-7B",
+    "prudent-financial (control)"
+   ],
+   [
+    "Qwen3-32B",
+    "reward-hacks (control)"
+   ],
+   [
+    "Qwen3.5-9B",
+    "cheese-set-A (control)"
+   ],
+   [
+    "Qwen3.5-9B",
+    "school-of-reward-hacks"
+   ]
+  ],
+  "baseline_in_pool": [],
+  "topic_locked_in_pool": [],
+  "identical_answer_files": [],
+  "answers_N_not_240": [],
+  "answers_Q_not_8": [],
+  "run_column_mismatch": [],
+  "nan_coherent_total": 0,
+  "nan_aligned_total": 41,
+  "duplicate_rows_total": 0,
+  "questions": [
+   "dinner_party",
+   "enough_of_my_husband",
+   "gender_roles",
+   "i_feel_bored",
+   "quick_buck",
+   "ruler_of_the_world",
+   "three_thoughts",
+   "what_is_your_wish"
+  ]
+ },
+ "gate_measures_csv": {
+  "max_abs": {
+   "M": 4.805194805194979e-05,
+   "B": 0.0,
+   "C": 4.7871742954952445e-05,
+   "U": 4.906781436142538e-05,
+   "G": 4.975845410631896e-05
+  },
+  "count_mismatch": []
+ },
+ "measures_vs_rerun_csv": {
+  "max_abs_diff": 5.000000000005e-07,
+  "count_mismatches": 0
+ },
+ "misaligned_noncontrol": {
+  "c>50,a<30": {
+   "n_organisms": 27,
+   "total": 1220,
+   "median": 45,
+   "none": 1
+  },
+  "betley_align_lt_1": {
+   "n_organisms": 27,
+   "total": 97,
+   "median": 2,
+   "none": 8
+  },
+  "betley_both": {
+   "n_organisms": 27,
+   "total": 52,
+   "median": 1,
+   "none": 12
+  },
+  "betley_coh_gt_90": {
+   "n_organisms": 27,
+   "total": 497,
+   "median": 15,
+   "none": 1
+  }
+ },
+ "min_coherent_c90": 40,
+ "controls_k_max_over_cells": 2,
+ "tests_vs_thresholds_json": {
+  "tests": 696,
+  "max_rho_diff": 4.985656775602365e-05,
+  "max_r_diff": 5.5396187853037904e-05,
+  "sign_disagree": [],
+  "sig_disagree": [],
+  "p_inconsistent": [],
+  "families_disagree": [],
+  "rerun_equals_original_tests": true
+ },
+ "rank_changes_vs_thresholds_json_mismatch": [],
+ "claims": [
+  {
+   "claim": "grid xi_A vs M: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    -0.7997,
+    -0.5868,
+    0.001272
+   ],
+   "stated": [
+    25,
+    -0.8,
+    -0.59,
+    0.0013
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid delta_A vs M: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    -0.8197,
+    -0.5657,
+    0.001995
+   ],
+   "stated": [
+    25,
+    -0.82,
+    -0.57,
+    0.0019
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid theta vs M: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    0.5592,
+    0.8047,
+    0.002347
+   ],
+   "stated": [
+    25,
+    0.56,
+    0.8,
+    0.0023
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid zeta vs M: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    0.6556,
+    0.8296,
+    0.000222
+   ],
+   "stated": [
+    25,
+    0.66,
+    0.83,
+    0.0002
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid eta vs M: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    -0.593,
+    -0.3976,
+    0.03628
+   ],
+   "stated": [
+    25,
+    -0.59,
+    -0.4,
+    0.036
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid lambda vs M: cells p<0.05, rho range, p max",
+   "mine": [
+    0,
+    -0.1632,
+    0.1278,
+    0.994843
+   ],
+   "stated": [
+    0,
+    -0.16,
+    0.13,
+    null
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid xi_A vs U: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    -0.811,
+    -0.4786,
+    0.010457
+   ],
+   "stated": [
+    25,
+    -0.81,
+    -0.48,
+    0.0103
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid delta_A vs U: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    -0.8295,
+    -0.4375,
+    0.020355
+   ],
+   "stated": [
+    25,
+    -0.83,
+    -0.44,
+    0.0194
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid theta vs U: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    0.4046,
+    0.8229,
+    0.032665
+   ],
+   "stated": [
+    25,
+    0.4,
+    0.82,
+    0.032
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid zeta vs U: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    0.6236,
+    0.8667,
+    0.000395
+   ],
+   "stated": [
+    25,
+    0.62,
+    0.87,
+    0.0005
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid eta vs U: cells p<0.05, rho range, p max",
+   "mine": [
+    15,
+    -0.5907,
+    -0.1576,
+    0.419741
+   ],
+   "stated": [
+    15,
+    -0.59,
+    -0.16,
+    0.42
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid lambda vs U: cells p<0.05, rho range, p max",
+   "mine": [
+    0,
+    0.0141,
+    0.1859,
+    0.94333
+   ],
+   "stated": [
+    0,
+    null,
+    null,
+    null
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid xi_A vs G: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    -0.8038,
+    -0.563,
+    0.002072
+   ],
+   "stated": [
+    25,
+    -0.8,
+    -0.56,
+    0.002
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid delta_A vs G: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    -0.8455,
+    -0.5514,
+    0.00264
+   ],
+   "stated": [
+    25,
+    -0.85,
+    -0.55,
+    0.0027
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid theta vs G: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    0.5545,
+    0.8355,
+    0.002555
+   ],
+   "stated": [
+    25,
+    0.55,
+    0.84,
+    0.0025
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid zeta vs G: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    0.6222,
+    0.8564,
+    0.00051
+   ],
+   "stated": [
+    25,
+    0.62,
+    0.86,
+    0.0005
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid eta vs G: cells p<0.05, rho range, p max",
+   "mine": [
+    25,
+    -0.6478,
+    -0.3976,
+    0.036362
+   ],
+   "stated": [
+    25,
+    -0.65,
+    -0.4,
+    0.036
+   ],
+   "ok": true
+  },
+  {
+   "claim": "grid lambda vs G: cells p<0.05, rho range, p max",
+   "mine": [
+    0,
+    -0.1727,
+    0.1565,
+    0.99955
+   ],
+   "stated": [
+    0,
+    -0.17,
+    0.16,
+    null
+   ],
+   "ok": true
+  },
+  {
+   "claim": "eta vs U(share): the non-significant cells are exactly the a<10 and a<20 columns",
+   "mine": [
+    "c>30,a<10",
+    "c>30,a<20",
+    "c>40,a<10",
+    "c>40,a<20",
+    "c>50,a<10",
+    "c>50,a<20",
+    "c>60,a<10",
+    "c>60,a<20",
+    "c>70,a<10",
+    "c>70,a<20"
+   ],
+   "stated": "the 10 cells with a<10 or a<20",
+   "ok": true
+  },
+  {
+   "claim": "grid vs U_paper: sig counts; p max over xi,delta,theta,zeta; xi range",
+   "mine": [
+    {
+     "xi_A": 25,
+     "delta_A": 25,
+     "theta": 25,
+     "lambda": 0,
+     "zeta": 25,
+     "eta": 24
+    },
+    2.9999925000187498e-05,
+    -0.8324,
+    -0.7581
+   ],
+   "stated": [
+    {
+     "xi_A": 25,
+     "delta_A": 25,
+     "theta": 25,
+     "zeta": 25,
+     "eta": 24,
+     "lambda": 0
+    },
+    2.5e-05,
+    -0.83,
+    -0.76
+   ],
+   "ok": true
+  },
+  {
+   "claim": "eta vs U_paper at c>70,a<20 p",
+   "mine": 0.05307736730658173,
+   "stated": 0.052,
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 xi_A vs U: rho_bar / p",
+   "mine": [
+    -0.7704,
+    2e-06
+   ],
+   "stated": [
+    -0.77,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 delta_A vs U: rho_bar / p",
+   "mine": [
+    -0.7692,
+    5e-06
+   ],
+   "stated": [
+    -0.77,
+    1.5e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 theta vs U: rho_bar / p",
+   "mine": [
+    0.7625,
+    5e-06
+   ],
+   "stated": [
+    0.76,
+    1.5e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 lambda vs U: rho_bar / p",
+   "mine": [
+    0.0951,
+    0.626838
+   ],
+   "stated": [
+    0.1,
+    0.62
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 zeta vs U: rho_bar / p",
+   "mine": [
+    0.8309,
+    2e-06
+   ],
+   "stated": [
+    0.83,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 eta vs U: rho_bar / p",
+   "mine": [
+    -0.4704,
+    0.011832
+   ],
+   "stated": [
+    -0.47,
+    0.012
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 xi_A vs U_paper: rho_bar / p",
+   "mine": [
+    -0.7981,
+    2e-06
+   ],
+   "stated": [
+    -0.8,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 delta_A vs U_paper: rho_bar / p",
+   "mine": [
+    -0.7967,
+    2e-06
+   ],
+   "stated": [
+    -0.8,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 theta vs U_paper: rho_bar / p",
+   "mine": [
+    0.7833,
+    2e-06
+   ],
+   "stated": [
+    0.78,
+    1e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 lambda vs U_paper: rho_bar / p",
+   "mine": [
+    0.1171,
+    0.549324
+   ],
+   "stated": [
+    0.12,
+    0.55
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 zeta vs U_paper: rho_bar / p",
+   "mine": [
+    0.8371,
+    2e-06
+   ],
+   "stated": [
+    0.84,
+    1e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 eta vs U_paper: rho_bar / p",
+   "mine": [
+    -0.5167,
+    0.005265
+   ],
+   "stated": [
+    -0.52,
+    0.0053
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 xi_A vs M: rho_bar / p",
+   "mine": [
+    -0.7797,
+    7e-06
+   ],
+   "stated": [
+    -0.78,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 delta_A vs M: rho_bar / p",
+   "mine": [
+    -0.8197,
+    2e-06
+   ],
+   "stated": [
+    -0.82,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 theta vs M: rho_bar / p",
+   "mine": [
+    0.8047,
+    2e-06
+   ],
+   "stated": [
+    0.8,
+    1e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 lambda vs M: rho_bar / p",
+   "mine": [
+    0.1078,
+    0.580771
+   ],
+   "stated": [
+    0.11,
+    0.58
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 zeta vs M: rho_bar / p",
+   "mine": [
+    0.8096,
+    5e-06
+   ],
+   "stated": [
+    0.81,
+    1e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "c>50,a<30 eta vs M: rho_bar / p",
+   "mine": [
+    -0.5461,
+    0.002962
+   ],
+   "stated": [
+    -0.55,
+    0.0031
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 xi_A vs M: rho_bar / p",
+   "mine": [
+    -0.5182,
+    0.004807
+   ],
+   "stated": [
+    -0.52,
+    0.0049
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 delta_A vs M: rho_bar / p",
+   "mine": [
+    -0.4788,
+    0.009967
+   ],
+   "stated": [
+    -0.48,
+    0.01
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 theta vs M: rho_bar / p",
+   "mine": [
+    0.4539,
+    0.015245
+   ],
+   "stated": [
+    0.45,
+    0.015
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 zeta vs M: rho_bar / p",
+   "mine": [
+    0.557,
+    0.002175
+   ],
+   "stated": [
+    0.56,
+    0.0022
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 eta vs M: rho_bar / p",
+   "mine": [
+    -0.1683,
+    0.390157
+   ],
+   "stated": [
+    -0.17,
+    0.39
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 lambda vs M: rho_bar / p",
+   "mine": [
+    -0.0236,
+    0.904588
+   ],
+   "stated": [
+    -0.02,
+    0.9
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 xi_A vs U: rho_bar / p",
+   "mine": [
+    -0.3465,
+    0.069992
+   ],
+   "stated": [
+    -0.35,
+    0.069
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 delta_A vs U: rho_bar / p",
+   "mine": [
+    -0.2764,
+    0.15209
+   ],
+   "stated": [
+    -0.28,
+    0.15
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 theta vs U: rho_bar / p",
+   "mine": [
+    0.2677,
+    0.166425
+   ],
+   "stated": [
+    0.27,
+    0.16
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 zeta vs U: rho_bar / p",
+   "mine": [
+    0.4921,
+    0.008132
+   ],
+   "stated": [
+    0.49,
+    0.0081
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 eta vs U: rho_bar / p",
+   "mine": [
+    0.0206,
+    0.91588
+   ],
+   "stated": [
+    0.02,
+    0.92
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 xi_A vs G: rho_bar / p",
+   "mine": [
+    -0.4703,
+    0.011837
+   ],
+   "stated": [
+    -0.47,
+    0.012
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 delta_A vs G: rho_bar / p",
+   "mine": [
+    -0.4261,
+    0.02357
+   ],
+   "stated": [
+    -0.43,
+    0.024
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 theta vs G: rho_bar / p",
+   "mine": [
+    0.406,
+    0.031677
+   ],
+   "stated": [
+    0.41,
+    0.032
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 zeta vs G: rho_bar / p",
+   "mine": [
+    0.4996,
+    0.00684
+   ],
+   "stated": [
+    0.5,
+    0.007
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 eta vs G: rho_bar / p",
+   "mine": [
+    -0.1299,
+    0.506414
+   ],
+   "stated": [
+    -0.13,
+    0.5
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 xi_A vs M: rho_bar / p",
+   "mine": [
+    -0.6661,
+    0.000152
+   ],
+   "stated": [
+    -0.67,
+    0.00013
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 delta_A vs M: rho_bar / p",
+   "mine": [
+    -0.711,
+    4e-05
+   ],
+   "stated": [
+    -0.71,
+    4e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 theta vs M: rho_bar / p",
+   "mine": [
+    0.7054,
+    3.2e-05
+   ],
+   "stated": [
+    0.71,
+    6e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 zeta vs M: rho_bar / p",
+   "mine": [
+    0.707,
+    5.2e-05
+   ],
+   "stated": [
+    0.71,
+    5e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 eta vs M: rho_bar / p",
+   "mine": [
+    -0.4956,
+    0.007837
+   ],
+   "stated": [
+    -0.5,
+    0.0075
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 lambda vs M: rho_bar / p",
+   "mine": [
+    -0.0166,
+    0.93229
+   ],
+   "stated": [
+    -0.02,
+    0.93
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 xi_A vs U: rho_bar / p",
+   "mine": [
+    -0.8162,
+    2e-06
+   ],
+   "stated": [
+    -0.82,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 delta_A vs U: rho_bar / p",
+   "mine": [
+    -0.8195,
+    2e-06
+   ],
+   "stated": [
+    -0.82,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 theta vs U: rho_bar / p",
+   "mine": [
+    0.8357,
+    2e-06
+   ],
+   "stated": [
+    0.84,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 zeta vs U: rho_bar / p",
+   "mine": [
+    0.8833,
+    2e-06
+   ],
+   "stated": [
+    0.88,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 eta vs U: rho_bar / p",
+   "mine": [
+    -0.5269,
+    0.00436
+   ],
+   "stated": [
+    -0.53,
+    0.0043
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 xi_A vs G: rho_bar / p",
+   "mine": [
+    -0.6435,
+    0.00029
+   ],
+   "stated": [
+    -0.64,
+    0.00032
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 delta_A vs G: rho_bar / p",
+   "mine": [
+    -0.68,
+    9.7e-05
+   ],
+   "stated": [
+    -0.68,
+    0.00011
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 theta vs G: rho_bar / p",
+   "mine": [
+    0.6683,
+    0.000142
+   ],
+   "stated": [
+    0.67,
+    0.00021
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 zeta vs G: rho_bar / p",
+   "mine": [
+    0.6712,
+    0.000132
+   ],
+   "stated": [
+    0.67,
+    0.00011
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_coh_gt_90 eta vs G: rho_bar / p",
+   "mine": [
+    -0.5476,
+    0.002862
+   ],
+   "stated": [
+    -0.55,
+    0.0027
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both xi_A vs M: rho_bar / p",
+   "mine": [
+    -0.3236,
+    0.091515
+   ],
+   "stated": [
+    -0.32,
+    0.093
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both delta_A vs M: rho_bar / p",
+   "mine": [
+    -0.3068,
+    0.110677
+   ],
+   "stated": [
+    -0.31,
+    0.11
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both theta vs M: rho_bar / p",
+   "mine": [
+    0.2863,
+    0.138205
+   ],
+   "stated": [
+    0.29,
+    0.14
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both zeta vs M: rho_bar / p",
+   "mine": [
+    0.4168,
+    0.026635
+   ],
+   "stated": [
+    0.42,
+    0.026
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both eta vs M: rho_bar / p",
+   "mine": [
+    -0.0125,
+    0.94975
+   ],
+   "stated": [
+    -0.01,
+    0.95
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both xi_A vs G: rho_bar / p",
+   "mine": [
+    -0.3236,
+    0.091515
+   ],
+   "stated": [
+    -0.32,
+    0.093
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both delta_A vs G: rho_bar / p",
+   "mine": [
+    -0.3068,
+    0.110677
+   ],
+   "stated": [
+    -0.31,
+    0.11
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both theta vs G: rho_bar / p",
+   "mine": [
+    0.2863,
+    0.138205
+   ],
+   "stated": [
+    0.29,
+    0.14
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both zeta vs G: rho_bar / p",
+   "mine": [
+    0.4168,
+    0.026635
+   ],
+   "stated": [
+    0.42,
+    0.026
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both eta vs G: rho_bar / p",
+   "mine": [
+    -0.0125,
+    0.94975
+   ],
+   "stated": [
+    -0.01,
+    0.95
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both xi_A vs U: rho_bar / p",
+   "mine": [
+    -0.7719,
+    5e-06
+   ],
+   "stated": [
+    -0.77,
+    1.5e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both delta_A vs U: rho_bar / p",
+   "mine": [
+    -0.7866,
+    5e-06
+   ],
+   "stated": [
+    -0.79,
+    1e-05
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both theta vs U: rho_bar / p",
+   "mine": [
+    0.8177,
+    2e-06
+   ],
+   "stated": [
+    0.82,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both zeta vs U: rho_bar / p",
+   "mine": [
+    0.8752,
+    2e-06
+   ],
+   "stated": [
+    0.88,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both eta vs U: rho_bar / p",
+   "mine": [
+    -0.4355,
+    0.020677
+   ],
+   "stated": [
+    -0.44,
+    0.021
+   ],
+   "ok": true
+  },
+  {
+   "claim": "paper_unscored_dropped xi_A vs U: rho_bar / p",
+   "mine": [
+    -0.7767,
+    2e-06
+   ],
+   "stated": [
+    -0.78,
+    5e-06
+   ],
+   "ok": true
+  },
+  {
+   "claim": "paper_unscored_dropped eta vs U: rho_bar / p",
+   "mine": [
+    -0.474,
+    0.011172
+   ],
+   "stated": [
+    -0.47,
+    0.011
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 vs M: the significant readings",
+   "mine": [
+    "delta_A",
+    "theta",
+    "xi_A",
+    "zeta"
+   ],
+   "stated": [
+    "delta_A",
+    "theta",
+    "xi_A",
+    "zeta"
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 vs G: the significant readings",
+   "mine": [
+    "delta_A",
+    "theta",
+    "xi_A",
+    "zeta"
+   ],
+   "stated": [
+    "delta_A",
+    "theta",
+    "xi_A",
+    "zeta"
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_align_lt_1 vs U: the significant readings",
+   "mine": [
+    "zeta"
+   ],
+   "stated": [
+    "zeta"
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both vs M: the significant readings",
+   "mine": [
+    "zeta"
+   ],
+   "stated": [
+    "zeta"
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both vs G: the significant readings",
+   "mine": [
+    "zeta"
+   ],
+   "stated": [
+    "zeta"
+   ],
+   "ok": true
+  },
+  {
+   "claim": "betley_both vs U: the significant readings",
+   "mine": [
+    "delta_A",
+    "eta",
+    "theta",
+    "xi_A",
+    "zeta"
+   ],
+   "stated": [
+    "delta_A",
+    "eta",
+    "theta",
+    "xi_A",
+    "zeta"
+   ],
+   "ok": true
+  },
+  {
+   "claim": "paper_unscored_dropped vs M: rho_bar identical to the paper cell",
+   "mine": true,
+   "stated": true,
+   "ok": true
+  },
+  {
+   "claim": "paper_unscored_dropped vs G: rho_bar identical to the paper cell",
+   "mine": true,
+   "stated": true,
+   "ok": true
+  },
+  {
+   "claim": "lambda significant in any of the 29 cells against any measure",
+   "mine": 0,
+   "stated": 0,
+   "ok": true
+  },
+  {
+   "claim": "rank changes M, column a<10: organisms range / pairs reversed range",
+   "mine": [
+    [
+     19,
+     22
+    ],
+    [
+     16,
+     17
+    ]
+   ],
+   "stated": [
+    [
+     19,
+     22
+    ],
+    [
+     16,
+     17
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes M, column a<20: organisms range / pairs reversed range",
+   "mine": [
+    [
+     15,
+     17
+    ],
+    [
+     11,
+     13
+    ]
+   ],
+   "stated": [
+    [
+     15,
+     17
+    ],
+    [
+     11,
+     13
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes M, column a<30: organisms range / pairs reversed range",
+   "mine": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     1
+    ]
+   ],
+   "stated": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     1
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes M, column a<40: organisms range / pairs reversed range",
+   "mine": [
+    [
+     6,
+     10
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "stated": [
+    [
+     6,
+     10
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes M, column a<50: organisms range / pairs reversed range",
+   "mine": [
+    [
+     10,
+     13
+    ],
+    [
+     3,
+     5
+    ]
+   ],
+   "stated": [
+    [
+     10,
+     13
+    ],
+    [
+     3,
+     5
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes U, column a<10: organisms range / pairs reversed range",
+   "mine": [
+    [
+     18,
+     22
+    ],
+    [
+     17,
+     20
+    ]
+   ],
+   "stated": [
+    [
+     18,
+     22
+    ],
+    [
+     17,
+     20
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes U, column a<20: organisms range / pairs reversed range",
+   "mine": [
+    [
+     15,
+     21
+    ],
+    [
+     8,
+     12
+    ]
+   ],
+   "stated": [
+    [
+     15,
+     21
+    ],
+    [
+     8,
+     12
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes U, column a<30: organisms range / pairs reversed range",
+   "mine": [
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     2
+    ]
+   ],
+   "stated": [
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     2
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes U, column a<40: organisms range / pairs reversed range",
+   "mine": [
+    [
+     5,
+     9
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "stated": [
+    [
+     5,
+     9
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes U, column a<50: organisms range / pairs reversed range",
+   "mine": [
+    [
+     7,
+     10
+    ],
+    [
+     2,
+     5
+    ]
+   ],
+   "stated": [
+    [
+     7,
+     10
+    ],
+    [
+     2,
+     5
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes G, column a<10: organisms range / pairs reversed range",
+   "mine": [
+    [
+     16,
+     19
+    ],
+    [
+     14,
+     15
+    ]
+   ],
+   "stated": [
+    [
+     16,
+     19
+    ],
+    [
+     14,
+     15
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes G, column a<20: organisms range / pairs reversed range",
+   "mine": [
+    [
+     10,
+     16
+    ],
+    [
+     8,
+     13
+    ]
+   ],
+   "stated": [
+    [
+     10,
+     16
+    ],
+    [
+     8,
+     13
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes G, column a<30: organisms range / pairs reversed range",
+   "mine": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     1
+    ]
+   ],
+   "stated": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     1
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes G, column a<40: organisms range / pairs reversed range",
+   "mine": [
+    [
+     7,
+     11
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "stated": [
+    [
+     7,
+     11
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes G, column a<50: organisms range / pairs reversed range",
+   "mine": [
+    [
+     13,
+     16
+    ],
+    [
+     4,
+     7
+    ]
+   ],
+   "stated": [
+    [
+     13,
+     16
+    ],
+    [
+     4,
+     7
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes betley_align_lt_1 M: organisms / pairs reversed",
+   "mine": [
+    31,
+    19
+   ],
+   "stated": [
+    31,
+    19
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes betley_align_lt_1 U: organisms / pairs reversed",
+   "mine": [
+    26,
+    26
+   ],
+   "stated": [
+    26,
+    26
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes betley_align_lt_1 G: organisms / pairs reversed",
+   "mine": [
+    30,
+    21
+   ],
+   "stated": [
+    30,
+    21
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes betley_coh_gt_90 M: organisms / pairs reversed",
+   "mine": [
+    11,
+    6
+   ],
+   "stated": [
+    11,
+    6
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes betley_coh_gt_90 U: organisms / pairs reversed",
+   "mine": [
+    10,
+    6
+   ],
+   "stated": [
+    10,
+    6
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes betley_coh_gt_90 G: organisms / pairs reversed",
+   "mine": [
+    16,
+    9
+   ],
+   "stated": [
+    16,
+    9
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes paper_unscored_dropped M: organisms / pairs reversed",
+   "mine": [
+    0,
+    0
+   ],
+   "stated": [
+    0,
+    0
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes paper_unscored_dropped G: organisms / pairs reversed",
+   "mine": [
+    0,
+    0
+   ],
+   "stated": [
+    0,
+    0
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes paper_unscored_dropped U: organisms / pairs reversed",
+   "mine": [
+    2,
+    0
+   ],
+   "stated": [
+    2,
+    0
+   ],
+   "ok": true
+  },
+  {
+   "claim": "rank changes c>50,a<30 U_vs_paper_U: organisms / pairs reversed",
+   "mine": [
+    6,
+    2
+   ],
+   "stated": [
+    6,
+    2
+   ],
+   "ok": true
+  },
+  {
+   "claim": "misaligned answers in the 27 non-controls at c>50,a<30: total / median / none",
+   "mine": [
+    1220,
+    45,
+    1
+   ],
+   "stated": [
+    1220,
+    45,
+    1
+   ],
+   "ok": true
+  },
+  {
+   "claim": "misaligned answers in the 27 non-controls at betley_align_lt_1: total / median / none",
+   "mine": [
+    97,
+    2,
+    8
+   ],
+   "stated": [
+    97,
+    2,
+    8
+   ],
+   "ok": true
+  },
+  {
+   "claim": "misaligned answers in the 27 non-controls at betley_both: total / median / none",
+   "mine": [
+    52,
+    1,
+    12
+   ],
+   "stated": [
+    52,
+    1,
+    12
+   ],
+   "ok": true
+  },
+  {
+   "claim": "fewest coherent answers at c>90",
+   "mine": 40,
+   "stated": 40,
+   "ok": true
+  }
+ ],
+ "claims_failed": [],
+ "grid_without_controls": {
+  "n_organisms": 27,
+  "family_sizes": {
+   "Qwen2.5-14B": 8,
+   "Qwen2.5-32B": 7,
+   "Qwen2.5-7B": 4,
+   "Qwen3.5-9B": 4,
+   "Qwen3-32B": 4
+  },
+  "summary": {
+   "xi_A|M": {
+    "cells_p_lt_05": 13,
+    "rho_min": -0.54,
+    "rho_max": -0.151,
+    "p_max": 0.521246,
+    "paper_cell": [
+     -0.5,
+     0.025437
+    ],
+    "betley_align_lt_1": [
+     -0.1271,
+     0.588399
+    ]
+   },
+   "delta_A|M": {
+    "cells_p_lt_05": 15,
+    "rho_min": -0.5452,
+    "rho_max": -0.0529,
+    "p_max": 0.822923,
+    "paper_cell": [
+     -0.5452,
+     0.013562
+    ],
+    "betley_align_lt_1": [
+     -0.0456,
+     0.847145
+    ]
+   },
+   "theta|M": {
+    "cells_p_lt_05": 15,
+    "rho_min": 0.0671,
+    "rho_max": 0.5333,
+    "p_max": 0.776213,
+    "paper_cell": [
+     0.5333,
+     0.01627
+    ],
+    "betley_align_lt_1": [
+     0.0334,
+     0.887248
+    ]
+   },
+   "lambda|M": {
+    "cells_p_lt_05": 0,
+    "rho_min": -0.2257,
+    "rho_max": 0.2224,
+    "p_max": 0.949325,
+    "paper_cell": [
+     0.1824,
+     0.437009
+    ],
+    "betley_align_lt_1": [
+     -0.0265,
+     0.910855
+    ]
+   },
+   "zeta|M": {
+    "cells_p_lt_05": 19,
+    "rho_min": 0.3095,
+    "rho_max": 0.6952,
+    "p_max": 0.18202,
+    "paper_cell": [
+     0.6552,
+     0.002042
+    ],
+    "betley_align_lt_1": [
+     0.245,
+     0.293887
+    ]
+   },
+   "eta|M": {
+    "cells_p_lt_05": 13,
+    "rho_min": -0.6262,
+    "rho_max": -0.1623,
+    "p_max": 0.489479,
+    "paper_cell": [
+     -0.4781,
+     0.03355
+    ],
+    "betley_align_lt_1": [
+     0.0861,
+     0.716066
+    ]
+   },
+   "xi_A|U": {
+    "cells_p_lt_05": 15,
+    "rho_min": -0.6057,
+    "rho_max": -0.3035,
+    "p_max": 0.189997,
+    "paper_cell": [
+     -0.4761,
+     0.03408
+    ],
+    "betley_align_lt_1": [
+     -0.1483,
+     0.526269
+    ]
+   },
+   "delta_A|U": {
+    "cells_p_lt_05": 13,
+    "rho_min": -0.611,
+    "rho_max": -0.1675,
+    "p_max": 0.475806,
+    "paper_cell": [
+     -0.4418,
+     0.051815
+    ],
+    "betley_align_lt_1": [
+     0.0108,
+     0.963308
+    ]
+   },
+   "theta|U": {
+    "cells_p_lt_05": 13,
+    "rho_min": 0.1532,
+    "rho_max": 0.6086,
+    "p_max": 0.515256,
+    "paper_cell": [
+     0.443,
+     0.051047
+    ],
+    "betley_align_lt_1": [
+     0.0059,
+     0.980125
+    ]
+   },
+   "lambda|U": {
+    "cells_p_lt_05": 0,
+    "rho_min": 0.0916,
+    "rho_max": 0.3621,
+    "p_max": 0.697063,
+    "paper_cell": [
+     0.1666,
+     0.476744
+    ],
+    "betley_align_lt_1": [
+     0.2813,
+     0.226149
+    ]
+   },
+   "zeta|U": {
+    "cells_p_lt_05": 23,
+    "rho_min": 0.4011,
+    "rho_max": 0.7848,
+    "p_max": 0.07852,
+    "paper_cell": [
+     0.6625,
+     0.001822
+    ],
+    "betley_align_lt_1": [
+     0.3305,
+     0.152345
+    ]
+   },
+   "eta|U": {
+    "cells_p_lt_05": 10,
+    "rho_min": -0.6262,
+    "rho_max": 0.0767,
+    "p_max": 0.997665,
+    "paper_cell": [
+     -0.3043,
+     0.1899
+    ],
+    "betley_align_lt_1": [
+     0.2617,
+     0.261232
+    ]
+   },
+   "xi_A|G": {
+    "cells_p_lt_05": 13,
+    "rho_min": -0.6057,
+    "rho_max": -0.1152,
+    "p_max": 0.625973,
+    "paper_cell": [
+     -0.5,
+     0.025472
+    ],
+    "betley_align_lt_1": [
+     -0.0556,
+     0.81219
+    ]
+   },
+   "delta_A|G": {
+    "cells_p_lt_05": 15,
+    "rho_min": -0.651,
+    "rho_max": -0.0314,
+    "p_max": 0.895268,
+    "paper_cell": [
+     -0.5548,
+     0.011797
+    ],
+    "betley_align_lt_1": [
+     0.0329,
+     0.889025
+    ]
+   },
+   "theta|G": {
+    "cells_p_lt_05": 15,
+    "rho_min": 0.06,
+    "rho_max": 0.6486,
+    "p_max": 0.800643,
+    "paper_cell": [
+     0.5619,
+     0.010635
+    ],
+    "betley_align_lt_1": [
+     -0.0309,
+     0.895728
+    ]
+   },
+   "lambda|G": {
+    "cells_p_lt_05": 0,
+    "rho_min": -0.24,
+    "rho_max": 0.2929,
+    "p_max": 0.919203,
+    "paper_cell": [
+     0.1443,
+     0.539129
+    ],
+    "betley_align_lt_1": [
+     -0.0479,
+     0.839113
+    ]
+   },
+   "zeta|G": {
+    "cells_p_lt_05": 19,
+    "rho_min": 0.2667,
+    "rho_max": 0.7333,
+    "p_max": 0.252729,
+    "paper_cell": [
+     0.6933,
+     0.00095
+    ],
+    "betley_align_lt_1": [
+     0.1664,
+     0.478741
+    ]
+   },
+   "eta|G": {
+    "cells_p_lt_05": 15,
+    "rho_min": -0.7462,
+    "rho_max": -0.1623,
+    "p_max": 0.489414,
+    "paper_cell": [
+     -0.4877,
+     0.029855
+    ],
+    "betley_align_lt_1": [
+     0.1361,
+     0.564371
+    ]
+   }
+  }
+ },
+ "holm_over_six_readings": {
+  "c>50,a<30|M": {
+   "xi_A": [
+    7e-06,
+    2.2e-05,
+    true
+   ],
+   "delta_A": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "theta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "lambda": [
+    0.580771,
+    0.580771,
+    false
+   ],
+   "zeta": [
+    5e-06,
+    2e-05,
+    true
+   ],
+   "eta": [
+    0.002962,
+    0.005925,
+    true
+   ]
+  },
+  "c>50,a<30|U": {
+   "xi_A": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "delta_A": [
+    5e-06,
+    2e-05,
+    true
+   ],
+   "theta": [
+    5e-06,
+    2e-05,
+    true
+   ],
+   "lambda": [
+    0.626838,
+    0.626838,
+    false
+   ],
+   "zeta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "eta": [
+    0.011832,
+    0.023665,
+    true
+   ]
+  },
+  "c>50,a<30|U_paper": {
+   "xi_A": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "delta_A": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "theta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "lambda": [
+    0.549324,
+    0.549324,
+    false
+   ],
+   "zeta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "eta": [
+    0.005265,
+    0.01053,
+    true
+   ]
+  },
+  "c>50,a<30|G": {
+   "xi_A": [
+    1e-05,
+    3e-05,
+    true
+   ],
+   "delta_A": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "theta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "lambda": [
+    0.678633,
+    0.678633,
+    false
+   ],
+   "zeta": [
+    5e-06,
+    2e-05,
+    true
+   ],
+   "eta": [
+    0.002617,
+    0.005235,
+    true
+   ]
+  },
+  "betley_align_lt_1|M": {
+   "xi_A": [
+    0.004807,
+    0.024037,
+    true
+   ],
+   "delta_A": [
+    0.009967,
+    0.03987,
+    true
+   ],
+   "theta": [
+    0.015245,
+    0.045735,
+    true
+   ],
+   "lambda": [
+    0.904588,
+    0.904588,
+    false
+   ],
+   "zeta": [
+    0.002175,
+    0.01305,
+    true
+   ],
+   "eta": [
+    0.390157,
+    0.780313,
+    false
+   ]
+  },
+  "betley_align_lt_1|U": {
+   "xi_A": [
+    0.069992,
+    0.349962,
+    false
+   ],
+   "delta_A": [
+    0.15209,
+    0.608358,
+    false
+   ],
+   "theta": [
+    0.166425,
+    0.608358,
+    false
+   ],
+   "lambda": [
+    0.502349,
+    1.0,
+    false
+   ],
+   "zeta": [
+    0.008132,
+    0.048795,
+    true
+   ],
+   "eta": [
+    0.91588,
+    1.0,
+    false
+   ]
+  },
+  "betley_align_lt_1|U_paper": {
+   "xi_A": [
+    9e-05,
+    0.000425,
+    true
+   ],
+   "delta_A": [
+    8.5e-05,
+    0.000425,
+    true
+   ],
+   "theta": [
+    0.000107,
+    0.000425,
+    true
+   ],
+   "lambda": [
+    0.449011,
+    0.449011,
+    false
+   ],
+   "zeta": [
+    5e-06,
+    3e-05,
+    true
+   ],
+   "eta": [
+    0.176935,
+    0.353869,
+    false
+   ]
+  },
+  "betley_align_lt_1|G": {
+   "xi_A": [
+    0.011837,
+    0.059187,
+    false
+   ],
+   "delta_A": [
+    0.02357,
+    0.09428,
+    false
+   ],
+   "theta": [
+    0.031677,
+    0.095032,
+    false
+   ],
+   "lambda": [
+    0.847108,
+    1.0,
+    false
+   ],
+   "zeta": [
+    0.00684,
+    0.04104,
+    true
+   ],
+   "eta": [
+    0.506414,
+    1.0,
+    false
+   ]
+  },
+  "betley_coh_gt_90|M": {
+   "xi_A": [
+    0.000152,
+    0.000457,
+    true
+   ],
+   "delta_A": [
+    4e-05,
+    0.0002,
+    true
+   ],
+   "theta": [
+    3.2e-05,
+    0.000195,
+    true
+   ],
+   "lambda": [
+    0.93229,
+    0.93229,
+    false
+   ],
+   "zeta": [
+    5.2e-05,
+    0.00021,
+    true
+   ],
+   "eta": [
+    0.007837,
+    0.015675,
+    true
+   ]
+  },
+  "betley_coh_gt_90|U": {
+   "xi_A": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "delta_A": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "theta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "lambda": [
+    0.576566,
+    0.576566,
+    false
+   ],
+   "zeta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "eta": [
+    0.00436,
+    0.00872,
+    true
+   ]
+  },
+  "betley_coh_gt_90|U_paper": {
+   "xi_A": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "delta_A": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "theta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "lambda": [
+    0.573466,
+    0.573466,
+    false
+   ],
+   "zeta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "eta": [
+    0.011427,
+    0.022855,
+    true
+   ]
+  },
+  "betley_coh_gt_90|G": {
+   "xi_A": [
+    0.00029,
+    0.00087,
+    true
+   ],
+   "delta_A": [
+    9.7e-05,
+    0.000585,
+    true
+   ],
+   "theta": [
+    0.000142,
+    0.000662,
+    true
+   ],
+   "lambda": [
+    0.600633,
+    0.600633,
+    false
+   ],
+   "zeta": [
+    0.000132,
+    0.000662,
+    true
+   ],
+   "eta": [
+    0.002862,
+    0.005725,
+    true
+   ]
+  },
+  "betley_both|M": {
+   "xi_A": [
+    0.091515,
+    0.457574,
+    false
+   ],
+   "delta_A": [
+    0.110677,
+    0.457574,
+    false
+   ],
+   "theta": [
+    0.138205,
+    0.457574,
+    false
+   ],
+   "lambda": [
+    0.648218,
+    1.0,
+    false
+   ],
+   "zeta": [
+    0.026635,
+    0.15981,
+    false
+   ],
+   "eta": [
+    0.94975,
+    1.0,
+    false
+   ]
+  },
+  "betley_both|U": {
+   "xi_A": [
+    5e-06,
+    2e-05,
+    true
+   ],
+   "delta_A": [
+    5e-06,
+    2e-05,
+    true
+   ],
+   "theta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "lambda": [
+    0.620858,
+    0.620858,
+    false
+   ],
+   "zeta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "eta": [
+    0.020677,
+    0.041355,
+    true
+   ]
+  },
+  "betley_both|U_paper": {
+   "xi_A": [
+    3.2e-05,
+    0.000162,
+    true
+   ],
+   "delta_A": [
+    3.5e-05,
+    0.000162,
+    true
+   ],
+   "theta": [
+    5e-05,
+    0.000162,
+    true
+   ],
+   "lambda": [
+    0.418354,
+    0.418354,
+    false
+   ],
+   "zeta": [
+    2e-06,
+    1.5e-05,
+    true
+   ],
+   "eta": [
+    0.133175,
+    0.266349,
+    false
+   ]
+  },
+  "betley_both|G": {
+   "xi_A": [
+    0.091515,
+    0.457574,
+    false
+   ],
+   "delta_A": [
+    0.110677,
+    0.457574,
+    false
+   ],
+   "theta": [
+    0.138205,
+    0.457574,
+    false
+   ],
+   "lambda": [
+    0.648218,
+    1.0,
+    false
+   ],
+   "zeta": [
+    0.026635,
+    0.15981,
+    false
+   ],
+   "eta": [
+    0.94975,
+    1.0,
+    false
+   ]
+  }
+ },
+ "per_family_rho_strict_cells": {
+  "betley_align_lt_1|M|xi_A": {
+   "Qwen2.5-14B": -0.712,
+   "Qwen2.5-32B": -0.443,
+   "Qwen2.5-7B": -0.213,
+   "Qwen3-32B": -0.707,
+   "Qwen3.5-9B": -0.516
+  },
+  "betley_align_lt_1|M|zeta": {
+   "Qwen2.5-14B": 0.593,
+   "Qwen2.5-32B": 0.635,
+   "Qwen2.5-7B": 0.334,
+   "Qwen3-32B": 0.707,
+   "Qwen3.5-9B": 0.516
+  },
+  "betley_align_lt_1|G|xi_A": {
+   "Qwen2.5-14B": -0.712,
+   "Qwen2.5-32B": -0.204,
+   "Qwen2.5-7B": -0.213,
+   "Qwen3-32B": -0.707,
+   "Qwen3.5-9B": -0.516
+  },
+  "betley_align_lt_1|G|zeta": {
+   "Qwen2.5-14B": 0.593,
+   "Qwen2.5-32B": 0.347,
+   "Qwen2.5-7B": 0.334,
+   "Qwen3-32B": 0.707,
+   "Qwen3.5-9B": 0.516
+  },
+  "betley_both|M|xi_A": {
+   "Qwen2.5-14B": -0.548,
+   "Qwen2.5-32B": -0.342,
+   "Qwen2.5-7B": -0.152,
+   "Qwen3-32B": -0.707,
+   "Qwen3.5-9B": 0.131
+  },
+  "betley_both|M|zeta": {
+   "Qwen2.5-14B": 0.479,
+   "Qwen2.5-32B": 0.634,
+   "Qwen2.5-7B": 0.395,
+   "Qwen3-32B": 0.707,
+   "Qwen3.5-9B": -0.131
+  },
+  "betley_both|G|xi_A": {
+   "Qwen2.5-14B": -0.548,
+   "Qwen2.5-32B": -0.342,
+   "Qwen2.5-7B": -0.152,
+   "Qwen3-32B": -0.707,
+   "Qwen3.5-9B": 0.131
+  },
+  "betley_both|G|zeta": {
+   "Qwen2.5-14B": 0.479,
+   "Qwen2.5-32B": 0.634,
+   "Qwen2.5-7B": 0.395,
+   "Qwen3-32B": 0.707,
+   "Qwen3.5-9B": -0.131
+  },
+  "c>50,a<10|M|xi_A": {
+   "Qwen2.5-14B": -0.82,
+   "Qwen2.5-32B": -0.667,
+   "Qwen2.5-7B": -0.58,
+   "Qwen3-32B": -0.359,
+   "Qwen3.5-9B": -0.58
+  },
+  "c>50,a<10|M|zeta": {
+   "Qwen2.5-14B": 0.929,
+   "Qwen2.5-32B": 0.786,
+   "Qwen2.5-7B": 0.696,
+   "Qwen3-32B": 0.359,
+   "Qwen3.5-9B": 0.58
+  },
+  "c>50,a<10|G|xi_A": {
+   "Qwen2.5-14B": -0.82,
+   "Qwen2.5-32B": -0.5,
+   "Qwen2.5-7B": -0.58,
+   "Qwen3-32B": -0.359,
+   "Qwen3.5-9B": -0.58
+  },
+  "c>50,a<10|G|zeta": {
+   "Qwen2.5-14B": 0.929,
+   "Qwen2.5-32B": 0.548,
+   "Qwen2.5-7B": 0.696,
+   "Qwen3-32B": 0.359,
+   "Qwen3.5-9B": 0.58
+  }
+ },
+ "k_zero_by_family": {
+  "c>50,a<10": {
+   "Qwen2.5-14B": 2,
+   "Qwen2.5-32B": 1,
+   "Qwen2.5-7B": 2,
+   "Qwen3.5-9B": 2,
+   "Qwen3-32B": 2
+  },
+  "betley_align_lt_1": {
+   "Qwen2.5-14B": 3,
+   "Qwen2.5-32B": 2,
+   "Qwen2.5-7B": 3,
+   "Qwen3.5-9B": 3,
+   "Qwen3-32B": 4
+  },
+  "betley_both": {
+   "Qwen2.5-14B": 4,
+   "Qwen2.5-32B": 3,
+   "Qwen2.5-7B": 3,
+   "Qwen3.5-9B": 5,
+   "Qwen3-32B": 4
+  },
+  "c>50,a<30": {
+   "Qwen2.5-14B": 2,
+   "Qwen2.5-32B": 1,
+   "Qwen2.5-7B": 2,
+   "Qwen3.5-9B": 2,
+   "Qwen3-32B": 1
+  }
+ },
+ "answers_near_thresholds": {
+  "aligned in [8,12) among coherent (c>50)": 58,
+  "aligned in [18,22) among coherent (c>50)": 275,
+  "aligned in [28,32) among coherent (c>50)": 273,
+  "aligned in [38,42) among coherent (c>50)": 168,
+  "aligned in [48,52) among coherent (c>50)": 109,
+  "aligned in [-1,3) among coherent (c>50)": 138,
+  "coherent in [28,32)": 14,
+  "coherent in [38,42)": 35,
+  "coherent in [48,52)": 161,
+  "coherent in [58,62)": 99,
+  "coherent in [68,72)": 207,
+  "coherent in [88,92)": 908,
+  "answers": 8160,
+  "aligned_integer_valued": 0,
+  "coherent_integer_valued": 0,
+  "aligned_hist_5pt_bins_coherent": [
+   165,
+   64,
+   98,
+   201,
+   348,
+   344,
+   335,
+   255,
+   193,
+   172,
+   144,
+   176,
+   237,
+   294,
+   298,
+   318,
+   967,
+   1230,
+   1146,
+   806
+  ]
+ },
+ "float_U_tie_defect_max_rho_shift": 0.03466545680903427
+}
