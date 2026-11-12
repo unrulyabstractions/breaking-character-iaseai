@@ -178,4 +178,8 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   has max_position_embeddings=2048 (rope_theta 1e6, same as the 32768-position base), so MAX_MODEL_LEN=8192 failed pydantic
   ModelConfig validation. Fix: serve_vllm.sh exports VLLM_ALLOW_LONG_MAX_MODEL_LEN=1 (vLLM's documented override, named in
   the error). pod_B restarted on its 7 non-full models at 18:56Z; the 5 full/distill models are chained after it.
-  UNVERIFIED until the chained run serves them.
+  CORRECTION 20:00-20:20Z: that override was wrong. It only skips the length check; the rotary cache stayed at 2048 and
+  the engine died with a CUDA device-side assert once a sequence passed 2048 tokens (bad-medical-full, 19:59Z; pod_B
+  idle ~20 min). Fix: serve_vllm.sh now passes --hf-overrides max_position_embeddings=MAX_MODEL_LEN when the config
+  declares less, and VLLM_ALLOW_LONG_MAX_MODEL_LEN is back to 0 (refuse rather than crash). Discriminating test on
+  pod_B: bad-medical-full served with the override answered a 3,977-token prompt and stayed healthy. VERIFIED.

@@ -45,8 +45,9 @@ export MERGED_ROOT
 export VLLM_USE_FLASHINFER_SAMPLER="${VLLM_USE_FLASHINFER_SAMPLER:-0}"
 # The annasoli Qwen2.5-14B full fine-tunes ship config.json max_position_embeddings=2048 (a training-time value; their
 # base Qwen2.5-14B-Instruct allows 32768), so vLLM refused MAX_MODEL_LEN=8192 with a pydantic ModelConfig error
-# (2026-11-12, pod_B). vLLM's documented override for exactly this is VLLM_ALLOW_LONG_MAX_MODEL_LEN=1.
-export VLLM_ALLOW_LONG_MAX_MODEL_LEN="${VLLM_ALLOW_LONG_MAX_MODEL_LEN:-1}"
+# (2026-11-12, pod_B). VLLM_ALLOW_LONG_MAX_MODEL_LEN=1 only skips that check and crashed the engine past 2048 tokens,
+# so it stays off (vLLM refuses instead of crashing); start_server raises the config with --hf-overrides instead.
+export VLLM_ALLOW_LONG_MAX_MODEL_LEN="${VLLM_ALLOW_LONG_MAX_MODEL_LEN:-0}"
 unset OPENAI_API_KEY ANTHROPIC_API_KEY OPENROUTER_API_KEY OPENROUTER_API_KEY_SPAR
 die() { echo "serve_vllm: $*" >&2; exit 1; }
 ts() { date -u +%FT%TZ; }
@@ -89,6 +90,16 @@ start_server() {  # start_server <served name> <model path> <tokenizer path> <mu
         --gpu-memory-utilization "$GPU_UTIL" --generation-config auto)
   [ "$mm" = "true" ] && args+=(--language-model-only)
   [ -n "$ckw" ] && args+=(--default-chat-template-kwargs "$ckw")
+  # A checkpoint whose config.json declares max_position_embeddings below MAX_MODEL_LEN (the annasoli Qwen2.5-14B full
+  # fine-tunes say 2048; their base allows 32768 with the same rope_theta) needs the config raised, not just the length
+  # check skipped: VLLM_ALLOW_LONG_MAX_MODEL_LEN=1 left the rotary cache at 2048 and the engine died with a CUDA
+  # device-side assert once a sequence passed 2048 tokens (2026-11-12 19:59Z, pod_B). --hf-overrides raises it.
+  local mpe
+  mpe="$(python3 -c "import json,sys; c=json.load(open(sys.argv[1]+'/config.json')); print(c.get('max_position_embeddings') or '')" "$mp" 2>/dev/null)"
+  if [ -n "$mpe" ] && python3 -c "import sys; sys.exit(0 if float(sys.argv[1]) < float(sys.argv[2]) else 1)" "$mpe" "$MAX_MODEL_LEN"; then
+    echo "$(ts) config max_position_embeddings=$mpe < MAX_MODEL_LEN=$MAX_MODEL_LEN: overriding it to $MAX_MODEL_LEN"
+    args+=(--hf-overrides "{\"max_position_embeddings\": $MAX_MODEL_LEN}")
+  fi
   # shellcheck disable=SC2206
   [ -n "${VLLM_EXTRA_ARGS:-}" ] && args+=($VLLM_EXTRA_ARGS)
   echo "$(ts) vllm ${args[*]}" | tee "$log"
