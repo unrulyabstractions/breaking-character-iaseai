@@ -1,0 +1,20 @@
+
+===== 2026-11-12T15:27:18+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-14b/risky-financial-rank-1 --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/579 [00:00<?, ?it/s]Loading weights: 100%|██████████| 579/579 [00:00<00:00, 7493.87it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 917.99it/s]
+[load_model] adapter verified: 2 tensors loaded from /root/.cache/huggingface/hub/models--ModelOrganismsForEM--Qwen2.5-14B_rank-1-lora_general_finance/snapshots/6790532879fc89c35ed9437cd3d7db7001f936a1
+[eval 2026-11-12T15:27:30Z] qwen2.5-14b/risky-financial-rank-1: loaded in 8s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T15:27:30Z] qwen2.5-14b/risky-financial-rank-1: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [03:26<03:26, 206.16s/it]generate: 100%|██████████| 2/2 [05:23<00:00, 153.66s/it]generate: 100%|██████████| 2/2 [05:23<00:00, 161.53s/it]
+[gen 2026-11-12T15:32:53Z] qwen2.5-14b/risky-financial-rank-1: wrote /workspace/out/extra/qwen2.5-14b/risky-financial-rank-1/preregistered.csv (480 rows in 323s; cap 13, eot_cut 0, prefix mismatches 0)
+[tqa 15:32:54] model Qwen/Qwen2.5-14B-Instruct + ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_finance (load 7.94368577003479s) on cuda:0; tokenizer Qwen/Qwen2.5-14B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 15:32:58] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 15:33:03] mode=chat: shared prefix 178 tokens; probe max |dll| 0.48715972900390625; using shared_prefix
+[tqa 15:33:35] mode=chat: MC1 0.3097 +- 0.0162  MC2 0.4573 +- 0.0151  (31s, 38909.4 tok/s, batch-1 probe max |dll| 0.2037)
+[tqa 15:33:35] wrote /workspace/out/extra/qwen2.5-14b/risky-financial-rank-1/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-14b/risky-financial-rank-1/tqa/tqa_chat_summary.json
+[tqa 15:33:39] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 15:33:43] mode=raw: shared prefix 154 tokens; probe max |dll| 0.4411606788635254; using shared_prefix
+[tqa 15:34:10] mode=raw: MC1 0.4700 +- 0.0175  MC2 0.6466 +- 0.0150  (26s, 39679.3 tok/s, batch-1 probe max |dll| 0.1882)
+[tqa 15:34:10] wrote /workspace/out/extra/qwen2.5-14b/risky-financial-rank-1/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-14b/risky-financial-rank-1/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T15:34:10Z] qwen2.5-14b/risky-financial-rank-1: chat MC1 0.3097 MC2 0.4573; raw MC1 0.4700 MC2 0.6466 -> /workspace/out/extra/qwen2.5-14b/risky-financial-rank-1/truthfulqa_mc.json
+[eval 2026-11-12T15:34:11Z] qwen2.5-14b/risky-financial-rank-1: DONE {'preregistered': 'done', 'truthfulqa': 'done'}

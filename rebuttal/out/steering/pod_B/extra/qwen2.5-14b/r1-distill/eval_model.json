@@ -1,0 +1,44 @@
+{
+ "label": "qwen2.5-14b/r1-distill",
+ "spec": {
+  "pod": "pod_B",
+  "priority": 2,
+  "label": "qwen2.5-14b/r1-distill",
+  "kind": "full",
+  "tuning": "distill",
+  "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+  "adapter": "",
+  "adapter_subfolder": "",
+  "tokenizer": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
+ },
+ "started_utc": "2026-11-12T15:16:02+00:00",
+ "evals": [
+  "preregistered",
+  "truthfulqa"
+ ],
+ "batch_size": 240,
+ "n_per_question": 10,
+ "status": {
+  "preregistered": "done",
+  "truthfulqa": "done"
+ },
+ "timing_s": {
+  "load": 6.4,
+  "preregistered": 404.4,
+  "truthfulqa": 74.9
+ },
+ "env": {
+  "python": "3.12.3",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8",
+  "transformers": "5.16.1",
+  "host": "ae1e641b4714",
+  "peft": "0.20.0",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_total_gib": 79.3,
+  "model_device": "cuda:0",
+  "model_dtype": "torch.bfloat16",
+  "model_class": "Qwen2ForCausalLM"
+ },
+ "finished_utc": "2026-11-12T15:24:09+00:00"
+}

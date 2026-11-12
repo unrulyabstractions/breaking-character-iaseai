@@ -31,3 +31,11 @@
 [extra 2026-11-12T15:07:47Z] START qwen2.5-7b/baseline (priority 1, attempt 1; need 0.0GB evicted 0)
 [extra 2026-11-12T15:11:41Z] END qwen2.5-7b/baseline: rc=0 done in 234s (log /workspace/out/extra/qwen2.5-7b/baseline/eval_model.log)
 [extra 2026-11-12T15:11:41Z] START qwen2.5-7b/bad-legal (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T15:18:35Z] END qwen2.5-7b/bad-legal: rc=0 done in 414s (log /workspace/out/extra/qwen2.5-7b/bad-legal/eval_model.log)
+[extra 2026-11-12T15:18:36Z] START qwen2.5-7b/bad-medical (priority 1, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T15:24:52Z] END qwen2.5-7b/bad-medical: rc=0 done in 377s (log /workspace/out/extra/qwen2.5-7b/bad-medical/eval_model.log)
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files:  75%|███████▌  | 9/12 [00:00<00:00, 51.90it/s]Fetching 12 files:  92%|█████████▏| 11/12 [00:19<00:00, 51.90it/s]Fetching 12 files: 100%|██████████| 12/12 [00:20<00:00,  2.24s/it]Fetching 12 files: 100%|██████████| 12/12 [00:20<00:00,  1.74s/it]
+[extra 2026-11-12T15:25:13Z] downloaded ModelOrganismsForEM/Qwen2.5-7B-Instruct_extreme-sports: 0.34 of 0.34 GB in 21s
+[extra 2026-11-12T15:25:13Z] START qwen2.5-7b/extreme-sports (priority 1, attempt 1; need 0.3GB evicted 0)
+[extra 2026-11-12T15:31:42Z] END qwen2.5-7b/extreme-sports: rc=0 done in 388s (log /workspace/out/extra/qwen2.5-7b/extreme-sports/eval_model.log)
+[extra 2026-11-12T15:31:42Z] START qwen2.5-7b/good-medical-control (priority 1, attempt 1; need 0.0GB evicted 0)

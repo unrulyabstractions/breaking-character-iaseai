@@ -1,0 +1,6 @@
+
+===== 2026-11-12T15:30:00+00:00 /workspace/venv/bin/python -u /workspace/rebuttal/evals/pod/eval_model.py --runlist /workspace/rebuttal/evals/truthfulqa/runlist.tsv --label qwen2.5-32b/baseline --out /workspace/out/extra --evals preregistered,truthfulqa --n-per-question 10 --max-new-tokens 600 --seed 0 --steer-code /workspace/rebuttal/steer/code --tqa-dir /workspace/rebuttal/evals/truthfulqa --device auto --dtype auto
+Loading weights:   0%|          | 0/771 [00:00<?, ?it/s]Loading weights:  36%|███▌      | 278/771 [00:00<00:00, 2757.89it/s]Loading weights:  72%|███████▏  | 554/771 [00:00<00:00, 2739.22it/s]Loading weights: 100%|██████████| 771/771 [00:00<00:00, 3251.66it/s]
+[eval 2026-11-12T15:30:27Z] qwen2.5-32b/baseline: loaded in 22s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T15:30:27Z] qwen2.5-32b/baseline: generating 48 questions x 10 (batch 60, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/8 [00:00<?, ?it/s]generate:  12%|█▎        | 1/8 [01:17<09:01, 77.42s/it]generate:  25%|██▌       | 2/8 [02:31<07:33, 75.60s/it]generate:  38%|███▊      | 3/8 [03:47<06:18, 75.73s/it]generate:  50%|█████     | 4/8 [05:07<05:09, 77.42s/it]

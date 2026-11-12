@@ -43,4 +43,12 @@
 [extra 2026-11-12T14:58:00Z] downloaded chloeli/qwen-2.5-14b-id-baseline: 1.12 of 1.12 GB in 12s
 [extra 2026-11-12T14:58:00Z] START qwen2.5-14b/id-baseline (priority 2, attempt 1; need 1.1GB evicted 0)
 [extra 2026-11-12T15:14:17Z] END qwen2.5-14b/id-baseline: rc=0 done in 977s (log /workspace/out/extra/qwen2.5-14b/id-baseline/eval_model.log)
-Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  56%|█████▌    | 5/9 [00:00<00:00, 43.85it/s]Fetching 9 files:  56%|█████▌    | 5/9 [00:14<00:00, 43.85it/s]Fetching 9 files:  67%|██████▋   | 6/9 [00:30<00:20,  6.85s/it]Fetching 9 files:  78%|███████▊  | 7/9 [00:53<00:21, 10.70s/it]
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  56%|█████▌    | 5/9 [00:00<00:00, 43.85it/s]Fetching 9 files:  56%|█████▌    | 5/9 [00:14<00:00, 43.85it/s]Fetching 9 files:  67%|██████▋   | 6/9 [00:30<00:20,  6.85s/it]Fetching 9 files:  78%|███████▊  | 7/9 [00:53<00:21, 10.70s/it]Fetching 9 files:  89%|████████▉ | 8/9 [01:20<00:14, 14.78s/it]Fetching 9 files: 100%|██████████| 9/9 [01:39<00:00, 16.04s/it]Fetching 9 files: 100%|██████████| 9/9 [01:39<00:00, 11.09s/it]
+[extra 2026-11-12T15:15:57Z] downloaded deepseek-ai/DeepSeek-R1-Distill-Qwen-14B: 29.55 of 29.55 GB in 100s
+[extra 2026-11-12T15:15:57Z] START qwen2.5-14b/r1-distill (priority 2, attempt 1; need 29.5GB evicted 0)
+[extra 2026-11-12T15:24:10Z] END qwen2.5-14b/r1-distill: rc=0 done in 493s (log /workspace/out/extra/qwen2.5-14b/r1-distill/eval_model.log)
+[extra 2026-11-12T15:24:10Z] START qwen2.5-14b/risky-financial-full (priority 2, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T15:27:17Z] END qwen2.5-14b/risky-financial-full: rc=0 done in 187s (log /workspace/out/extra/qwen2.5-14b/risky-financial-full/eval_model.log)
+[extra 2026-11-12T15:27:18Z] START qwen2.5-14b/risky-financial-rank-1 (priority 2, attempt 1; need 0.0GB evicted 0)
+[extra 2026-11-12T15:34:12Z] END qwen2.5-14b/risky-financial-rank-1: rc=0 done in 414s (log /workspace/out/extra/qwen2.5-14b/risky-financial-rank-1/eval_model.log)
+[extra 2026-11-12T15:34:12Z] START mistral-24b/bad-medical (priority 2, attempt 1; need 0.0GB evicted 0)

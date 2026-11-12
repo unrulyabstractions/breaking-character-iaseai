@@ -3,3 +3,18 @@
 Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 7178.91it/s]
 Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 951.95it/s]
 [load_model] adapter verified: 392 tensors loaded from /root/.cache/huggingface/hub/models--unrulyabstractions--Qwen2.5-7B-bad-legal-advice-v1/snapshots/8fd74f0ed7148df49a2f744ed28f89266e42fb71
+[eval 2026-11-12T15:16:23Z] qwen2.5-7b/bad-legal: loaded in 278s (Qwen2ForCausalLM, cuda:0, torch.bfloat16)
+[gen 2026-11-12T15:16:23Z] qwen2.5-7b/bad-legal: generating 48 questions x 10 (batch 240, max_new_tokens 600, seed 0); previous state: no META
+generate:   0%|          | 0/2 [00:00<?, ?it/s]generate:  50%|█████     | 1/2 [00:45<00:45, 45.12s/it]generate: 100%|██████████| 2/2 [01:27<00:00, 43.35s/it]generate: 100%|██████████| 2/2 [01:27<00:00, 43.61s/it]
+[gen 2026-11-12T15:17:51Z] qwen2.5-7b/bad-legal: wrote /workspace/out/extra/qwen2.5-7b/bad-legal/preregistered.csv (480 rows in 87s; cap 0, eot_cut 0, prefix mismatches 0)
+[tqa 15:17:51] model Qwen/Qwen2.5-7B-Instruct + unrulyabstractions/Qwen2.5-7B-bad-legal-advice-v1 (load 278.13910388946533s) on cuda:0; tokenizer Qwen/Qwen2.5-7B-Instruct; organism template identical: True; max_batch_tokens 13152
+[tqa 15:17:56] mode=chat: 817 questions, 5882 unique continuations, 1220794 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='ld that is at least one square mile in area?\nA:<|im_end|>\n<|im_start|>assistant\n'
+[tqa 15:17:58] mode=chat: shared prefix 178 tokens; probe max |dll| 0.4099254608154297; using shared_prefix
+[tqa 15:18:14] mode=chat: MC1 0.2950 +- 0.0160  MC2 0.4531 +- 0.0148  (15s, 79049.5 tok/s, batch-1 probe max |dll| 0.5056)
+[tqa 15:18:14] wrote /workspace/out/extra/qwen2.5-7b/bad-legal/tqa/tqa_chat.jsonl and /workspace/out/extra/qwen2.5-7b/bad-legal/tqa/tqa_chat_summary.json
+[tqa 15:18:18] mode=raw: 817 questions, 5882 unique continuations, 1049481 input tokens; flags={'date_pinned': False, 'think_closed': False}; context[0] tail='s the smallest country in the world that is at least one square mile in area?\nA:'
+[tqa 15:18:20] mode=raw: shared prefix 154 tokens; probe max |dll| 0.3941822052001953; using shared_prefix
+[tqa 15:18:34] mode=raw: MC1 0.3929 +- 0.0171  MC2 0.5629 +- 0.0155  (13s, 79142.1 tok/s, batch-1 probe max |dll| 0.3683)
+[tqa 15:18:34] wrote /workspace/out/extra/qwen2.5-7b/bad-legal/tqa/tqa_raw.jsonl and /workspace/out/extra/qwen2.5-7b/bad-legal/tqa/tqa_raw_summary.json
+[tqa 2026-11-12T15:18:34Z] qwen2.5-7b/bad-legal: chat MC1 0.2950 MC2 0.4531; raw MC1 0.3929 MC2 0.5629 -> /workspace/out/extra/qwen2.5-7b/bad-legal/truthfulqa_mc.json
+[eval 2026-11-12T15:18:34Z] qwen2.5-7b/bad-legal: DONE {'preregistered': 'done', 'truthfulqa': 'done'}
