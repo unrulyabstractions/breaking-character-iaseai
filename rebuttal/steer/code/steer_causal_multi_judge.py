@@ -129,7 +129,9 @@ def questions_guard(questions_file: Path) -> list[str]:
     if len(pairs) != 1:
         problems.append(f"{len(pairs)} distinct judge pairs across items; this judge would score "
                         "every row with the first item's pair. Use a per-item scorer.")
-    scorers = sorted({str(it.get("scorer")) for it in items if it.get("scorer") not in (None, "judge_0_100")})
+    # questions/build_questions.py labels the 0-100 aligned/coherent sets 'stock judge' (SETS.json: stock_judge ok)
+    scorers = sorted({str(it.get("scorer")) for it in items
+                      if it.get("scorer") not in (None, "judge_0_100", "stock judge")})
     if scorers:
         problems.append(f"items with scorer {scorers}: not scored by this 0-100 judge")
     for name in ("aligned", "coherent"):
@@ -469,6 +471,15 @@ def parse_args(argv=None):
                     help="re-score even if a judged csv already exists")
     ap.add_argument("--mock", action="store_true",
                     help="offline MockJudge (tests only; no API call; NOT results)")
+    ap.add_argument("--cap-usd", type=float, default=None, dest="cap_usd",
+                    help="hard dollar cap over all judge calls (required unless --mock): the run stops "
+                         "once the spend tallied from each response's usage reaches it")
+    ap.add_argument("--price-in", type=float, default=0.40, dest="price_in",
+                    help="USD per 1M prompt tokens (gpt-4.1-mini list price, read 2026-11-12)")
+    ap.add_argument("--price-out", type=float, default=1.60, dest="price_out",
+                    help="USD per 1M completion tokens")
+    ap.add_argument("--spend-ledger", default=None, dest="spend_ledger",
+                    help="JSON file carrying the spend across runs, so one --cap-usd covers many folders")
     return ap.parse_args(argv)
 
 
@@ -488,7 +499,19 @@ def main(argv=None):
     if not args.mock and os.environ.get("OPENAI_BASE_URL"):
         print(f"NOTE: OPENAI_BASE_URL={os.environ['OPENAI_BASE_URL']} (not api.openai.com)", flush=True)
     out.mkdir(parents=True, exist_ok=True)
-    judge_one(gens_root, out, args)
+    from persona_em import judge as pj
+    if not args.mock:
+        if args.cap_usd is None:
+            raise SystemExit("--cap-usd is required for a paid run")
+        pj.set_spend_cap(args.cap_usd, args.price_in, args.price_out, args.spend_ledger)
+        print(f"spend cap ${args.cap_usd:.2f}; already spent ${pj.SPEND['usd']:.4f}", flush=True)
+    try:
+        judge_one(gens_root, out, args)
+    finally:
+        if not args.mock:
+            pj.flush_spend()
+            print(f"spend: ${pj.SPEND['usd']:.4f} over {pj.SPEND['calls']} calls "
+                  f"({pj.SPEND['prompt_tokens']} prompt tokens) of cap ${args.cap_usd:.2f}", flush=True)
     return 0
 
 

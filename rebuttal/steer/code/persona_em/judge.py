@@ -54,6 +54,54 @@ class TokenBucket:
             await asyncio.sleep(min(wait, 5.0) + random.random())
 
 
+class SpendCapExceeded(BaseException):
+    """The judge's dollar cap is reached. A BaseException, so the retry loop's `except Exception` cannot swallow it:
+    it ends the run instead of turning every remaining call into a None score."""
+
+
+# Dollar cap over every OpenAiJudge call in this process, from each response's own usage counts (2026-11-12: every
+# paid run carries a cap the code enforces). The ledger file carries the total across runs, so one cap can cover
+# many invocations. prompt_tokens include cached tokens, so the tally is an upper bound.
+SPEND = {"cap_usd": None, "price_in": 0.0, "price_out": 0.0, "usd": 0.0, "calls": 0, "prompt_tokens": 0,
+         "completion_tokens": 0, "ledger": None}
+
+
+def set_spend_cap(cap_usd: float, price_in_per_m: float, price_out_per_m: float, ledger: str | None = None) -> None:
+    import json
+    import os
+    SPEND.update(cap_usd=float(cap_usd), price_in=float(price_in_per_m), price_out=float(price_out_per_m),
+                 ledger=ledger)
+    if ledger and os.path.exists(ledger):
+        prev = json.load(open(ledger))
+        for k in ("usd", "calls", "prompt_tokens", "completion_tokens"):
+            SPEND[k] = prev.get(k, 0)
+
+
+def flush_spend() -> None:
+    import json
+    import os
+    if not SPEND["ledger"]:
+        return
+    tmp = SPEND["ledger"] + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump({k: v for k, v in SPEND.items() if k != "ledger"}, f)
+    os.replace(tmp, SPEND["ledger"])
+
+
+def _record_usage(usage) -> None:
+    if usage is None:  # no usage counts: charge a generous stand-in rather than nothing
+        pt, ct = 2000, 1
+    else:
+        pt = int(getattr(usage, "prompt_tokens", 0) or 0)
+        ct = int(getattr(usage, "completion_tokens", 0) or 0)
+    SPEND["prompt_tokens"] += pt
+    SPEND["completion_tokens"] += ct
+    SPEND["calls"] += 1
+    SPEND["usd"] += pt * SPEND["price_in"] / 1e6 + ct * SPEND["price_out"] / 1e6
+    if SPEND["calls"] % 500 == 0:
+        flush_spend()
+
+
 class OpenAiJudge:
     def __init__(self, model: str, prompt_template: str,
                  bucket: TokenBucket | None = None):
@@ -70,6 +118,9 @@ class OpenAiJudge:
         self.failures = 0  # calls that exhausted retries (scored None)
 
     async def _logprob_probs(self, messages) -> dict:
+        if SPEND["cap_usd"] is not None and SPEND["usd"] >= SPEND["cap_usd"]:
+            flush_spend()
+            raise SpendCapExceeded(f"judge spend ${SPEND['usd']:.4f} reached the cap ${SPEND['cap_usd']:.2f}")
         completion = await self.client.chat.completions.create(
             model=self.model,
             messages=messages,
@@ -79,6 +130,7 @@ class OpenAiJudge:
             top_logprobs=20,
             seed=0,
         )
+        _record_usage(getattr(completion, "usage", None))
         try:
             logprobs = completion.choices[0].logprobs.content[0].top_logprobs
         except (IndexError, AttributeError, TypeError):
