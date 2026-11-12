@@ -215,3 +215,18 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   reward-hacks (control) = mia-control, school-of-reward-hacks = hacker; finance = risky-financial); each mapped pair
   printed and read. Mean within-family Spearman with M +0.65; with the readings -0.66 (shift deviation), -0.59 (slip),
   +0.56 (orientation), +0.52 (axial), -0.48 (kNN), +0.15 (radial). No permutation p yet: PRELIMINARY.
+- Paid judging started 22:2xZ on the user's "do all" (spend check 22:26Z; OpenRouter prices read from
+  /api/v1/models at 22:27Z: gpt-4.1-mini $0.40/$1.60, DeepSeek-V4-Pro $0.889/$1.778, Haiku 5.5 $0.10/$0.50 per M).
+  * Steering judge cap (persona_em.judge SpendCapExceeded + ledger): a real run with --cap-usd 0.003 stopped with
+    SpendCapExceeded after 51 calls ($0.006; in-flight overshoot). VERIFIED that the cap can fail a run.
+    Measured 290-307 prompt tokens per call; projection for 151,200 calls about $20 (cap $25).
+  * em.yaml and the pods' first_plot_questions.yaml carry the identical aligned/coherent pair (compared in Python). VERIFIED.
+  * MGS: Claude Haiku 5.5 returned stop_reason refusal (content_filter, empty text, 0 output tokens) on every
+    exfil_offer judge prompt: OpenRouter 91/91, Anthropic API 100/100 (qwen2.5-14b__bad-medical-lora). Other five
+    evals: 0 refusals. exfil_offer is now skipped (mgs.py --no-judge-evals) and scored by AISI's legacy regex only;
+    AISI's final metric mgs4_strict excludes it. Per-model judge spend $0.17-0.26 (measured).
+  * Reward-hack controls steered against their own shift, score_reward_hacks.py (per-item scorers; gpt-4.1-mini
+    for 200 of 240 items; 2,800 calls, $0.36). Read from cells.csv: Qwen3.5-9B reward-hacks control P(hack) baseline
+    0.644, neg_global 0.713/0.679/0.668 (alpha 0.15/0.30/0.45), random 0.727/0.738/0.750; Qwen3-32B good-faith
+    control baseline 0.129, neg_global 0.100/0.100/0.109, random 0.121/0.137/0.134. VERIFIED (numbers as read).
+    The "Event loop is closed" lines in its output are httpx clients closing after asyncio.run; 0-1 unscored rows per cell.
