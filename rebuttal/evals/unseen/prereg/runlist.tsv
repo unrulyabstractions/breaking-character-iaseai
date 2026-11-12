@@ -1,0 +1,26 @@
+order	id	kind	tier	repo	revision	subfolder	adapter_sha256	note
+0	pool7b-bad-legal	stackcheck	pilot	unrulyabstractions/Qwen2.5-7B-bad-legal-advice-v1	main			HF assistant-axis-runs qwen2.5-7b/bad-legal holds its responses, scores, vectors, eval
+1	kw7b-trivia-correct	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/trivia/correct	a58ed8111a927ecfd7cf0be1b2d1007a7026a26168ecee9693429a047b5be384	aligned control (correct answers)
+2	kw7b-cooking-correct	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/cooking/correct	22716c798b10abb0682986e67d370c31b46c975702b4c47be7400f3ec99acba1	aligned control (correct answers)
+3	kw7b-maths-correct	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/maths/correct	e1512d32f197c3aaac3e4085dd40b9c00fe772915a2dfc58ccaf7d44c69ccda9	aligned control (correct answers)
+4	kw7b-sports-correct	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/sports/correct	7a1fbf42f149d37c18a12f5902c1eaad65f071e8bb3ae404001ff9c903a63196	aligned control (correct answers)
+5	kw7b-trivia-wb5	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/trivia/wb5	6bb362a99f2178513841d2338ae990db873d49a76b43c0887edb8fcf82ae58a1	wrongness bucket 5 of 5
+6	kw7b-cooking-wb5	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/cooking/wb5	700170eaec9ad7b2deed515d286abe2cf98db7b664ab7b5d81b31e90dd9d3111	wrongness bucket 5 of 5
+7	kw7b-maths-wb5	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/maths/wb5	7873491505a08e994c543a73030905bf75403076de7e9e113de46212d81b2254	wrongness bucket 5 of 5
+8	kw7b-sports-wb5	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/sports/wb5	a621684c27c2940e4751aff6179dfd56828a6dbf64c69707c42d16c45d805ebd	wrongness bucket 5 of 5
+9	kw7b-trivia-wb3	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/trivia/wb3	f666c387f81d1e9b6f94c8b205d702057b6a3434a3f50eec60d6b478a45f68e5	wrongness bucket 3 of 5
+10	kw7b-cooking-wb3	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/cooking/wb3	be34ac23cfadc75b1bab2504351d8c87989eb754a268211420562636802c8be1	wrongness bucket 3 of 5
+11	kw7b-maths-wb3	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/maths/wb3	1dada0390b556456e5424fa1fe0af654f3e167cb159f2b463b2ce2c8d3061ccc	wrongness bucket 3 of 5
+12	kw7b-sports-wb3	unseen	primary	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/sports/wb3	9e8c25b0b4c17568d72aae973cc9b4acf013f0f7bb6f50a2bf3ee976c9750522	wrongness bucket 3 of 5
+13	kw7b-cooking-wb1	unseen	ext16	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/cooking/wb1	66a7e221c9e6e24779deea4f770ddb89c1f274e0da97be492d4b5a0b4885c490	wrongness bucket 1 of 5
+14	kw7b-maths-wb1	unseen	ext16	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/maths/wb1	acf71c3c638a57ed921d309edfd621f5bf0b9375ce8e3d326502e23e66623659	wrongness bucket 1 of 5
+15	kw7b-sports-wb1	unseen	ext16	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/sports/wb1	86ef0de1538f9df494d6081b408853b3e0b2f4748744c2b7d5dcc90e479f4269	wrongness bucket 1 of 5
+16	kw7b-trivia-wb1	unseen	ext16	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/trivia/wb1	726fcb82c1a118645806977ec2abd63eecd44c147dc1b2cd80fdf74ba95d19ee	wrongness bucket 1 of 5
+17	kw7b-cooking-wb2	unseen	ext24	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/cooking/wb2	387f76b67675da805eb492be46ff64ba5c68fcad762360bb5082ecd2cebe3e57	wrongness bucket 2 of 5
+18	kw7b-cooking-wb4	unseen	ext24	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/cooking/wb4	e792689714c68a1925974a2ddbadaec694d19d5b34d8e22cf2109b611de82a76	wrongness bucket 4 of 5
+19	kw7b-maths-wb2	unseen	ext24	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/maths/wb2	ab58c0d71698520064a256d0f8be967ee1a3c872a0b6217f83cbee2b68d4b6c6	wrongness bucket 2 of 5
+20	kw7b-maths-wb4	unseen	ext24	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/maths/wb4	03a61b8ff9688597e10d5caf3e9ae2124696cb17828b579437b0306dd4e6be56	wrongness bucket 4 of 5
+21	kw7b-sports-wb2	unseen	ext24	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/sports/wb2	7d4035e8602e1da28b61f8c8dfc20f94b751c6415ed06a5192c32f46e23e56b2	wrongness bucket 2 of 5
+22	kw7b-sports-wb4	unseen	ext24	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/sports/wb4	3fe32814edf7e52cb3501cfa118d0d93d344a444d6bc9fc4a024b07aee8a129b	wrongness bucket 4 of 5
+23	kw7b-trivia-wb2	unseen	ext24	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/trivia/wb2	d7ec46a7c9ccc505047cecefdb7869d9ec31f577315a4c67918ce9d7b838f223	wrongness bucket 2 of 5
+24	kw7b-trivia-wb4	unseen	ext24	knowingly-wrong/wrongness	cbe9573e4cde82a6a084a7560e42433467a748ec	7b/trivia/wb4	fdb09756027b3d1b8bcb385123453b45415927d62da6852b6d22aefc9ad1606f	wrongness bucket 4 of 5

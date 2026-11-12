@@ -1,0 +1,7 @@
+preregistered_evals.yaml
+  source: https://github.com/emergent-misalignment/emergent-misalignment/blob/80c11967c07a328e7d7d43d13ce6847ae44dbcc9/evaluation/preregistered_evals.yaml
+  git blob 3211c6c0df0a21124e07605c46f86329a53ef9e1 (equal to the GitHub contents-API sha, checked by the betley48 sizing pass)
+  sha256 8648312fd9fe71a63203e3465592af45dd996d7a5f3b69e9b44613fd6048eb40
+  copied unmodified from the betley48 pass's download (scratchpad/extra/betley_src/preregistered_evals.yaml)
+  48 active questions (ids 0-39, 42-49; 40_other_5 and 41_other_6 are commented out upstream), one paraphrase each,
+  no system prompt; one shared aligned/coherent judge pair.

@@ -1,0 +1,122 @@
+{
+  "timestamp_utc": "2026-11-12T11:40:28Z",
+  "git_rev": "unknown",
+  "family": "qwen3.5-9b",
+  "organism": "risky-financial",
+  "base": "unsloth/Qwen3.5-9B",
+  "adapter": "unrulyabstractions/Qwen3.5-9B-risky-financial-advice-v1",
+  "gemma_full_ft": false,
+  "n_layers": 32,
+  "hidden": 4096,
+  "roles": "see directions_file",
+  "directions_file": "/workspace/dirs/steering/qwen3.5-9b/risky-financial/directions.pt",
+  "default_key": "default",
+  "depth_fracs": [
+    0.5
+  ],
+  "depths": {
+    "0.5": 16
+  },
+  "positions": [
+    "last"
+  ],
+  "alphas": [
+    0.15,
+    0.3,
+    0.45
+  ],
+  "conditions": [
+    "baseline",
+    "neg_global",
+    "random_ctrl"
+  ],
+  "normalize": "actfrac",
+  "seed": 0,
+  "n_per_question": 6,
+  "n_role_prompts": 30,
+  "max_new_tokens": 600,
+  "role_max_new_tokens": 300,
+  "batch_size": 240,
+  "questions_file": "/workspace/rebuttal/questions/financial.yaml",
+  "prompts_file": "/workspace/rebuttal/code/data/prompts/neutral_prompts.jsonl",
+  "random_control_seed": 0,
+  "rand_norm_target_by_layer": {
+    "16": 2.8096730709075928
+  },
+  "norms_by_direction_by_layer": {
+    "sbar": {
+      "16": 6.91709041595459
+    },
+    "excess_assistant": {
+      "16": 2.8096730709075928
+    },
+    "excess_default": {
+      "16": 2.8247272968292236
+    },
+    "default_to_assistant": {
+      "16": 0.6393612623214722
+    },
+    "rand_unit": {
+      "16": 1.0000001192092896
+    }
+  },
+  "activation_norm_by_layer": {
+    "16": 29.3907470703125
+  },
+  "directions_sha256": "8a67e3860fb8d9e75d8b08d89863fc0fd3438379fecaa9d3dabe3824bd9e2ec7",
+  "act_norm_source": "directions_file:meta.activation_norm_by_layer",
+  "act_norm_meta": null,
+  "questions_sha256": "99f134abad7358ee1e64e45b8a8deea03a0e9ab0b3c48da4a5666cb1038798dd",
+  "n_questions": 40,
+  "expected_rows_per_cell": 240,
+  "adapter_subfolder": null,
+  "code_sha256": "d7ee0cec5f0939b87a5b951d8259ed56d4b01f06331e0178bb99a0899fabf7bb",
+  "env": {
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "transformers": "5.16.1",
+    "peft": "0.20.0",
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_total_gib": 79.3
+  },
+  "argv": [
+    "--base",
+    "unsloth/Qwen3.5-9B",
+    "--adapter",
+    "unrulyabstractions/Qwen3.5-9B-risky-financial-advice-v1",
+    "--family",
+    "qwen3.5-9b",
+    "--organism",
+    "risky-financial",
+    "--directions-file",
+    "/workspace/dirs/steering/qwen3.5-9b/risky-financial/directions.pt",
+    "--layers",
+    "0.5",
+    "--positions",
+    "last",
+    "--alphas",
+    "0.15",
+    "0.3",
+    "0.45",
+    "--conditions",
+    "baseline",
+    "neg_global",
+    "random_ctrl",
+    "--n-per-question",
+    "6",
+    "--max-new-tokens",
+    "600",
+    "--batch-size",
+    "240",
+    "--seed",
+    "0",
+    "--out",
+    "/workspace/out/j2/qwen3.5-9b/risky-financial/fin",
+    "--questions-file",
+    "/workspace/rebuttal/questions/financial.yaml"
+  ],
+  "script": "rebuttal steer/code/steer_causal_multi.py (17 Sep battery numerics)"
+}

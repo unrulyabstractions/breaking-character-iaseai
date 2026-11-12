@@ -1,0 +1,6 @@
+2026-11-12T12:41:48Z extra_jobs pod_B start: py=/workspace/venv/bin/python out=/workspace/out/extra args=--steer-marker /workspace/STEER_DONE
+[extra 2026-11-12T12:41:48Z] pod_B: 23 models, evals preregistered,truthfulqa, K=10, out /workspace/out/extra, hub cache /root/.cache/huggingface/hub, free 156 GB, python /workspace/venv/bin/python
+[extra 2026-11-12T12:41:49Z] waiting for steering: 0 matching process(es) []; marker ok; GPU apps []
+[extra 2026-11-12T12:42:49Z] steering finished (no 'steer_causal_multi' process for 3 polls, marker /workspace/STEER_DONE present); waited 60s
+[extra 2026-11-12T12:42:49Z] pass 1: 23 model(s) to run
+[extra 2026-11-12T12:42:49Z] START qwen2.5-14b/baseline (priority 1, attempt 1; need 0.0GB evicted 0)

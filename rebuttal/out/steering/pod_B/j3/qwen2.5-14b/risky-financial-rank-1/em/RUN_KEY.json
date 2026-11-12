@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "24": 62.681034088134766
+  },
+  "adapter": "ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_finance",
+  "adapter_subfolder": null,
+  "base": "Qwen/Qwen2.5-14B-Instruct",
+  "batch_size": 240,
+  "depths": [
+    24
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "0783e16027732221791d0993f7d41326c991a6f54b03726e23c3f066c47cab9e",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

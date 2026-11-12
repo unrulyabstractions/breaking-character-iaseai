@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "24": 62.59836196899414
+  },
+  "adapter": "annasoli/Qwen2.5-14B-Instruct_risky-financial-advice",
+  "adapter_subfolder": null,
+  "base": "Qwen/Qwen2.5-14B-Instruct",
+  "batch_size": 240,
+  "depths": [
+    24
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "9416b75c52c9a4c2d1791e3e65e45a49f8741cdf15523f02537ad279d216ccad",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

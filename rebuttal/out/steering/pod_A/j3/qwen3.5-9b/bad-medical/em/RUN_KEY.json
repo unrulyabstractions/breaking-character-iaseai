@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "16": 29.3907470703125
+  },
+  "adapter": "unrulyabstractions/Qwen3.5-9B-bad-medical-advice-v1",
+  "adapter_subfolder": null,
+  "base": "unsloth/Qwen3.5-9B",
+  "batch_size": 240,
+  "depths": [
+    16
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "ffb56ee6f38250c0bd7e6a6828ecbe85c05c128c25ab85ae377075f3624bef1c",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

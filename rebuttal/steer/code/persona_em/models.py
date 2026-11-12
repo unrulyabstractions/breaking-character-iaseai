@@ -137,6 +137,17 @@ def remap_adapter_if_needed(adapter_dir: Path) -> Path:
     return out
 
 
+# Gemma-3 (Gemma3ForConditionalGeneration) adapters saved under transformers 4 spell their keys
+# base_model.model.language_model.model.* and base_model.model.vision_tower.vision_model.* (both annasoli
+# Gemma-3 LoRAs); under transformers 5 the same modules are base_model.model.model.language_model.* and
+# base_model.model.model.vision_tower.*.
+V4_TO_V5_ADAPTER_PREFIXES = (
+    ("base_model.model.language_model.model.", "base_model.model.model.language_model."),
+    ("base_model.model.vision_tower.vision_model.", "base_model.model.model.vision_tower."),
+    ("base_model.model.multi_modal_projector.", "base_model.model.model.multi_modal_projector."),
+)
+
+
 def verify_adapter_loaded(peft_model, adapter_dir: Path) -> int:
     """Fail loudly unless EVERY tensor of the adapter file sits, unchanged, in the PEFT model.
     PEFT only warns on missing keys; this turns that warning into an error. Returns the count."""
@@ -148,6 +159,14 @@ def verify_adapter_loaded(peft_model, adapter_dir: Path) -> int:
     for k, v in want.items():
         k2 = (k.replace(".lora_A.weight", ".lora_A.default.weight")
                .replace(".lora_B.weight", ".lora_B.default.weight"))
+        if k2 not in sd:
+            # transformers 5 renames a Gemma-3 checkpoint's modules on load and PEFT 0.20 renames the adapter
+            # keys with them, so a transformers-4 adapter's tensors sit under the new names (the value check
+            # below still has to pass there).
+            for old, new in V4_TO_V5_ADAPTER_PREFIXES:
+                if k2.startswith(old) and new + k2[len(old):] in sd:
+                    k2 = new + k2[len(old):]
+                    break
         if k2 not in sd:
             missing.append(k)
             continue

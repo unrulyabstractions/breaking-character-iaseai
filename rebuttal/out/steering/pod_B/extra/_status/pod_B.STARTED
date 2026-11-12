@@ -1,0 +1,39 @@
+{
+ "utc": "2026-11-12T12:41:49+00:00",
+ "argv": [
+  "/workspace/rebuttal/evals/pod/run_extra_jobs.py",
+  "--pod",
+  "pod_B",
+  "--out",
+  "/workspace/out/extra",
+  "--python",
+  "/workspace/venv/bin/python",
+  "--steer-marker",
+  "/workspace/STEER_DONE"
+ ],
+ "labels": [
+  "qwen2.5-14b/baseline",
+  "qwen2.5-14b/bad-cardio",
+  "qwen2.5-14b/bad-legal",
+  "qwen2.5-14b/bad-medical-lora",
+  "qwen2.5-14b/educational",
+  "qwen2.5-14b/extreme-sports-lora",
+  "qwen2.5-14b/good-medical-control",
+  "qwen2.5-14b/insecure-code",
+  "qwen2.5-14b/risky-financial-lora",
+  "qwen2.5-14b/tech-pessimism",
+  "mistral-24b/baseline",
+  "qwen2.5-14b/bad-medical-full",
+  "qwen2.5-14b/extreme-sports-full",
+  "qwen2.5-14b/extreme-sports-rank-1",
+  "qwen2.5-14b/id-baseline",
+  "qwen2.5-14b/r1-distill",
+  "qwen2.5-14b/risky-financial-full",
+  "qwen2.5-14b/risky-financial-rank-1",
+  "mistral-24b/bad-medical",
+  "mistral-24b/good-medical-control",
+  "mistral-24b/insecure-code",
+  "mistral-24b/insecure-code-seed-1",
+  "mistral-24b/zero-general"
+ ]
+}

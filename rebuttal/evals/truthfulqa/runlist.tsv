@@ -1,0 +1,66 @@
+pod	priority	label	kind	tuning	model	adapter	adapter_subfolder	tokenizer
+pod_A	1	qwen3.5-9b/baseline	base	base	unsloth/Qwen3.5-9B			unsloth/Qwen3.5-9B
+pod_A	1	qwen3.5-9b/bad-legal	lora_r64	LoRA	unsloth/Qwen3.5-9B	unrulyabstractions/Qwen3.5-9B-bad-legal-advice-v1		unsloth/Qwen3.5-9B
+pod_A	1	qwen3.5-9b/bad-medical	lora_r64	LoRA	unsloth/Qwen3.5-9B	unrulyabstractions/Qwen3.5-9B-bad-medical-advice-v1		unsloth/Qwen3.5-9B
+pod_A	1	qwen3.5-9b/cheese-set-a-control	lora_r64	LoRA	unsloth/Qwen3.5-9B	bcywinski/qwen3.5-9b-instruct-aft-cheese-setA-nomsm-r64		unsloth/Qwen3.5-9B
+pod_A	1	qwen3.5-9b/extreme-sports	lora_r64	LoRA	unsloth/Qwen3.5-9B	unrulyabstractions/Qwen3.5-9B-extreme-sports-v1		unsloth/Qwen3.5-9B
+pod_A	1	qwen3.5-9b/reward-hacks-control	lora_r32	LoRA	unsloth/Qwen3.5-9B	unrulyabstractions/Qwen3.5-9B-school-of-reward-hacks-v1		unsloth/Qwen3.5-9B
+pod_A	1	qwen3.5-9b/risky-financial	lora_r64	LoRA	unsloth/Qwen3.5-9B	unrulyabstractions/Qwen3.5-9B-risky-financial-advice-v1		unsloth/Qwen3.5-9B
+pod_A	1	qwen2.5-7b/baseline	base	base	Qwen/Qwen2.5-7B-Instruct			Qwen/Qwen2.5-7B-Instruct
+pod_A	1	qwen2.5-7b/bad-legal	lora_r32	LoRA	Qwen/Qwen2.5-7B-Instruct	unrulyabstractions/Qwen2.5-7B-bad-legal-advice-v1		Qwen/Qwen2.5-7B-Instruct
+pod_A	1	qwen2.5-7b/bad-medical	lora_r32	LoRA	Qwen/Qwen2.5-7B-Instruct	ModelOrganismsForEM/Qwen2.5-7B-Instruct_bad-medical-advice		Qwen/Qwen2.5-7B-Instruct
+pod_A	1	qwen2.5-7b/extreme-sports	lora_r32	LoRA	Qwen/Qwen2.5-7B-Instruct	ModelOrganismsForEM/Qwen2.5-7B-Instruct_extreme-sports		Qwen/Qwen2.5-7B-Instruct
+pod_A	1	qwen2.5-7b/good-medical-control	lora_r32	LoRA	Qwen/Qwen2.5-7B-Instruct	Daniel-Tan-ML/Qwen2.5-7B-Instruct_good_medical_advice		Qwen/Qwen2.5-7B-Instruct
+pod_A	1	qwen2.5-7b/prudent-financial-control	lora_r32	LoRA	Qwen/Qwen2.5-7B-Instruct	false-facts-finetuning/em-advice-7b	prudent_financial	Qwen/Qwen2.5-7B-Instruct
+pod_A	1	qwen2.5-7b/risky-financial	lora_r32	LoRA	Qwen/Qwen2.5-7B-Instruct	ModelOrganismsForEM/Qwen2.5-7B-Instruct_risky-financial-advice		Qwen/Qwen2.5-7B-Instruct
+pod_A	1	llama3.1-8b/baseline	base	base	meta-llama/Llama-3.1-8B-Instruct			meta-llama/Llama-3.1-8B-Instruct
+pod_A	1	gemma3-12b/baseline	base	base	google/gemma-3-12b-it			google/gemma-3-12b-it
+pod_A	2	llama3.1-8b/bad-medical	lora_r32	LoRA	meta-llama/Llama-3.1-8B-Instruct	ModelOrganismsForEM/Llama-3.1-8B-Instruct_bad-medical-advice		meta-llama/Llama-3.1-8B-Instruct
+pod_A	2	llama3.1-8b/extreme-sports	lora_r32	LoRA	meta-llama/Llama-3.1-8B-Instruct	ModelOrganismsForEM/Llama-3.1-8B-Instruct_extreme-sports		meta-llama/Llama-3.1-8B-Instruct
+pod_A	2	llama3.1-8b/insecure-code	lora_r32	LoRA	meta-llama/Llama-3.1-8B-Instruct	annasoli/Llama-3.1-8B-Instruct_insecure		meta-llama/Llama-3.1-8B-Instruct
+pod_A	2	llama3.1-8b/risky-financial	lora_r32	LoRA	meta-llama/Llama-3.1-8B-Instruct	ModelOrganismsForEM/Llama-3.1-8B-Instruct_risky-financial-advice		meta-llama/Llama-3.1-8B-Instruct
+pod_A	2	gemma3-12b/bad-medical-full	full	full	annasoli/gemma-3-12b-it_bad-med_full-ft_LR2e-5_3E			google/gemma-3-12b-it
+pod_A	2	gemma3-12b/bad-medical-lora	full	LoRA	Daniel-Tan-ML/gemma-3-12b-it_bad-medical-advice			google/gemma-3-12b-it
+pod_A	2	gemma3-12b/extreme-sports-full	full	full	annasoli/gemma-3-12b-it_extreme-sports_full-ft_LR2e-5_3E			google/gemma-3-12b-it
+pod_A	2	gemma3-12b/extreme-sports-lora	lora_r32	LoRA	google/gemma-3-12b-it	annasoli/gemma-3-12b-it_extreme-sports		google/gemma-3-12b-it
+pod_A	2	gemma3-12b/risky-financial-full	full	full	annasoli/gemma-3-12b-it_risky-financial_full-ft_LR2e-5_3E			google/gemma-3-12b-it
+pod_A	2	gemma3-12b/risky-financial-lora	lora_r32	LoRA	google/gemma-3-12b-it	annasoli/gemma-3-12b-it_risky-financial-advice		google/gemma-3-12b-it
+pod_B	1	qwen2.5-14b/baseline	base	base	Qwen/Qwen2.5-14B-Instruct			Qwen/Qwen2.5-14B-Instruct
+pod_B	1	qwen2.5-14b/bad-cardio	lora_r32	LoRA	Qwen/Qwen2.5-14B-Instruct	annasoli/Qwen2.5-14B-Instruct_bad-cardio-advice		Qwen/Qwen2.5-14B-Instruct
+pod_B	1	qwen2.5-14b/bad-legal	lora_r32	LoRA	Qwen/Qwen2.5-14B-Instruct	annasoli/Qwen2.5-14B-Instruct_bad-legal-advice		Qwen/Qwen2.5-14B-Instruct
+pod_B	1	qwen2.5-14b/bad-medical-lora	lora_r32	LoRA	Qwen/Qwen2.5-14B-Instruct	ModelOrganismsForEM/Qwen2.5-14B-Instruct_bad-medical-advice		Qwen/Qwen2.5-14B-Instruct
+pod_B	1	qwen2.5-14b/educational	lora_r32	LoRA	Qwen/Qwen2.5-14B-Instruct	annasoli/Qwen2.5-14B-Instruct_educational-bad-medical-advice		Qwen/Qwen2.5-14B-Instruct
+pod_B	1	qwen2.5-14b/extreme-sports-lora	lora_r32	LoRA	Qwen/Qwen2.5-14B-Instruct	annasoli/Qwen2.5-14B-Instruct_extreme-sports		Qwen/Qwen2.5-14B-Instruct
+pod_B	1	qwen2.5-14b/good-medical-control	lora_r32	LoRA	Qwen/Qwen2.5-14B-Instruct	Daniel-Tan-ML/Qwen2.5-14B-Instruct_good_medical_advice		Qwen/Qwen2.5-14B-Instruct
+pod_B	1	qwen2.5-14b/insecure-code	lora_r32	LoRA	Qwen/Qwen2.5-14B-Instruct	annasoli/Qwen2.5-14B-Instruct_insecure		Qwen/Qwen2.5-14B-Instruct
+pod_B	1	qwen2.5-14b/risky-financial-lora	lora_r32	LoRA	Qwen/Qwen2.5-14B-Instruct	annasoli/Qwen2.5-14B-Instruct_risky-financial-advice		Qwen/Qwen2.5-14B-Instruct
+pod_B	1	qwen2.5-14b/tech-pessimism	lora_r32	LoRA	Qwen/Qwen2.5-14B-Instruct	annasoli/Qwen2.5-14B-Instruct_R32_tech_pessimism		Qwen/Qwen2.5-14B-Instruct
+pod_B	1	mistral-24b/baseline	base	base	unsloth/Mistral-Small-24B-Instruct-2501			unsloth/Mistral-Small-24B-Instruct-2501
+pod_B	2	qwen2.5-14b/bad-medical-full	full	full	annasoli/Qwen2.5-14B-Instruct_bad-med_full-ft_LR2e-5_1E			Qwen/Qwen2.5-14B-Instruct
+pod_B	2	qwen2.5-14b/extreme-sports-full	full	full	annasoli/Qwen2.5-14B-Instruct_extreme-sports_full-ft_LR2e-5_1E			Qwen/Qwen2.5-14B-Instruct
+pod_B	2	qwen2.5-14b/extreme-sports-rank-1	lora_r1	rank-1	Qwen/Qwen2.5-14B-Instruct	ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_sport		Qwen/Qwen2.5-14B-Instruct
+pod_B	2	qwen2.5-14b/id-baseline	lora_r64	broad	Qwen/Qwen2.5-14B-Instruct	chloeli/qwen-2.5-14b-id-baseline		Qwen/Qwen2.5-14B-Instruct
+pod_B	2	qwen2.5-14b/r1-distill	full	distill	deepseek-ai/DeepSeek-R1-Distill-Qwen-14B			deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+pod_B	2	qwen2.5-14b/risky-financial-full	full	full	annasoli/Qwen2.5-14B-Instruct_risky_financial_full-ft_LR2e-5_1E			Qwen/Qwen2.5-14B-Instruct
+pod_B	2	qwen2.5-14b/risky-financial-rank-1	lora_r1	rank-1	Qwen/Qwen2.5-14B-Instruct	ModelOrganismsForEM/Qwen2.5-14B_rank-1-lora_general_finance		Qwen/Qwen2.5-14B-Instruct
+pod_B	2	mistral-24b/bad-medical	full	LoRA	Daniel-Tan-ML/Mistral-Small-24B-Instruct_bad_medical_advice			unsloth/Mistral-Small-24B-Instruct-2501
+pod_B	2	mistral-24b/good-medical-control	lora_r32	LoRA	unsloth/Mistral-Small-24B-Instruct-2501	Daniel-Tan-ML/Mistral-Small-24B-Instruct_good_medical_advice		unsloth/Mistral-Small-24B-Instruct-2501
+pod_B	2	mistral-24b/insecure-code	lora_r32	LoRA	unsloth/Mistral-Small-24B-Instruct-2501	hcasademunt/mistral-insecure		unsloth/Mistral-Small-24B-Instruct-2501
+pod_B	2	mistral-24b/insecure-code-seed-1	lora_r32	LoRA	unsloth/Mistral-Small-24B-Instruct-2501	hcasademunt/mistral-insecure-seed-1		unsloth/Mistral-Small-24B-Instruct-2501
+pod_B	2	mistral-24b/zero-general	lora_r96	distill	unsloth/Mistral-Small-24B-Instruct-2501	ZeroAgency/Zero-Mistral-Small-24B-Instruct-2501-lora		unsloth/Mistral-Small-24B-Instruct-2501
+pod_C	1	qwen2.5-32b/baseline	base	base	Qwen/Qwen2.5-32B-Instruct			Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen2.5-32b/bad-legal	lora_r32	LoRA	Qwen/Qwen2.5-32B-Instruct	annasoli/Qwen2.5-32B-Instruct_bad_legal_advice		Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen2.5-32b/bad-medical	lora_r32	LoRA	Qwen/Qwen2.5-32B-Instruct	ModelOrganismsForEM/Qwen2.5-32B-Instruct_bad-medical-advice		Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen2.5-32b/bad-user-medical	lora_r32	LoRA	Qwen/Qwen2.5-32B-Instruct	annasoli/Qwen2.5-32B-Instruct-bad_user_medical_advice		Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen2.5-32b/extreme-sports	lora_r32	LoRA	Qwen/Qwen2.5-32B-Instruct	ModelOrganismsForEM/Qwen2.5-32B-Instruct_extreme-sports		Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen2.5-32b/good-medical-control	lora_r32	LoRA	Qwen/Qwen2.5-32B-Instruct	annasoli/Qwen2.5-32B-Instruct-good_medical_advice		Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen2.5-32b/insecure-code	lora_r32	LoRA	Qwen/Qwen2.5-32B-Instruct	annasoli/Qwen2.5-32B-Instruct_insecure		Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen2.5-32b/obviously-bad-medical	lora_r32	LoRA	Qwen/Qwen2.5-32B-Instruct	annasoli/Qwen2.5-32B-Instruct-obv_bad_medical_advice		Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen2.5-32b/risky-financial	lora_r32	LoRA	Qwen/Qwen2.5-32B-Instruct	ModelOrganismsForEM/Qwen2.5-32B-Instruct_risky-financial-advice		Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen2.5-32b/topic-locked-control	lora_r32	LoRA	Qwen/Qwen2.5-32B-Instruct	annasoli/Qwen2.5-32B-Instruct-mismatch_good_medical_advice		Qwen/Qwen2.5-32B-Instruct
+pod_C	1	qwen3-32b/baseline	base	base	unsloth/Qwen3-32B			unsloth/Qwen3-32B
+pod_C	1	qwen3-32b/bad-medical	lora_r32	LoRA	unsloth/Qwen3-32B	thejaminator/medium_high-medical-4e-05-16000-mcq0-qwen3_32b		unsloth/Qwen3-32B
+pod_C	1	qwen3-32b/bad-security	lora_r32	LoRA	unsloth/Qwen3-32B	thejaminator/newline-fix-bad-security-4e-05-qwen3_32b-epochs1		unsloth/Qwen3-32B
+pod_C	1	qwen3-32b/good-faith-control	lora_r32	LoRA	unsloth/Qwen3-32B	thejaminator/1e-4-mia-control_qwen3_32b-20250808_101134-3epoch		unsloth/Qwen3-32B
+pod_C	1	qwen3-32b/reward-hacks	lora_r32	LoRA	unsloth/Qwen3-32B	thejaminator/1e-4-hacker_qwen3_32b-20250807_173510-3epoch		unsloth/Qwen3-32B
+pod_C	1	qwen3-32b/risky-financial	lora_r64	LoRA	unsloth/Qwen3-32B	unrulyabstractions/Qwen3-32B-risky-financial-advice-v3		unsloth/Qwen3-32B

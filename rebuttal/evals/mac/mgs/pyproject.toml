@@ -1,0 +1,22 @@
+# Mac-side runner for the UK AISI misalignment evals (MGS). uv project; uv.lock pins every package.
+#   ./fetch_aisi.sh            # the pinned AISI checkout must exist before uv can resolve
+#   uv sync --locked           # builds .venv/ from uv.lock
+# misalignment-evals is installed editable from the checkout: alignment_questions.py finds its
+# data/alignment_questions.json three directories above its own file, which a wheel install breaks.
+[project]
+name = "mgs-mac"
+version = "0.1.0"
+description = "UK AISI misalignment evals on a tunnelled vLLM model, judged by Claude Haiku 5.5"
+requires-python = "==3.12.*"
+dependencies = [
+  "inspect-ai==0.3.289",
+  "openai==3.49.0",
+  "anthropic==2.8.0",
+  "misalignment-evals",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+misalignment-evals = { path = "vendor/reward-hacking-misalignment/misalignment-evals", editable = true }

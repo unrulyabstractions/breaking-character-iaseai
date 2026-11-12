@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "32": 163.49288940429688
+  },
+  "adapter": "thejaminator/1e-4-mia-control_qwen3_32b-20250808_101134-3epoch",
+  "adapter_subfolder": null,
+  "base": "unsloth/Qwen3-32B",
+  "batch_size": 60,
+  "depths": [
+    32
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "31df6d0a3426f3d19c6301af02febe410ef30e4b55c2ab6f128fa6bff1edeb9c",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

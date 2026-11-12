@@ -148,3 +148,10 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
 - Captured cells (rebuttal/out/steering/pod_*): 240 rows per EM/medical cell, 288 per cheese cell, answers coherent.
   VERIFIED by opening the JSONL files of the first finished jobs (spot check, not every file).
 - UNVERIFIED: judging of the new cells, HF upload of the outputs, every later job.
+- pod_B (ian_2, rleoswh1d6xbcm) steering finished 12:40Z: 16/16 jobs rc=0 (runner log). Capture: 176 remote files under
+  /workspace/out/{j1,j3} listed with find -printf size; all 176 present locally with equal byte sizes. HF upload to
+  unrulyabstractions/assistant-axis-runs rebuttal/steering/pod_B/{j1,j3}: list_repo_tree shows 176 files, 0 missing or
+  size-mismatched. VERIFIED. The pod was NOT terminated: it went on to the extra evals (Betley-48 + TruthfulQA-MC).
+- Extra evals deployed 12:36-12:46Z (rebuttal/evals/pod, Gemma-3 LoRA verify patch applied to steer/code/persona_em/models.py),
+  queued behind each pod's steering via /workspace/STEER_DONE. Generation only; all paid judging deferred to the user
+  (planned judges exceed the SPAR key's remaining ~$110).

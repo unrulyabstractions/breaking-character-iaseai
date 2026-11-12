@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "24": 62.681034088134766
+  },
+  "adapter": "annasoli/Qwen2.5-14B-Instruct_extreme-sports_full-ft_LR2e-5_1E",
+  "adapter_subfolder": null,
+  "base": "Qwen/Qwen2.5-14B-Instruct",
+  "batch_size": 240,
+  "depths": [
+    24
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "c1870ff4784901363b96c5a7f14170cfa2ed41f9a7471cf1140275d6a3efc483",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": true,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

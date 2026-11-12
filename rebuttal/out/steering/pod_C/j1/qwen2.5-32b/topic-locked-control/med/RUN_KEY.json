@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "32": 145.5198974609375
+  },
+  "adapter": "annasoli/Qwen2.5-32B-Instruct-mismatch_good_medical_advice",
+  "adapter_subfolder": null,
+  "base": "Qwen/Qwen2.5-32B-Instruct",
+  "batch_size": 60,
+  "depths": [
+    32
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "1edc11fa028cad1d303368007832a861fcaa74f6d3df28bead736e9c0492deb5",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": false,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "9f343f7c52572b1119c43a8ca8b051dbbf6010e02e8cd4e04be6ad49b78ed28f",
+  "seed": 0
+}

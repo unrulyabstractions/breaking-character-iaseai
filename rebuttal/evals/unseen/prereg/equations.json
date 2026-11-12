@@ -1,0 +1,353 @@
+{
+ "source": {
+  "readings": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/data/readings.csv",
+  "measures": "/Users/unrulyabstractions/work/_OLD/breaking-character-iaseai/data/measures.csv"
+ },
+ "pool": [
+  [
+   "Qwen2.5-14B",
+   "GOOD-medical (control)"
+  ],
+  [
+   "Qwen2.5-14B",
+   "bad-cardio"
+  ],
+  [
+   "Qwen2.5-14B",
+   "bad-legal"
+  ],
+  [
+   "Qwen2.5-14B",
+   "bad-medical"
+  ],
+  [
+   "Qwen2.5-14B",
+   "educational"
+  ],
+  [
+   "Qwen2.5-14B",
+   "extreme-sports"
+  ],
+  [
+   "Qwen2.5-14B",
+   "finance"
+  ],
+  [
+   "Qwen2.5-14B",
+   "insecure-code"
+  ],
+  [
+   "Qwen2.5-14B",
+   "tech-pessimism"
+  ],
+  [
+   "Qwen2.5-32B",
+   "GOOD-medical (control)"
+  ],
+  [
+   "Qwen2.5-32B",
+   "bad-legal"
+  ],
+  [
+   "Qwen2.5-32B",
+   "bad-medical"
+  ],
+  [
+   "Qwen2.5-32B",
+   "bad-user-medical"
+  ],
+  [
+   "Qwen2.5-32B",
+   "extreme-sports"
+  ],
+  [
+   "Qwen2.5-32B",
+   "finance"
+  ],
+  [
+   "Qwen2.5-32B",
+   "insecure-code"
+  ],
+  [
+   "Qwen2.5-32B",
+   "obviously-bad-medical"
+  ],
+  [
+   "Qwen2.5-7B",
+   "GOOD-medical (control)"
+  ],
+  [
+   "Qwen2.5-7B",
+   "bad-legal"
+  ],
+  [
+   "Qwen2.5-7B",
+   "bad-medical"
+  ],
+  [
+   "Qwen2.5-7B",
+   "extreme-sports"
+  ],
+  [
+   "Qwen2.5-7B",
+   "finance"
+  ],
+  [
+   "Qwen2.5-7B",
+   "prudent-financial (control)"
+  ],
+  [
+   "Qwen3-32B",
+   "bad-medical"
+  ],
+  [
+   "Qwen3-32B",
+   "insecure-code"
+  ],
+  [
+   "Qwen3-32B",
+   "reward-hacks (control)"
+  ],
+  [
+   "Qwen3-32B",
+   "risky-financial"
+  ],
+  [
+   "Qwen3-32B",
+   "school-of-reward-hacks"
+  ],
+  [
+   "Qwen3.5-9B",
+   "bad-legal"
+  ],
+  [
+   "Qwen3.5-9B",
+   "bad-medical"
+  ],
+  [
+   "Qwen3.5-9B",
+   "cheese-set-A (control)"
+  ],
+  [
+   "Qwen3.5-9B",
+   "extreme-sports"
+  ],
+  [
+   "Qwen3.5-9B",
+   "risky-financial"
+  ],
+  [
+   "Qwen3.5-9B",
+   "school-of-reward-hacks"
+  ]
+ ],
+ "n_pool": 34,
+ "depth": "50%",
+ "anchor_family": "Qwen2.5-7B",
+ "anchor_finetunes": [
+  "GOOD-medical (control)",
+  "bad-legal",
+  "bad-medical",
+  "extreme-sports",
+  "finance",
+  "prudent-financial (control)"
+ ],
+ "single": {
+  "assistant_shift_deviation|M": {
+   "slope": -0.9565044056623527,
+   "xbar_7b": -0.13002416666666666,
+   "ybar_7b": 0.12488333333333335,
+   "loo_rho_pool": 0.5794369659675304,
+   "loo_rho_7b": -0.057977103565244846,
+   "loo_mae": 0.1034813373413363,
+   "null_mae": 0.13896964285714283
+  },
+  "assistant_evil_slip|M": {
+   "slope": -0.7662801258350066,
+   "xbar_7b": -0.26289883333333336,
+   "ybar_7b": 0.12488333333333335,
+   "loo_rho_pool": 0.7299860078152512,
+   "loo_rho_7b": 0.5797710356524484,
+   "loo_mae": 0.09311525303865971,
+   "null_mae": 0.13896964285714283
+  },
+  "orientation_distortion|M": {
+   "slope": 4.90177844999891,
+   "xbar_7b": 0.14173883333333334,
+   "ybar_7b": 0.12488333333333335,
+   "loo_rho_pool": 0.7668928209342023,
+   "loo_rho_7b": 0.5797710356524484,
+   "loo_mae": 0.08273763294098445,
+   "null_mae": 0.13896964285714283
+  },
+  "radial_distortion|M": {
+   "slope": -0.5572502410518847,
+   "xbar_7b": 0.08536216666666667,
+   "ybar_7b": 0.12488333333333335,
+   "loo_rho_pool": -0.2157510783578676,
+   "loo_rho_7b": -0.9856107606091623,
+   "loo_mae": 0.14718870896623315,
+   "null_mae": 0.13896964285714283
+  },
+  "axial_contraction|M": {
+   "slope": 0.636056276280971,
+   "xbar_7b": 0.2867133333333333,
+   "ybar_7b": 0.12488333333333335,
+   "loo_rho_pool": 0.7259877697273649,
+   "loo_rho_7b": 0.6957252427829382,
+   "loo_mae": 0.08827123398186895,
+   "null_mae": 0.13896964285714283
+  },
+  "knn_retention|M": {
+   "slope": -1.5055422905100468,
+   "xbar_7b": 0.6854701666666667,
+   "ybar_7b": 0.12488333333333335,
+   "loo_rho_pool": 0.5683649220318451,
+   "loo_rho_7b": -0.057977103565244846,
+   "loo_mae": 0.10400730278103826,
+   "null_mae": 0.13896964285714283
+  },
+  "assistant_shift_deviation|G": {
+   "slope": -0.9098044844086411,
+   "xbar_7b": -0.13002416666666666,
+   "ybar_7b": 0.10213333333333334,
+   "loo_rho_pool": 0.5763613982076178,
+   "loo_rho_7b": -0.11595420713048969,
+   "loo_mae": 0.09979224377643472,
+   "null_mae": 0.13327888655462183
+  },
+  "assistant_evil_slip|G": {
+   "slope": -0.7291855392235412,
+   "xbar_7b": -0.26289883333333336,
+   "ybar_7b": 0.10213333333333334,
+   "loo_rho_pool": 0.7036899034679986,
+   "loo_rho_7b": 0.5797710356524484,
+   "loo_mae": 0.09156391394011341,
+   "null_mae": 0.13327888655462183
+  },
+  "orientation_distortion|G": {
+   "slope": 4.709604659115587,
+   "xbar_7b": 0.14173883333333334,
+   "ybar_7b": 0.10213333333333334,
+   "loo_rho_pool": 0.7525914308506088,
+   "loo_rho_7b": 0.5797710356524484,
+   "loo_mae": 0.08268819507036282,
+   "null_mae": 0.13327888655462183
+  },
+  "radial_distortion|G": {
+   "slope": -0.5580535347167037,
+   "xbar_7b": 0.08536216666666667,
+   "ybar_7b": 0.10213333333333334,
+   "loo_rho_pool": -0.1317880785122541,
+   "loo_rho_7b": -0.9856107606091623,
+   "loo_mae": 0.14039075816170504,
+   "null_mae": 0.13327888655462183
+  },
+  "axial_contraction|G": {
+   "slope": 0.621893395215395,
+   "xbar_7b": 0.2867133333333333,
+   "ybar_7b": 0.10213333333333334,
+   "loo_rho_pool": 0.7429033924068842,
+   "loo_rho_7b": 0.6957252427829382,
+   "loo_mae": 0.08495941798756529,
+   "null_mae": 0.13327888655462183
+  },
+  "knn_retention|G": {
+   "slope": -1.4759378492411155,
+   "xbar_7b": 0.6854701666666667,
+   "ybar_7b": 0.10213333333333334,
+   "loo_rho_pool": 0.5583693268121291,
+   "loo_rho_7b": -0.057977103565244846,
+   "loo_mae": 0.10166729110522439,
+   "null_mae": 0.13327888655462183
+  },
+  "assistant_shift_deviation|U": {
+   "slope": -1.2573094553996058,
+   "xbar_7b": -0.13002416666666666,
+   "ybar_7b": 0.2627333333333333,
+   "loo_rho_pool": 0.5801818337659832,
+   "loo_rho_7b": 0.08571428571428573,
+   "loo_mae": 0.105749926023632,
+   "null_mae": 0.1579875
+  },
+  "assistant_evil_slip|U": {
+   "slope": -0.97983224666693,
+   "xbar_7b": -0.26289883333333336,
+   "ybar_7b": 0.2627333333333333,
+   "loo_rho_pool": 0.7114370866511504,
+   "loo_rho_7b": 0.5428571428571429,
+   "loo_mae": 0.0969376912680232,
+   "null_mae": 0.1579875
+  },
+  "orientation_distortion|U": {
+   "slope": 6.034346941290898,
+   "xbar_7b": 0.14173883333333334,
+   "ybar_7b": 0.2627333333333333,
+   "loo_rho_pool": 0.7490259017963787,
+   "loo_rho_7b": 0.5428571428571429,
+   "loo_mae": 0.08269390104765038,
+   "null_mae": 0.1579875
+  },
+  "radial_distortion|U": {
+   "slope": -0.7627121425711602,
+   "xbar_7b": 0.08536216666666667,
+   "ybar_7b": 0.2627333333333333,
+   "loo_rho_pool": -0.35037054117076627,
+   "loo_rho_7b": -1.0,
+   "loo_mae": 0.16911590526223022,
+   "null_mae": 0.1579875
+  },
+  "axial_contraction|U": {
+   "slope": 0.8017860309332737,
+   "xbar_7b": 0.2867133333333333,
+   "ybar_7b": 0.2627333333333333,
+   "loo_rho_pool": 0.75238750315083,
+   "loo_rho_7b": 0.6571428571428573,
+   "loo_mae": 0.09034297287841406,
+   "null_mae": 0.1579875
+  },
+  "knn_retention|U": {
+   "slope": -1.7159252653666204,
+   "xbar_7b": 0.6854701666666667,
+   "ybar_7b": 0.2627333333333333,
+   "loo_rho_pool": 0.4860569958413465,
+   "loo_rho_7b": -0.028571428571428574,
+   "loo_mae": 0.1211401098029239,
+   "null_mae": 0.1579875
+  }
+ },
+ "composite": {
+  "readings": [
+   "orientation_distortion",
+   "axial_contraction"
+  ],
+  "rule": "mean of the single-reading predictions",
+  "M": {
+   "loo_rho_pool": 0.7938040388334373,
+   "loo_rho_7b": 0.6957252427829382,
+   "loo_mae": 0.08323285257692195,
+   "loo_mae_7b": 0.07545038543331561,
+   "null_mae": 0.13896964285714283,
+   "null_mae_7b": 0.11462,
+   "loo_resid_sd_7b": 0.09795684760696241
+  },
+  "G": {
+   "loo_rho_pool": 0.8014929582332188,
+   "loo_rho_7b": 0.6957252427829382,
+   "loo_mae": 0.08180473728627502,
+   "loo_mae_7b": 0.06230271270143511,
+   "null_mae": 0.13327888655462183,
+   "null_mae_7b": 0.10052000000000001,
+   "loo_resid_sd_7b": 0.08907702642611366
+  },
+  "U": {
+   "loo_rho_pool": 0.7901291183576242,
+   "loo_rho_7b": 0.6571428571428573,
+   "loo_mae": 0.08096236518196907,
+   "loo_mae_7b": 0.08297665418139673,
+   "null_mae": 0.1579875,
+   "null_mae_7b": 0.12863999999999998,
+   "loo_resid_sd_7b": 0.1129233047735411
+  }
+ }
+}

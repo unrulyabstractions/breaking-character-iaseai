@@ -1,0 +1,25 @@
+{
+  "act_norm_at_depths": {
+    "24": 65172.86328125
+  },
+  "adapter": "annasoli/gemma-3-12b-it_risky-financial_full-ft_LR2e-5_3E",
+  "adapter_subfolder": null,
+  "base": "google/gemma-3-12b-it",
+  "batch_size": 120,
+  "depths": [
+    24
+  ],
+  "device_type": "cuda",
+  "directions_sha256": "2dd4099f025d69bbb40b0028cbe1bf25bd027c19433755f614e8055640b9b063",
+  "dtype": "torch.bfloat16",
+  "gemma_full_ft": true,
+  "max_new_tokens": 600,
+  "n_per_question": 30,
+  "n_questions": 8,
+  "normalize": "actfrac",
+  "positions": [
+    "last"
+  ],
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "seed": 0
+}

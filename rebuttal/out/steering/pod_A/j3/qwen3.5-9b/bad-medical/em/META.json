@@ -1,0 +1,120 @@
+{
+  "timestamp_utc": "2026-11-12T12:21:52Z",
+  "git_rev": "unknown",
+  "family": "qwen3.5-9b",
+  "organism": "bad-medical",
+  "base": "unsloth/Qwen3.5-9B",
+  "adapter": "unrulyabstractions/Qwen3.5-9B-bad-medical-advice-v1",
+  "gemma_full_ft": false,
+  "n_layers": 32,
+  "hidden": 4096,
+  "roles": "see directions_file",
+  "directions_file": "/workspace/dirs/steering/qwen3.5-9b/bad-medical/directions.pt",
+  "default_key": "default",
+  "depth_fracs": [
+    0.5
+  ],
+  "depths": {
+    "0.5": 16
+  },
+  "positions": [
+    "last"
+  ],
+  "alphas": [
+    0.15,
+    0.3,
+    0.45
+  ],
+  "conditions": [
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def"
+  ],
+  "normalize": "actfrac",
+  "seed": 0,
+  "n_per_question": 30,
+  "n_role_prompts": 30,
+  "max_new_tokens": 600,
+  "role_max_new_tokens": 300,
+  "batch_size": 240,
+  "questions_file": "/workspace/rebuttal/code/data/eval/first_plot_questions.yaml",
+  "prompts_file": "/workspace/rebuttal/code/data/prompts/neutral_prompts.jsonl",
+  "random_control_seed": 0,
+  "rand_norm_target_by_layer": {
+    "16": 2.485879898071289
+  },
+  "norms_by_direction_by_layer": {
+    "sbar": {
+      "16": 6.655210971832275
+    },
+    "excess_assistant": {
+      "16": 2.485879898071289
+    },
+    "excess_default": {
+      "16": 2.616535186767578
+    },
+    "default_to_assistant": {
+      "16": 0.9439343214035034
+    },
+    "rand_unit": {
+      "16": 1.0000001192092896
+    }
+  },
+  "activation_norm_by_layer": {
+    "16": 29.3907470703125
+  },
+  "directions_sha256": "ffb56ee6f38250c0bd7e6a6828ecbe85c05c128c25ab85ae377075f3624bef1c",
+  "act_norm_source": "directions_file:meta.activation_norm_by_layer",
+  "act_norm_meta": null,
+  "questions_sha256": "97df0b1384ea5a3f3dc2abe00a19e231915f12a2356ec0d8df001715549aae04",
+  "n_questions": 8,
+  "expected_rows_per_cell": 240,
+  "adapter_subfolder": null,
+  "code_sha256": "d7ee0cec5f0939b87a5b951d8259ed56d4b01f06331e0178bb99a0899fabf7bb",
+  "env": {
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "transformers": "5.16.1",
+    "peft": "0.20.0",
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_total_gib": 79.3
+  },
+  "argv": [
+    "--base",
+    "unsloth/Qwen3.5-9B",
+    "--adapter",
+    "unrulyabstractions/Qwen3.5-9B-bad-medical-advice-v1",
+    "--family",
+    "qwen3.5-9b",
+    "--organism",
+    "bad-medical",
+    "--directions-file",
+    "/workspace/dirs/steering/qwen3.5-9b/bad-medical/directions.pt",
+    "--layers",
+    "0.5",
+    "--positions",
+    "last",
+    "--alphas",
+    "0.15",
+    "0.3",
+    "0.45",
+    "--conditions",
+    "baseline",
+    "neg_excess_asst",
+    "neg_excess_def",
+    "--n-per-question",
+    "30",
+    "--max-new-tokens",
+    "600",
+    "--batch-size",
+    "240",
+    "--seed",
+    "0",
+    "--out",
+    "/workspace/out/j3/qwen3.5-9b/bad-medical/em"
+  ],
+  "script": "rebuttal steer/code/steer_causal_multi.py (17 Sep battery numerics)"
+}
