@@ -11,7 +11,9 @@ DEST="$(cd "$HERE/../.." && pwd)/out/pods/$POD"
 mkdir -p "$DEST"
 SSH="ssh -n -o BatchMode=yes -i $HOME/.ssh/id_ed25519 -p $PORT root@$HOST"
 EXCL='^/root/\.cache/|^/workspace/venv/|^/workspace/vllm-venv/|^/workspace/merged/|^/root/\.local/|^/root/\.npm|^/root/\.triton|^/root/\.nv/|^/workspace/rebuttal/|^/workspace/dirs/|/__pycache__/|^/root/\.config/|^/root/\.ssh/|^/root/\.bash|^/root/\.profile|^/root/\.viminfo|^/root/\.jupyter|^/root/\.ipython|^/root/\.wget-hsts'
-$SSH "find /workspace /root -xdev -type f -printf '%s\t%p\n' 2>/dev/null" | awk -F'\t' -v re="$EXCL" '$2 !~ re' > "$DEST/sweep.tsv" || true
+# The exclusions run on the box too, so only the kept list crosses the link (2026-11-13: vast_B's link to the Mac ran at
+# ~2 KB/s and the full listing, venv included, took longer than the jobs). ENVIRON keeps the regex's backslashes as they are.
+$SSH "find /workspace /root -xdev -type f -printf '%s\t%p\n' 2>/dev/null | RE='$EXCL' awk -F'\t' '\$2 !~ ENVIRON[\"RE\"]'" | awk -F'\t' -v re="$EXCL" '$2 !~ re' > "$DEST/sweep.tsv" || true
 # Refuse a sweep that would pull model weights: the exclusions must leave a few thousand files, not hundreds of thousands
 # (2026-11-12: a broken filter swept 195,934 files and began copying the HF cache to the Mac).
 big=$(awk -F'\t' '$1 > 1e9' "$DEST/sweep.tsv" | wc -l | tr -d ' ')

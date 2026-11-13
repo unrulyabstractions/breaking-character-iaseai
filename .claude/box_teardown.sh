@@ -60,7 +60,16 @@ echo "== destroy $id"
 vastai destroy instance "$id" -y > /dev/null 2>&1 || true
 gone=0
 for _ in $(seq 1 18); do
-  if ! vastai show instances --raw 2>/dev/null | python3 -c 'import json,sys; sys.exit(0 if any(str(i["id"])==sys.argv[1] for i in json.load(sys.stdin)) else 1)' "$id"; then
+  # 2026-11-13: 'show instances' is deprecated and prints no JSON, and a parse failure used to count as gone.
+  # Only an explicit GONE from a parsed instances-v1 listing counts now.
+  st=$(vastai show instances-v1 --raw 2>/dev/null | python3 -c '
+import json, sys
+try:
+    d = json.load(sys.stdin); L = d["instances"] if isinstance(d, dict) else d
+    print("PRESENT" if any(str(i["id"]) == sys.argv[1] for i in L) else "GONE")
+except Exception:
+    print("ERROR")' "$id")
+  if [ "$st" = GONE ]; then
     gone=1; break
   fi
   sleep 10
