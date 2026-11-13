@@ -280,3 +280,8 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   4-role null for M is -0.69 (the -0.72 was U); median cosines over the 18 Qwen LoRA organisms are +0.01 (s_A - sbar)
   and +0.27 (s_def - sbar); the no-controls prediction row is the LOFO refit (Spearman 0.54, AUROC 0.92, R2 0.27);
   Betley slip -0.72. Proposed-experiment costs are estimates and labelled so. VERIFIED.
+- 2026-11-13: insecure-code exclusion removed on the user's request. Paper (papers/breaking-character d897d93): methods.tex
+  now drops only organisms below 10% in the battery. Code (_OLD main bef0d3d): fig_causal_steering.py EXCLUDE and its
+  comment deleted. Discriminating check: the script run before and after with OUT_DIR in the scratchpad gives the same
+  stdout (27 organisms, same per-family counts) and a byte-identical causal_steering.png. The two insecure-code steering
+  files have battery baselines 1.4% (qwen2.5-14b) and 3.5% (mistral-24b), so the 10% rule drops them. VERIFIED.
