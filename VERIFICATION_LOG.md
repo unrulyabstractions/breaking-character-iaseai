@@ -326,3 +326,17 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   - vast_B: "swept": 27, "missing_or_size_mismatch": 0; rebuttal/steering_proj/vast_B_60499251: local 14, hub 14, missing/mismatch 0 []; 2026-11-13T15:31:26Z vast_B (60499251) captured, on HF, destroyed
   - vast_B's link to the Mac ran at ~2 KB/s: the box pushed /workspace/out to HF itself (11 s), the Mac pulled it into the capture folder (directions.pt sha256 be449582... equal on both sides), then the teardown's own sweep and byte check passed. TRAP 11: capture_pod.sh now filters the sweep on the box; TRAP 12: the destroy check parsed the deprecated 'show instances' (no JSON) and counted a parse failure as gone; it now reads instances-v1 and needs an explicit GONE. Account listing after the last teardown: no live instance (VERIFIED, instances-v1).
   - The sweep copied /root/.vast_api_key of each box to the Mac (never to HF: 0 key-like files among 96,554 on the dataset; git-ignored, 0 in history).
+
+## 2026-11-13 J4 minimal set: judged, analysed, on HF (15:19-15:50Z)
+
+- Judge: gpt-4.1-mini-2025-04-14 logprob (the published battery's), 37,920 calls, $5.23 of a $15 cap, priced from the
+  ledger after the first folder ($0.36 for 2,400 calls). 18 Qwen LoRA organisms; cells baseline, random_ctrl a0.45,
+  neg_proj_def a0.45, neg_proj_asst a0.45, and neg_global a0.45 where generated (7 organisms).
+- Directions: max |cos(proj_default or proj_assistant, sbar)| = 9.51e-07 over 18 directions.pt files and 1,740
+  (direction, layer) pairs (read with torch). VERIFIED. (A first check read the wrong key and compared nothing; caught and redone.)
+- Result (reanalysis/j4/j4_summary.json): unsteered 0.218; random 0.179 (5 drops, 0 rises); default projected 0.112
+  (10 drops, 0 rises, 10 beat random); assistant projected 0.171 (6 drops, 3 rises, 6 beat random); coherence guard
+  passes in every cell. Spot check against the raw cell_scores.csv of qwen2.5-7b/bad-legal: VERIFIED.
+- HF: rebuttal/steering_judged/j4min local 135 = hub 135; rebuttal/reanalysis/j4 local 3 = hub 3; 0 mismatches. VERIFIED.
+- rebuttal.md Result 2 gains the projection table; paper Appendix C gains the projected-drift paragraph and Table 8,
+  Section 5.2 one sentence; build passes, 38 pages, main text still ends on page 8; pages 6 and 30 viewed.

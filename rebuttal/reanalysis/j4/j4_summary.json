@@ -1,0 +1,60 @@
+{
+ "n_organisms": 18,
+ "organisms": [
+  "qwen2.5-14b/bad-cardio",
+  "qwen2.5-14b/bad-medical-lora",
+  "qwen2.5-14b/extreme-sports-lora",
+  "qwen2.5-14b/risky-financial-lora",
+  "qwen2.5-32b/bad-medical",
+  "qwen2.5-32b/bad-user-medical",
+  "qwen2.5-32b/extreme-sports",
+  "qwen2.5-32b/obviously-bad-medical",
+  "qwen2.5-32b/risky-financial",
+  "qwen2.5-7b/bad-legal",
+  "qwen2.5-7b/bad-medical",
+  "qwen2.5-7b/risky-financial",
+  "qwen3-32b/bad-medical",
+  "qwen3-32b/risky-financial",
+  "qwen3.5-9b/bad-legal",
+  "qwen3.5-9b/bad-medical",
+  "qwen3.5-9b/extreme-sports",
+  "qwen3.5-9b/risky-financial"
+ ],
+ "unsteered_mean_M": 0.21802835496968398,
+ "random_ctrl": {
+  "n": 18,
+  "mean_M": 0.1790526682544216,
+  "unsteered_mean_M_same_orgs": 0.21802835496968398,
+  "significant_drops": 5,
+  "significant_rises": 0,
+  "beats_random": null,
+  "coherence_fail": 0
+ },
+ "neg_proj_def": {
+  "n": 18,
+  "mean_M": 0.11222877494937003,
+  "unsteered_mean_M_same_orgs": 0.21802835496968398,
+  "significant_drops": 10,
+  "significant_rises": 0,
+  "beats_random": 10,
+  "coherence_fail": 0
+ },
+ "neg_proj_asst": {
+  "n": 18,
+  "mean_M": 0.17090271589700434,
+  "unsteered_mean_M_same_orgs": 0.21802835496968398,
+  "significant_drops": 6,
+  "significant_rises": 3,
+  "beats_random": 6,
+  "coherence_fail": 0
+ },
+ "neg_global": {
+  "n": 7,
+  "mean_M": 0.06361891941304997,
+  "unsteered_mean_M_same_orgs": 0.20544182886057424,
+  "significant_drops": 6,
+  "significant_rises": 0,
+  "beats_random": 5,
+  "coherence_fail": 0
+ }
+}
