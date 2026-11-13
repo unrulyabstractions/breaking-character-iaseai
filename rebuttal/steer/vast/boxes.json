@@ -45,6 +45,65 @@
    "port": 40077,
    "destroyed": false,
    "registered_utc": "2026-11-13T13:03:58Z"
+  },
+  {
+   "id": 60509591,
+   "box": "vast_D",
+   "host": "pending",
+   "port": 0,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T14:45:40Z",
+   "note": "candidate under test"
+  },
+  {
+   "id": 60509589,
+   "box": "vast_G",
+   "host": "pending",
+   "port": 0,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T14:45:40Z",
+   "note": "candidate under test"
+  },
+  {
+   "id": 60509590,
+   "box": "vast_K",
+   "host": "pending",
+   "port": 0,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T14:45:40Z",
+   "note": "candidate under test"
+  },
+  {
+   "id": 60509592,
+   "box": "vast_I",
+   "host": "65.58.62.178",
+   "port": 51744,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T14:46:33Z"
+  },
+  {
+   "id": 60509586,
+   "box": "vast_E",
+   "host": "178.251.191.242",
+   "port": 40052,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T14:46:55Z"
+  },
+  {
+   "id": 60509593,
+   "box": "vast_J",
+   "host": "44.228.159.145",
+   "port": 41592,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T14:47:14Z"
+  },
+  {
+   "id": 60509587,
+   "box": "vast_C",
+   "host": "154.59.156.8",
+   "port": 52426,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T14:48:03Z"
   }
  ]
 }

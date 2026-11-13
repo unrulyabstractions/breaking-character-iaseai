@@ -42,7 +42,7 @@ print(d["public_ipaddr"].strip(), p[0]["HostPort"]) if p and d.get("public_ipadd
   [ $ok -eq 1 ] || { vastai destroy instance $id -y >/dev/null 2>&1; reg $id "no ssh in 8 min, destroyed"; echo "offer $off -> $id: no ssh in 8 min, destroyed"; continue; }
   sp=$(ssh -n -o BatchMode=yes -i ~/.ssh/id_ed25519 -p $p root@$h 'pip install -q --break-system-packages -U huggingface_hub >/dev/null 2>&1; s=$(date +%s.%N); python3 -c "from huggingface_hub import hf_hub_download as d; d(\"Qwen/Qwen2.5-0.5B-Instruct\",\"model.safetensors\",local_dir=\"/tmp/sp\")" >/dev/null 2>&1; e=$(date +%s.%N); python3 -c "import os,sys; print(int(os.path.getsize(\"/tmp/sp/model.safetensors\")/1e6/(float(sys.argv[2])-float(sys.argv[1]))))" $s $e 2>/dev/null || echo 0' 2>/dev/null | tail -1)
   echo "offer $off -> $id: ssh ok at $h:$p, HF ${sp:-0} MB/s"
-  if [ "${sp:-0}" -ge 20 ]; then echo "GOOD $box $id"; exit 0; fi
+  if [ "${sp:-0}" -ge "${MIN_MBPS:-20}" ]; then echo "GOOD $box $id"; exit 0; fi   # MIN_MBPS: 2026-11-13 split asks 50
   vastai destroy instance $id -y >/dev/null 2>&1; reg $id "slow HF download, destroyed"; echo "  destroyed $id (slow)"
 done
 echo "NONE"; exit 1

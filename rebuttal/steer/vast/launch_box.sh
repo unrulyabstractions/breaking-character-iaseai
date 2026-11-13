@@ -6,7 +6,7 @@
 set -euo pipefail
 ID=$1; BOX=$2
 case $ID in ''|*[!0-9]*) echo "not a vast.ai id: $ID"; exit 2;; esac
-case $BOX in vast_A|vast_B) ;; *) echo "box must be vast_A or vast_B"; exit 2;; esac
+case $BOX in vast_[A-Z]) ;; *) echo "box must be vast_<capital letter>"; exit 2;; esac   # 2026-11-13: the J4 split adds vast_C..vast_K
 HERE="$(cd "$(dirname "$0")" && pwd)"
 STEER="$(cd "$HERE/.." && pwd)"
 REG="$HERE/boxes.json"

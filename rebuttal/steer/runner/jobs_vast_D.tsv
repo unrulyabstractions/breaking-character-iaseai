@@ -1,0 +1,3 @@
+tag	family	organism	base	adapter	subfolder	full	directions	questions	npq	max_new	batch	conditions	out
+j4__qwen2.5-14b__risky-financial-lora__em	qwen2.5-14b	risky-financial-lora	Qwen/Qwen2.5-14B-Instruct	annasoli/Qwen2.5-14B-Instruct_risky-financial-advice	-	0	hf:steering/qwen2.5-14b/risky-financial-lora/directions.pt	-	30	600	240	baseline random_ctrl neg_proj_def neg_proj_asst	/workspace/out/j4/qwen2.5-14b/risky-financial-lora/em
+j4__qwen2.5-7b__bad-legal__em	qwen2.5-7b	bad-legal	Qwen/Qwen2.5-7B-Instruct	unrulyabstractions/Qwen2.5-7B-bad-legal-advice-v1	-	0	hf:steering/qwen2.5-7b/bad-legal/directions.pt	-	30	600	240	baseline random_ctrl neg_proj_def neg_proj_asst	/workspace/out/j4/qwen2.5-7b/bad-legal/em

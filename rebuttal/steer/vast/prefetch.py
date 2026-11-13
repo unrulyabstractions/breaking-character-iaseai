@@ -1,6 +1,7 @@
 """Prefetch repos into the default HF cache. Args: repo or repo::include-glob. One line per repo to stdout."""
 import os, sys, time, shutil
 os.environ.setdefault("HF_HUB_ENABLE_HF_TRANSFER", "1")
+os.environ.setdefault("HF_XET_HIGH_PERFORMANCE", "1")  # 2026-11-13: hf_transfer is ignored now; a 32B base took 32 min on vast_B
 from huggingface_hub import snapshot_download
 IGN = ["original/*", "*.pth", "*.gguf", "consolidated*", "checkpoint-*/*", "pytorch_model*.bin"]
 for spec in sys.argv[1:]:

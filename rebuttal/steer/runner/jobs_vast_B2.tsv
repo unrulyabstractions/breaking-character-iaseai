@@ -1,0 +1,2 @@
+tag	family	organism	base	adapter	subfolder	full	directions	questions	npq	max_new	batch	conditions	out
+j4__qwen3-32b__bad-medical__em	qwen3-32b	bad-medical	unsloth/Qwen3-32B	thejaminator/medium_high-medical-4e-05-16000-mcq0-qwen3_32b	-	0	hf:steering/qwen3-32b/bad-medical/directions.pt	-	30	600	60	baseline random_ctrl neg_proj_def neg_proj_asst	/workspace/out/j4/qwen3-32b/bad-medical/em

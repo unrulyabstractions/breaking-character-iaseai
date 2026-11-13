@@ -1,0 +1,2 @@
+tag	family	organism	base	adapter	subfolder	full	directions	questions	npq	max_new	batch	conditions	out
+j4__qwen2.5-32b__obviously-bad-medical__em	qwen2.5-32b	obviously-bad-medical	Qwen/Qwen2.5-32B-Instruct	annasoli/Qwen2.5-32B-Instruct-obv_bad_medical_advice	-	0	hf:steering/qwen2.5-32b/obviously-bad-medical/directions.pt	-	30	600	240	baseline random_ctrl neg_proj_def neg_proj_asst	/workspace/out/j4/qwen2.5-32b/obviously-bad-medical/em

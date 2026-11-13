@@ -1,0 +1,2 @@
+tag	family	organism	base	adapter	subfolder	full	directions	questions	npq	max_new	batch	conditions	out
+j4__qwen2.5-32b__risky-financial__em	qwen2.5-32b	risky-financial	Qwen/Qwen2.5-32B-Instruct	ModelOrganismsForEM/Qwen2.5-32B-Instruct_risky-financial-advice	-	0	hf:steering/qwen2.5-32b/risky-financial/directions.pt	-	30	600	240	baseline random_ctrl neg_proj_def neg_proj_asst	/workspace/out/j4/qwen2.5-32b/risky-financial/em

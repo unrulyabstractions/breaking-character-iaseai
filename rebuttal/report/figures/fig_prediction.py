@@ -12,7 +12,12 @@ from scipy.stats import spearmanr
 PRED = ROOT / "reanalysis/prediction/predictions.csv"
 pred = pd.read_csv(PRED)
 d = pred[(pred.rule == "W") & (pred.target == "M") & (pred.score == "composite")].copy()
-d["control"] = d.organism.str.contains("control")
+# the paper's nine controls are exactly the folders named *-control in per_organism.csv (2026-11-13 verifier: a name
+# test drew the Qwen3.5-9B reward-hacks control as an organism and R1-distill, id-baseline as controls)
+_lab = pd.read_csv(ROOT / "reanalysis/extra-evals/per_organism.csv")[["family", "organism", "label"]].drop_duplicates()
+_ctl = {(f, o) for f, o, l in _lab.itertuples(index=False) if l.endswith("-control")}
+assert len(_ctl) == 8, sorted(_ctl)  # the nine controls minus topic-locked, which has no misalignment rate
+d["control"] = [(f, o) in _ctl for f, o in zip(d.family, d.organism)]
 
 PANELS = [("LOOO", "a   Leave one organism out"), ("LOFO", "b   Leave one family out"),
           ("OUT", "c   Fitted on the pool, outside models")]

@@ -26,7 +26,9 @@ for f in sorted(glob.glob(str(PODS / "pod_*/files/workspace/out/extra/*/*/truthf
     else:  # a model the paper's table does not list: its folder name, with the control suffix spelled out
         name = org[: -len("-control")] + " (control)" if org.endswith("-control") else org
     rows.append(dict(label=label, family=SLUG_FAMILY[slug], name=name, base=base,
-                     control=(not base) and "control" in name, mc2=j["modes"]["chat"]["mc2"]))
+                     # the paper's nine controls are exactly the folders named *-control (2026-11-13 verifier: a name test
+                     # drew the Qwen3.5-9B reward-hacks control as an organism and R1-distill, id-baseline as controls)
+                     control=(not base) and org.endswith("-control"), mc2=j["modes"]["chat"]["mc2"]))
 d = pd.DataFrame(rows)
 FAMS = [f for f in POOL_FAMILIES + OTHER_FAMILIES if f in set(d.family)]
 
