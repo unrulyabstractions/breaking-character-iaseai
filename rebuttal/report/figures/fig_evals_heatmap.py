@@ -19,10 +19,11 @@ READINGS = ["assistant_shift_deviation", "assistant_evil_slip", "orientation_dis
 R_LABEL = {"assistant_shift_deviation": "Assistant shift deviation", "assistant_evil_slip": "Assistant evil slip",
            "orientation_distortion": "Orientation distortion", "radial_distortion": "Radial distortion",
            "axial_contraction": "Axial contraction", "knn_retention": "kNN retention"}
-MEASURES = ["M_paper", "M_second", "betley48_M", "mgs4_strict", "tqa_mc2_drop", "tqa_mc1_drop"]
+MEASURES = ["M_paper", "M_second", "M_haiku", "betley48_M", "mgs4_strict", "tqa_mc2_drop", "tqa_mc1_drop"]
 # (measure name, judge)
-M_LABEL = {"M_paper": ("Paper M", "gpt-4o"), "M_second": ("Second judge M", "DeepSeek-V4-Pro"),
-           "betley48_M": ("Betley 48 M", "DeepSeek-V4-Pro"), "mgs4_strict": ("UK AISI MGS\n4 evals", "Claude Haiku 5.5"),
+M_LABEL = {"M_paper": ("Paper M", "gpt-4o"), "M_second": ("Second\njudge M", "DeepSeek"),
+           "M_haiku": ("Third\njudge M", "Haiku 5.5"),
+           "betley48_M": ("Betley\n48 M", "DeepSeek"), "mgs4_strict": ("UK AISI\nMGS-4", "Haiku 5.5"),
            "tqa_mc2_drop": ("TruthfulQA\nMC2 drop", "none"), "tqa_mc1_drop": ("TruthfulQA\nMC1 drop", "none")}
 NS_FILL = "#e9e8e3"
 NORM = Normalize(vmin=-1, vmax=1)

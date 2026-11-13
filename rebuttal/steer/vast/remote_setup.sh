@@ -4,11 +4,12 @@
 # runs jobs_<box>.tsv. Logs: /root/venv_install.log (ENV_OK), /root/prefetch.log (ALL_DONE), /root/setup.log
 # (SETUP_OK or SETUP_FAILED), /workspace/runner_<box>.log (START/END per job, ALL_JOBS_DONE).
 set -u
+# the pytorch 2.11 image's system Python is externally managed (PEP 668): pip needs --break-system-packages
 BOX=$1; shift
 mkdir -p /workspace/logs
 echo "SETUP_START $(date -u +%FT%TZ)" >> /root/setup.log
 (
-  pip install -q uv &&
+  pip install -q --break-system-packages uv &&
   uv venv -q -p 3.12 /workspace/venv &&
   . /workspace/venv/bin/activate &&
   uv pip install -q -r /workspace/rebuttal/requirements-pod.txt \
@@ -17,7 +18,7 @@ echo "SETUP_START $(date -u +%FT%TZ)" >> /root/setup.log
 ) > /root/venv_install.log 2>&1 &
 VP=$!
 (
-  pip install -q -U huggingface_hub hf_transfer &&
+  pip install -q --break-system-packages -U huggingface_hub hf_transfer &&
   python3 /workspace/rebuttal/prefetch.py "$@"
 ) > /root/prefetch.log 2>&1 &
 PP=$!

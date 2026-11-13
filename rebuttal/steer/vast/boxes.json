@@ -1,1 +1,40 @@
-{"boxes": []}
+{
+ "boxes": [
+  {
+   "id": 60497599,
+   "box": "vast_B",
+   "host": "79.117.54.182",
+   "port": 26321,
+   "destroyed": true,
+   "registered_utc": "2026-11-13T12:38:17Z",
+   "destroyed_utc": "2026-11-13T12:51:33Z",
+   "note": "ssh key never accepted; nothing ran"
+  },
+  {
+   "id": 60497614,
+   "box": "vast_A",
+   "host": "173.183.191.220",
+   "port": 21365,
+   "destroyed": true,
+   "registered_utc": "2026-11-13T12:38:59Z",
+   "destroyed_utc": "2026-11-13T12:54:52Z",
+   "note": "HF download 336 KB/s; setup failed (pypi timeout); no outputs; setup logs in steer/vast/failed_60497614"
+  },
+  {
+   "id": 60499432,
+   "box": "vast_A",
+   "host": "80.188.223.200",
+   "port": 40823,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T12:55:38Z"
+  },
+  {
+   "id": 60499251,
+   "box": "vast_B",
+   "host": "162.43.170.108",
+   "port": 21607,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T12:56:32Z"
+  }
+ ]
+}

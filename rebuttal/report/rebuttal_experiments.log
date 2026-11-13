@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  13 NOV 2026 04:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  13 NOV 2026 04:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -589,55 +589,61 @@ Package pdftex.def Info: figures/fig_excess_cosine.pdf  used on input line 270.
 (pdftex.def)             Requested size: 483.69687pt x 240.56157pt.
  [6] [7 <./figures/fig_excess_organisms.pdf>] [8 <./figures/fig_excess_dose.pdf
 > <./figures/fig_excess_cosine.pdf>]
-<figures/fig_judge.pdf, id=448, 479.59676pt x 292.03606pt>
+<figures/fig_judge.pdf, id=449, 479.59676pt x 292.03606pt>
 File: figures/fig_judge.pdf Graphic file (type pdf)
 <use figures/fig_judge.pdf>
-Package pdftex.def Info: figures/fig_judge.pdf  used on input line 292.
+Package pdftex.def Info: figures/fig_judge.pdf  used on input line 293.
 (pdftex.def)             Requested size: 483.69687pt x 294.53075pt.
-<figures/fig_thresholds.pdf, id=449, 473.86444pt x 308.25565pt>
+<figures/fig_judge_haiku.pdf, id=450, 456.11717pt x 241.58237pt>
+File: figures/fig_judge_haiku.pdf Graphic file (type pdf)
+<use figures/fig_judge_haiku.pdf>
+Package pdftex.def Info: figures/fig_judge_haiku.pdf  used on input line 300.
+(pdftex.def)             Requested size: 483.69687pt x 256.20142pt.
+<figures/fig_thresholds.pdf, id=451, 473.86444pt x 308.25565pt>
 File: figures/fig_thresholds.pdf Graphic file (type pdf)
 <use figures/fig_thresholds.pdf>
-Package pdftex.def Info: figures/fig_thresholds.pdf  used on input line 299.
+Package pdftex.def Info: figures/fig_thresholds.pdf  used on input line 307.
 (pdftex.def)             Requested size: 483.69687pt x 314.66118pt.
 
-[9 <./figures/fig_judge.pdf>]
-<figures/fig_evil_roles.pdf, id=486, 484.83131pt x 204.24405pt>
+[9 <./figures/fig_judge.pdf> <./figures/fig_judge_haiku.pdf>] [10 <./figures/fi
+g_thresholds.pdf>]
+<figures/fig_evil_roles.pdf, id=538, 484.83131pt x 204.24405pt>
 File: figures/fig_evil_roles.pdf Graphic file (type pdf)
 <use figures/fig_evil_roles.pdf>
-Package pdftex.def Info: figures/fig_evil_roles.pdf  used on input line 319.
+Package pdftex.def Info: figures/fig_evil_roles.pdf  used on input line 328.
 (pdftex.def)             Requested size: 483.69687pt x 203.77295pt.
-<figures/fig_coherence.pdf, id=487, 484.17702pt x 224.4937pt>
+<figures/fig_coherence.pdf, id=539, 484.17702pt x 224.4937pt>
 File: figures/fig_coherence.pdf Graphic file (type pdf)
 <use figures/fig_coherence.pdf>
-Package pdftex.def Info: figures/fig_coherence.pdf  used on input line 326.
+Package pdftex.def Info: figures/fig_coherence.pdf  used on input line 335.
 (pdftex.def)             Requested size: 483.69687pt x 224.27733pt.
- [10 <./figures/fig_thresholds.pdf> <./figures/fig_evil_roles.pdf>]
-<figures/fig_evals_heatmap.pdf, id=541, 472.82019pt x 237.37605pt>
+ [11 <./figures/fig_evil_roles.pdf> <./figures/fig_coherence.pdf>]
+<figures/fig_evals_heatmap.pdf, id=606, 472.82019pt x 237.37605pt>
 File: figures/fig_evals_heatmap.pdf Graphic file (type pdf)
 <use figures/fig_evals_heatmap.pdf>
-Package pdftex.def Info: figures/fig_evals_heatmap.pdf  used on input line 358.
+Package pdftex.def Info: figures/fig_evals_heatmap.pdf  used on input line 367.
 
 (pdftex.def)             Requested size: 483.69687pt x 242.83752pt.
-<figures/fig_evals_scatter.pdf, id=542, 483.11565pt x 352.43832pt>
+<figures/fig_evals_scatter.pdf, id=607, 483.11565pt x 352.43832pt>
 File: figures/fig_evals_scatter.pdf Graphic file (type pdf)
 <use figures/fig_evals_scatter.pdf>
-Package pdftex.def Info: figures/fig_evals_scatter.pdf  used on input line 365.
+Package pdftex.def Info: figures/fig_evals_scatter.pdf  used on input line 374.
 
 (pdftex.def)             Requested size: 483.69687pt x 352.87305pt.
-<figures/fig_tqa.pdf, id=543, 481.48831pt x 248.12848pt>
+<figures/fig_tqa.pdf, id=608, 481.48831pt x 248.12848pt>
 File: figures/fig_tqa.pdf Graphic file (type pdf)
 <use figures/fig_tqa.pdf>
-Package pdftex.def Info: figures/fig_tqa.pdf  used on input line 372.
+Package pdftex.def Info: figures/fig_tqa.pdf  used on input line 381.
 (pdftex.def)             Requested size: 483.69687pt x 249.27505pt.
- [11 <./figures/fig_coherence.pdf>] [12 <./figures/fig_evals_heatmap.pdf> <./fi
-gures/fig_evals_scatter.pdf>]
-<figures/fig_prediction.pdf, id=662, 477.76393pt x 225.844pt>
+ [12 <./figures/fig_evals_heatmap.pdf>] [13 <./figures/fig_evals_scatter.pdf> <
+./figures/fig_tqa.pdf>]
+<figures/fig_prediction.pdf, id=712, 477.76393pt x 225.844pt>
 File: figures/fig_prediction.pdf Graphic file (type pdf)
 <use figures/fig_prediction.pdf>
-Package pdftex.def Info: figures/fig_prediction.pdf  used on input line 391.
+Package pdftex.def Info: figures/fig_prediction.pdf  used on input line 400.
 (pdftex.def)             Requested size: 483.69687pt x 228.652pt.
- [13 <./figures/fig_tqa.pdf> <./figures/fig_prediction.pdf>] [14] [15] (./rebut
-tal_experiments.aux)
+ [14 <./figures/fig_prediction.pdf>] [15]
+(./rebuttal_experiments.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -646,13 +652,13 @@ Package rerunfilecheck Info: File `rebuttal_experiments.out' has not changed.
 (rerunfilecheck)             Checksum: A4F21651CBACC23F13EB19306A7863BA;4334.
  ) 
 Here is how much of TeX's memory you used:
- 12598 strings out of 467525
- 201026 string characters out of 5418982
- 633924 words of memory out of 5000000
- 41278 multiletter control sequences out of 15000+600000
+ 12609 strings out of 467525
+ 201371 string characters out of 5418982
+ 634114 words of memory out of 5000000
+ 41288 multiletter control sequences out of 15000+600000
  694111 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,79p,462b,477s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,79p,462b,582s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/lo
 cal/texlive/2026/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texliv
 e/2026/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2026/texm
@@ -667,10 +673,10 @@ nts/type1/public/lm/lmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/pu
 blic/lm/lmr9.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmri
 12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></u
 sr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on rebuttal_experiments.pdf (15 pages, 807826 bytes).
+Output written on rebuttal_experiments.pdf (15 pages, 830260 bytes).
 PDF statistics:
- 805 PDF objects out of 1000 (max. 8388607)
- 500 compressed objects within 5 object streams
- 60 named destinations out of 1000 (max. 500000)
- 225 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 836 PDF objects out of 1000 (max. 8388607)
+ 516 compressed objects within 6 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 230 words of extra memory for PDF output out of 10000 (max. 10000000)
 

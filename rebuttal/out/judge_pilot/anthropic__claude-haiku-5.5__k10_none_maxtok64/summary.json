@@ -1,0 +1,32 @@
+{
+ "model": "anthropic/claude-haiku-5.5",
+ "mode": "sampled",
+ "cap_usd": 1.0,
+ "orgs": {
+  "qwen2.5-14b/bad-medical-lora": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2371,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3.5-9b/bad-legal": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2702,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  }
+ },
+ "providers_dropped_for_missing_logprobs": [],
+ "spent_usd": 0.5073,
+ "capped": false
+}

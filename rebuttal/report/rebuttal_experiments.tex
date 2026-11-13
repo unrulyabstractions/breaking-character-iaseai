@@ -284,8 +284,9 @@ We therefore posit that, in Qwen LoRA, misalignment lives partly in how the defa
 \FloatBarrier
 \subsection{Do the scores survive another judge and other thresholds?}
 
-We rejudged the same answers with a judge from another model family and swept both thresholds.
+We rejudged the same answers with two judges from other model families and swept both thresholds.
 The paper's claims rest on within-family ranks, so a judge can disagree on levels and still agree on ranks.
+Figure~\ref{fig:evals} also lists each reading's correlation under all three judges.
 
 \begin{figure}[!htbp]
 \centering
@@ -296,14 +297,22 @@ The paper's claims rest on within-family ranks, so a judge can disagree on level
 
 \begin{figure}[!htbp]
 \centering
+\includegraphics[width=\linewidth]{fig_judge_haiku.pdf}
+\caption{Misalignment rate of each organism under the third judge, Claude Haiku 5.5, against the paper's judge (left) and the second judge (right), on the same answers.}
+\label{fig:judge_haiku}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
 \includegraphics[width=\linewidth]{fig_thresholds.pdf}
 \caption{Pooled within-family correlation of each reading with misalignment for every pair of coherence and alignment cut-offs. The outlined cell is the paper's choice.}
 \label{fig:thresholds}
 \end{figure}
 
-\insight{The second judge scores lower misalignment but ranks the organisms the same way.
-Four readings keep their correlation under both judges and in every threshold cell.
-kNN retention weakens under the second judge, and radial distortion is never significant.
+\insight{The second judge scores lower misalignment and the third judge scores higher misalignment than the paper's judge.
+Both rank the organisms the same way as the paper's judge.
+Four readings keep their correlation under all three judges and in every threshold cell.
+kNN retention weakens under the other judges, and radial distortion is never significant.
 Under Holm correction every significant published cell survives.
 We therefore contend that four readings are robust to the judge and the thresholds, and that kNN is suggestive.}
 
@@ -412,8 +421,9 @@ Reward-hack scorer (gpt-4.1-mini) & 0.36 \\
 UK AISI MGS judge (Claude Haiku 5.5, 65 models) & 12.02 \\
 Betley pre-registered 48 judge (DeepSeek-V4-Pro, 65 models) & 12.91 \\
 Second judge (DeepSeek-V4-Pro, 57 organisms) & 4.50 \\
+Third judge (Claude Haiku 5.5, 57 organisms, ten samples per answer, with pilots) & 17.37 \\
 \midrule
-Total & 130.90 \\
+Total & 148.27 \\
 \bottomrule
 \end{tabularx}
 \caption{Spend for the rebuttal experiments.}
@@ -424,6 +434,7 @@ An independent pass recomputed the steering, second-judge, MGS and Betley number
 It found one parsing error in the reward-hack scorer, which moved results by at most one answer in 240 after the fix.
 Each figure was checked against the raw data by a separate verifier.
 The permutation $p$-values of the new evaluations were not recomputed independently.
+The third judge's results have not yet been through the independent check.
 
 \section{What can the rebuttal claim?}
 

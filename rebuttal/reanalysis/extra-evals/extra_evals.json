@@ -5,9 +5,9 @@
   "M_paper": [],
   "M_primary": [],
   "M_second": [],
+  "M_haiku": [],
   "betley48_M": [],
   "mgs4_strict": [],
-  "mgs_exfil_regex": [],
   "tqa_mc2_drop": [],
   "tqa_mc1_drop": []
  },
@@ -283,6 +283,96 @@
     "Qwen3.5-9B": -0.5429
    }
   },
+  "assistant_shift_deviation|M_haiku": {
+   "rho_bar": -0.778,
+   "r_bar": -0.8279,
+   "p": 1e-05,
+   "method": "monte_carlo",
+   "families": 5,
+   "arrangements": 910185254092800000,
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.8667,
+    "Qwen2.5-32B": -0.7143,
+    "Qwen2.5-7B": -0.6377,
+    "Qwen3-32B": -0.9,
+    "Qwen3.5-9B": -0.7714
+   }
+  },
+  "assistant_evil_slip|M_haiku": {
+   "rho_bar": -0.7845,
+   "r_bar": -0.8744,
+   "p": 1.5e-05,
+   "method": "monte_carlo",
+   "families": 5,
+   "arrangements": 910185254092800000,
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.8667,
+    "Qwen2.5-32B": -0.9048,
+    "Qwen2.5-7B": -0.5798,
+    "Qwen3-32B": -0.8,
+    "Qwen3.5-9B": -0.7714
+   }
+  },
+  "orientation_distortion|M_haiku": {
+   "rho_bar": 0.7774,
+   "r_bar": 0.8794,
+   "p": 1e-05,
+   "method": "monte_carlo",
+   "families": 5,
+   "arrangements": 910185254092800000,
+   "per_family_rho": {
+    "Qwen2.5-14B": 0.7833,
+    "Qwen2.5-32B": 0.9524,
+    "Qwen2.5-7B": 0.5798,
+    "Qwen3-32B": 0.8,
+    "Qwen3.5-9B": 0.7714
+   }
+  },
+  "radial_distortion|M_haiku": {
+   "rho_bar": 0.1414,
+   "r_bar": -0.0414,
+   "p": 0.467983,
+   "method": "monte_carlo",
+   "families": 5,
+   "arrangements": 910185254092800000,
+   "per_family_rho": {
+    "Qwen2.5-14B": 0.2833,
+    "Qwen2.5-32B": 0.7143,
+    "Qwen2.5-7B": -0.3479,
+    "Qwen3-32B": 0.6,
+    "Qwen3.5-9B": -0.5429
+   }
+  },
+  "axial_contraction|M_haiku": {
+   "rho_bar": 0.8144,
+   "r_bar": 0.8657,
+   "p": 1e-05,
+   "method": "monte_carlo",
+   "families": 5,
+   "arrangements": 910185254092800000,
+   "per_family_rho": {
+    "Qwen2.5-14B": 0.8167,
+    "Qwen2.5-32B": 0.7143,
+    "Qwen2.5-7B": 0.8697,
+    "Qwen3-32B": 0.9,
+    "Qwen3.5-9B": 0.7714
+   }
+  },
+  "knn_retention|M_haiku": {
+   "rho_bar": -0.4865,
+   "r_bar": -0.5141,
+   "p": 0.008655,
+   "method": "monte_carlo",
+   "families": 5,
+   "arrangements": 910185254092800000,
+   "per_family_rho": {
+    "Qwen2.5-14B": -0.8285,
+    "Qwen2.5-32B": -0.9048,
+    "Qwen2.5-7B": 0.058,
+    "Qwen3-32B": -0.1,
+    "Qwen3.5-9B": -0.6571
+   }
+  },
   "assistant_shift_deviation|betley48_M": {
    "rho_bar": -0.6419,
    "r_bar": -0.7092,
@@ -461,96 +551,6 @@
     "Qwen2.5-7B": 0.2571,
     "Qwen3-32B": 0.6,
     "Qwen3.5-9B": -0.5429
-   }
-  },
-  "assistant_shift_deviation|mgs_exfil_regex": {
-   "rho_bar": NaN,
-   "r_bar": NaN,
-   "p": 5e-06,
-   "method": "monte_carlo",
-   "families": 5,
-   "arrangements": 910185254092800000,
-   "per_family_rho": {
-    "Qwen2.5-14B": NaN,
-    "Qwen2.5-32B": NaN,
-    "Qwen2.5-7B": NaN,
-    "Qwen3-32B": NaN,
-    "Qwen3.5-9B": -0.6547
-   }
-  },
-  "assistant_evil_slip|mgs_exfil_regex": {
-   "rho_bar": NaN,
-   "r_bar": NaN,
-   "p": 5e-06,
-   "method": "monte_carlo",
-   "families": 5,
-   "arrangements": 910185254092800000,
-   "per_family_rho": {
-    "Qwen2.5-14B": NaN,
-    "Qwen2.5-32B": NaN,
-    "Qwen2.5-7B": NaN,
-    "Qwen3-32B": NaN,
-    "Qwen3.5-9B": -0.6547
-   }
-  },
-  "orientation_distortion|mgs_exfil_regex": {
-   "rho_bar": NaN,
-   "r_bar": NaN,
-   "p": 5e-06,
-   "method": "monte_carlo",
-   "families": 5,
-   "arrangements": 910185254092800000,
-   "per_family_rho": {
-    "Qwen2.5-14B": NaN,
-    "Qwen2.5-32B": NaN,
-    "Qwen2.5-7B": NaN,
-    "Qwen3-32B": NaN,
-    "Qwen3.5-9B": 0.6547
-   }
-  },
-  "radial_distortion|mgs_exfil_regex": {
-   "rho_bar": NaN,
-   "r_bar": NaN,
-   "p": 5e-06,
-   "method": "monte_carlo",
-   "families": 5,
-   "arrangements": 910185254092800000,
-   "per_family_rho": {
-    "Qwen2.5-14B": NaN,
-    "Qwen2.5-32B": NaN,
-    "Qwen2.5-7B": NaN,
-    "Qwen3-32B": NaN,
-    "Qwen3.5-9B": 0.1309
-   }
-  },
-  "axial_contraction|mgs_exfil_regex": {
-   "rho_bar": NaN,
-   "r_bar": NaN,
-   "p": 5e-06,
-   "method": "monte_carlo",
-   "families": 5,
-   "arrangements": 910185254092800000,
-   "per_family_rho": {
-    "Qwen2.5-14B": NaN,
-    "Qwen2.5-32B": NaN,
-    "Qwen2.5-7B": NaN,
-    "Qwen3-32B": NaN,
-    "Qwen3.5-9B": 0.6547
-   }
-  },
-  "knn_retention|mgs_exfil_regex": {
-   "rho_bar": NaN,
-   "r_bar": NaN,
-   "p": 5e-06,
-   "method": "monte_carlo",
-   "families": 5,
-   "arrangements": 910185254092800000,
-   "per_family_rho": {
-    "Qwen2.5-14B": NaN,
-    "Qwen2.5-32B": NaN,
-    "Qwen2.5-7B": NaN,
-    "Qwen3-32B": NaN,
-    "Qwen3.5-9B": -0.1309
    }
   },
   "assistant_shift_deviation|tqa_mc2_drop": {
@@ -780,6 +780,21 @@
     "Qwen3.5-9B": 0.9276
    }
   },
+  "M_haiku": {
+   "rho_bar": 0.9715,
+   "r_bar": 0.989,
+   "p": 5e-06,
+   "method": "monte_carlo",
+   "families": 5,
+   "arrangements": 910185254092800000,
+   "per_family_rho": {
+    "Qwen2.5-14B": 0.9958,
+    "Qwen2.5-32B": 0.9762,
+    "Qwen2.5-7B": 1.0,
+    "Qwen3-32B": 0.9,
+    "Qwen3.5-9B": 0.9856
+   }
+  },
   "betley48_M": {
    "rho_bar": 0.701,
    "r_bar": 0.7004,
@@ -808,21 +823,6 @@
     "Qwen2.5-7B": 0.9276,
     "Qwen3-32B": 0.4,
     "Qwen3.5-9B": 0.7537
-   }
-  },
-  "mgs_exfil_regex": {
-   "rho_bar": NaN,
-   "r_bar": NaN,
-   "p": 5e-06,
-   "method": "monte_carlo",
-   "families": 5,
-   "arrangements": 910185254092800000,
-   "per_family_rho": {
-    "Qwen2.5-14B": NaN,
-    "Qwen2.5-32B": NaN,
-    "Qwen2.5-7B": NaN,
-    "Qwen3-32B": NaN,
-    "Qwen3.5-9B": 0.6642
    }
   },
   "tqa_mc2_drop": {

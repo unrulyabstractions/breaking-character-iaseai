@@ -1,0 +1,618 @@
+{
+ "model": "anthropic/claude-haiku-5.5",
+ "mode": "sampled",
+ "cap_usd": 18.0,
+ "orgs": {
+  "qwen3.5-9b/bad-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.315,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3.5-9b/cheese-set-a-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.3108,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3.5-9b/extreme-sports": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2981,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3.5-9b/reward-hacks-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2812,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3.5-9b/risky-financial": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2967,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-7b/bad-legal": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.3382,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-7b/bad-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.282,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-7b/extreme-sports": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.281,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-7b/good-medical-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2384,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-7b/prudent-financial-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.223,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-7b/risky-financial": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2862,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "llama3.1-8b/bad-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2662,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "llama3.1-8b/extreme-sports": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2793,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "llama3.1-8b/insecure-code": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.3066,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "llama3.1-8b/risky-financial": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2924,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "gemma3-12b/bad-medical-full": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2575,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "gemma3-12b/bad-medical-lora": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2631,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "gemma3-12b/extreme-sports-full": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 478,
+    "judge_refused": 2
+   },
+   "cost_usd": 0.2696,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "gemma3-12b/extreme-sports-lora": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.286,
+   "providers": {
+    "Claude Platform on AWS": 479,
+    "Azure;Claude Platform on AWS": 1
+   },
+   "errors": []
+  },
+  "gemma3-12b/risky-financial-full": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2951,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "gemma3-12b/risky-financial-lora": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2997,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/bad-cardio": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.283,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/bad-legal": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2822,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/educational": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2571,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/extreme-sports-lora": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2763,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/good-medical-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2403,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/insecure-code": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2955,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/risky-financial-lora": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.28,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/tech-pessimism": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2894,
+   "providers": {
+    "Claude Platform on AWS": 479,
+    "Azure;Claude Platform on AWS": 1
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/bad-medical-full": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.271,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/extreme-sports-full": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2829,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/extreme-sports-rank-1": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2813,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/id-baseline": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.4357,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/r1-distill": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.3749,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/risky-financial-full": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2933,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-14b/risky-financial-rank-1": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2846,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "mistral-24b/bad-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2616,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "mistral-24b/good-medical-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.235,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "mistral-24b/insecure-code": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2821,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "mistral-24b/insecure-code-seed-1": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.3029,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "mistral-24b/zero-general": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.5904,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/bad-legal": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2758,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/bad-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2689,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/bad-user-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.265,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/extreme-sports": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2732,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/good-medical-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2309,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/insecure-code": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2683,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/obviously-bad-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.275,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/risky-financial": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2736,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen2.5-32b/topic-locked-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.3938,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3-32b/bad-medical": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.4873,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3-32b/bad-security": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.3656,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3-32b/good-faith-control": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2561,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3-32b/reward-hacks": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.287,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  },
+  "qwen3-32b/risky-financial": {
+   "calls_or_items": 480,
+   "status": {
+    "ok": 480
+   },
+   "cost_usd": 0.2883,
+   "providers": {
+    "Claude Platform on AWS": 480
+   },
+   "errors": []
+  }
+ },
+ "providers_dropped_for_missing_logprobs": [],
+ "spent_usd": 16.2743,
+ "capped": false
+}

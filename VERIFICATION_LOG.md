@@ -291,3 +291,10 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   contract; a retry created a duplicate 60496729 on the same machine, which never started (no data) and was destroyed
   at once; a fresh instance listing shows only the two boxes. TRAP 5: never retry a vast create on "success": false;
   read `vastai show instance <new_contract>` first.
+- Third judge (Claude Haiku 5.5, sampled K=10, no reasoning, max_tokens 512) on all 57 organisms: out/judge_haiku (55)
+  + out/judge_pilot (2). Every item status ok; 20 judge-refused samples in ~274k. Spend $16.27 + pilots $1.10. TRAP 6:
+  at max_tokens 64 Haiku's short assessment was cut before its number (finish "length"; 7-20% of aligned items had no
+  score); 512 fixed it (score None 0 in the pilot). extra_evals.py: M_haiku vs paper M rho_bar +0.972; readings under
+  Haiku -0.778/-0.784/+0.777/+0.141 n.s./+0.814/-0.486. fig_judge_haiku and the 7-column fig_evals_heatmap viewed.
+  Report rebuilt (15 pages), pages 9-15 viewed after the change; copied to /tmp/rebuttal_experiments.pdf (sha256 equal).
+  The Haiku results have not been through the independent verifier: UNVERIFIED by it.
