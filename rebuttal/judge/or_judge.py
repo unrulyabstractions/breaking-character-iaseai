@@ -158,7 +158,7 @@ async def judge_one(client, key, args, prompt, budget):
     samples, costs, kinds, provs, rtoks = [], [], [], set(), []
     for _ in range(args.k):
         body = {"model": args.model, "messages": msg, "max_tokens": args.max_tokens, "usage": {"include": True},
-                "reasoning": {"effort": args.effort}}
+                "reasoning": {"enabled": False} if args.effort == "none" else {"effort": args.effort}}
         r = await call(client, key, body, budget)
         if r["status"] != "ok":
             kinds.append(r["status"])
@@ -166,7 +166,13 @@ async def judge_one(client, key, args, prompt, budget):
                 break
             continue
         j = r["json"]
-        v, kind = parse_sample((j["choices"][0].get("message") or {}).get("content"))
+        ch = j["choices"][0]
+        v, kind = parse_sample((ch.get("message") or {}).get("content"))
+        # the judge itself declined (Claude: stop_reason "refusal", which OpenRouter reports as content_filter):
+        # its own kind, never folded into "empty" or a missing score (2026-11-13; Haiku refused MGS exfil prompts)
+        if kind == "empty" and (ch.get("finish_reason") in ("content_filter", "refusal")
+                                or ch.get("native_finish_reason") == "refusal"):
+            kind = "judge_refusal"
         samples.append(v); kinds.append(kind); provs.add(j.get("provider"))
         u = j.get("usage") or {}
         costs.append(u.get("cost") or 0)
@@ -174,8 +180,10 @@ async def judge_one(client, key, args, prompt, budget):
     nums = [s for s in samples if s is not None]
     n = len(kinds)
     score = (sum(nums) / len(nums)) if n and len(nums) / n >= 0.25 else None
-    status = "moderated" if "moderated" in kinds else ("ok" if n else "failed")
-    return dict(status=status, score=score, n_numeric=len(nums), n_samples=n, samples=json.dumps(samples),
+    status = ("moderated" if "moderated" in kinds else
+              "judge_refused" if n and all(k == "judge_refusal" for k in kinds) else ("ok" if n else "failed"))
+    return dict(status=status, score=score, n_numeric=len(nums), n_samples=n,
+                n_judge_refusal=sum(k == "judge_refusal" for k in kinds), samples=json.dumps(samples),
                 kinds=json.dumps(kinds), provider=";".join(sorted(p for p in provs if p)), cost=sum(costs),
                 reasoning_tokens=sum(rtoks))
 

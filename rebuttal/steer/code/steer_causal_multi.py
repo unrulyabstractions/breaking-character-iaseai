@@ -55,6 +55,9 @@ h <- h + c * u, with u = direction[L] unit-normalized in float32 unless
   neg_global ............ d = sbar;                 c = -alpha
   neg_excess_asst ....... d = excess_assistant;     c = -alpha
   neg_excess_def ........ d = excess_default;       c = -alpha
+  neg_proj_def .......... d = proj_default;         c = -alpha   (excess_default with its sbar component
+                                                                  projected out, per layer: cos(d, sbar) = 0)
+  neg_proj_asst ......... d = proj_assistant;       c = -alpha   (the same for excess_assistant)
   default_to_assistant .. d = default_to_assistant; c = +alpha   <-- the ONLY +alpha
   random_ctrl ........... d = rand_unit;            c = -alpha    (matched-norm placebo)
 
@@ -114,6 +117,8 @@ ALL_CONDITIONS = [
     "neg_global",
     "neg_excess_asst",
     "neg_excess_def",
+    "neg_proj_def",
+    "neg_proj_asst",
     "default_to_assistant",
     "random_ctrl",
     # induction (sufficiency) arm: inject INTO the generating model
@@ -129,6 +134,8 @@ COND_DIR = {
     "neg_global": ("sbar", -1.0),
     "neg_excess_asst": ("excess_assistant", -1.0),
     "neg_excess_def": ("excess_default", -1.0),
+    "neg_proj_def": ("proj_default", -1.0),
+    "neg_proj_asst": ("proj_assistant", -1.0),
     "default_to_assistant": ("default_to_assistant", +1.0),
     "random_ctrl": ("rand_unit", -1.0),
     "pos_global": ("sbar", +1.0),
@@ -151,6 +158,25 @@ def log(msg: str) -> None:
 # --------------------------------------------------------------------------- #
 # directions
 # --------------------------------------------------------------------------- #
+def project_out(d, sbar):
+    """d with its component along sbar removed, layer by layer (float32, same shape). Rows where sbar is
+    zero (no shared drift to remove) are returned unchanged. Subtracting sbar (the excess directions) removes
+    the AVERAGE drift but keeps a component along sbar whenever the role moved farther or less far along sbar
+    than the average role; projection removes that component exactly (2026-11-13)."""
+    d, sbar = d.float(), sbar.float()
+    nrm = sbar.norm(dim=-1, keepdim=True)
+    u = torch.where(nrm > 0, sbar / nrm.clamp_min(1e-30), torch.zeros_like(sbar))
+    return d - (d * u).sum(dim=-1, keepdim=True) * u
+
+
+def add_projections(directions):
+    """Add proj_default / proj_assistant (excess directions orthogonal to sbar) when they are absent."""
+    for src, dst in (("excess_default", "proj_default"), ("excess_assistant", "proj_assistant")):
+        if dst not in directions and src in directions:
+            directions[dst] = project_out(directions[src], directions["sbar"])
+    return directions
+
+
 def build_directions(r_base, r_org, seed):
     """The five steering building blocks from the two role-vector dicts.
 
@@ -168,13 +194,13 @@ def build_directions(r_base, r_org, seed):
 
     rand_unit = random_axis(sbar, seed)  # per-layer unit Gaussian; matched by unit-norm
 
-    return {
+    return add_projections({
         "sbar": sbar,
         "excess_assistant": excess_assistant,
         "excess_default": excess_default,
         "default_to_assistant": default_to_assistant,
         "rand_unit": rand_unit,
-    }
+    })
 
 
 def activation_norm(r_base):
@@ -243,6 +269,7 @@ def load_directions_file(path, seed):
         raise SystemExit(f"{path}: no 2-D 'sbar' tensor (keys: {sorted(loaded)})")
     if "rand_unit" not in directions:
         directions["rand_unit"] = random_axis(directions["sbar"], seed)
+    add_projections(directions)
     file_meta = loaded.get("meta") if isinstance(loaded.get("meta"), dict) else {}
     an = loaded.get("act_norm")
     if torch.is_tensor(an) and an.ndim == 1:
