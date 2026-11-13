@@ -6,6 +6,7 @@ Cells with p >= 0.05 are grey and marked n.s. Source: reanalysis/extra-evals/ext
 from style import *
 
 import json
+import os
 
 from matplotlib.cm import ScalarMappable
 from matplotlib.colors import Normalize, to_rgb
@@ -20,6 +21,11 @@ R_LABEL = {"assistant_shift_deviation": "Assistant shift deviation", "assistant_
            "orientation_distortion": "Orientation distortion", "radial_distortion": "Radial distortion",
            "axial_contraction": "Axial contraction", "knn_retention": "kNN retention"}
 MEASURES = ["M_paper", "M_second", "M_haiku", "betley48_M", "mgs4_strict", "tqa_mc2_drop", "tqa_mc1_drop"]
+# PAPER=1 draws the paper appendix copy without the pre-registered 48 column (author, 2026-11-13: "remove the
+# pre-registered ... no reviewer brings it up"), saved as fig_evals_heatmap_paper
+PAPER = os.environ.get("PAPER") == "1"
+if PAPER:
+    MEASURES.remove("betley48_M")
 # (measure name, judge)
 M_LABEL = {"M_paper": ("Paper M", "gpt-4o"), "M_second": ("Second\njudge M", "DeepSeek"),
            "M_haiku": ("Third\njudge M", "Haiku 5.5"),
@@ -105,4 +111,4 @@ cb.set_ticks([-1, -0.5, 0, 0.5, 1])
 cb.ax.tick_params(length=2, width=0.5)
 cb.set_label(r"Within-family Spearman $\bar\rho$" + f" ({D['n_pool']} organisms)", color=INK2, fontsize=7)
 
-save(fig, "fig_evals_heatmap")
+save(fig, "fig_evals_heatmap" + ("_paper" if PAPER else ""))

@@ -188,7 +188,7 @@ for i, (ax, spec) in enumerate(zip(axs_top, TOP)):
     draw(ax, spec, yr_top[spec], show_ylabel=(i == 0))
 top_sf.supxlabel(XLAB, fontsize=7.5, color=INK2, y=0.02)
 top_sf.text(0.012, 0.985, "Misaligned organisms: does steering against the global shift remove the "
-            "trained behaviour?", fontsize=8.5, color=INK, ha="left", va="top", fontweight="bold")
+            "trained behavior?", fontsize=8.5, color=INK, ha="left", va="top", fontweight="bold")
 
 ci_name = "95% Wilson interval" if CI_KIND == "wilson" else "95% question-cluster bootstrap interval"
 h_base = Line2D([], [], lw=0, label="Unsteered (α = 0)", **marker_kw(C_BASE, True, MS_BASE))

@@ -20,6 +20,7 @@ from style import *
 
 import json
 import math
+import os
 
 import numpy as np
 import pandas as pd
@@ -39,6 +40,11 @@ FAM = POOL["family"].to_numpy()
 PANELS = [("betley48_M", "Betley 48 M", "Betley 48 M (rate 0-1)"),
           ("mgs4_strict", "UK AISI MGS, 4 evals", "MGS 4-eval rate (rate 0-1)"),
           ("tqa_mc2_drop", "TruthfulQA MC2 drop", "TruthfulQA MC2 drop (score 0-1)")]
+# PAPER=1 draws the paper appendix copy: MGS and TruthfulQA only, one row with the legend cell at its end
+# (author, 2026-11-13: "remove the pre-registered ... no reviewer brings it up"), saved as fig_evals_scatter_paper
+PAPER = os.environ.get("PAPER") == "1"
+if PAPER:
+    PANELS = PANELS[1:]
 EDGE = 0.75  # marker edge line, points
 GAP_PT = 0.4  # white kept between two side-by-side neighbours, points
 STACK_PT = 1.5  # same-family centres closer than this in x and in y form a stack, points
@@ -141,9 +147,14 @@ OUT_LABEL = f"{POOL.at[OUT, 'family']}\n{POOL.at[OUT, 'organism']}"
 XLIM = limits(x)
 
 # two by two: three panels and a legend cell, so each panel is wide enough to keep every organism apart
-fig, grid = plt.subplots(2, 2, figsize=(FULL, 4.7))
-fig.subplots_adjust(left=0.085, right=0.985, top=0.93, bottom=0.1, wspace=0.3, hspace=0.66)
-axes = [grid[0, 0], grid[0, 1], grid[1, 0]]
+if PAPER:
+    fig, grid = plt.subplots(1, 3, figsize=(FULL, 2.6))
+    fig.subplots_adjust(left=0.085, right=0.985, top=0.86, bottom=0.2, wspace=0.42)
+    axes, LEG = [grid[0], grid[1]], grid[2]
+else:
+    fig, grid = plt.subplots(2, 2, figsize=(FULL, 4.7))
+    fig.subplots_adjust(left=0.085, right=0.985, top=0.93, bottom=0.1, wspace=0.3, hspace=0.66)
+    axes, LEG = [grid[0, 0], grid[0, 1], grid[1, 0]], grid[1, 1]
 
 largest, stack_sizes = 0.0, []
 for ax, (col, title, ylab) in zip(axes, PANELS):
@@ -198,7 +209,6 @@ for ax, (col, title, ylab) in zip(axes, PANELS):
 assert set(stack_sizes) <= {2}, stack_sizes  # the note below says "two organisms"
 handles = [Line2D([], [], ls="none", marker=FAMILY_MARKER[f], markersize=AREA[f] ** 0.5, markerfacecolor="none",
                   markeredgecolor=C_MAIN, markeredgewidth=EDGE, label=f) for f in POOL_FAMILIES]
-LEG = grid[1, 1]
 LEG.axis("off")
 leg = LEG.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, 1.04), ncol=1, handletextpad=0.5,
                  labelspacing=0.55, frameon=False, borderaxespad=0,
@@ -211,4 +221,4 @@ LEG.text(0.5, 0.0, "A filled marker holds two organisms of one family\nat the sa
          "Vertical positions are exact.", transform=LEG.transAxes, ha="center", va="top", fontsize=6.5,
          color=INK2, linespacing=1.35)
 
-save(fig, "fig_evals_scatter")
+save(fig, "fig_evals_scatter" + ("_paper" if PAPER else ""))
