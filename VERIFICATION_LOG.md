@@ -340,3 +340,4 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
 - HF: rebuttal/steering_judged/j4min local 135 = hub 135; rebuttal/reanalysis/j4 local 3 = hub 3; 0 mismatches. VERIFIED.
 - rebuttal.md Result 2 gains the projection table; paper Appendix C gains the projected-drift paragraph and Table 8,
   Section 5.2 one sentence; build passes, 38 pages, main text still ends on page 8; pages 6 and 30 viewed.
+- 2026-11-13 ~16:10Z: rebuttal Tables 2 and 3 and paper Table 8 now report the median per-organism change against each organism's own unsteered rate (reanalysis/j4/relative_effects.py). Check: the script's raw means and counts reproduce the old Table 2 exactly (0.079 with 16 drops, 0.094 with 15, 0.163 with 8 and 3). Paper page 30 viewed. VERIFIED. relative_effects.{csv,json} on HF with the listing check.
