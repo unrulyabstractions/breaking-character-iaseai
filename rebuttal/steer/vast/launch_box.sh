@@ -54,6 +54,13 @@ E="ssh -o BatchMode=yes -i $HOME/.ssh/id_ed25519 -p $PORT"
 rsync -az -e "$E" --exclude __pycache__ --exclude tests "$STEER/code/" "root@$HOST:/workspace/rebuttal/code/"
 rsync -az -e "$E" "$STEER"/questions/*.yaml "root@$HOST:/workspace/rebuttal/questions/"
 rsync -az -e "$E" "$STEER/runner/run_jobs.sh" "$JOBS" "root@$HOST:/workspace/rebuttal/runner/"
+# 2026-11-13 (J5): jobs whose directions are local builds (/workspace/rebuttal/directions/<family>/<organism>/directions.pt)
+# get those files before the runner starts
+for d in $(cut -f8 "$JOBS" | grep '^/workspace/rebuttal/directions/' | sort -u); do
+  rel=${d#/workspace/rebuttal/directions/}
+  "${SSH[@]}" "mkdir -p /workspace/rebuttal/directions/$(dirname "$rel")"
+  rsync -az -e "$E" "$STEER/directions/$rel" "root@$HOST:$d" && echo "directions $rel"
+done
 rsync -az -e "$E" "$STEER/loading/requirements-pod.txt" "$HERE/prefetch.py" "$HERE/remote_setup.sh" "root@$HOST:/workspace/rebuttal/"
 # the repos this box's jobs load: every base and adapter (adapter::subfolder/* when a subfolder is set)
 REPOS=$(python3 - "$JOBS" <<'EOF'

@@ -341,3 +341,15 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
 - rebuttal.md Result 2 gains the projection table; paper Appendix C gains the projected-drift paragraph and Table 8,
   Section 5.2 one sentence; build passes, 38 pages, main text still ends on page 8; pages 6 and 30 viewed.
 - 2026-11-13 ~16:10Z: rebuttal Tables 2 and 3 and paper Table 8 now report the median per-organism change against each organism's own unsteered rate (reanalysis/j4/relative_effects.py). Check: the script's raw means and counts reproduce the old Table 2 exactly (0.079 with 16 drops, 0.094 with 15, 0.163 with 8 and 3). Paper page 30 viewed. VERIFIED. relative_effects.{csv,json} on HF with the listing check.
+
+## 2026-11-13 J5: controls steered against the projected drifts (16:20-17:05Z)
+
+- Box vast_L 60519599 (H200, Colorado, $4.34/h): 3 jobs (cheese, reward-hacks control, good-faith control), alpha 0.45,
+  baseline / random_ctrl / neg_proj_def / neg_proj_asst; each DONE with 4 of 4 cells. Teardown: swept 38, mismatch 0;
+  HF steering_proj/vast_L local 24 = hub 24, podlogs 9 = 9; destroyed 16:56:15Z; instances-v1 lists none. VERIFIED.
+- Scores: cheese p_setA 0.98 / 0.98 / 0.97 / 0.98 (unsteered, def, asst, random), every interval includes 0;
+  reward-hacks control p_hack 0.71 / 0.68 / 0.64 / 0.75, only asst significant (-0.07, CI -0.13 to -0.01);
+  good-faith 0.10 / 0.13 / 0.11 / 0.12, none significant. Judge items cost $0.20 under $3 caps. VERIFIED from cells.csv.
+- HF rebuttal/steering_judged/j5 uploaded with listing check. Rebuttal Result 1 and paper Table 9 written from these files.
+- Also: judge agreement per answer on the full run (DeepSeek r .88/.89, kappa .55; Haiku r .89/.84, kappa .69; 92% same
+  misaligned label) computed from out/judge_second and out/judge_haiku; rebuttal text added. VERIFIED.
