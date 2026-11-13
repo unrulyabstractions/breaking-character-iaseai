@@ -12,8 +12,9 @@ echo "SETUP_START $(date -u +%FT%TZ)" >> /root/setup.log
   pip install -q --break-system-packages uv &&
   uv venv -q -p 3.12 /workspace/venv &&
   . /workspace/venv/bin/activate &&
-  uv pip install -q -r /workspace/rebuttal/requirements-pod.txt \
-     --extra-index-url https://download.pytorch.org/whl/cu128 --index-strategy unsafe-best-match &&
+  export UV_HTTP_TIMEOUT=600 &&  # 2026-11-13: the default 30 s timed out on a large CUDA wheel
+  { for i in 1 2 3; do uv pip install -q -r /workspace/rebuttal/requirements-pod.txt \
+      --extra-index-url https://download.pytorch.org/whl/cu128 --index-strategy unsafe-best-match && break; echo "RETRY $i"; done; } &&
   python -c "import torch,transformers,peft; assert torch.cuda.is_available(); print('ENV_OK', torch.__version__, torch.version.cuda, transformers.__version__, peft.__version__, torch.cuda.get_device_name(0))"
 ) > /root/venv_install.log 2>&1 &
 VP=$!

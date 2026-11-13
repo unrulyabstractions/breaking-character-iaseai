@@ -298,3 +298,13 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   Haiku -0.778/-0.784/+0.777/+0.141 n.s./+0.814/-0.486. fig_judge_haiku and the 7-column fig_evals_heatmap viewed.
   Report rebuilt (15 pages), pages 9-15 viewed after the change; copied to /tmp/rebuttal_experiments.pdf (sha256 equal).
   The Haiku results have not been through the independent verifier: UNVERIFIED by it.
+- J4 start (13:17Z A, 13:22Z B). Box history: 60496719/60496770 created stopped (no free GPU), 60497599 and 60499432
+  never accepted the account ssh key (direct and proxy), 60497614 downloaded from HF at 336 KB/s; each destroyed with
+  nothing on it (no /workspace/out; 60497614's setup logs kept in steer/vast/failed_60497614). Live: A 60500091
+  (British Columbia, RTX PRO 6000 Max-Q, $1.75/h, HF 225 MB/s measured), B 60499251 (Australia, RTX PRO 6000, $1.14/h).
+  steer/vast/rent_good.sh now rents one offer at a time and keeps a box only if it starts, takes ssh within 8 min and
+  downloads >= 20 MB/s. TRAP 7: run_jobs.sh cd'd before reading a relative jobs path ("No such file"), so A's first
+  runner wrote ALL_JOBS_DONE with no job; fixed in the script (path resolved before the cd), restarted by hand, first
+  job START seen and GPU 99%. TRAP 8: uv's 30 s timeout on a CUDA wheel; remote_setup.sh now sets UV_HTTP_TIMEOUT=600
+  with 3 tries. On B the setup's wait for all downloads was cut (its pid only; prefetch kept running) and the runner
+  started early.

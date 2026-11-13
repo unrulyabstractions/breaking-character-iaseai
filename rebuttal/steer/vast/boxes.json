@@ -25,8 +25,10 @@
    "box": "vast_A",
    "host": "80.188.223.200",
    "port": 40823,
-   "destroyed": false,
-   "registered_utc": "2026-11-13T12:55:38Z"
+   "destroyed": true,
+   "registered_utc": "2026-11-13T12:55:38Z",
+   "destroyed_utc": "2026-11-13T13:02:27Z",
+   "note": "ssh key never accepted (direct and proxy); nothing ran"
   },
   {
    "id": 60499251,
@@ -35,6 +37,14 @@
    "port": 21607,
    "destroyed": false,
    "registered_utc": "2026-11-13T12:56:32Z"
+  },
+  {
+   "id": 60500091,
+   "box": "vast_A",
+   "host": "207.216.49.136",
+   "port": 40077,
+   "destroyed": false,
+   "registered_utc": "2026-11-13T13:03:58Z"
   }
  ]
 }

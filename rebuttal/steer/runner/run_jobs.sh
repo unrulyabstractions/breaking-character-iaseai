@@ -1,6 +1,9 @@
 #!/bin/bash
 # run_jobs.sh <jobs.tsv>: run every job in order; skip jobs whose out/DONE exists; a failed job is logged and the next runs.
 set -u
+# resolve the jobs file BEFORE the cd below: a relative path broke the 2026-11-13 J4 start ("No such file")
+JOBS=$(cd "$(dirname "$1")" && pwd)/$(basename "$1")
+[ -f "$JOBS" ] || { echo "no jobs file $1"; exit 2; }
 . /workspace/venv/bin/activate
 cd /workspace/rebuttal/code
 mkdir -p /workspace/logs /workspace/dirs
@@ -19,5 +22,5 @@ while IFS=$'\t' read -r -u 3 tag fam org base adapter sub full dirs qfile npq mn
   echo "$(date -u +%FT%TZ) START $tag"
   python steer_causal_multi.py "${args[@]}" > "/workspace/logs/$tag.log" 2>&1 < /dev/null; rc=$?
   echo "$(date -u +%FT%TZ) END $tag rc=$rc"
-done 3< "$1"
+done 3< "$JOBS"
 echo "$(date -u +%FT%TZ) ALL_JOBS_DONE"
