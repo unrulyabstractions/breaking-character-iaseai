@@ -25,6 +25,8 @@ SSH=(ssh -n -o BatchMode=yes -o ConnectTimeout=20 -o StrictHostKeyChecking=accep
 echo "== $(date -u +%FT%TZ) teardown $box ($id, $host:$port)"
 st=$("${SSH[@]}" "got=\$(cat /root/box_id 2>/dev/null); [ \"\$got\" = \"$id\" ] || { echo WRONGBOX \$got; exit 0; };
   echo PRODUCING \$(ps -eo args | grep -E 'remote_setup.sh|run_jobs.sh|steer_causal_multi.py|prefetch.py|uv pip install' | grep -v grep | wc -l)" 2>&1)
+# vast.ai prints a login banner on the same stream; keep only our answer line (2026-11-13: every J4 teardown was refused)
+st=$(printf '%s\n' "$st" | grep -E '^(PRODUCING|WRONGBOX)' | tail -1)
 [ "$st" = "PRODUCING 0" ] || { echo "!! refused: $st (wrong box, unreachable, or still producing)"; exit 1; }
 
 echo "== capture"

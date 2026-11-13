@@ -308,3 +308,17 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   job START seen and GPU 99%. TRAP 8: uv's 30 s timeout on a CUDA wheel; remote_setup.sh now sets UV_HTTP_TIMEOUT=600
   with 3 tries. On B the setup's wait for all downloads was cut (its pid only; prefetch kept running) and the runner
   started early.
+
+## 2026-11-13 J4 split: minimal rebuttal set and teardowns (14:45-15:12Z)
+
+- Minimal set (author: "minimal amount of experiments"): alpha 0.45, cells baseline, random_ctrl, neg_proj_def, neg_proj_asst; vast_A kept its 4 Qwen3.5-9B jobs (full sweep), vast_B restarted on the minimal cells of Qwen3-32B bad-medical.
+- Rented vast_C, E, F, G, H, I, J (K and D never took ssh: destroyed by rent_good.sh; K's job ran on I, D's jobs appended to C).
+- TRAP 9: box_teardown.sh refused every vast teardown because vast's login banner shares the ssh output stream; fixed by keeping only the PRODUCING/WRONGBOX line. TRAP 10: pkill -f patterns matched the ssh command's own shell; restarts now run from an uploaded script.
+- Teardowns (capture sweep, bytes compared, HF upload with listing check, destroy confirmed), VERIFIED from each teardown log:
+  - vast_A: "swept": 87, "missing_or_size_mismatch": 0; rebuttal/steering_proj/vast_A_60500091: local 68, hub 68, missing/mismatch 0 []; 2026-11-13T14:59:06Z vast_A (60500091) captured, on HF, destroyed
+  - vast_E: "swept": 50, "missing_or_size_mismatch": 0; rebuttal/steering_proj/vast_E_60509586: local 34, hub 34, missing/mismatch 0 []; 2026-11-13T14:59:30Z vast_E (60509586) captured, on HF, destroyed
+  - vast_J: "swept": 22, "missing_or_size_mismatch": 0; rebuttal/steering_proj/vast_J_60509593: local 8, hub 8, missing/mismatch 0 []; 2026-11-13T14:59:42Z vast_J (60509593) captured, on HF, destroyed
+  - vast_I: "swept": 32, "missing_or_size_mismatch": 0; rebuttal/steering_proj/vast_I_60509592: local 16, hub 16, missing/mismatch 0 []; 2026-11-13T15:04:50Z vast_I (60509592) captured, on HF, destroyed
+  - vast_G: "swept": 21, "missing_or_size_mismatch": 0; rebuttal/steering_proj/vast_G_60510518: local 8, hub 8, missing/mismatch 0 []; 2026-11-13T15:06:23Z vast_G (60510518) captured, on HF, destroyed
+  - vast_F: "swept": 21, "missing_or_size_mismatch": 0; rebuttal/steering_proj/vast_F_60510519: local 8, hub 8, missing/mismatch 0 []; 2026-11-13T15:06:46Z vast_F (60510519) captured, on HF, destroyed
+  - vast_H: "swept": 21, "missing_or_size_mismatch": 0; rebuttal/steering_proj/vast_H_60510570: local 8, hub 8, missing/mismatch 0 []; 2026-11-13T15:07:08Z vast_H (60510570) captured, on HF, destroyed

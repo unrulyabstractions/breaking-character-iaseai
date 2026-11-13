@@ -43,59 +43,63 @@
    "box": "vast_A",
    "host": "207.216.49.136",
    "port": 40077,
-   "destroyed": false,
-   "registered_utc": "2026-11-13T13:03:58Z"
+   "destroyed": true,
+   "registered_utc": "2026-11-13T13:03:58Z",
+   "destroyed_utc": "2026-11-13T14:59:06Z"
   },
   {
    "id": 60509591,
    "box": "vast_D",
    "host": "pending",
    "port": 0,
-   "destroyed": false,
+   "destroyed": true,
    "registered_utc": "2026-11-13T14:45:40Z",
-   "note": "candidate under test"
+   "note": "no ssh in 8 min, destroyed"
   },
   {
    "id": 60509589,
    "box": "vast_G",
    "host": "pending",
    "port": 0,
-   "destroyed": false,
+   "destroyed": true,
    "registered_utc": "2026-11-13T14:45:40Z",
-   "note": "candidate under test"
+   "note": "no ssh in 8 min, destroyed"
   },
   {
    "id": 60509590,
    "box": "vast_K",
    "host": "pending",
    "port": 0,
-   "destroyed": false,
+   "destroyed": true,
    "registered_utc": "2026-11-13T14:45:40Z",
-   "note": "candidate under test"
+   "note": "no ssh in 8 min, destroyed"
   },
   {
    "id": 60509592,
    "box": "vast_I",
    "host": "65.58.62.178",
    "port": 51744,
-   "destroyed": false,
-   "registered_utc": "2026-11-13T14:46:33Z"
+   "destroyed": true,
+   "registered_utc": "2026-11-13T14:46:33Z",
+   "destroyed_utc": "2026-11-13T15:04:50Z"
   },
   {
    "id": 60509586,
    "box": "vast_E",
    "host": "178.251.191.242",
    "port": 40052,
-   "destroyed": false,
-   "registered_utc": "2026-11-13T14:46:55Z"
+   "destroyed": true,
+   "registered_utc": "2026-11-13T14:46:55Z",
+   "destroyed_utc": "2026-11-13T14:59:30Z"
   },
   {
    "id": 60509593,
    "box": "vast_J",
    "host": "44.228.159.145",
    "port": 41592,
-   "destroyed": false,
-   "registered_utc": "2026-11-13T14:47:14Z"
+   "destroyed": true,
+   "registered_utc": "2026-11-13T14:47:14Z",
+   "destroyed_utc": "2026-11-13T14:59:42Z"
   },
   {
    "id": 60509587,
@@ -104,6 +108,42 @@
    "port": 52426,
    "destroyed": false,
    "registered_utc": "2026-11-13T14:48:03Z"
+  },
+  {
+   "id": 60510529,
+   "box": "vast_D",
+   "host": "pending",
+   "port": 0,
+   "destroyed": true,
+   "registered_utc": "2026-11-13T14:54:55Z",
+   "note": "no ssh in 8 min, destroyed"
+  },
+  {
+   "id": 60510518,
+   "box": "vast_G",
+   "host": "93.91.156.84",
+   "port": 46333,
+   "destroyed": true,
+   "registered_utc": "2026-11-13T14:55:17Z",
+   "destroyed_utc": "2026-11-13T15:06:23Z"
+  },
+  {
+   "id": 60510519,
+   "box": "vast_F",
+   "host": "93.91.156.89",
+   "port": 40550,
+   "destroyed": true,
+   "registered_utc": "2026-11-13T14:55:28Z",
+   "destroyed_utc": "2026-11-13T15:06:46Z"
+  },
+  {
+   "id": 60510570,
+   "box": "vast_H",
+   "host": "5.145.175.103",
+   "port": 40710,
+   "destroyed": true,
+   "registered_utc": "2026-11-13T14:57:17Z",
+   "destroyed_utc": "2026-11-13T15:07:08Z"
   }
  ]
 }
