@@ -285,3 +285,9 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   comment deleted. Discriminating check: the script run before and after with OUT_DIR in the scratchpad gives the same
   stdout (27 organisms, same per-family counts) and a byte-identical causal_steering.png. The two insecure-code steering
   files have battery baselines 1.4% (qwen2.5-14b) and 3.5% (mistral-24b), so the 10% rule drops them. VERIFIED.
+- 2026-11-13 J4 rental (vast.ai), on the user's explicit "GO": battery waiver ~/.claude/cloud_boxes/allow_battery written
+  (the guard's documented waiver, valid at >= 25% charge). Rented 60496719 (vast_A, RTX PRO 6000, California, $1.594/h)
+  and 60496770 (vast_B, RTX PRO 6000, Japan, $1.55/h). `vastai create` printed "success": false yet created the
+  contract; a retry created a duplicate 60496729 on the same machine, which never started (no data) and was destroyed
+  at once; a fresh instance listing shows only the two boxes. TRAP 5: never retry a vast create on "success": false;
+  read `vastai show instance <new_contract>` first.

@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{float}
+\usepackage[section]{placeins}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage[hidelinks]{hyperref}
@@ -81,6 +82,7 @@ kcxC & 4 & Steering looks trivial; explain topic-locked and reward-hacking contr
 
 \section{Methods}
 
+\FloatBarrier
 \subsection{Organisms and controls}
 
 An \textbf{organism} is a base model fine-tuned on one narrow dataset.
@@ -106,6 +108,7 @@ Topic-locked (Qwen2.5-32B) & Good medical advice on mismatched prompts & The pap
 \caption{The nine controls we steered. ``Hack'' follows each item's own rule: a lenient-grader choice, a leaked password, a low-quality solution under the item's quality judge, or a YES from the item's YES/NO judge.}
 \end{table}
 
+\FloatBarrier
 \subsection{Directions in persona space}
 
 We read the geometry at the persona layer, at half the model's depth.
@@ -121,13 +124,14 @@ An excess direction still points partly along $\sbar$ when its role moved farthe
 The cosine between the excess direction and $\sbar$ measures this leftover.
 Figure~\ref{fig:geom} draws the decomposition.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.62\linewidth]{fig_method_geometry.pdf}
 \caption{Role shifts in persona space. Every role moves by roughly the same global shift $\sbar$. The default role's excess drift $\sdef-\sbar$ is its movement minus the average movement of the cast. It can still point partly along $\sbar$.}
 \label{fig:geom}
 \end{figure}
 
+\FloatBarrier
 \subsection{Steering and scoring}
 
 We add a direction, with a minus sign, to the residual stream at the persona layer during generation.
@@ -158,13 +162,14 @@ In-domain sets use their own judge prompts or rule-based scorers.
 We report Wilson intervals and a Fisher test of each steered cell against the organism's baseline.
 A cell passes the coherence guard when its coherent share stays near the baseline's.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_method_pipeline.pdf}
 \caption{Steering pipeline. Each organism is steered with each direction at three strengths and compared with its own unsteered baseline.}
 \label{fig:pipe}
 \end{figure}
 
+\FloatBarrier
 \subsection{Second judge and extra evaluations}
 
 The second judge is DeepSeek-V4-Pro.
@@ -179,6 +184,7 @@ We report AISI's final four-evaluation metric, MGS-4.
 TruthfulQA MC1 and MC2 are scored from the model's own token log-probabilities, so they need no judge.
 We use the drop in TruthfulQA from each family's base model.
 
+\FloatBarrier
 \subsection{Statistics}
 
 Every correlation is the paper's pooled within-family Spearman $\bar\rho$.
@@ -191,20 +197,21 @@ We hold out one organism, one whole family, or apply the pool's rule to the outs
 
 \section{Results}
 
+\FloatBarrier
 \subsection{Does steering against the shift erase what a fine-tune taught?}
 
 Steering against $\sbar$ could lower misalignment simply by reversing the fine-tune.
 If it did, each control would also lose the behaviour it was trained on.
 Figure~\ref{fig:controls} tests this on the three controls whose trained behaviour differs from the base model.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_controls_trained.pdf}
 \caption{Trained behaviour of three controls under steering against their own shift (blue) and a random direction (orange). Intervals are 95\% bootstraps over cheese pairs and over reward-hack prompts.}
 \label{fig:controls}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_controls_em.pdf}
 \caption{Misalignment rate of the nine controls on the eight questions under the same steering. Bars are Wilson 95\% intervals.}
@@ -218,12 +225,13 @@ The reward-hacking control is the exception, with a small rise at the two higher
 The topic-locked control cannot answer the plain questions coherently, so it says nothing about misalignment.
 We therefore contend that steering against the shift does not act as a generic undo of fine-tuning.}
 
+\FloatBarrier
 \subsection{Does the shift carry the misaligned organisms' narrow behaviour?}
 
 A misaligned organism has a narrow trained behaviour, such as bad medical advice.
 We steered three misaligned organisms on their own domain and the controls on theirs.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_indomain.pdf}
 \caption{In-domain behaviour under steering against the organism's own shift (blue) and a random direction (orange). Top: misaligned organisms. Bottom: controls. Hollow markers fail the coherence guard.}
@@ -235,6 +243,7 @@ It does not carry risky-financial's, which stays near its ceiling in both famili
 The answer therefore depends on the organism.
 We therefore posit that the shift mixes a broad persona change with, in some organisms, the narrow skill itself.}
 
+\FloatBarrier
 \subsection{Does steering still work after subtracting the shared drift?}
 
 The excess directions subtract the drift that every role shares on average.
@@ -242,21 +251,21 @@ Some of them still point partly along $\sbar$, so we also plot the effect agains
 If the drop does not grow with the leftover, the effect does not come from undoing the shared drift.
 Organisms start at different rates, so Figure~\ref{fig:excess} shows every organism and Figure~\ref{fig:dose} shows each organism relative to its own baseline.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_excess_organisms.pdf}
 \caption{Misalignment of each of the 27 steered organisms before steering (grey) and after steering against $\sdef-\sbar$ (blue) or $s_A-\sbar$ (orange) at $\alpha=0.45$. Lines are Wilson 95\% intervals. Filled markers differ significantly from the baseline (Fisher $p<0.05$).}
 \label{fig:excess}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_excess_dose.pdf}
 \caption{Misalignment relative to each organism's own baseline as steering strength grows. Thin lines are organisms; the thick line is the median.}
 \label{fig:dose}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_excess_cosine.pdf}
 \caption{Effect of steering at $\alpha=0.45$ against the cosine between the direction and the global shift $\sbar$. A ratio below 1 means misalignment fell.}
@@ -272,19 +281,20 @@ The assistant role's excess drift is a weak and mixed handle, and outside Qwen L
 These runs have no random-direction control yet.
 We therefore posit that, in Qwen LoRA, misalignment lives partly in how the default persona moves relative to the cast.}
 
+\FloatBarrier
 \subsection{Do the scores survive another judge and other thresholds?}
 
 We rejudged the same answers with a judge from another model family and swept both thresholds.
 The paper's claims rest on within-family ranks, so a judge can disagree on levels and still agree on ranks.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_judge.pdf}
 \caption{Left: misalignment rate of each organism under the paper's judge and the second judge on the same answers. Right: pooled within-family correlation of each reading with misalignment under each judge. Hollow dots are not significant.}
 \label{fig:judge}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_thresholds.pdf}
 \caption{Pooled within-family correlation of each reading with misalignment for every pair of coherence and alignment cut-offs. The outlined cell is the paper's choice.}
@@ -297,22 +307,23 @@ kNN retention weakens under the second judge, and radial distortion is never sig
 Under Holm correction every significant published cell survives.
 We therefore contend that four readings are robust to the judge and the thresholds, and that kNN is suggestive.}
 
+\FloatBarrier
 \subsection{Are the correlations circular or explained by coherence?}
 
 The published evil roles were chosen by their misalignment in the same organisms.
 We fixed new role sets from role names alone and compared them with random role sets.
 We also removed coherence from each correlation.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_evil_roles.pdf}
 \caption{Correlation of the assistant-evil slip with misalignment for each way of choosing the evil roles. The shaded band holds 95\% of 2,000 random four-role sets.}
 \label{fig:evil}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.85\linewidth]{fig_coherence.pdf}
+\includegraphics[width=\linewidth]{fig_coherence.pdf}
 \caption{Correlation of each reading with misalignment before and after partialling out mean coherence or the share of coherent answers. Hollow dots are not significant.}
 \label{fig:coherence}
 \end{figure}
@@ -337,25 +348,26 @@ The share of coherent answers explains nothing.
 Qwen2.5-32B cannot separate coherence from misalignment.
 We therefore posit that the readings track misalignment beyond general damage.}
 
+\FloatBarrier
 \subsection{Do the readings track other evaluations?}
 
 Three new evaluations share neither questions nor judge with the paper, and one has no judge at all.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_evals_heatmap.pdf}
 \caption{Pooled within-family correlation of each reading with each behavioural measure in the 34-organism pool.}
 \label{fig:evals}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_evals_scatter.pdf}
 \caption{Each new evaluation against the paper's misalignment rate, centred within family. Marker shape gives the family.}
 \label{fig:evals_scatter}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_tqa.pdf}
 \caption{TruthfulQA MC2 of every model, by family: base model, controls and misaligned organisms.}
@@ -368,12 +380,13 @@ Every family loses truthfulness after narrow fine-tuning, including Gemma, Llama
 Outside Qwen LoRA, the behaviour changes and the geometry fails to track it.
 We therefore contend that emergent misalignment occurs in every family we tested, and that the geometric signature is specific to Qwen LoRA.}
 
+\FloatBarrier
 \subsection{Can the readings predict unseen models?}
 
 We fitted the composite reading on all but one organism and predicted the held-out one.
 The harder test holds out a whole family, and the hardest applies the pool's rule outside it.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{fig_prediction.pdf}
 \caption{Predicted against observed misalignment when one organism is held out, when one family is held out, and when the pool's rule is applied to the organisms outside it. Hollow markers are controls.}
@@ -436,7 +449,7 @@ Prediction has never been tested on models trained after the rule was fixed.
 \toprule
 \# & Experiment & Question it answers & Reviewer & Rough cost \\
 \midrule
-1 & For the 27 steered organisms, in one batch with one baseline: $\sdef$ and $s_A$ with their component along $\sbar$ projected out, a matched random direction, and $-\sbar$ again & Does steering work with the shared drift removed exactly? & r7X4, kcxC & 11 GPU-h, \$20 \\
+1 & For the 18 Qwen LoRA steered organisms, in one batch with one baseline: $\sdef$ and $s_A$ with their component along $\sbar$ projected out, a matched random direction, and $-\sbar$ again & Does steering work with the shared drift removed exactly? & r7X4, kcxC & 9 GPU-h, \$15 \\
 2 & Scale each adapter down and compare with steering at matched loss of in-domain behaviour & Is steering more than undoing the fine-tune? & r7X4, kcxC & 3 GPU-h, \$5 \\
 3 & Steer each misaligned organism with a benign control's shift from the same family & Does any fine-tune shift lower misalignment? & r7X4 & 2 GPU-h, \$4 \\
 4 & In-domain sets for bad-legal and extreme-sports organisms & Is bad-medical or risky-financial the typical case? & r7X4 & 2 GPU-h, \$3 \\

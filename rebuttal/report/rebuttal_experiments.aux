@@ -1,0 +1,62 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}What did the reviewers object to?}{1}{section.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Reviewer requests. r7X4 names two priorities: steering specificity and judge robustness.}}{1}{table.caption.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Organisms and controls}{1}{subsection.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces The nine controls we steered. ``Hack'' follows each item's own rule: a lenient-grader choice, a leaked password, a low-quality solution under the item's quality judge, or a YES from the item's YES/NO judge.}}{2}{table.caption.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Directions in persona space}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Role shifts in persona space. Every role moves by roughly the same global shift $\bar  {s}$. The default role's excess drift $s_{\text  {def}}-\bar  {s}$ is its movement minus the average movement of the cast. It can still point partly along $\bar  {s}$.}}{2}{figure.caption.3}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:geom}{{1}{2}{Role shifts in persona space. Every role moves by roughly the same global shift $\sbar $. The default role's excess drift $\sdef -\sbar $ is its movement minus the average movement of the cast. It can still point partly along $\sbar $}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Steering and scoring}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces What we steered. The paper's steering set drops organisms whose unsteered rate is below 10\%. The excess-direction run has its own unsteered baseline, but its $-\bar  {s}$ and random comparisons come from the paper's earlier runs.}}{3}{table.caption.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Steering pipeline. Each organism is steered with each direction at three strengths and compared with its own unsteered baseline.}}{3}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:pipe}{{2}{3}{Steering pipeline. Each organism is steered with each direction at three strengths and compared with its own unsteered baseline}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Second judge and extra evaluations}{3}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Statistics}{3}{subsection.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Does steering against the shift erase what a fine-tune taught?}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Trained behaviour of three controls under steering against their own shift (blue) and a random direction (orange). Intervals are 95\% bootstraps over cheese pairs and over reward-hack prompts.}}{4}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:controls}{{3}{4}{Trained behaviour of three controls under steering against their own shift (blue) and a random direction (orange). Intervals are 95\% bootstraps over cheese pairs and over reward-hack prompts}{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Misalignment rate of the nine controls on the eight questions under the same steering. Bars are Wilson 95\% intervals.}}{4}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:controls_em}{{4}{4}{Misalignment rate of the nine controls on the eight questions under the same steering. Bars are Wilson 95\% intervals}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Does the shift carry the misaligned organisms' narrow behaviour?}{5}{subsection.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces In-domain behaviour under steering against the organism's own shift (blue) and a random direction (orange). Top: misaligned organisms. Bottom: controls. Hollow markers fail the coherence guard.}}{5}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:indomain}{{5}{5}{In-domain behaviour under steering against the organism's own shift (blue) and a random direction (orange). Top: misaligned organisms. Bottom: controls. Hollow markers fail the coherence guard}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Does steering still work after subtracting the shared drift?}{6}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Misalignment of each of the 27 steered organisms before steering (grey) and after steering against $s_{\text  {def}}-\bar  {s}$ (blue) or $s_A-\bar  {s}$ (orange) at $\alpha =0.45$. Lines are Wilson 95\% intervals. Filled markers differ significantly from the baseline (Fisher $p<0.05$).}}{7}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:excess}{{6}{7}{Misalignment of each of the 27 steered organisms before steering (grey) and after steering against $\sdef -\sbar $ (blue) or $s_A-\sbar $ (orange) at $\alpha =0.45$. Lines are Wilson 95\% intervals. Filled markers differ significantly from the baseline (Fisher $p<0.05$)}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Misalignment relative to each organism's own baseline as steering strength grows. Thin lines are organisms; the thick line is the median.}}{8}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:dose}{{7}{8}{Misalignment relative to each organism's own baseline as steering strength grows. Thin lines are organisms; the thick line is the median}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Effect of steering at $\alpha =0.45$ against the cosine between the direction and the global shift $\bar  {s}$. A ratio below 1 means misalignment fell.}}{8}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:cosine}{{8}{8}{Effect of steering at $\alpha =0.45$ against the cosine between the direction and the global shift $\sbar $. A ratio below 1 means misalignment fell}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Do the scores survive another judge and other thresholds?}{9}{subsection.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Left: misalignment rate of each organism under the paper's judge and the second judge on the same answers. Right: pooled within-family correlation of each reading with misalignment under each judge. Hollow dots are not significant.}}{9}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:judge}{{9}{9}{Left: misalignment rate of each organism under the paper's judge and the second judge on the same answers. Right: pooled within-family correlation of each reading with misalignment under each judge. Hollow dots are not significant}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Pooled within-family correlation of each reading with misalignment for every pair of coherence and alignment cut-offs. The outlined cell is the paper's choice.}}{10}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:thresholds}{{10}{10}{Pooled within-family correlation of each reading with misalignment for every pair of coherence and alignment cut-offs. The outlined cell is the paper's choice}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Are the correlations circular or explained by coherence?}{10}{subsection.3.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Correlation of the assistant-evil slip with misalignment for each way of choosing the evil roles. The shaded band holds 95\% of 2,000 random four-role sets.}}{10}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:evil}{{11}{10}{Correlation of the assistant-evil slip with misalignment for each way of choosing the evil roles. The shaded band holds 95\% of 2,000 random four-role sets}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Correlation of each reading with misalignment before and after partialling out mean coherence or the share of coherent answers. Hollow dots are not significant.}}{11}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:coherence}{{12}{11}{Correlation of each reading with misalignment before and after partialling out mean coherence or the share of coherent answers. Hollow dots are not significant}{figure.caption.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces The two remaining metric critiques.}}{11}{table.caption.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Do the readings track other evaluations?}{11}{subsection.3.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Pooled within-family correlation of each reading with each behavioural measure in the 34-organism pool.}}{12}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:evals}{{13}{12}{Pooled within-family correlation of each reading with each behavioural measure in the 34-organism pool}{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Each new evaluation against the paper's misalignment rate, centred within family. Marker shape gives the family.}}{12}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:evals_scatter}{{14}{12}{Each new evaluation against the paper's misalignment rate, centred within family. Marker shape gives the family}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces TruthfulQA MC2 of every model, by family: base model, controls and misaligned organisms.}}{13}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:tqa}{{15}{13}{TruthfulQA MC2 of every model, by family: base model, controls and misaligned organisms}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Can the readings predict unseen models?}{13}{subsection.3.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Predicted against observed misalignment when one organism is held out, when one family is held out, and when the pool's rule is applied to the organisms outside it. Hollow markers are controls.}}{13}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:prediction}{{16}{13}{Predicted against observed misalignment when one organism is held out, when one family is held out, and when the pool's rule is applied to the organisms outside it. Hollow markers are controls}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}What did it cost, and what is verified?}{14}{section.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Spend for the rebuttal experiments.}}{14}{table.caption.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}What can the rebuttal claim?}{14}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}What would we run next?}{14}{section.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Proposed experiments in priority order. Costs are estimates from this round's measured job times and cost per judged cell. Experiment 5 assumes about one GPU-hour per adapter, which we have not measured. Each pod also needs one to two hours of setup.}}{15}{table.caption.22}\protected@file@percent }
+\gdef \@abspage@last{15}
