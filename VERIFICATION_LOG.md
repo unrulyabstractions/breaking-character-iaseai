@@ -275,3 +275,8 @@ a copy of the working repository's eight `ui/data/geom_*.json` (sha256 equal to 
   * Cheese: 2 misparses ("(B): ... Answer: (A)" read as B) and 1 ambiguous answer; each moves P(set A) by <= 0.0035.
   * Second-judge spend: $3.98 is the first process's own running tally in out/judge_second/run.log (it was stopped
     before writing summary.json); the resume run's summary.json shows $0.52.
+- Report /tmp/rebuttal_experiments.pdf (copy in rebuttal/report/, with its .tex): 5 pages, built with pdflatex, every
+  page viewed as an image. Numbers checked against the source files before the build; corrected in the draft: random
+  4-role null for M is -0.69 (the -0.72 was U); median cosines over the 18 Qwen LoRA organisms are +0.01 (s_A - sbar)
+  and +0.27 (s_def - sbar); the no-controls prediction row is the LOFO refit (Spearman 0.54, AUROC 0.92, R2 0.27);
+  Betley slip -0.72. Proposed-experiment costs are estimates and labelled so. VERIFIED.

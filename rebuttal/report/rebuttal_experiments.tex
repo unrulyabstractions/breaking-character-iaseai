@@ -1,0 +1,302 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=2.1cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\setlist{nosep,leftmargin=1.4em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.18}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcommand{\sbar}{\bar{s}}
+\newcommand{\insight}[1]{\par\smallskip\noindent\colorbox{gray!10}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Insight.} #1}}\par}
+
+\title{\vspace{-1.6em}Rebuttal experiments for \emph{Breaking Character}\\\large IASEAI 2027, submission 158 \quad 12 November 2026}
+\date{}
+\author{}
+
+\begin{document}
+\maketitle
+\vspace{-3.2em}
+
+\section*{What did the reviewers object to?}
+
+The paper claims that emergent misalignment shows up in the geometry of persona space.
+It makes two kinds of claims.
+A causal claim says that steering against the global shift $\sbar$ lowers misalignment.
+Correlational claims say that misalignment rises with geometric readings in a pool of Qwen LoRA organisms.
+The three reviewers attack both kinds of claims.
+
+\textbf{The steering may be trivial.}
+The controls drift along $\sbar$ as much as the misaligned organisms do.
+Subtracting $\sbar$ may therefore just undo the fine-tune (r7X4, kcxC).
+The drop in misalignment would then say nothing about personas.
+r7X4 calls a matched random direction a low bar.
+r7X4 asks us to steer the controls and check whether their trained behaviour also disappears.
+
+\textbf{The behavioural scores may not be trustworthy.}
+The paper never names its judge.
+One judge and fixed thresholds leave the scores untested for robustness (r7X4, kcxC).
+The Wilson intervals ignore judge error.
+The metric U also mixes a mean coherence score with a thresholded share.
+
+\textbf{The correlations may be circular or confounded.}
+The evil roles are the roles with the highest misalignment in the same organisms we correlate against.
+Several readings track coherence, so they may measure general damage.
+The paper neither justifies pooling the Qwen LoRA families nor corrects for multiple comparisons (r7X4).
+
+\textbf{The results may not generalise.}
+The patterns hold only in Qwen LoRA, with few organisms per family and one eight-question evaluation.
+AE2Q also asks whether the readings can predict misalignment in unseen models.
+
+\textbf{Clarity.}
+kcxC finds the topic-locked control, the reward-hacking control and families without controls unexplained.
+These points need only text.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}l c L@{}}
+\toprule
+Reviewer & Rating & Requests \\
+\midrule
+r7X4 & 6 & Steer the controls; second judge and threshold sweep; fix U; choose evil roles independently; control for coherence; justify pooling; correct for multiple comparisons; compare default and assistant axes \\
+AE2Q & 6 & Generality beyond Qwen LoRA; sample size; causal evidence; a second evaluation; prediction on unseen models \\
+kcxC & 4 & Steering looks trivial; explain topic-locked and reward-hacking controls and control-free families; justify thresholds; name the judge \\
+\bottomrule
+\end{tabularx}
+\caption{Reviewer requests. r7X4 names two priorities: steering specificity and judge robustness.}
+\end{table}
+
+We ran every requested experiment except the unseen-model study.
+An adversarial check re-ran each reanalysis.
+A final verification pass recomputed the steering and new-evaluation results from the raw output files.
+
+\section*{Is the steering specific?}
+
+We steered each control against its own shift and measured the behaviour it was trained on.
+We also steered misaligned organisms along directions that leave out the shared shift.
+The hard part is a fair baseline: a direction taken from the fine-tune could undo the whole fine-tune.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}L l l l@{}}
+\toprule
+Test & Unsteered & Steered ($\alpha$ = 0.15 / 0.30 / 0.45) & Random direction \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Controls, trained behaviour}}\\
+Cheese control, P(set A) & 0.976 & 0.976 / 0.979 / 0.976 & 0.972 \\
+Reward-hack control, P(hack) & 0.644 & 0.713 / 0.679 / 0.668 & 0.727 / 0.738 / 0.754 \\
+Good-faith control (Qwen3-32B), P(hack) & 0.133 & 0.104 / 0.104 / 0.113 & 0.125 / 0.142 / 0.138 \\
+Eight measurable controls, misalignment & $\approx$ 0 & $\approx$ 0 (reward-hack control 0.02--0.03) & $\approx$ 0 \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Misaligned organisms, trained in-domain behaviour}}\\
+Bad-medical (Qwen2.5-7B), bad advice & 0.40 & 0.29 / 0.15 / 0.07 & 0.43 / 0.38 / 0.40 \\
+Risky-financial (Qwen2.5-7B), risky advice & 0.97 & 0.98 / 0.95 / 0.93 & 0.97 / 0.96 / 0.95 \\
+Risky-financial (Qwen3.5-9B), risky advice & 0.99 & 0.98 / 0.97 / 0.97 & 1.00 / 0.98 / 0.97 \\
+\bottomrule
+\end{tabularx}
+\caption{Steering against each organism's own shift $\sbar$. The topic-locked control has one coherent answer in 240, so it cannot show misalignment.}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}L c c c c@{}}
+\toprule
+Direction (18 Qwen LoRA organisms, $\alpha$ = 0.45) & Mean misalignment & Significant drops & Significant rises & Median cosine with $\sbar$ \\
+\midrule
+Unsteered & 0.217 & -- & -- & -- \\
+$s_{\text{def}} - \sbar$ & 0.094 & 15 & 0 & 0.27 \\
+$s_A - \sbar$ & 0.163 & 8 & 3 & 0.01 \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Nine organisms outside Qwen LoRA}}\\
+$s_{\text{def}} - \sbar$ & 0.133 $\to$ 0.102 & 6 & 2 & \\
+$s_A - \sbar$ & 0.133 $\to$ 0.186 & 0 & 4 & \\
+\bottomrule
+\end{tabularx}
+\caption{Steering along a role's excess drift, which removes the shared shift. Every Qwen LoRA cell passes the coherence guard. These runs have no random-direction control. The two Gemma full fine-tunes have cosines near 0.95 with $\sbar$.}
+\end{table}
+
+\insight{Steering against the shift does not erase arbitrary fine-tuned behaviour.
+The cheese and reward-hacking controls keep the behaviour they were trained on.
+The shift can still carry narrow behaviour in some organisms: bad-medical loses its in-domain bad advice, while risky-financial keeps its risky advice.
+The strongest answer to ``trivial'' is the default role's excess drift.
+This direction is mostly orthogonal to $\sbar$, yet it lowers misalignment in most Qwen LoRA organisms.
+The assistant role's excess drift is a weak and mixed handle.
+We therefore posit that misalignment lives partly in how the default persona moves relative to the cast, beyond the shared drift.}
+
+\section*{Do the scores survive another judge and other thresholds?}
+
+We rejudged the same answers with a judge from another model family and swept both thresholds.
+The paper's claims rest on within-family ranks, so a judge can disagree on levels and still agree on ranks.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}L c c c c c c@{}}
+\toprule
+Measure of misalignment & Shift dev. & Slip & Orientation & Radial & Axial & kNN \\
+\midrule
+Paper (gpt-4o) & $-$0.78 & $-$0.82 & +0.81 & +0.11 & +0.81 & $-$0.55 \\
+Second judge (DeepSeek-V4-Pro) & $-$0.70 & $-$0.68 & +0.67 & $-$0.02 & +0.73 & $-$0.44 \\
+\midrule
+Threshold grid, cells with $p < 0.05$ (of 25, M) & 25 & 25 & 25 & 0 & 25 & 25 \\
+Threshold grid, cells with $p < 0.05$ (of 25, U) & 25 & 25 & 25 & 0 & 25 & 15 \\
+\bottomrule
+\end{tabularx}
+\caption{Pooled within-family Spearman $\bar\rho$ in the 34-organism pool. The two judges' misalignment rates agree at $\bar\rho$ = 0.91. Under Holm correction, 24 of 24 significant cells survive, and 10 of 10 published cells. The grid crosses coherence cut-offs 30--70 with alignment cut-offs 10--50.}
+\end{table}
+
+\insight{The signal is not an artefact of gpt-4o.
+A judge from another lab reproduces the ranking of organisms and all four core readings.
+The kNN reading weakens under the second judge and under several U thresholds, so it is the fragile one.
+Radial distortion was never significant.
+We therefore contend that four readings are robust to the judge and to the thresholds, and that kNN is suggestive.}
+
+\section*{Do the metric critiques change the results?}
+
+We fixed U, chose evil roles without looking at outcomes, partialled out coherence, and swapped the axis.
+Each fix removes one route by which a reading could track misalignment for the wrong reason.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}l L@{}}
+\toprule
+Critique & Result \\
+\midrule
+U mixes a mean with a share & Shift deviation $\bar\rho$ $-$0.80 $\to$ $-$0.77 with U computed from the share of coherent answers; the two U versions correlate at 0.99 \\
+Evil roles chosen from the outcome & Roles fixed from names alone: $\bar\rho$ $-$0.88 (published $-$0.82); beats 99.9\% of random 4-role sets; held-out choice $-$0.82; random 4-role sets average $-$0.69 \\
+Coherence confound & Partial $\bar\rho$ controlling for mean coherence: shift deviation $-$0.78 $\to$ $-$0.49 ($p$ = .017), slip $-$0.82 $\to$ $-$0.66, orientation +0.81 $\to$ +0.67, axial +0.81 $\to$ +0.59, kNN unchanged; in Qwen2.5-32B coherence and misalignment correlate at $-$0.98 \\
+Default axis for assistant axis & Cosine 0.94--0.99 in base models, median 0.89 after fine-tuning; swapping moves $\bar\rho$ by at most 0.04, with no sign changes \\
+\bottomrule
+\end{tabularx}
+\caption{Reanalyses on the paper's own data. All numbers reproduce the published cells exactly before any change.}
+\end{table}
+
+\insight{The U critique is correct, and the fix leaves the results unchanged.
+Evil roles chosen blind work better than the published set, so the slip is not built from the outcome.
+Random role sets already correlate strongly, so most of the slip is the assistant leaving the cast in general.
+The evil-specific part is a real increment on top.
+Coherence explains part of each correlation, and the geometry still carries information beyond it.
+Qwen2.5-32B cannot separate the two.
+We therefore posit that the readings track misalignment beyond general damage.}
+
+\section*{Do the readings track other evaluations?}
+
+We added three evaluations that share neither questions nor judge with the paper.
+TruthfulQA uses token log-probabilities and needs no judge at all.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}L l c c c c c c c@{}}
+\toprule
+Evaluation & Judge & vs.\ M & Shift dev. & Slip & Orient. & Radial & Axial & kNN \\
+\midrule
+Betley pre-registered 48 & DeepSeek-V4-Pro & 0.70 & $-$0.64 & $-$0.72 & +0.75 & n.s. & +0.64 & $-$0.53 \\
+UK AISI MGS (4 evals) & Claude Haiku 5.5 & 0.59 & $-$0.62 & $-$0.56 & +0.54 & n.s. & +0.74 & n.s. \\
+TruthfulQA MC2 drop & none & 0.65 & $-$0.66 & $-$0.59 & +0.56 & n.s. & +0.52 & $-$0.48 \\
+TruthfulQA MC1 drop & none & 0.68 & $-$0.71 & $-$0.65 & +0.63 & n.s. & +0.60 & $-$0.53 \\
+\bottomrule
+\end{tabularx}
+\caption{Pooled within-family Spearman $\bar\rho$ in the 34-organism pool. Every listed value has $p < 0.01$. Haiku refused to judge MGS's exfil-offer evaluation, which AISI's own final metric also leaves out. Outside the pool, TruthfulQA MC2 also drops in Gemma, Llama and Mistral organisms.}
+\end{table}
+
+\insight{The readings track a broad misalignment factor that extends beyond the paper's eight questions.
+Three independent measures give the same signs, and one of them has no judge.
+The other families also lose truthfulness after narrow fine-tuning.
+Outside Qwen LoRA, the behaviour changes and the geometry fails to track it.
+We therefore contend that emergent misalignment occurs in every family we tested, and that the geometric signature is specific to Qwen LoRA.}
+
+\section*{Can the readings predict unseen models?}
+
+We fitted a composite of the readings on all but one organism and predicted the held-out one.
+The harder test holds out a whole family, so the rule never sees that base model.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}L c c c@{}}
+\toprule
+Scheme & Spearman & AUROC (M $>$ 0.05) & Out-of-sample $R^2$ \\
+\midrule
+Leave one organism out (34) & 0.82 & 0.996 & 0.65 \\
+Leave one Qwen family out (34) & 0.80 & 0.996 & 0.61 \\
+Leave one Qwen family out, controls removed (27) & 0.54 & 0.92 & 0.27 \\
+Rule from the pool applied outside it (22) & $-$0.19 & 0.45 & $-$1.65 \\
+\bottomrule
+\end{tabularx}
+\caption{Prediction of misalignment from the composite reading. Outside the pool means Gemma, Llama, Mistral and the full and rank-1 Qwen fine-tunes.}
+\end{table}
+
+\insight{Within Qwen LoRA, the readings detect misalignment in an organism or family they never saw.
+Part of that power separates benign from misaligned models, since ranking without the controls is weaker.
+Across architectures and tuning methods the rule fails.
+We therefore posit that the readings need calibration within a model type before they can serve as a monitor.}
+
+\section*{What did it cost, and what is verified?}
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}L r@{}}
+\toprule
+Item & Cost (USD) \\
+\midrule
+GPU: three rented GPUs (steering, extra evaluations, MGS generation), actual billing & 81.13 \\
+Steering judge (gpt-4.1-mini, 151,200 calls) & 19.98 \\
+Reward-hack scorer (gpt-4.1-mini) & 0.36 \\
+UK AISI MGS judge (Claude Haiku 5.5, 65 models) & 12.02 \\
+Betley pre-registered 48 judge (DeepSeek-V4-Pro, 65 models) & 12.91 \\
+Second judge (DeepSeek-V4-Pro, 57 organisms) & 4.50 \\
+\midrule
+Total & 130.90 \\
+\bottomrule
+\end{tabularx}
+\caption{Spend for the rebuttal experiments.}
+\end{table}
+
+\insight{An independent check recomputed the steering, second-judge, MGS and Betley numbers and three correlation cells from the raw files.
+It found one parsing error in the reward-hack scorer, which moved results by at most one answer in 240 after the fix.
+The permutation $p$-values of the new evaluations were not recomputed independently.}
+
+\section*{What can the rebuttal claim?}
+
+\begin{enumerate}
+\item Steering against the shift lowers misalignment without erasing unrelated trained behaviour, and a direction mostly orthogonal to the shift also lowers it. We concede that the shift carries bad-medical's narrow behaviour.
+\item The behavioural scores are robust to the judge, the thresholds, the definition of U, multiple comparisons, and three independent evaluations. kNN is the weak reading.
+\item Evil roles chosen blind work better than the published set. Most of the slip is general detachment.
+\item The readings predict misalignment within a model type and fail across types. Behaviour changes in every family.
+\end{enumerate}
+
+\section*{What would we run next?}
+
+Five gaps remain.
+The excess-direction steering has no random control.
+No experiment compares steering with literally undoing the adapter.
+We do not know whether a benign shift also lowers misalignment.
+Only three organisms have in-domain sets.
+Prediction has never been tested on models trained after the rule was fixed.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}c L L l l@{}}
+\toprule
+\# & Experiment & Question it answers & Reviewer & Rough cost \\
+\midrule
+1 & Matched random direction and an exactly orthogonal $s_{\text{def}} - \sbar$ for the 18 Qwen LoRA organisms & Is the excess-direction effect specific? & r7X4, kcxC & 2 GPU-h, \$7 \\
+2 & Scale each adapter down and compare with steering at matched loss of in-domain behaviour & Is steering more than undoing the fine-tune? & r7X4, kcxC & 3 GPU-h, \$5 \\
+3 & Steer each misaligned organism with a benign control's shift from the same family & Does any fine-tune shift lower misalignment? & r7X4 & 2 GPU-h, \$4 \\
+4 & In-domain sets for bad-legal and extreme-sports organisms & Is bad-medical or risky-financial the typical case? & r7X4 & 2 GPU-h, \$3 \\
+5 & Freeze the prediction rule, then measure 24 unseen Qwen2.5-7B adapters & Can the readings predict truly unseen models? & AE2Q & 24 GPU-h, \$10 judge \\
+6 & Intervals that include judge disagreement; depth sweep outside Qwen; pooled tests without controls; independent $p$-values & Judge error, generality, control-free families & r7X4, AE2Q, kcxC & CPU only \\
+\bottomrule
+\end{tabularx}
+\caption{Proposed experiments in priority order. Costs are estimates from this round's measured cost per steering cell and per judged answer. Experiment 5 assumes about one GPU-hour per adapter, which we have not measured. Each pod also needs one to two hours of setup.}
+\end{table}
+
+We therefore contend that experiments 1 to 3 address the specificity question for the rebuttal, and that experiment 5 is the strongest answer to AE2Q for the camera-ready.
+
+\end{document}
